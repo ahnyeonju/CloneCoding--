@@ -1,0 +1,256 @@
+<html lang="ko"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org/">
+
+
+<div class="filter_wrap" th:fragment="user-sidebar">
+
+    <link rel="stylesheet" href="/css/owl.carousel.css" />
+
+    <link rel="stylesheet" href="/css/jquery-ui.css" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+    <link rel="stylesheet"  href="/css/daterangepicker-bs3.css"/>
+    <link rel="stylesheet" href="/css/ahn_product.css"/>
+    <link rel="stylesheet" href="/css/ahn_datepicker.css"/>
+
+    <script type="text/javascript" src="/js/library/jquery-1.12.4.min.js"></script>
+
+    <div class="fix_title">
+        상세조건<button type="button" onclick="filter_close();">닫기</button>
+    </div>
+
+    <section class="date_wrap">
+        <h3>날짜</h3>
+        <!-- <div class="btn_date"><span class="date_view"><b></b><em>&nbsp;·&nbsp;1박</em></span></div> -->
+        <input type="hidden" name="ahn_sel_date" id="ahn_sel_date" class="">
+        <input type="hidden" name="ahn_sel_date2" id="ahn_sel_date2" value="">
+        <article class="wheredate on" style="height: 50px;">
+            <div class="ahn_btn_date" style="position: relative; height: 37px; margin-bottom: 75px;">
+                                    <span class="date_view1">
+                                        <!-- Datepicker-->
+                                        <input type="text" class="ahn_product_date" id="ahn_product_date" autocomplete="off" >
+                                        </span>
+            </div>
+        </article>
+
+
+    </section>
+
+    <h3>상세조건</h3>
+    <div class="btn_wrap">
+
+        <!--        <button type="button" onclick="window.location.href='/userindex/1'">초기화</button>-->
+        <button type="button" onclick="window.location.reload()">초기화</button>
+
+        <button type="submit">적용</button>
+    </div>
+
+
+    <section>
+        <strong>가격
+            <span>
+                <label for="amount"></label>
+                <input type="text" id="amount" class="price_val" readonly>
+                <input type="hidden" id="min_price" name="min_price" value="10000">
+                <input type="hidden" id="max_price" name="max_price" value="300000">
+            </span>
+        </strong>
+        <div class="slider_wrap">
+            <div onmousemove="filter()" id="slider" class="slider_align" data-min="1" data-max="30"></div>
+            <span class="price_txt">1만원</span><span class="price_txt">30만원</span>
+        </div>
+    </section>
+    <!-- <section><strong>베드 타입</strong>
+        <div class="room_type">
+            <p><input type="checkbox" class="inp_room_01" name="bed_type[0]" id="bed_type_S"
+                    value="S" /><label for="bed_type_S" class="label_room_01">싱글</label></p>
+            <p><input type="checkbox" class="inp_room_02" name="bed_type[1]" id="bed_type_D"
+                    value="D" /><label for="bed_type_D" class="label_room_02">더블</label></p>
+            <p><input type="checkbox" class="inp_room_03" name="bed_type[2]" id="bed_type_T"
+                    value="T" /><label for="bed_type_T" class="label_room_03">트윈</label></p>
+            <p><input type="checkbox" class="inp_room_04" name="bed_type[3]" id="bed_type_O"
+                    value="O" /><label for="bed_type_O" class="label_room_04">온돌</label></p>
+        </div>
+    </section> -->
+
+    <section><strong>기타<button type="button">모두 보기</button></strong>
+        <ul class="hide_type half">
+            <li>
+                <input onclick="filter()" type="checkbox" id="tmino_36" name="tmino[]" class="inp_chk" value="1" />
+                <label for="tmino_36" class="label_chk">수영장</label>
+            </li>
+            <li>
+                <input onclick="filter()" type="checkbox" id="tmino_37" name="tmino[]" class="inp_chk" value="2" />
+                <label for="tmino_37" class="label_chk">와이파이</label>
+            </li>
+            <li>
+                <input onclick="filter()" type="checkbox" id="tmino_38" name="tmino[]" class="inp_chk" value="3" />
+                <label for="tmino_38" class="label_chk">욕실용품</label>
+            </li>
+            <li>
+                <input onclick="filter()" type="checkbox" id="tmino_39" name="tmino[]" class="inp_chk" value="4" />
+                <label for="tmino_39" class="label_chk">반려견동반</label>
+            </li>
+            <li>
+                <input onclick="filter()" type="checkbox" id="tmino_40" name="tmino[]" class="inp_chk" value="5" />
+                <label for="tmino_40" class="label_chk">발렛파킹</label>
+            </li>
+            <li>
+                <input onclick="filter()" type="checkbox" id="tmino_41" name="tmino[]" class="inp_chk" value="6" />
+                <label for="tmino_41" class="label_chk">편의점</label>
+            </li>
+            <li>
+                <input onclick="filter()" type="checkbox" id="tmino_42" name="tmino[]" class="inp_chk" value="7" />
+                <label for="tmino_42" class="label_chk">엘리베이터</label>
+            </li>
+            <li>
+                <input onclick="filter()" type="checkbox" id="tmino_43" name="tmino[]" class="inp_chk" value="8" />
+                <label for="tmino_43" class="label_chk">조식포함</label>
+            </li>
+        </ul>
+    </section>
+
+    <script type="text/javascript" src="/js/library/jquery-1.12.4.min.js"></script>
+    <link rel="stylesheet"  href="/css/daterangepicker-bs3.css"/>
+
+    <script>
+        function filter() {
+            console.log("");
+
+            var value, shname, items, i;    //검색어
+            var value1, value2, value3, value4, value5, value6, value7, value8, service;  //필터
+            var prices, min, max;    //가격
+
+            items = document.getElementsByClassName("items");   //범위
+            value = document.getElementById("value").value.toUpperCase();   //검색어
+            min = document.getElementById("min_price").value;   //낮은 가격
+            max = document.getElementById("max_price").value;   //높은 가격
+
+            console.log("min" + min);
+            console.log("max" + max);
+
+            // console.log("1.");
+            console.log("value: " + value);
+            // console.log("value1: " + value1);
+            // console.log("value2: " + value2);
+
+            if (($("input:checkbox").eq(0).prop("checked"))) {
+                value1 = "수영장";
+            }
+            else {
+                value1 = "";
+            }
+            if (($("input:checkbox").eq(1).prop("checked"))) {
+                value2 = "와이파이";
+            }
+            else {
+                value2 = "";
+            }
+            if (($("input:checkbox").eq(2).prop("checked"))) {
+                value3 = "욕실용품";
+            }
+            else {
+                value3 = "";
+            }
+            if (($("input:checkbox").eq(3).prop("checked"))) {
+                value4 = "반려견동반";
+            }
+            else {
+                value4 = "";
+            }
+            if (($("input:checkbox").eq(4).prop("checked"))) {
+                value5 = "발렛파킹";
+            }
+            else {
+                value5 = "";
+            }
+            if (($("input:checkbox").eq(5).prop("checked"))) {
+                value6 = "편의점";
+            }
+            else {
+                value6 = "";
+            }
+            if (($("input:checkbox").eq(6).prop("checked"))) {
+                value7 = "엘리베이터";
+            }
+            else {
+                value7 = "";
+            }
+            if (($("input:checkbox").eq(7).prop("checked"))) {
+                value8 = "조식포함";
+            }
+            else {
+                value8 = "";
+            }
+            console.log("2.");
+            console.log("value: " + value);
+            console.log("value1: " + value1);
+            console.log("value2: " + value2);
+            console.log("value3: " + value3);
+            console.log("value4: " + value4);
+            console.log("value5: " + value5);
+            console.log("value6: " + value6);
+            console.log("value7: " + value7);
+            console.log("value8: " + value8);
+
+
+            for (i = 0; i < items.length; i++) {
+                shname = items[i].getElementsByClassName("shname");     //검색어
+                service = items[i].getElementsByClassName("service");    //필터
+                prices = items[i].getElementsByClassName("prices");    //가격
+
+                if (
+                    (shname[0].innerHTML.toUpperCase().indexOf(value) > -1)
+                    &&
+                    (service[0].innerHTML.indexOf(value1) > -1)
+                    &&
+                    (service[0].innerHTML.indexOf(value2) > -1)
+                    &&
+                    (service[0].innerHTML.indexOf(value3) > -1)
+                    &&
+                    (service[0].innerHTML.indexOf(value4) > -1)
+                    &&
+                    (service[0].innerHTML.indexOf(value5) > -1)
+                    &&
+                    (service[0].innerHTML.indexOf(value6) > -1)
+                    &&
+                    (service[0].innerHTML.indexOf(value7) > -1)
+                    &&
+                    (service[0].innerHTML.indexOf(value8) > -1)
+                    &&
+                    ((Number(min) <= Number(prices[0].innerHTML)) && (Number(max) >= Number(prices[0].innerHTML)))
+                ) {
+                    items[i].style.display = "flex";
+                    console.log(i);
+                    console.log("과연?min " + Number(min));
+                    console.log("과연?prices " + Number(prices[0].innerHTML));
+                    console.log("과연?max " + Number(max));
+                } else {
+                    items[i].style.display = "none";
+                    console.log(i)
+                    console.log("숨김?min " + Number(min));
+                    console.log("숨김?prices " + Number(prices[0].innerHTML));
+                    console.log("숨김?max " + Number(max));
+                }
+            }
+            // console.log("3.");
+            // console.log("value: " + value);
+            // console.log("value1: " + value1);
+            // console.log("value2: " + value2);
+            // console.log("value3: " + value3);
+            // console.log("value4: " + value4);
+            // console.log("value5: " + value5);
+            // console.log("value6: " + value6);
+            // console.log("value7: " + value7);
+            // console.log("value8: " + value8);
+        }
+
+
+
+
+    </script>
+
+</div>
+
+
+</html>

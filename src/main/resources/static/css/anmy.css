@@ -1,0 +1,2101 @@
+/* Point 포인트 */
+.point_show {
+  padding-bottom: 38px;
+  color: #fff;
+  text-align: center;
+}
+.point_show span {
+  display: block;
+  padding: 45px 0 2px 0;
+  font-size: 16px;
+}
+.point_show strong {
+  display: block;
+  font-size: 30px;
+}
+.point_list {
+  margin: 0 16px;
+}
+.point_list li {
+  position: relative;
+  padding: 22px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  font-size: 16px;
+}
+.point_list li span {
+  display: block;
+  padding-top: 3px;
+  font-size: 13px;
+  color: rgba(0, 0, 0, 0.57);
+}
+.point_list li p {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  margin: -7px 0 0 0;
+  font-size: 16px;
+  font-weight: bold;
+}
+.point_list li:last-child {
+  border-bottom: none;
+}
+
+@media all and (min-width: 1024px) {
+  .my_wrap {
+    padding-top: 54px;
+  }
+  .point_show {
+    padding-bottom: 21px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    background: none;
+    color: rgba(0, 0, 0, 0.87);
+    text-align: left;
+  }
+  .point_show span {
+    display: inline-block;
+    margin-right: 16px;
+    padding: 0;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  .point_show strong {
+    display: inline;
+    font-size: 18px;
+    color: rgb(230, 28, 81);
+  }
+  .point_list {
+    margin: 0;
+  }
+  .point_list li {
+    position: relative;
+    padding: 38px 0 35px 0;
+    font-size: 18px;
+    line-height: normal;
+  }
+  .point_list li:last-child {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  }
+  .point_list li span {
+    display: block;
+    padding-top: 7px;
+    font-size: 16px;
+  }
+  .point_list li p {
+    margin: -10px 0 0 0;
+    font-size: 20px;
+    font-weight: bold;
+  }
+}
+
+/* Watch 최근본 숙소 */
+.watch_top {
+  display: none;
+}
+.watch_list {
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+.watch_list li {
+  position: relative;
+}
+.watch_list li:last-child div {
+  border-bottom: none;
+}
+.watch_list li a {
+  display: block;
+}
+.watch_list li a p {
+  overflow: hidden;
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  width: 96px;
+  height: 96px;
+  background-size: cover;
+  background-position: 50% 50%;
+}
+.watch_list li a div {
+  height: 96px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  margin: 0 16px 0 124px;
+  padding: 16px 0;
+  font-size: 13px;
+  color: rgba(0, 0, 0, 0.56);
+  box-sizing: content-box;
+}
+.watch_list li a div strong {
+  display: block;
+  padding: 6px 0 4px 0;
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.87);
+  line-height: normal;
+}
+
+@media all and (min-width: 1024px) {
+  .watch_top {
+    display: block;
+    position: relative;
+    margin-bottom: 20px;
+    font-size: 18px;
+  }
+  .watch_top strong {
+    display: inline-block;
+    margin-right: 16px;
+  }
+  .watch_top b {
+    color: rgb(230, 28, 81);
+  }
+  .watch_top button {
+    position: absolute;
+    top: -8px;
+    right: 0;
+    height: 32px;
+    padding: 0 10px;
+    font-size: 16px;
+    color: rgb(230, 28, 81);
+  }
+  .watch_list {
+    overflow: hidden;
+    border: none;
+  }
+  .watch_list li {
+    float: left;
+    width: 354px;
+    height: 160px;
+    margin: 0 16px 16px 0;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 2px;
+  }
+  .watch_list li:nth-child(even) {
+    margin-right: 0;
+  }
+  .watch_list li a p {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    width: 120px;
+    height: 128px;
+  }
+  .watch_list li a p img {
+    width: 120px;
+    height: 128px;
+  }
+  .watch_list li a div {
+    height: 96px;
+    border-bottom: none;
+    margin: 0 16px 0 148px;
+    padding: 16px 0;
+    font-size: 16px;
+    line-height: normal;
+  }
+  .watch_list li a div strong {
+    display: block;
+    padding: 3px 0 4px 0;
+    font-size: 18px;
+  }
+  .list_none {
+    background: none;
+    padding-top: 125px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+}
+
+/* 쿠폰함 */
+.my_coupon {
+  background: #e8e8e8;
+}
+.coupon_top {
+  display: block;
+  height: 44px;
+  padding: 0 16px;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  background: #fff;
+  font-size: 16px;
+  line-height: 44px;
+}
+.coupon_top strong,
+.coupon_top span,
+.coupon_top b {
+  font-weight: normal;
+}
+.coupon_top strong span {
+  display: inline-block;
+  padding-left: 14px;
+  background: url("../img/images/web_v3/ico_bul_3.png") -1px 50% no-repeat;
+  background-size: 12px auto;
+  color: rgba(0, 0, 0, 0.56);
+}
+.coupon_top button {
+  display: none;
+}
+.coupon_wrap {
+  padding: 8px;
+  text-align: center;
+}
+.my_coupon .btn_call {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  text-indent: -9999px;
+}
+.gra_coupon {
+  display: inline-block;
+  max-width: 354px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: left;
+}
+.gra_coupon li {
+  position: relative;
+  margin-bottom: 8px;
+  border-radius: 13px;
+  font-size: 14px;
+  color: #fff;
+}
+.gra_coupon li:after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  bottom: 51px;
+  right: -8px;
+  z-index: 10;
+  width: 16px;
+  height: 16px;
+  border-radius: 100%;
+  background: #e8e8e8;
+}
+.gra_coupon li:before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  bottom: 51px;
+  left: -8px;
+  z-index: 10;
+  width: 16px;
+  height: 16px;
+  border-radius: 100%;
+  background: #e8e8e8;
+}
+.gra_coupon li:last-child {
+  margin-bottom: 0;
+}
+.gra_coupon li div {
+  padding: 23px 24px 20px 24px;
+}
+.gra_coupon li b {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 13px;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.38);
+  opacity: 1;
+}
+.gra_coupon li strong {
+  display: block;
+  overflow: hidden;
+  height: 25px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+}
+.gra_coupon li strong span {
+  display: inline-block;
+  float: right;
+  margin-left: 5px;
+  padding: 3px 2px 1px 2px;
+  border: 1px solid #fff;
+  border-radius: 2px;
+  font-size: 11px;
+  font-weight: normal;
+  text-align: center;
+  opacity: 0.7;
+}
+.gra_coupon li p {
+  margin-bottom: 5px;
+  color: #fff; 
+}
+.gra_coupon li p button {
+  padding-right: 13px !important;
+  margin-top: 14px;
+  padding: 0 0 0 0;
+  background: url("../img/images/web_v3/ico_arr_gt.png") 100% -0.5px
+    no-repeat;
+  background-size: 9px auto;
+  font-size: 14px;
+  color: #fff;
+  text-align: left;
+}
+.gra_coupon .bot {
+  overflow: hidden;
+  position: relative;
+  margin-top: 21px;
+  margin: 0 24px;
+  padding: 23px 0 22px 0;
+}
+.gra_coupon .bot:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 2px;
+  background: url("../img/images/web_v3/line_coupon.png") 0 0
+    repeat-x;
+  opacity: 0.08;
+}
+.gra_coupon .bot button {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 21px 0 19px 0;
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff;
+  text-align: right;
+}
+.gra_coupon button {
+  background: none;
+  border: none;
+}
+.gra_grey {
+  background: rgba(0, 0, 0, 0.26);
+  color: rgba(0, 0, 0, 0.38);
+  opacity: 0.9;
+}
+.gra_grey button,
+.gra_grey span,
+.gra_grey strong,
+.gra_grey p {
+  color: rgba(0, 0, 0, 0.38) !important;
+}
+.order_chk {
+  margin-bottom: 8px;
+  background: #fff;
+}
+.order_chk div {
+  position: relative;
+  height: 56px;
+  padding: 0 16px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  font-size: 16px;
+  line-height: 56px;
+}
+.order_chk div button {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  height: 32px;
+  padding: 0 8px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 2px;
+  background: none;
+  font-size: 14px;
+}
+.order_chk ul {
+  padding: 29px 16px;
+}
+.order_chk ul li {
+  margin-bottom: 8px;
+  font-size: 14px;
+  line-height: 22px;
+  color: rgba(0, 0, 0, 0.56);
+  background-size: 9px auto;
+  background-position: 3px 5px;
+}
+.pop_twobtn b {
+  display: block;
+  margin-bottom: 15px;
+  font-size: 16px;
+}
+.pop_twobtn span {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.56);
+}
+.coupon_reg {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 430;
+  width: 280px;
+  height: 194px;
+  margin: -97px 0 0 -140px;
+  background: #fff;
+  border-radius: 2px;
+}
+.coupon_reg .top {
+  position: relative;
+  height: 58px;
+  padding: 0 0 0 24px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 58px;
+}
+.coupon_reg .top button {
+  display: none;
+}
+.coupon_reg .bot {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 48px;
+  padding-right: 16px;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  text-align: right;
+  box-sizing: border-box;
+}
+.coupon_reg .bot button {
+  height: 48px;
+  padding: 0 8px;
+  border: none;
+  background: none;
+  font-size: 14px;
+  font-weight: bold;
+  color: rgb(0, 121, 107);
+}
+.coupon_reg .content {
+  padding: 0 24px 0 24px;
+}
+.coupon_reg .content div {
+  overflow: hidden;
+  margin-top: 24px;
+  height: 40px;
+  padding-top: 5px;
+  vertical-align: top;
+}
+.iscroll_chk_use .chk_use {
+  padding: 0 16px;
+}
+.iscroll_chk_use .chk_use section {
+  padding: 30px 0 26px 0;
+  border-bottom: 1px solid #e6e6e6;
+}
+.iscroll_chk_use .chk_use section:last-child {
+  border-bottom: none;
+}
+.iscroll_chk_use .chk_use h5 {
+  margin-bottom: 21px;
+  font-size: 18px;
+}
+.iscroll_chk_use .chk_use h5 + p {
+  margin-bottom: 20px;
+  font-size: 16px;
+  font-weight: bold;
+}
+.iscroll_chk_use .chk_use .date {
+  margin-bottom: 11px;
+  font-size: 14px;
+  font-weight: bold;
+}
+.iscroll_chk_use .chk_use section ul + p {
+  padding-top: 9px;
+}
+.iscroll_chk_use .chk_use section .dot_txt {
+  padding-left: 14px;
+  background: url("../img/images/web_v3/ico_bul_3.png") -1px 0 no-repeat;
+  background-size: 12px auto;
+  font-size: 15px;
+  line-height: 24px;
+  color: rgba(0, 0, 0, 0.56);
+}
+.iscroll_chk_use .chk_use section mark {
+  background: none;
+  color: #e61c51;
+}
+
+@media all and (min-width: 1024px) {
+  .my_coupon {
+    padding-top: 54px;
+    background: #fff;
+  }
+  .coupon_wrap {
+    padding: 0;
+    text-align: left;
+  }
+  .coupon_top {
+    height: auto;
+    padding: 0;
+    border: none;
+    font-size: 18px;
+    line-height: 1;
+  }
+  .coupon_top strong,
+  .coupon_top span,
+  .coupon_top b {
+    font-weight: bold;
+  }
+  .coupon_top span {
+    padding-left: 0 !important;
+    background: none !important;
+    color: rgba(0, 0, 0, 0.87) !important;
+  }
+  .coupon_top button {
+    display: block;
+  }
+  .gra_coupon {
+    overflow: hidden;
+    max-width: 724px;
+  }
+  .gra_coupon li {
+    float: left;
+    position: relative;
+    width: 354px;
+    height: 238px;
+    margin: 0 16px 16px 0;
+  }
+  .gra_coupon li:nth-child(even) {
+    margin: 0 0 16px 0;
+  }
+  .gra_coupon li:after {
+    background: #fff;
+  }
+  .gra_coupon li:before {
+    background: #fff;
+  }
+  .gra_coupon li p {
+    margin-bottom: 5px;
+    line-height: normal; 
+  }
+  .gra_coupon li p:last-child {
+    margin-bottom: 0;
+  }
+  .gra_coupon li .bot {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+  }
+  .gra_coupon li .bot button {
+    top: 15px;
+    right: 40px;
+    width: 75px;
+    height: 32px;
+    padding: 0;
+    text-align: center;
+  }
+  .btn_use {
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: 4px;
+  }
+  .btn_use:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+  .coupon_reg {
+    width: 368px;
+    height: 200px;
+    margin: -184px 0 0 -100px;
+  }
+  .coupon_reg .top {
+    position: relative;
+    height: 64px;
+    padding: 0 0 0 32px;
+    border-bottom: none;
+    font-size: 18px;
+    line-height: 64px;
+  }
+  .coupon_reg .top button {
+    display: block;
+    position: absolute;
+    top: 18px;
+    right: 26px;
+    width: 24px;
+    height: 24px;
+    border: none;
+    background: url("../img/images/web_v3/ico_close.png") 0 0
+      no-repeat;
+    background-size: 24px auto;
+    text-indent: -9999px;
+  }
+  .coupon_reg .bot {
+    position: absolute;
+    bottom: 16px;
+    left: 0;
+    width: 100%;
+    height: 56px;
+    padding: 0 32px;
+    border-top: none;
+  }
+  .coupon_reg .bot button {
+    width: 100%;
+    height: 56px;
+    padding: 0;
+    border-radius: 4px;
+    font-size: 16px;
+    color: #fff;
+    background: #ff0055;
+    background: -moz-linear-gradient(top, #ff0055 0%, #e62243 100%);
+    background: -webkit-linear-gradient(top, #ff0055 0%, #e62243 100%);
+    background: linear-gradient(to bottom, #ff0055 0%, #e62243 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff0055', endColorstr='#e62243',GradientType=0 );
+  }
+  .coupon_reg .bot .btn_cancel {
+    display: none;
+  }
+  .coupon_reg .content {
+    padding: 0 32px 0 32px;
+  }
+  .coupon_reg .content div {
+    margin-top: 0;
+    height: 48px;
+    padding-top: 10px;
+    vertical-align: top;
+  }
+  .iscroll_chk_use {
+    top: 80px !important;
+  }
+  .iscroll_chk_use .chk_use {
+    padding: 0 32px;
+  }
+  .iscroll_chk_use .chk_use section .dot_txt {
+    margin-bottom: 7px;
+    padding-left: 14px;
+    background: url("../img/images/web_v3/ico_bul_3.png") 0 2px
+      no-repeat;
+    background-size: 12px auto;
+    font-size: 16px;
+    line-height: 26px;
+    color: rgba(0, 0, 0, 0.56);
+  }
+}
+
+/* 내정보 관리 */
+.mypage {
+  padding: 0 16px;
+  font-size: 16px;
+  overflow: hidden;
+}
+.mypage section:first-child {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+.mypage #sendCode section {
+  border-bottom: 0;
+}
+.mypage strong {
+  display: block;
+  padding: 30px 0 50px 0;
+}
+.mypage b {
+  display: block;
+  margin-bottom: 15px;
+  font-weight: normal;
+}
+.mypage .mypageForm__form-inputs-wrap {
+  display: none;
+}
+.mypage .pw_input strong {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 16px;
+  font-weight: normal;
+  color: rgba(0, 0, 0, 0.87);
+}
+.mypage .pw_input section {
+  position: relative;
+  margin: 0 0 33px 0;
+  padding-right: 110px;
+}
+.mypage form[data-form="uname"] .pw_input section {
+  padding-right: 0;
+}
+.mypage .pw_input section .btn_confirm {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100px;
+  height: 44px;
+  border: none;
+  border-radius: 4px;
+  background: #ccc;
+  font-size: 14px;
+  font-weight: normal;
+  color: #fff;
+}
+.mypage .pw_input section .btn_confirm.active {
+  background: #ff0055;
+}
+.mypage .pw_input section span {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  right: 10px;
+  height: 48px;
+  line-height: 48px;
+  color: #ff0055;
+}
+.mypage .pw_input__title:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.mypage .pw_input__title b {
+  float: left;
+  width: 28%;
+}
+.mypage .pw_input__title .title__uinfo {
+  float: left;
+  color: rgba(0, 0, 0, 0.56);
+}
+.mypage .pw_input .pw_input__btns-wrap {
+  display: block;
+  overflow: hidden;
+  margin-bottom: 50px;
+  padding-right: 110px;
+}
+.mypage .pw_input .pw_input__btns-wrap .btns-wrap__edit-btn {
+  display: block;
+  border: solid 1px #ccc;
+}
+.mypage .pw_input .pw_input__btns-wrap.modifying .btns-wrap__edit-btn {
+  display: none;
+}
+.mypage .pw_input .pw_input__btns-wrap.modifying .btns-wrap__cancel-btn,
+.mypage .pw_input .pw_input__btns-wrap.modifying .btns-wrap__submit-btn {
+  display: block;
+}
+.mypage .pw_input__btns-wrap button {
+  display: none;
+  float: left;
+  margin-right: 5%;
+  width: 47%;
+  height: 42px;
+  border-radius: 4px;
+  font-size: 15px;
+  color: rgba(0, 0, 0, 0.87);
+  text-align: center;
+  box-sizing: border-box;
+  vertical-align: top;
+  background-color: #fff;
+}
+.mypage .pw_input__btns-wrap .btns-wrap__submit-btn {
+  border: none;
+  background: #ff0055;
+  background: -moz-linear-gradient(top, #ff0055 0%, #e62243 100%);
+  background: -webkit-linear-gradient(top, #ff0055 0%, #e62243 100%);
+  color: #fff;
+  background: linear-gradient(to bottom, #ff0055 0%, #e62243 100%);
+}
+.mypage .pw_input__btns-wrap .btns-wrap__cancel-btn {
+  border: solid 1px #ccc;
+  background: none;
+  box-sizing: none;
+}
+.mypage .pw_input__btns-wrap button:last-child {
+  margin-right: 0px;
+}
+.mypage .safety_txt {
+  clear: both;
+}
+.mypage .inp_wrap {
+  margin-bottom: 25px;
+  margin-top: 15px;
+}
+.mypage .btn_one {
+  width: 100%;
+  height: 52px;
+}
+.mypage .bot_link {
+  margin: 30px 0;
+}
+.mypage .bot_link a {
+  display: inline-block;
+  color: rgba(0, 0, 0, 0.87);
+  text-decoration: underline;
+}
+.bot_btn {
+  height: 56px;
+  margin-top: 16px;
+  padding-right: 16px;
+  background: rgb(216, 216, 216);
+  text-align: right;
+}
+.bot_btn p {
+  display: none;
+}
+.bot_btn button {
+  height: 40px;
+  margin-top: 8px;
+  padding: 0 8px;
+  border: none;
+  background: none;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.87);
+  text-align: center;
+  text-decoration: underline;
+}
+.pop_withdraw .cont b {
+  display: block;
+  padding-top: 5px;
+  font-size: 15px;
+}
+.pop_withdraw .cont strong {
+  display: block;
+  margin-bottom: 29px;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 22px;
+  color: rgba(242, 17, 76, 0.87);
+}
+.fix_wrap {
+  position: fixed;
+  bottom: 8px;
+  left: 16px;
+  right: 16px;
+  vertical-align: top;
+}
+.fix_wrap label {
+  position: relative;
+  top: 3px;
+  font-size: 15px;
+  vertical-align: top;
+}
+.fix_wrap button {
+  width: 100%;
+  height: 52px;
+  margin-top: 16px;
+}
+.mypage .pw_input {
+  position: relative;
+}
+.mypage label.error {
+  top: 54px;
+  padding-left: 0px;
+  padding-top: 0;
+}
+.phone_confirm label.error {
+  width: 300px;
+  padding-left: 0;
+}
+.phone_confirm .default_label_txt {
+  top: auto;
+  bottom: -20px;
+  font-size: 12px;
+}
+.mypage form:first-child .top_area {
+  position: relative;
+  padding-top: 137px;
+}
+@media screen and (min-width: 1024px) {
+  .mypage form:first-child .top_area {
+    padding-top: 0;
+  }
+}
+
+.login_info {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+.login_info div {
+  display: inline-block;
+  overflow: hidden;
+  width: 80px;
+  height: 80px;
+  margin: 14px 0 12px 0;
+  border-radius: 100%;
+}
+.login_info div img {
+  width: 100%;
+  height: 100%;
+}
+.login_info p {
+  font-size: 13px;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.32);
+}
+
+@media all and (min-width: 1024px) {
+  .mypage .bot_link {
+    margin: 46px 0;
+  }
+  .mypage {
+    border-top: none;
+    padding: 0;
+    font-size: 18px;
+  }
+  .mypage strong {
+    padding: 0 0 43px 0;
+  }
+  .mypage b {
+    margin-bottom: 12px;
+  }
+  .mypage .inp_wrap {
+    width: 374px;
+    margin-bottom: 20px;
+  }
+  .mypage .btn_one {
+    padding: 0 0 0 0;
+    width: 144px;
+    margin-right: 8px;
+  }
+  .mypage label.error {
+    position: absolute;
+    bottom: 0px;
+    padding-top: 0px;
+    font-size: 14px;
+  }
+  .mypage .pw_input__title {
+    padding-right: 240px;
+  }
+  .mypage .pw_input__title b {
+    width: 120px;
+  }
+  .mypage .pw_input__btns-wrap button {
+    width: 144px;
+  }
+  .mypage .pw_input .pw_input__btns-wrap .btns-wrap__edit-btn,
+  .mypage .pw_input .pw_input__btns-wrap .btns-wrap__cancel-btn {
+    border: solid 1px #ccc;
+  }
+  .bot_btn {
+    height: 56px;
+    margin-top: 48px;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    background: none;
+    text-align: left;
+  }
+  .bot_btn p {
+    display: inline-block;
+    padding-top: 23px;
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.56);
+  }
+  .bot_btn button {
+    height: auto;
+    margin-top: 0;
+    padding: 0 8px;
+    border: none;
+    background: none;
+    font-size: 16px;
+  }
+  /*.bot_btn button:nth-of-type(1){display: none;}*/
+  .pop_withdraw .cont b {
+    padding-top: 0;
+    font-size: 18px;
+    line-height: 26px;
+  }
+  .pop_withdraw .cont strong {
+    display: block;
+    margin-bottom: 21px;
+    padding-top: 5px;
+    font-size: 16px;
+    line-height: 26px;
+  }
+  .pop_withdraw .cont li {
+    margin-bottom: 7px;
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0, 0.56);
+  }
+  .fix_wrap {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    right: auto;
+    padding-top: 48px;
+    vertical-align: top;
+  }
+  .fix_wrap label {
+    position: relative;
+    top: 0;
+    font-size: 15px;
+    vertical-align: top;
+  }
+  .fix_wrap button {
+    width: 100%;
+    height: 56px;
+    margin-top: 16px;
+  }
+  .mypage .phone_confirm section {
+    padding: 0;
+  }
+  .mypage .pw_input__title .title__uinfo {
+    color: rgba(0, 0, 0, 0.56);
+  }
+  .mypage .pw_input section .btn_confirm {
+    right: auto;
+    left: 384px;
+  }
+  .phone_confirm .default_label_txt {
+    top: initial;
+    bottom: -28px;
+    font-size: 15px;
+  }
+  .mypage .top_area {
+    padding-top: 0;
+  }
+  .login_info {
+    position: relative;
+    text-align: left;
+  }
+  .login_info div {
+    width: 128px;
+    height: 128px;
+    margin: 0 0 26px 0;
+  }
+  .login_info p {
+    padding-bottom: 42px;
+    font-size: 15px;
+  }
+}
+
+/* 예약 내역 */
+.reserve_list {
+  padding: 0 16px;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+.reserve_list section {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+.reserve_list section:last-child {
+  border-bottom: none;
+}
+.reserve_list h3 {
+  display: block;
+  padding: 23px 0 14px 0;
+}
+.reserve_list h3 span {
+  display: none;
+}
+.reserve_list li {
+  position: relative;
+  margin-bottom: 16px;
+}
+.reserve_list li:after {
+  display: block;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  height: 148px;
+  background: rgba(0, 0, 0, 0.38);
+}
+.reserve_list li .pic {
+  overflow: hidden;
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  height: 148px;
+}
+.reserve_list li .align {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  width: 100%;
+}
+.reserve_list li a {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 20;
+  width: 100%;
+  height: 148px;
+  padding: 26px 0 0 0;
+  line-height: normal;
+  color: #fff;
+  text-align: center;
+  box-sizing: border-box;
+}
+.reserve_list li a i {
+  display: inline-block;
+  margin-bottom: 7px;
+  padding: 2px 2px 1px 2px;
+  font-size: 12px;
+  background: rgb(255, 43, 92);
+  font-style: normal;
+}
+.reserve_list li a strong {
+  display: block;
+  font-size: 18px;
+}
+.reserve_list li a span {
+  display: block;
+  padding: 2px 0 13px 0;
+  font-size: 16px;
+}
+.reserve_list li .btn_re {
+  width: 100%;
+  height: 56px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-top: none;
+  background: #fff;
+  text-align: center;
+}
+.reserve_list li button {
+  border: none;
+  background: none;
+  height: 56px;
+  font-size: 14px;
+  font-weight: normal;
+  color: rgb(0, 121, 107);
+}
+.reserve_list .bg_w {
+  background: rgba(255, 255, 255, 0.7);
+  color: rgba(0, 0, 0, 0.87);
+}
+.reserve_list .btn_del {
+  display: inline-block;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 30;
+  width: 24px;
+  height: 24px;
+  border: none;
+  background: url("../img/images/web_v3/ico_close_2.png") 50% 50%
+    no-repeat;
+  background-size: 24px auto;
+  text-indent: -9999px;
+}
+
+@media all and (min-width: 1024px) {
+  .reserve_list {
+    padding: 0;
+    border: none;
+  }
+  .reserve_list section {
+    clear: both;
+    border-bottom: none;
+    padding-top: 35px;
+  }
+  .reserve_list section:first-child {
+    padding-top: 0;
+  }
+  .reserve_list h3 {
+    display: block;
+    padding: 0 0 20px 0;
+    font-size: 18px;
+  }
+  .reserve_list h3 span {
+    display: inline-block;
+    padding-left: 16px;
+    font-size: 18px;
+    color: rgb(230, 28, 81);
+  }
+  .reserve_list li {
+    float: left;
+    width: 354px;
+    height: auto;
+    margin: 0 16px 16px 0;
+  }
+  .reserve_list li:after {
+    display: none;
+  }
+  .reserve_list li:nth-child(even) {
+    margin: 0 0 16px 0;
+  }
+  .reserve_list li .pic {
+    height: 184px;
+    border-radius: 2px 2px 0 0;
+  }
+  .reserve_list li a {
+    display: block;
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    height: auto;
+    padding: 0 0;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-top: none;
+    border-radius: 0 0 2px 2px;
+    background: none;
+    color: rgba(0, 0, 0, 0.87);
+  }
+  .reserve_list li a i {
+    display: inline-block;
+    margin-bottom: 10px;
+    margin-top: 24px;
+    padding: 1px;
+    font-size: 14px;
+    font-style: normal;
+    color: #fff;
+  }
+  .reserve_list li a b {
+    display: none;
+  }
+  .reserve_list li a strong {
+    font-size: 20px;
+  }
+  .reserve_list li a span {
+    padding: 0 0 20px 0;
+    font-size: 18px;
+  }
+  .reserve_list li .btn_re {
+    width: 100%;
+    height: auto;
+    padding-bottom: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-top: none;
+    border-radius: 0 0 4px 4px;
+  }
+  .reserve_list li button {
+    border: none;
+    height: 19px;
+    font-size: 16px;
+    line-height: normal;
+    vertical-align: top;
+  }
+  .reserve_list .bg_w {
+    background: rgb(235, 235, 235);
+    color: rgba(0, 0, 0, 0.87);
+  }
+  .guest_border li {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 4px;
+  }
+  .list_cancel li:after {
+    display: block;
+    height: 184px;
+    border-radius: 2px 2px 0 0;
+  }
+  .list_cancel a {
+    border-bottom: none !important;
+  }
+}
+
+/* 예약내역 상세 */
+.reserve_detail {
+  background: rgb(245, 245, 245);
+}
+.reserve_detail .info {
+  position: relative;
+  height: 176px;
+  background: url("../img/images/web_v3/thumb_pic_2.jpg") center
+    center no-repeat;
+  background-size: cover;
+}
+.reserve_detail .info div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  height: 176px;
+  padding-top: 53px;
+  background: rgba(0, 0, 0, 0.38);
+  text-align: center;
+}
+.reserve_detail .info div i {
+  display: inline-block;
+  margin-bottom: 9px;
+  padding: 2px 2px 1px 2px;
+  font-size: 12px;
+  background: rgb(255, 43, 92);
+  font-style: normal;
+  color: #fff;
+}
+.reserve_detail .info div .bg_w {
+  background: rgba(255, 255, 255, 0.7);
+  color: rgba(0, 0, 0, 0.87);
+}
+.reserve_detail .info div strong {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 16px;
+  font-weight: normal;
+  color: #fff;
+}
+.reserve_detail .info div span {
+  display: block;
+  font-size: 20px;
+  color: #fff;
+}
+.reserve_detail section {
+  padding: 0 16px;
+  background: #fff;
+}
+.reserve_detail div {
+  padding: 23px 0 23px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+.reserve_detail div p {
+  position: relative;
+  margin-bottom: 13px;
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.56);
+  text-align: right;
+}
+.reserve_detail div p:last-child {
+  margin-bottom: 0;
+}
+.reserve_detail div p strong {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-weight: normal;
+  line-height: normal;
+  color: rgba(0, 0, 0, 0.87);
+}
+.reserve_detail .total {
+  border-bottom: none;
+}
+/*.reserve_detail .total p:first-child{display:none;}*/
+.reserve_detail .total b {
+  font-weight: bold;
+}
+.reserve_detail .total button {
+  display: inline-block;
+  position: relative;
+  top: -3px;
+  width: 24px;
+  height: 24px;
+  margin-left: 4px;
+  border: none;
+  background: url("../img/images/web_v3/ico_info.png") 0 0
+    no-repeat;
+  background-size: 24px auto;
+  text-indent: -9999px;
+}
+.btn_call {
+  display: block;
+  position: relative;
+  margin-top: 8px;
+  padding: 23px 16px;
+  background: #fff;
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.87);
+}
+.btn_call:after {
+  display: inline-block;
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  width: 24px;
+  height: 24px;
+  margin-top: -12px;
+  background: #fff url("../img/images/web_v3/ico_call.png") 0 0
+    no-repeat;
+  background-size: 24px auto;
+}
+.full_width .title {
+  display: none;
+}
+.full_width .guest {
+  padding: 0;
+}
+.btn_guest {
+  display: inline-block;
+  width: 100%;
+  height: 140px;
+  margin-top: 8px;
+  padding: 20px 0 0 0;
+  background: rgb(230, 28, 81)
+    url("../img/images/web_v3/bg_login_m.png") 50% 0 no-repeat;
+  background-size: cover;
+  font-size: 14px;
+  line-height: 22px;
+  color: #fff;
+  text-align: center;
+  box-sizing: border-box;
+}
+.btn_guest span {
+  display: block;
+  margin-top: 15px;
+  font-weight: bold;
+}
+.reserve_cancel .alert {
+  padding: 8px;
+  border-bottom: none;
+}
+.reserve_cancel .alert p {
+  border-radius: 2px;
+  background: #fff;
+  padding: 13px 0;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.87);
+  text-align: center;
+}
+.reserve_cancel .info {
+  overflow: hidden;
+  height: auto;
+  margin-bottom: 8px;
+  padding: 23px 16px 20px 16px;
+  background: #fff;
+  border-bottom: none;
+}
+.reserve_cancel .info i {
+  display: none;
+}
+.reserve_cancel .info strong {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 14px;
+  font-weight: normal;
+  color: rgb(112, 112, 112);
+}
+.reserve_cancel .info b {
+  display: block;
+  margin-bottom: 3px;
+  font-size: 18px;
+  font-weight: normal;
+}
+.reserve_cancel .info span {
+  font-size: 18px;
+}
+
+@media all and (min-width: 1024px) {
+  .reserve_detail {
+    background: #fff;
+  }
+  .reserve_detail .info {
+    position: relative;
+    height: auto;
+    padding: 0 0 20px 0;
+    border-bottom: none;
+    background: none;
+  }
+  .reserve_detail .info div {
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    height: auto;
+    padding: 0;
+    border-bottom: none;
+    background: #fff;
+    text-align: left;
+  }
+  .reserve_detail .info div i {
+    display: inline-block;
+    margin-bottom: 9px;
+    padding: 2px;
+    font-size: 16px;
+    color: #fff;
+    background: rgb(255, 43, 92);
+    font-style: normal;
+  }
+  .reserve_detail .info div .bg_w {
+    background: rgb(235, 235, 235);
+    color: rgba(0, 0, 0, 0.87);
+  }
+  .reserve_detail .info div strong {
+    display: block;
+    margin-bottom: 9px;
+    font-size: 24px;
+    color: rgba(0, 0, 0, 0.87);
+  }
+  .reserve_detail .info div span {
+    display: block;
+    font-size: 20px;
+    color: rgba(0, 0, 0, 0.87);
+  }
+  .reserve_detail section {
+    padding: 0;
+    background: #fff;
+  }
+  .reserve_detail div {
+    padding: 15px 0;
+    border: none;
+  }
+  .reserve_detail div p {
+    position: relative;
+    margin: 0 0 13px 0;
+    font-size: 18px;
+    color: rgba(0, 0, 0, 0.87);
+    text-align: left;
+  }
+  .reserve_detail div p strong {
+    display: inline-block;
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 150px;
+    font-weight: normal;
+    line-height: normal;
+    color: rgba(0, 0, 0, 0.56);
+  }
+  .reserve_detail .total {
+    margin-top: 20px;
+    padding: 40px 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  }
+  .reserve_detail .total b {
+    color: rgb(230, 28, 81);
+  }
+  .reserve_detail .total button {
+    display: inline-block;
+    position: relative;
+    top: 0;
+    width: 18px;
+    height: 18px;
+    margin-left: 4px;
+    border: none;
+    background: url("../img/images/web_v3/ico_info.png") 0 0
+      no-repeat;
+    background-size: 18px auto;
+    text-indent: -9999px;
+  }
+  .btn_call {
+    display: none;
+  }
+  .full_width .total {
+    border-bottom: none;
+  }
+  .full_width .total p:first-child {
+    display: block;
+  }
+  .full_width {
+    position: relative;
+    padding: 0 31px;
+  }
+  .full_width .title {
+    display: block;
+    margin-bottom: 43px;
+    font-size: 20px;
+  }
+  .btn_guest {
+    display: inline-block;
+    width: 310px;
+    height: 303px;
+    padding: 94px 0 0 0;
+    position: absolute;
+    top: 63px;
+    right: 31px;
+    background: rgb(230, 28, 81)
+      url("../img/images/web_v3/bg_login_m.png") 0 0 no-repeat;
+    background-size: 310px auto;
+    font-size: 15px;
+    line-height: 24px;
+    color: #fff;
+    text-align: center;
+    letter-spacing: -1px;
+    box-sizing: border-box;
+  }
+  .btn_guest span {
+    display: block;
+    margin-top: 24px;
+    font-weight: bold;
+  }
+  .reserve_cancel .alert {
+    display: none;
+  }
+
+  .reserve_cancel .info i {
+    display: inline-block;
+    margin-bottom: 9px;
+    padding: 2px;
+    font-size: 16px;
+    color: #fff;
+    background: rgb(235, 235, 235);
+    color: rgba(0, 0, 0, 0.87);
+    font-style: normal;
+  }
+  .reserve_detail .info strong {
+    margin-bottom: 9px;
+    font-size: 24px;
+    color: rgba(0, 0, 0, 0.87);
+  }
+  .reserve_detail .info b,
+  .reserve_detail .info span {
+    margin-bottom: 9px;
+    font-size: 20px;
+  }
+}
+
+/* 예약내역 상세 > 팝업 */
+.pop_all,
+.pop_delay {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 420;
+  background: #fff;
+}
+.iscroll_reserve {
+  overflow: hidden;
+  position: absolute;
+  z-index: 1;
+  top: 44px;
+  bottom: 68px;
+  left: 0;
+  width: 100%;
+  margin: 0 0 0 0;
+}
+.iscroll_reserve .scroller {
+  padding: 16px;
+  background: #fff;
+}
+.iscroll_reserve strong {
+  margin-top: 4px;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 22px;
+  color: rgba(0, 0, 0, 0.56);
+}
+.iscroll_reserve b {
+  display: block;
+  padding: 32px 0 12px 0;
+  font-size: 15px;
+}
+.dot_txt li {
+  margin-bottom: 2px;
+  padding-left: 16px;
+  background: url("../img/images/web_v3/ico_bul.png") 0 0
+    no-repeat;
+  background-size: 14px auto;
+  font-size: 15px;
+  line-height: 24px;
+  color: rgba(0, 0, 0, 0.8);
+}
+.fix_btn {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 420;
+  width: 100%;
+  height: 84px;
+  padding: 16px;
+  background: #fff;
+}
+.fix_btn button {
+  width: 100%;
+  height: 52px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background: rgb(255, 0, 85);
+  background: -moz-linear-gradient(
+    left,
+    rgba(255, 0, 85, 1) 1%,
+    rgba(230, 34, 67, 1) 100%
+  );
+  background: -webkit-linear-gradient(
+    left,
+    rgba(255, 0, 85, 1) 1%,
+    rgba(230, 34, 67, 1) 100%
+  );
+  background: linear-gradient(
+    to right,
+    rgba(255, 0, 85, 1) 1%,
+    rgba(230, 34, 67, 1) 100%
+  );
+}
+.pop_title {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 420;
+  width: 280px;
+  margin: 0 0 0 -140px;
+  background: #fff;
+  border-radius: 2px;
+  -webkit-box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.28);
+  -moz-box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.28);
+  box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.28);
+}
+.pop_title strong {
+  display: block;
+  height: 58px;
+  padding: 0 0 0 24px;
+  font-size: 16px;
+  line-height: 58px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+.pop_title .content {
+  padding: 24px;
+}
+.pop_title .btn {
+  height: 48px;
+  padding: 0 16px 0 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  text-align: right;
+}
+.pop_title .btn button {
+  height: 48px;
+  padding: 0 16px;
+  margin-right: 8px;
+  border: none;
+  background: none;
+  font-size: 14px;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.56);
+}
+.pop_title .btn button:last-child {
+  margin-right: 0;
+  padding: 0 8px;
+  color: rgb(0, 121, 107);
+}
+.pop_title .btn.btn_center {
+  padding: 0;
+  text-align: center;
+}
+.pop_title div {
+  line-height: normal;
+}
+.pop_price > div {
+  position: relative;
+  height: 180px;
+}
+.pop_price .height_align {
+  height: 120px !important;
+}
+.pop_price ul {
+  padding: 15px 0;
+}
+.pop_price ul li {
+  font-size: 16px;
+  margin-bottom: 10px;
+  padding: 0 24px;
+  font-size: 14px;
+}
+.pop_price ul li:last-child {
+  margin-bottom: 0;
+}
+.pop_price ul li span {
+  display: inline-block;
+  width: 63px;
+  vertical-align: top;
+}
+.pop_price ul li b {
+  display: inline-block;
+  width: 77px;
+}
+.pop_price ul li em {
+  display: inline-block;
+  width: 92px;
+  padding-left: 17px;
+  text-align: right;
+  vertical-align: top;
+}
+.pop_price p {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  width: 100%;
+  height: 48px;
+  padding: 0 24px;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 48px;
+}
+.pop_price p span {
+  display: inline-block;
+  float: left;
+  width: 50%;
+}
+.pop_price p b {
+  display: inline-block;
+  float: right;
+  width: 50%;
+  color: rgb(230, 28, 81);
+  text-align: right;
+}
+.pop_price .iscroll_price {
+  overflow: hidden;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  bottom: 48px;
+  left: 0;
+  width: 100%;
+  margin: 0 0 0 0;
+}
+
+@media all and (min-width: 1024px) {
+  .layer .fix_title {
+    display: block !important;
+    position: relative;
+    height: 80px;
+    padding-left: 48px;
+    background: #fff;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    font-size: 20px;
+    line-height: 80px;
+    font-weight: bold;
+    text-align: left;
+  }
+  .layer .fix_title button {
+    display: none;
+  }
+  .pop_all,
+  .pop_delay {
+    overflow: hidden;
+    position: fixed;
+    top: 50%;
+    right: auto;
+    bottom: auto;
+    left: 50%;
+    width: 400px;
+    height: 500px;
+    margin: -250px 0 0 -200px;
+    border-radius: 4px;
+    background: #fff;
+  }
+  .iscroll_reserve {
+    top: 96px;
+    bottom: 60px;
+    left: 0;
+    width: 100%;
+    margin: 0 0 0 0;
+  }
+  .fix_btn {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 420;
+    width: 100%;
+    height: 84px;
+    padding: 16px;
+    background: #fff;
+  }
+  .fix_btn button {
+    width: 100%;
+    height: 52px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+  }
+  .pop_title {
+    width: 368px;
+    margin: 0 0 0 -184px;
+  }
+  .pop_title strong {
+    font-size: 18px;
+    padding-left: 31px;
+  }
+  .pop_price > div {
+    position: relative;
+    height: 220px;
+  }
+  .pop_price .height_align {
+    height: 140px !important;
+  }
+  .pop_price ul li {
+    margin-bottom: 10px;
+    padding: 0 31px;
+    font-size: 15px;
+  }
+  .pop_price ul li span {
+    display: inline-block;
+    width: 80px;
+  }
+  .pop_price ul li b {
+    display: inline-block;
+    width: 116px;
+  }
+  .pop_price ul li em {
+    display: inline-block;
+    width: 110px;
+    padding-left: 17px;
+  }
+  .pop_price p {
+    padding: 0 31px;
+  }
+}
+
+/* 비밀번호 변경 */
+.pw_change {
+  position: relative;
+  padding: 16px;
+}
+.pw_change .top {
+  padding-bottom: 30px;
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: center;
+}
+.pw_change .top strong {
+  display: block;
+  padding-bottom: 20px;
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.87);
+}
+.pw_change .top span {
+  color: rgba(0, 0, 0, 0.56);
+}
+.pw_change .pw_title {
+  display: block;
+  padding-bottom: 20px;
+  font-size: 16px;
+}
+.pw_change .pw_input {
+  padding-bottom: 20px;
+}
+.pw_change .pw_input input[type="password"] {
+  font-size: 14px;
+}
+.pw_change .pw_input input::-webkit-input-placeholder {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.26);
+}
+.pw_change .pw_input input:-moz-placeholder {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.26);
+}
+.pw_change .pw_input input::-moz-placeholder {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.26);
+}
+.pw_change .pw_input input:-ms-input-placeholder {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.26);
+}
+.pw_change .pw_input strong {
+  display: block;
+  padding-bottom: 8px;
+  font-size: 16px;
+  font-weight: normal;
+  color: rgba(0, 0, 0, 0.87);
+}
+.pw_change .pw_check {
+  text-align: center;
+}
+.pw_change .pw_check a {
+  color: rgba(0, 0, 0, 0.56);
+  text-decoration: underline;
+}
+.pw_change .btn_wrap {
+  overflow: hidden;
+}
+.pw_change .btn_wrap button,
+.pw_change .btn_wrap a {
+  display: inline-block;
+  width: 49%;
+  height: 40px;
+  border-radius: 4px;
+  margin: 20px 0 0 0;
+  border: 1px solid rgb(242, 7, 76);
+  background: #fff;
+  color: rgb(242, 7, 76);
+  font-size: 16px;
+  line-height: 40px;
+  font-weight: normal;
+  vertical-align: top;
+  box-sizing: border-box;
+  text-align: center;
+}
+.pw_change .btn_wrap a {
+  float: left;
+}
+.pw_change .btn_wrap button {
+  float: right;
+  background: rgb(242, 7, 76);
+  color: #fff;
+}
+.pw_change .errorTxt {
+  position: absolute;
+  top: 0;
+}
+label.error {
+  display: block;
+  padding: 5px 0 0 10px; /*color:#e44647;*/
+  font-size: 12px;
+}
+
+@media all and (min-width: 1024px) {
+  .pw_change {
+    padding: 18px 0 0 0;
+  }
+  .pw_change .top {
+    padding-bottom: 30px;
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: left;
+  }
+  .pw_change .top span {
+    display: block;
+  }
+  .pw_change .top strong {
+    display: block;
+    padding: 40px 0 20px 0;
+    font-size: 38px;
+    color: #e44647;
+  }
+  .pw_change .pw_title {
+    padding-bottom: 40px;
+    font-size: 18px;
+  }
+  .pw_change .pw_input {
+    padding-bottom: 20px;
+  }
+  .pw_change .pw_input input[type="password"] {
+    font-size: 14px;
+  }
+  .pw_change .pw_input input::-webkit-input-placeholder {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.26);
+  }
+  .pw_change .pw_input input:-moz-placeholder {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.26);
+  }
+  .pw_change .pw_input input::-moz-placeholder {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.26);
+  }
+  .pw_change .pw_input input:-ms-input-placeholder {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.26);
+  }
+  .pw_change .pw_input strong {
+    display: block;
+    padding-bottom: 8px;
+    font-size: 16px;
+    font-weight: normal;
+    color: rgba(0, 0, 0, 0.87);
+  }
+  .pw_change .pw_check {
+    padding-top: 20px;
+    text-align: center;
+  }
+  .pw_change .pw_check a {
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.56);
+    text-decoration: underline;
+  }
+  .pw_change .btn_wrap {
+    overflow: hidden;
+    text-align: center;
+  }
+  .pw_change .btn_wrap button,
+  .pw_change .btn_wrap a {
+    width: 180px;
+    height: 40px;
+    border-radius: 4px;
+    margin: 40px 5px 0 5px;
+    border: 1px solid rgb(242, 7, 76);
+    background: #fff;
+    color: rgb(242, 7, 76);
+    font-size: 16px;
+    font-weight: normal;
+  }
+  .pw_change .btn_wrap a {
+    float: none;
+  }
+  .pw_change .btn_wrap button {
+    float: none;
+    background: rgb(242, 7, 76);
+    color: #fff;
+  }
+  .pw_change .errorTxt {
+    padding: 10px 0 0 16px;
+    color: #e44647;
+    font-size: 13px;
+  }
+}

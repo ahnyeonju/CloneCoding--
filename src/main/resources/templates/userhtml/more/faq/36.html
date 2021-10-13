@@ -1,0 +1,530 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="여기어때 회원 가입 | 전국 호텔, 펜션, 모텔부터 워터파크, 놀이공원, 아쿠아리움까지 최저가 할인 예약">
+    <link rel="shortcut icon" href="/img/images/web_v3/favicon_170822.ico" type="image/x-icon">
+
+    <!-- CSS -->
+    <title>모바일티켓 - 자주 묻는 질문 | 여기어때</title>
+    <link rel="stylesheet" href="/css/common.css" />
+    <link rel="canonical" href="https://www.goodchoice.kr/more/faq">
+    <script type="text/javascript" src="/js/library/jquery-1.12.4.min.js"></script>
+
+    <script>
+        var _BASE_URL = 'https://www.goodchoice.kr/';
+        var _MOBILE = 'W';
+        var _KAKAOTALK_APP_KEY = 'f6ffb505bb11d7cc3584d443ce35f704';
+        var _FACEBOOK_APP_ID = '607467975974643';
+    </script>
+    <script>(function (a, b, c) { if (c in b && b[c]) { var d, e = a.location, f = /^(a|html)$/i; a.addEventListener("click", function (a) { d = a.target; while (!f.test(d.nodeName)) d = d.parentNode; "href" in d && (d.href.indexOf("http") || ~d.href.indexOf(e.host)) && (a.preventDefault(), e.href = d.href) }, !1) } })(document, window.navigator, "standalone")</script>
+</head>
+
+<body>
+
+    <!-- Wrap -->
+    <div class="wrap">
+
+     <!-- 헤더 -->
+        <div th:replace="userthy/user-headerlogin :: user-headerlogin"></div>
+        <!--헤더 끝 -->
+
+        <!-- Bg Dimm -->
+        <div class="bg_dimm" onclick="close_layer();">&nbsp;</div>
+        <div class="bg_dimm_prevent">&nbsp;</div>
+
+        <!-- 추천검색어 -->
+        <div class="recommend_srch">
+            <div class="scroll_srch">
+                <div class="scroller">
+                    <div class="default" style="display:block">
+                        <strong>추천 검색어</strong>
+                        <ul></ul>
+                    </div>
+                    <!-- 연관검색어 -->
+                    <div class="chain">
+                        <ul></ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="gnb_opacity"><button class="btn_close">닫기</button></div>
+        <div class="menu_wrap">
+
+            <div class="menu">
+                <div class="top">
+                    <!-- 회원 -->
+                    <div class="member">
+                        <div class="mem">
+                            <span class="pic"
+                                style="background:url('/img/profile/ico/ico_22.png') 50% 50% no-repeat;"></span>
+                            <p class="info">사과색깔</p>
+                        </div>
+                        <div class="bot">
+                            <a href="/userindex/point">
+                                <p>0P<br /><span>포인트</span></p>
+                            </a>
+                            <a href="/userindex/coupon">
+                                <p>1장<br /><span>쿠폰함</span></p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Iscroll -->
+                <div class="scroll_nav">
+                    <div class="scroller">
+                        <ul>
+                            <li><a href="/index">홈</a></li>
+                            <li class="depth_2">
+                                <button type="button" class="has_ul"><span>숙소유형</span></button>
+                                <ul>
+                                    <li><a href="/userindex/1">모텔</a></li>
+                                    <li><a href="/userindex/2">호텔/리조트</a></li>
+                                    <li><a href="/userindex/3">펜션</a></li>
+                                    <li><a href="/userindex/4">리조트</a></li>
+                                    <li><a href="/userindex/5">캠핑·글램핑</a></li>
+                                    <li><a href="/userindex/6">게스트하우스</a></li>
+                                    <li><a href="/userindex/7">한옥 </a></li>
+                                </ul>
+                            </li>
+                            <li><a href="/userindex/8">내주변</a></li>
+                        </ul>
+                        <ul>
+                            <li><a href="/userindex/reservations">예약 내역</a></li>
+                            <li><a href="/userindex/mypage">내 정보 관리</a></li>
+                        </ul>
+                        <ul>
+                            <li class="depth_2"><button type="button" class="has_ul"><span>더보기</span></button>
+                                <ul>
+                                   <!-- <li><a href="/userindex/notice">공지사항</a></li> -->
+                                    <li><a href="/userindex/event">이벤트</a></li>
+                                    <li><a href="/userindex/project">혁신 프로젝트</a></li>
+                                    <li><a href="/userindex/faq">고객문의</a></li>
+                                    <li><a href="/userindex/terms">약관 및 정책</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <div class="center">
+                            <p>여기어때 고객행복센터</p>
+                            <p><a href="tel:1670-6250">1670-6250</a></p>
+                            <p>오전 9시 - 새벽 3시</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- //Mobile Menu -->
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="/css/more.css" />
+
+        <!-- Sub Top -->
+        <div class="sub_top_wrap">
+            <div class="sub_top bg_kong_3">
+                <h2>더보기</h2>
+            </div>
+        </div>
+        <!-- //Sub Top -->
+
+        <!-- Content  -->
+        <div id="content" class="sub_wrap more_wrap">
+
+            <!-- Nav -->
+            <nav>
+                <ul>
+                    <!-- <li><a class="" href="/userindex/notice">공지사항</a></li> -->
+                    <li><a class=""  href="/userindex/event">이벤트</a></li>
+                    <li><a class="" href="/userindex/project">혁신 프로젝트</a></li>
+                    <li><a class="active" href="/userindex/faq">자주 묻는 질문</a></li>
+                    <li><a class="" href="/userindex/inquiry">1:1 문의</a></li>
+                    <li><a class="" href="/userindex/terms">약관 및 정책</a></li>
+                </ul>
+            </nav>
+            <div class="align_rt">
+
+                <!-- Faq -->
+                <div class="faq">
+
+                    <div class="mobile_top">고객문의<a href="/more/inquiry" class="top_btn">1:1문의</a></div>
+
+                    <!-- 상단 탭 버튼 -->
+                    <div class="top_link">
+                        <li>
+                            <a href="/userindex/faq" class="">TOP7</a>
+                        </li>
+                        <li>
+                            <a href="/userindex/faq26" class="">이용문의</a>
+                        </li>
+                        <li>
+                            <a href="/userindex/faq27" class="">예약취소</a>
+                        </li>
+                        <li>
+                            <a href="/userindex/faq28" class="">결제/영수증</a>
+                        </li>
+                        <li>
+                            <a href="/userindex/faq29" class="">예약문의</a>
+                        </li>
+                        <li>
+                            <a href="/userindex/faq30" class="">쿠폰/포인트</a>
+                        </li>
+                        <li>
+                            <a href="/userindex/faq32" class="">회원정보</a>
+                        </li>
+                        <li>
+                            <a href="/userindex/faq33" class="">리얼리뷰</a>
+                        </li>
+                        <li>
+                            <a href="/36" class="on">모바일티켓</a>
+                        </li>
+                    </div>
+                    <!-- //상단 탭 버튼 -->
+
+                    <!-- List -->
+                    <div class="faq_list">
+                        <strong class="title">자주 묻는 질문</strong>
+                        <div class="list" style="display:block">
+                            <ul>
+                                <li>
+                                    <p class="link"><span>여기어때 모바일티켓은 어떤 서비스인가요?</span></p>
+                                    <div class="ans">
+                                        <div>
+                                            <font face="arial"><span style="font-size: 13.3333px;">여기어때 모바일티켓은 앱 하나로
+                                                    내주변, 전국 숙소 주변, 여행지 주변에 먹거리/즐길거리 상품을 한눈에 비교하여 손쉽게 구매하거나 선물할 수 있는
+                                                    서비스입니다.&nbsp;</span></font>
+                                        </div>
+                                        <div>
+                                            <font face="arial"><span style="font-size: 13.3333px;"><br></span></font>
+                                        </div>
+                                        <div>
+                                            <font face="arial"><span style="font-size: 13.3333px;">카페, 편의점, 패스트푸드 브랜드뿐만
+                                                    아니라 놀이공원, 워터파크, 스키장 등 먹거리/즐길거리 맞춤 검색과 여기어때에서 추천해드리는 다양한 상품을 확인하시고
+                                                    빠르고 손쉽게 구매와 선물을 해보세요!</span></font>
+                                        </div>
+                                        <div>
+                                            <font face="arial"><span style="font-size: 13.3333px;"><br></span></font>
+                                        </div>
+                                        <div>
+                                            <font face="arial"><span style="font-size: 13.3333px;">나와 소중한 사람들을 위해 여행,
+                                                    휴식, 일상 중에도 함께하기 좋은 상품들로 구성했습니다.</span></font><br>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <p class="link"><span>티켓은 어떻게 사용하나요?</span></p>
+                                    <div class="ans">
+                                        <p>
+                                            <font face="arial"><span style="font-size: 13px; white-space: pre-wrap;">상품에
+                                                    따라 사용법이 다르니 구매 전 이용방법을 확인 후 구매해주시길 바랍니다.</span></font>
+                                        </p>
+                                        <p><span style="font-family: arial; font-size: 13px; white-space: pre-wrap;">상품
+                                                상세 이용 정보에 이용방법 미표기 시 상품정보에 별도 안내되어 있습니다.</span>
+                                            <font face="arial"><span style="font-size: 13px; white-space: pre-wrap;">
+
+                                                    [방문사용]
+                                                    - 매장 또는 이용장소에 방문하여 사용가능
+                                                    - 매장에서 티켓 구매내역의 바코드 제시
+                                                    - 이용장소에서 수신받은 SMS 제시 및 구매자명/전화번호 조회로 사용가능
+
+                                                    [홈페이지 이용]
+                                                    - 홈페이지에서 티켓번호를 입력 후 사용가능한 상품
+                                                    - 홈페이지에서 필수 정보 입력 후 사용조건이 있는 상품
+                                                    - 홈페이지를 통해 예약이 필요한 상품
+
+                                                    [전화문의 후 이용]
+                                                    - 사용 전 전화문의가 필요한 상품
+
+                                                    [바로 사용가능]
+                                                    - 바로 사용할 수 있도록 구매 후 티켓을 바로 발송해드리는 상품
+                                                    - 현장 매표소 앞에서 예약하셔도 바로 입장 가능
+
+                                                    [당일사용불가]
+                                                    - 구매일 기준 다음날부터 사용할 수 있는 상품
+                                                    - 티켓 발송시점은 상품에 따라 상이할 수 있습니다.
+
+                                                    [이용일 지정]
+                                                    - 이용일이 정해져있는 상품</span></font>
+                                        </p>
+                                        <p>
+                                            <font face="arial"><span style="font-size: 13px; white-space: pre-wrap;">-
+                                                    이용일이 확정되면 이용방법 및 티켓을 발송해드립니다.
+
+                                                    [현장혜택]
+                                                    - 사전결제 없이 현장에 방문하여 여기어때 앱을 제시하면 혜택을 드리는 상품
+                                                    - 호스트가 준비한 상품에 따라 특별한 혜택이 준비되어 있습니다.</span></font>
+                                        </p>
+                                        <p>&nbsp;</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <p class="link"><span>티켓을 취소하고 싶어요.</span></p>
+                                    <div class="ans"><span
+                                            style="font-family: arial; font-size: 13.3333px; white-space: pre-wrap;">미사용
+                                            티켓은 앱에서 직접 취소 가능합니다.
+                                            &nbsp;</span>
+                                        <p><span
+                                                style="; font-family: arial; font-size: 13.3333px; white-space: pre-wrap;">단,
+                                                날짜가 정해진 상품은 당일 취소가 불가하며 상품에 따라 취소 수수료가 발생할 수 있으니 구매 전 취소/환불 규정을 확인해주시길
+                                                바랍니다.</span></p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <p class="link"><span>티켓 일부만 취소 가능한가요?</span></p>
+                                    <div class="ans">
+                                        <p>
+                                            <font face="arial"><span style="font-size: 13.3333px;">티켓 상품에 따라 부분 취소 여부가
+                                                    달라질 수 있습니다.</span></font>
+                                        </p>
+                                        <p>
+                                            <font face="arial"><span style="font-size: 13.3333px;"><br></span></font>
+                                        </p>
+                                        <p>
+                                            <font face="arial"><span style="font-size: 13.3333px;">[이용일 지정 상품]</span>
+                                            </font>
+                                        </p>
+                                        <p>
+                                            <font face="arial"><span style="font-size: 13.3333px;">- 취소/환불 규정에 따라 취소
+                                                    수수료가 발생될 수 있으니 상품 페이지 내 취소/환불 규정을 확인해주시길 바랍니다.</span></font>
+                                        </p>
+                                        <p>
+                                            <font face="arial"><span style="font-size: 13.3333px;"><br></span></font>
+                                        </p>
+                                        <p>
+                                            <font face="arial"><span style="font-size: 13.3333px;">[이용일 미지정인 상품]</span>
+                                            </font>
+                                        </p>
+                                        <p>
+                                            <font face="arial"><span style="font-size: 13.3333px;">- 유효기간 내 미사용 티켓은
+                                                    취소/환불이 가능합니다.</span></font>
+                                        </p>
+                                        <p>
+                                            <font face="arial"><span style="font-size: 13.3333px;">- 만약, 유효기간이 지났을 경우
+                                                    결제금액의 90% 또는 100%를 환불해드립니다.&nbsp;</span></font>
+                                        </p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <p class="link"><span>유효기간이 지났지만 티켓을 사용하지 못했어요.</span></p>
+                                    <div class="ans">
+                                        <p><span style="font-size: 13.3333px; font-family: arial;">상품에 따라 취소수수료 차감 후 환불
+                                                또는 100% 결제금 기준으로 환불됩니다.</span></p>
+                                        <p><span style="font-size: 13.3333px; font-family: arial;">유효기간 연장이 가능한 상품의 경우
+                                                유효기간 만료 후 90% 환불됩니다.</span></p>
+                                        <p>&nbsp;</p>
+                                        <p><span style="font-family: arial; font-size: 13.3333px;">상품 상세정보 내 취소/환불 규정을
+                                                확인해주시길 바라며,&nbsp;</span><span
+                                                style="font-family: arial; font-size: 13.3333px;">환불은 유효기간 종료 후 2~3 영업일
+                                                안으로 자동 지급되오니 참고 부탁드립니다.</span></p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <p class="link"><span>시설을 방문했는데 닫혀있어 이용하지 못했어요.</span></p>
+                                    <div class="ans">
+                                        <p>
+                                            <font face="arial"><span style="font-size: 13.3333px;">먼저 방문 전에 상품 페이지에 기재된
+                                                    휴무일을 확인 부탁드립니다.&nbsp;</span></font>
+                                        </p>
+                                        <p>
+                                            <font face="arial"><span style="font-size: 13.3333px;"><br></span></font>
+                                        </p>
+                                        <p>
+                                            <font face="arial"><span style="font-size: 13.3333px;">만약 안내되지 않은 휴무일에 방문했는데
+                                                    시설이 닫혀있었다면 환불 가능하오니 방문 날짜 및 시간을 확인하여 여기어때 고객행복센터로 문의해주시길
+                                                    바랍니다.</span></font>
+                                        </p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <p class="link"><span>현장에 갔는데 이용못하는 티켓이라고 합니다.</span></p>
+                                    <div class="ans">
+                                        <p>
+                                            <font face="arial"><span style="font-size: 13.3333px;">이용방법에 따라 현장이용이 아니거나
+                                                    당일사용이 불가할 수 있습니다.&nbsp;</span></font>
+                                        </p>
+                                        <p><span style="font-size: 13.3333px; font-family: arial;">&nbsp;</span></p>
+                                        <p><span style="font-size: 13.3333px; font-family: arial;">사용 전 반드시 티켓 이용방법 및
+                                                상세정보를 확인하여 이용 부탁드립니다.</span></p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <p class="link"><span>구매 완료했는데 티켓을 못받았어요.</span></p>
+                                    <div class="ans">
+                                        <div>
+                                            <font color="#252525" face="arial"><span style="font-size: 13.3333px;">구매 후
+                                                    티켓 구매내역에서 바코드를 제시하여 사용하실 수 있습니다.</span></font>
+                                        </div>
+                                        <div>
+                                            <font color="#252525" face="arial"><span
+                                                    style="font-size: 13.3333px;"><br></span></font>
+                                        </div>
+                                        <div>
+                                            <font color="#252525" face="arial"><span style="font-size: 13.3333px;">다만,
+                                                    일부 티켓은 구매 후 SMS로 발송되며 티켓 발송까지 최대 24시간이 소요될 수 있습니다.</span></font>
+                                        </div>
+                                        <div><span
+                                                style="font-size: 13.3333px; color: rgb(37, 37, 37); font-family: arial;">24시간이
+                                                지났음에도 티켓 발송을 받지 못하신 경우에는 먼저 아래 내용을 확인해주시길 바랍니다.</span></div>
+                                        <div>
+                                            <font color="#252525" face="arial"><span
+                                                    style="font-size: 13.3333px;"><br></span></font>
+                                        </div>
+                                        <div>
+                                            <font color="#252525" face="arial"><span style="font-size: 13.3333px;">[여기어때
+                                                    알림톡]</span></font>
+                                        </div>
+                                        <div>
+                                            <font color="#252525" face="arial"><span style="font-size: 13.3333px;">-
+                                                    카카오톡 여기어때 알림톡으로 티켓이 발송되었는지 확인 부탁드립니다.&nbsp;</span></font>
+                                        </div>
+                                        <div>
+                                            <font color="#252525" face="arial"><span
+                                                    style="font-size: 13.3333px;"><br></span></font>
+                                        </div>
+                                        <div>
+                                            <font color="#252525" face="arial"><span style="font-size: 13.3333px;">[스팸
+                                                    문자함]</span></font>
+                                        </div>
+                                        <div>
+                                            <font color="#252525" face="arial"><span style="font-size: 13.3333px;">- 휴대폰
+                                                    스팸 문자함으로 티켓이 발송되었는지 확인 부탁드립니다.</span></font>
+                                        </div>
+                                        <div>
+                                            <font color="#252525" face="arial"><span style="font-size: 13.3333px;">- 스팸
+                                                    문자함에도 티켓이 확인되지 않는다면 고객님께서 사용하시는 통신사로 문의</span></font>
+                                        </div>
+                                        <div>
+                                            <font color="#252525" face="arial"><span
+                                                    style="font-size: 13.3333px;"><br></span></font>
+                                        </div>
+                                        <div>
+                                            <font color="#252525" face="arial"><span style="font-size: 13.3333px;">[티켓
+                                                    구매내역]</span></font>
+                                        </div>
+                                        <div>
+                                            <font color="#252525" face="arial"><span style="font-size: 13.3333px;">- 앱
+                                                    하단 내정보 &gt; 티켓 구매내역에서 확인</span></font>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <p class="link"><span>예약 날짜 및 옵션을 변경하고 싶어요.</span></p>
+                                    <div class="ans">
+                                        <p>
+                                            <font color="#252525" face="arial"><span style="font-size: 13.3333px;">날짜 및
+                                                    옵션 등 부분 변경은 예약취소 후 재구매를 통해 가능합니다.</span></font>
+                                        </p>
+                                        <p>
+                                            <font color="#252525" face="arial"><span
+                                                    style="font-size: 13.3333px;"><br></span></font>
+                                        </p>
+                                        <p>
+                                            <font color="#252525" face="arial"><span style="font-size: 13.3333px;">상품
+                                                    상세정보에 안내되어있는 취소/환불 규정을 확인 후 이용 부탁드립니다.</span></font>
+                                        </p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <p class="link"><span>현장에서 바로 결제해서 사용할 수 있나요?</span></p>
+                                    <div class="ans">
+                                        <p><span style="font-size: 10pt; font-family: arial;" data-sheets-value="{"
+                                                1":2,"2":"'바로사용'="" 상품은="" 구매="" 후="" 티켓을="" 바로="" 발송해드리기="" 때문에=""
+                                                현장="" 매표소="" 앞에서="" 예약해도="" 입장="" 가능합니다.="" "," 6":1}"=""
+                                                data-sheets-userformat="{"
+                                                2":8403771,"3":[null,0],"4":[null,2,16777215],"6":{"1":[{"1":2,"2":0,"5":[null,2,0]},{"1":0,"2":0,"3":3},{"1":1,"2":0,"4":1}]},"7":{"1":[{"1":2,"2":0,"5":[null,2,0]},{"1":0,"2":0,"3":3},{"1":1,"2":0,"4":1}]},"8":{"1":[{"1":2,"2":0,"5":[null,2,0]},{"1":0,"2":0,"3":3},{"1":1,"2":0,"4":1}]},"11":4,"12":0,"14":[null,2,0],"15":"dotum","16":10,"26":400}"="">구매
+                                                후 티켓 구매내역에서 바코드를 제시하여 사용하실 수 있습니다.</span></p>
+                                        <p><span style="font-size: 10pt; font-family: arial;" data-sheets-value="{"
+                                                1":2,"2":"'바로사용'="" 상품은="" 구매="" 후="" 티켓을="" 바로="" 발송해드리기="" 때문에=""
+                                                현장="" 매표소="" 앞에서="" 예약해도="" 입장="" 가능합니다.="" "," 6":1}"=""
+                                                data-sheets-userformat="{"
+                                                2":8403771,"3":[null,0],"4":[null,2,16777215],"6":{"1":[{"1":2,"2":0,"5":[null,2,0]},{"1":0,"2":0,"3":3},{"1":1,"2":0,"4":1}]},"7":{"1":[{"1":2,"2":0,"5":[null,2,0]},{"1":0,"2":0,"3":3},{"1":1,"2":0,"4":1}]},"8":{"1":[{"1":2,"2":0,"5":[null,2,0]},{"1":0,"2":0,"3":3},{"1":1,"2":0,"4":1}]},"11":4,"12":0,"14":[null,2,0],"15":"dotum","16":10,"26":400}"="">&nbsp;</span>
+                                        </p>
+                                        <p><span style="font-size: 10pt; font-family: arial;" data-sheets-value="{"
+                                                1":2,"2":"'바로사용'="" 상품은="" 구매="" 후="" 티켓을="" 바로="" 발송해드리기="" 때문에=""
+                                                현장="" 매표소="" 앞에서="" 예약해도="" 입장="" 가능합니다.="" "," 6":1}"=""
+                                                data-sheets-userformat="{"
+                                                2":8403771,"3":[null,0],"4":[null,2,16777215],"6":{"1":[{"1":2,"2":0,"5":[null,2,0]},{"1":0,"2":0,"3":3},{"1":1,"2":0,"4":1}]},"7":{"1":[{"1":2,"2":0,"5":[null,2,0]},{"1":0,"2":0,"3":3},{"1":1,"2":0,"4":1}]},"8":{"1":[{"1":2,"2":0,"5":[null,2,0]},{"1":0,"2":0,"3":3},{"1":1,"2":0,"4":1}]},"11":4,"12":0,"14":[null,2,0],"15":"dotum","16":10,"26":400}"="">일부
+                                                티켓은 이용방법에 따라 바로사용이 불가능하오니 구매 전 이용방법 및 상세정보를 확인해주시길 바랍니다.</span></p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <p class="link"><span>날씨가 좋지 않아 환불하고 싶어요.</span></p>
+                                    <div class="ans">
+                                        <p>
+                                            <font face="arial"><span style="font-size: 13px; white-space: pre-wrap;">단순한
+                                                    기상상황 (눈, 비 등)으로 인한 환불은 어렵습니다.
+
+                                                    단, 태풍, 폭설 등 천재지변으로 인해 이용이 불가능한 경우에는 사전 공지 후 환불이 진행될 수 있습니다.</span>
+                                            </font>
+                                        </p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <p class="link"><span>모바일티켓 호스트가 되고 싶어요. (사업자/개인)</span></p>
+                                    <div class="ans">
+                                        <p>
+                                            <font face="arial"><span
+                                                    style="font-size: 13px; white-space: pre-wrap;">여기어때 모바일티켓 호스트를 원하실
+                                                    경우 아래 방법으로 접수하실 수 있습니다.
+
+                                                    1. 호스트센터: <a
+                                                        href="http://host.goodchoice.kr">http://host.goodchoice.kr</a>
+                                                    2. 고객행복센터: 1544-4087
+                                                    3. 이메일: help@goodchoice.kr
+
+                                                    접수된 내용은 담당자 검토를 통해 순차적으로 적용됩니다.</span></font>
+                                        </p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- //List -->
+
+                </div>
+                <!-- //Faq -->
+
+            </div>
+
+        </div>
+        <!-- //Content  -->
+
+        <!-- 푸터 -->
+        <div th:replace="userthy/user-footer :: user-footer"></div>
+        <!--푸터 끝 -->
+
+
+    </div>
+
+    <!-- 상단으로 -->
+    <button class="btn_go_top" onclick="moveTop();">상단으로</button>
+
+    <!-- //Wrap -->
+
+    <!-- Script -->
+    <!-- Library -->
+    <script type="text/javascript" src="/js/library/jquery.cookie.js"></script>
+    <script type="text/javascript" src="/js/library/jquery.lazyload.js"></script>
+    <script type="text/javascript" src="/js/library/iscroll.js"></script>
+
+    <!-- Service -->
+    <script type="text/javascript" src="/js/service/common.js"></script>
+    <script type="text/javascript" src="/js/service/geolocation.js"></script>
+
+    <!-- Module -->
+    <script type="text/javascript" src="/js/modules/dialogPopup.js"></script>
+
+    <!-- Page Script -->
+    <script type="text/javascript" src="/js/library/vue.min.js"></script>
+    <script type="text/javascript" src="/js/service/more.js"></script>
+
+    <!-- Body Spinner -->
+    <div class="spinner show"><span></span></div>
+
+</body>
+
+</html>

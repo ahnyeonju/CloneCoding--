@@ -1,0 +1,56 @@
+/* 테이블 */
+.tab1div{
+    /* border:  1px solid red; */
+    position: relative;
+    left: 30px;
+    top: 240px;
+    width: 900px;
+    height: 45px;
+}
+
+/* .tb1{
+    position: absolute;
+    left: 230px;
+    top: 405px;
+    width: 900px;
+    height: 45px;
+} */
+
+
+.tb1 th{
+    background-color:#f2f6fa;
+    text-align: center;
+    height: 30px;
+}
+
+.tb1 td{
+    text-align: center;
+    height: 30px;
+}
+
+.select-style{
+   height: 30px;
+   margin-top: 15px;
+   padding-top: 3px;
+   background-image: url(../img/asset/icn_select_bk_24x48.png);
+}
+
+.cvs{
+     /* border:  1px solid red; */
+    position: relative;
+    width: 300px;
+    left: 653px;
+    top: 13px;
+}
+.cvs btn-cvs{
+    height: 5px;
+    width: 90px;
+}
+.btn-cvs {
+    background: #26B99A;
+    color: white;
+    height: 30px;
+    padding-top: 3px;
+}
+
+/* 테이블 끝*/

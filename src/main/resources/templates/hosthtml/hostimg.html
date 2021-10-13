@@ -1,0 +1,82 @@
+
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type">
+    <meta name="csrf-name" content="yeogi_token">
+
+
+
+    <!-- CSS -->
+    <title>취향대로 머물다 여기어때</title>
+    <script type="text/javascript" src="/js/library/jquery-1.12.4.min.js"></script>
+
+</head>
+<body>
+
+
+<input type="hidden" id="tbHostId" th:value="${tbHostId}">
+    <!--	a태그 클릭시 넘어와야 하는 값-->
+    <!--안연주 room ID값 넘어옴-->
+<!--    <input type="hidden" id="tbRoomId" th:value="${tbRoomId}">-->
+
+    <!-- CSS -->
+
+    <!-- 여기부터 복사@@ -->
+    <!-- 안연주 리뷰작성 -->
+    <script src="/js/ahn_re.js"></script>
+<form  method="post" enctype="multipart/form-data"  id="form">
+
+    <div class="ahn_re_img">
+    <div class="ahn_tab_t">이미지 추가</div>
+    <!--dropfile-->
+    <div class="ahn_re_indent">
+                                <span class="ahn_di_span">
+                                    <input type="file" id="files" class="reImg file" accept="image/*"
+                                           onchange="setThumbnail(event);"
+                                           multiple="multiple"
+                                           name="files" />
+                                    <div id="image_container"></div>
+                                </span>
+
+<!--        <input type="file" id="files" name="files" class= multiple>-->
+    </div>
+    <!--dropfile끝-->
+
+</div>
+                        <div class="ahn_re_indent ahn_re_btn1">
+                            <span class="ahn_di_span">
+                                <button type="button" class="ahn_re_btn2" onclick="sendit()">
+									등록하기</button>
+                            </span>
+                        </div>
+</form>
+
+
+
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+<script>
+    const data = $('tbHostId').val();
+    function sendit() {
+        let formData = new FormData();
+        const data = {tbHostId : $("#tbHostId").val() }
+        formData.append("data", new Blob([JSON.stringify(data)], {type: "application/json"}));
+                axios.request({
+                    method: 'POST',
+                    url: '/host/img',
+                    headers: {'Content-type': 'multipart/form-data'},
+                    data: formData
+                }).then(
+                    alert("파일첨부완료")
+                )
+            }
+
+</script>
+</body>
+</html>

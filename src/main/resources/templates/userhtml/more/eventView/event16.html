@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="여기어때 회원 가입 | 전국 호텔, 펜션, 모텔부터 워터파크, 놀이공원, 아쿠아리움까지 최저가 할인 예약">
+    <link rel="shortcut icon" href="/../img/images/web_v3/favicon_170822.ico" type="image/x-icon">
+
+    <!-- CSS -->
+    <title>함께해요 여기어때 리서치 - 이벤트 | 여기어때</title>
+    <link rel="stylesheet" href="/../css/common.css" />
+    <!-- <link rel="canonical" href="https://www.goodchoice.kr/more/eventView/1623"> -->
+    <script type="text/javascript" src="/../js/library/jquery-1.12.4.min.js"></script>
+
+    <script>
+        var _BASE_URL = 'https://www.goodchoice.kr/';
+        var _MOBILE = 'W';
+        var _KAKAOTALK_APP_KEY = 'f6ffb505bb11d7cc3584d443ce35f704';
+        var _FACEBOOK_APP_ID = '607467975974643';
+    </script>
+    <script>(function (a, b, c) { if (c in b && b[c]) { var d, e = a.location, f = /^(a|html)$/i; a.addEventListener("click", function (a) { d = a.target; while (!f.test(d.nodeName)) d = d.parentNode; "href" in d && (d.href.indexOf("http") || ~d.href.indexOf(e.host)) && (a.preventDefault(), e.href = d.href) }, !1) } })(document, window.navigator, "standalone")</script>
+</head>
+
+<body>
+
+    <!-- Wrap -->
+    <div class="wrap">
+
+        <!-- Header -->
+        <!-- Header -->
+        <header>
+
+            <section>
+                <h1><a class="" href="/../index" title="여기어때">여기어때</a></h1>
+                <button type="button" class="btn_menu nav_open ">메뉴</button>
+                <button type="button" class="btn_srch srch_open ">검색</button>
+                <ul class="gnb_pc">
+                    <li><a href="/../product/search/8">내주변</a></li>
+                    <li><a href="/../reservation/reservations">예약내역</a></li>
+                    <li class="over">
+                        <button type="button"><span>더보기</span></button>
+                        <ul class="list_03">
+                            <li><a href="/../more/notice">공지사항</a></li>
+                            <li><a href="/../more/event">이벤트</a></li>
+                            <li><a href="/../more/project">혁신 프로젝트</a></li>
+                            <li><a href="/../more/faq">자주 묻는 질문</a></li>
+                            <li><a href="/../more/inquiry">1:1 문의</a></li>
+                            <li><a href="/../more/terms">약관 및 정책</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="over pic"><a href="/../my/mypage">
+                            <img src="/../img/profile/ico/ico_21.png" alt="" /></a>
+                        <ul class="list_04" style="display:none">
+                            <li><b>사과색깔</b></li>
+                            <li><a href="/../my/mypage">내정보</a></li>
+                            <li><a href="/../my/point" data-point="0">포인트
+                                    <!-- span>0P</span -->
+                                </a></li>
+                            <li><a href="/../my/coupon">쿠폰함
+                                    <!-- span>1장</span -->
+                                </a></li>
+                            <li><a href="/../reservation/reservations">예약내역
+                                    <!-- span>0건</span -->
+                                </a></li>
+                            <li><button type="button" class="pop_logout_open">로그아웃</button></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <!-- Search -->
+                <div class="srch_bar">
+                    <div class="wrap_inp">
+                        <input type="text" id="keyword" placeholder="지역, 숙소명" autocomplete="off" />
+                        <button type="button" class="btn_srch">검색</button>
+                    </div>
+                    <button class="btn_cancel" onclick="srch_close()">취소</button>
+                </div>
+                <!-- //Search -->
+
+            </section>
+        </header>
+
+        <!-- Bg Dimm -->
+        <div class="bg_dimm" onclick="close_layer();">&nbsp;</div>
+        <div class="bg_dimm_prevent">&nbsp;</div>
+
+        <!-- 추천검색어 -->
+        <div class="recommend_srch">
+            <div class="scroll_srch">
+                <div class="scroller">
+                    <div class="default" style="display:block">
+                        <strong>추천 검색어</strong>
+                        <ul></ul>
+                    </div>
+                    <!-- 연관검색어 -->
+                    <div class="chain">
+                        <ul></ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="gnb_opacity"><button class="btn_close">닫기</button></div>
+        <div class="menu_wrap">
+
+            <div class="menu">
+                <div class="top">
+                    <!-- 회원 -->
+                    <div class="member">
+                        <div class="mem">
+                            <span class="pic"
+                                style="background:url('/img/profile/ico/ico_22.png') 50% 50% no-repeat;"></span>
+                            <p class="info">사과색깔</p>
+                        </div>
+                        <div class="bot">
+                            <a href="/../my/point">
+                                <p>0P<br /><span>포인트</span></p>
+                            </a>
+                            <a href="/../my/coupon">
+                                <p>1장<br /><span>쿠폰함</span></p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Iscroll -->
+                <div class="scroll_nav">
+                    <div class="scroller">
+                        <ul>
+                            <li><a href="/../index">홈</a></li>
+                            <li class="depth_2">
+                                <button type="button" class="has_ul"><span>숙소유형</span></button>
+                                <ul>
+                                    <li><a href="/../product/search/1">모텔</a></li>
+                                    <li><a href="/../product/search/2">호텔/리조트</a></li>
+                                    <li><a href="/../product/search/3">펜션</a></li>
+                                    <li><a href="/../product/search/4">리조트</a></li>
+                                    <li><a href="/../product/search/5">캠핑·글램핑</a></li>
+                                    <li><a href="/../product/search/6">게스트하우스</a></li>
+                                    <li><a href="/../product/search/7">한옥 </a></li>
+                                </ul>
+                            </li>
+                            <li><a href="/../product/search/8">내주변</a></li>
+                        </ul>
+                        <ul>
+                            <li><a href="/../reservation/reservations">예약 내역</a></li>
+                            <li><a href="/../my/mypage">내 정보 관리</a></li>
+                        </ul>
+                        <ul>
+                            <li class="depth_2"><button type="button" class="has_ul"><span>더보기</span></button>
+                                <ul>
+                                    <li><a href="/../more/notice">공지사항</a></li>
+                                    <li><a href="/../more/event">이벤트</a></li>
+                                    <li><a href="/../more/project">혁신 프로젝트</a></li>
+                                    <li><a href="/../more/faq">고객문의</a></li>
+                                    <li><a href="/../more/terms">약관 및 정책</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <div class="center">
+                            <p>여기어때 고객행복센터</p>
+                            <p><a href="tel:1670-6250">1670-6250</a></p>
+                            <p>오전 9시 - 새벽 3시</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- //Mobile Menu -->
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="/../css/more.css" />
+
+        <!-- Sub Top -->
+        <div class="sub_top_wrap">
+            <div class="sub_top bg_kong_3">
+                <h2>더보기</h2>
+            </div>
+        </div>
+        <!-- //Sub Top -->
+
+        <!-- Content  -->
+        <div id="content" class="sub_wrap more_wrap">
+
+            <!-- Nav -->
+            <nav>
+                <ul>
+                    <!-- <li><a class="" href="/userindex/notice">공지사항</a></li> -->
+                    <li><a class="active"  href="/userindex/event">이벤트</a></li>
+                    <li><a class="" href="/userindex/project">혁신 프로젝트</a></li>
+                    <li><a class="" href="/userindex/faq">자주 묻는 질문</a></li>
+                    <li><a class="" href="/userindex/inquiry">1:1 문의</a></li>
+                    <li><a class="" href="/userindex/terms">약관 및 정책</a></li>
+                </ul>
+            </nav>
+            <div class="align_rt">
+
+                <!-- Event -->
+                <div class="event">
+
+                    <!-- 이벤트 제목 -->
+                    <div class="mobile_top">함께해요 여기어때 리서치</div>
+
+                    <!-- 이벤트 삽입 -->
+                    <div class="event_in">
+
+                        <!-- 1623 함께해요 여기어때 리서치 -->
+                        <link rel="stylesheet" href="/../static/event/common/css/base-event.css">
+                        <link rel="stylesheet" href="/../frontend/admin/css/components/modules/dialog.css" />
+
+                        <script type="text/javascript"
+                            src="/../static/event/common/js/library/jquery-1.12.3.min.js"></script>
+                        <script type="text/javascript"
+                            src="/../static/event/common/js/library/jquery.lazyload.js"></script>
+                        <script type="text/javascript"
+                            src="/../static/event/common/js/library/vue.min.js"></script>
+                        <script type="text/javascript"
+                            src="/../static/event/common/js/service/button-scroll-top.js"></script>
+
+                        <script type="text/javascript" src="/../api3/js/library/moment.min.js"></script>
+                        <script type="text/javascript" src="/../api3/js/library/underscore.min.js"></script>
+                        <script type="text/javascript"
+                            src="/../api3/js/service/userActionLog.js"></script>
+                        <script type="text/javascript"
+                            src="/../api3/js/service/common.js"></script>
+                        <script src="/../api3/js/service/evtBraze.js"></script>
+
+                        <script type="text/javascript"
+                            src="/../static/event/common/js/library/moment.min.js"></script>
+                        <script type="text/javascript" src="/../api3/js/library/flipclock.js"></script>
+                        <script type="text/javascript"
+                            src="/../api3/js/library/swiper4.0/swiper.min.js"></script>
+                        <link rel="stylesheet" href="/../api3/css/library/swiper.css">
+
+                        <!-- keen vue list (기획전) -->
+                        <script type="text/javascript"
+                        src="/../static/event/common/js/service/product-common.js"></script>
+
+                        <script>
+                            var eno = 1623;
+                            var currentDate = "2021-08-25 01:05";
+                            var serverURL = 'https://static.goodchoice.kr/event/';
+                            $(window).ready(function () {
+                                // vue product list
+                                if ($('.event-vue').length > 0) {
+                                    eventControl.apiCall(eno, currentDate, serverURL);
+                                }
+                            });
+                        </script>
+                        <script>
+                            var eDefaultString = '%7B%22env%22%3A%22production%22%2C%22token%22%3A%22%22%2C%22eventNo%22%3A1623%2C%22uno%22%3A0%2C%22mode%22%3A%22event%22%2C%22deviceType%22%3A%22W%22%2C%22deviceId%22%3A%22%22%2C%22currentDate%22%3A%222021-08-25%2001%3A05%22%2C%22currentDay%22%3A%222021-08-25%22%2C%22serverURL%22%3A%22https%3A%5C%2F%5C%2Fstatic.goodchoice.kr%5C%2Fevent%5C%2F%22%2C%22appURL%22%3A%22http%3A%5C%2F%5C%2Fapi3.goodchoice.kr%22%2C%22kakao%22%3A%7B%22title%22%3A%22%ED%95%A8%EA%BB%98%ED%95%B4%EC%9A%94%20%EC%97%AC%EA%B8%B0%EC%96%B4%EB%95%8C%20%EB%A6%AC%EC%84%9C%EC%B9%98%22%2C%22label%22%3A%22%ED%95%A8%EA%BB%98%20%EB%A7%8C%EB%93%A4%EC%96%B4%EA%B0%80%EB%8A%94%20%EC%97%AC%EA%B8%B0%EC%96%B4%EB%95%8C%20%EB%A6%AC%EC%84%9C%EC%B9%98%EF%BC%81%7C%EB%A6%AC%EC%84%9C%EC%B9%98%20%EC%B0%B8%EC%97%AC%EC%9E%90%EB%A1%9C%20%EC%84%A0%EC%A0%95%EB%90%98%EB%A9%B4%7C%EC%B5%9C%EB%8C%80%2010%EB%A7%8C%20%ED%8F%AC%EC%9D%B8%ED%8A%B8%20%EC%84%A0%EB%AC%BC%EC%9D%B4%EF%BC%81%22%2C%22img%22%3A%22https%3A%5C%2F%5C%2Fimage.goodchoice.kr%5C%2Fevent%5C%2Fview%5C%2Fevent%5C%2F1623%5C%2F1623_kakao.jpg%22%2C%22link%22%3A%22withcall%3A%5C%2F%5C%2Fnativecall%5C%2Fkakaotalk_share_web%3Feventno%3D1623%5Cu0026title%3D%ED%95%A8%EA%BB%98%ED%95%B4%EC%9A%94%20%EC%97%AC%EA%B8%B0%EC%96%B4%EB%95%8C%20%EB%A6%AC%EC%84%9C%EC%B9%98%5Cu0026mode%3Devent%5Cu0026img%3Dhttps%3A%5C%2F%5C%2Fimage.goodchoice.kr%5C%2Fevent%5C%2Fview%5C%2Fevent%5C%2F1623%5C%2F1623_kakao.jpg%5Cu0026label%3D%ED%95%A8%EA%BB%98%20%EB%A7%8C%EB%93%A4%EC%96%B4%EA%B0%80%EB%8A%94%20%EC%97%AC%EA%B8%B0%EC%96%B4%EB%95%8C%20%EB%A6%AC%EC%84%9C%EC%B9%98%EF%BC%81%7C%EB%A6%AC%EC%84%9C%EC%B9%98%20%EC%B0%B8%EC%97%AC%EC%9E%90%EB%A1%9C%20%EC%84%A0%EC%A0%95%EB%90%98%EB%A9%B4%7C%EC%B5%9C%EB%8C%80%2010%EB%A7%8C%20%ED%8F%AC%EC%9D%B8%ED%8A%B8%20%EC%84%A0%EB%AC%BC%EC%9D%B4%EF%BC%81%5Cu0026txt%3D%5Cu0026url%3Dhttps%253A%252F%252Fapi3.goodchoice.kr%252Fevent3%252Fmain%252FadEventView%253Faevno%253D1623%22%2C%22url%22%3A%22https%3A%5C%2F%5C%2Fapi3.goodchoice.kr%5C%2Fevent3%5C%2Fmain%5C%2FadEventView%3Faevno%3D1623%22%7D%2C%22couponCodes%22%3A%5B%5D%2C%22responseHeader%22%3A%22%22%7D';
+                        </script>
+
+                        <link rel="stylesheet" href="/../api3/js/event_custom/event-default.min.css">
+                        <link rel="stylesheet" href="/../api3/js/event_custom/event-custom.min.css">
+                        <link rel="stylesheet" href="/../api3/js/event_custom/products-vue-custom.min.css">
+                        <script type="text/javascript"
+                            src="/../api3/js/event_custom/event-custom.min.js"></script>
+                        <script type="text/javascript"
+                            src="/../api3/js/event_custom/products-vue-custom.min.js"></script>
+
+                        <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+                        <script>
+                            //<![CDATA[
+                            // 사용할 앱의 JavaScript 키를 설정해 주세요.
+                            Kakao.init('2c9efd0c35b12bcd37f60ce3cf8267c8');
+                            // 카카오톡 링크 버튼을 생성합니다. 처음 한번만 호출하면 됩니다.
+                            function sendLink() {
+                                Kakao.Link.sendTalkLink({
+                                    image: { // 80 * 80 이상
+                                        src: "https://image.goodchoice.kr/event/view/event/1623/1623_kakao.jpg",
+                                        width: '720',
+                                        height: '710'
+                                    },
+                                    label: "함께 만들어가는 여기어때 리서치！|리서치 참여자로 선정되면|최대 10만 포인트 선물이！",
+                                    webButton: {
+                                        text: '여기어때 바로가기',
+                                        url: "https://api3.goodchoice.kr/event3/main/adEventView?aevno=1623"
+                                    }
+                                });
+                            }
+                        </script>
+                        <!-- //카카오 공유하기 -->
+
+
+                        <style>
+                            .evt-link {
+                                position: relative;
+                            }
+
+                            .evt-link a {
+                                display: inline-block;
+                                position: absolute;
+                                text-indent: -9999px;
+                                bottom: 23%;
+                                height: 36%;
+                                left: 8%;
+                                right: 8%;
+                            }
+                        </style>
+
+                        <div class="content-type-W event-container " data-user-action="load" data-log-page="event/1623">
+                            <div class="event-top">
+                                <p><img src="https://image.goodchoice.kr/event/view/event/1623/ver2/e1623_1.jpg" /></p>
+                                <p><img src="https://image.goodchoice.kr/event/view/event/1623/ver2/e1623_2.jpg" /></p>
+                                <p><img src="https://image.goodchoice.kr/event/view/event/1623/ver2/e1623_3.jpg" /></p>
+                                <p><img src="https://image.goodchoice.kr/event/view/event/1623/ver2/e1623_4.jpg" /></p>
+                                <p><img src="https://image.goodchoice.kr/event/view/event/1623/ver2/e1623_5.jpg" /></p>
+                            </div>
+                            <div class="event-body">
+                                <p class="evt-link">
+                                    <a href="yeogi://details?schemetype=url&anim=2&url=https://bit.ly/3haZWMH"
+                                        data-deepLink data-braze="pageButton"></a>
+                                    <img src="https://image.goodchoice.kr/event/view/event/1623/ver2/e1623_6.jpg"
+                                        alt="">
+                                </p>
+                            </div>
+                            <p><img src="https://image.goodchoice.kr/event/view/event/1623/ver2/e1623_7.jpg" /></p>
+                            <p><img src="https://image.goodchoice.kr/event/view/event/1623/ver2/e1623_8.jpg" /></p>
+                            <p><img src="https://image.goodchoice.kr/event/view/event/1623/ver2/e1623_9.jpg" /></p>
+                            <p><img src="https://image.goodchoice.kr/event/view/event/1623/ver2/e1623_10.jpg" /></p>
+                            <p><img src="https://image.goodchoice.kr/event/view/event/1623/ver2/e1623_11.jpg" /></p>
+                            <!-- 이벤트 하단 -->
+                            <div class="event-bottom">
+                                <!-- 유의사항 -->
+                                <div class="bottom-info">
+                                    <img src="https://image.goodchoice.kr/event/view/event/1623/ver2/e1623_13_2.png"
+                                        alt="유의사항">
+                                    <img src="https://image.goodchoice.kr/event/view/event/1623/ver2/e1623_14_2.png"
+                                        alt="유의사항">
+                                </div>
+                            </div>
+                            <!-- /이벤트 하단 -->
+                        </div>
+                        <script>
+                            EC.appShare.options.isAppShare = true;
+                        </script>
+                    </div>
+                    <!-- //이벤트 삽입 -->
+
+                </div>
+                <!-- //Event -->
+
+                <!-- Page -->
+                <div class="page">
+                    <p>
+                        <a href="/event17">
+                            <span class="ico_arr_up">다음글</span>
+                            <b>제 8회 액티비티 공동구매 사전 신청</b>
+                            <em>기간 : 2021.08.23 ~ 2021.08.25</em>
+                        </a>
+                    </p>
+                    <p>
+                        <a href="/event15">
+                            <span class="ico_arr_down">이전글</span>
+                            <b>매일매일 도전룰렛</b>
+                            <em>기간 : 2021.04.14 ~ 끝날 때까지!</em>
+                        </a>
+                    </p>
+                </div>
+
+                <div class="align_center">
+                    <button onclick="window.location.href='https://www.goodchoice.kr/more/event#0'"
+                        class="btn_red_fill">목록보기</button>
+                </div>
+
+            </div>
+
+        </div>
+        <!-- //Content  -->
+
+        <!-- 푸터 -->
+        <div th:replace="userthy/user-footer :: user-footer"></div>
+        <!--푸터 끝 -->
+
+
+    </div>
+
+    <!-- 상단으로 -->
+    <button class="btn_go_top" onclick="moveTop();">상단으로</button>
+
+    <!-- //Wrap -->
+
+    <!-- Script -->
+    <!-- Library -->
+    <script type="text/javascript" src="/../js/library/jquery.cookie.js"></script>
+    <script type="text/javascript" src="/../js/library/jquery.lazyload.js"></script>
+    <script type="text/javascript" src="/../js/library/iscroll.js"></script>
+
+    <!-- Service -->
+    <script type="text/javascript" src="/../js/service/common.js"></script>
+    <script type="text/javascript" src="/../js/service/geolocation.js"></script>
+
+    <!-- Module -->
+    <script type="text/javascript" src="/../js/modules/dialogPopup.js"></script>
+
+    <!-- Page Script -->
+    <script type="text/javascript" src="/../js/library/vue.min.js"></script>
+    <script type="text/javascript" src="/../js/service/more.js"></script>
+
+    <!-- Body Spinner -->
+    <div class="spinner show"><span></span></div>
+
+</body>
+
+</html>

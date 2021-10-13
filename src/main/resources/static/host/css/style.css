@@ -1,0 +1,335 @@
+
+*{
+    box-sizing: border-box;
+}
+
+.form-body div.select-style1 {
+    height: 38px;
+    /* margin-top: -15px; */
+}
+
+
+body, p, h1, h2, h3, h4, h5, h6, menu, ul, ol, li, dl, dt, dd, table, th, td, form, fieldset, legend, input, textarea, button, select, blockquote {
+    margin: 0;
+    padding: 0;
+}
+
+button, select {
+    text-transform: none;
+}
+
+.select-style1:first-child select {
+    height: 36px;
+    padding-right: 6px;
+}
+
+.select-style1 {
+    height: 40px;
+    border: 1px solid #ccc;
+    float: left;
+    margin-right: 16px;
+    border-radius: 3px;
+    overflow: hidden;
+    background-color: #fff;
+    background: #fff url(../img/asset/icn_select_bk_24x48.png) no-repeat 100% 50%;
+}
+
+
+.select-style1 select {
+    /* padding-top: 26px; */
+    padding-left: 10px;
+    width: 100%;
+
+    font-size: 16px;
+    border: none;
+    box-shadow: none;
+    background-color: transparent;
+    background-image: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+div.select-style1.cute-size {
+    width: 110px;
+    margin: 10px;
+
+}
+
+
+article.on { display: block; ; }
+.wheredate { background-color: #fff;}
+.wheredate {width:900px; margin: 0 auto;}
+.wheredate {display: none; background: e8e8e8;}
+
+.wheredate .btn_date {
+    display: inline-block;
+    margin: 15px 0;  
+    position: relative;
+    padding: 0 0 0 45px;
+    width: 180px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    height: 30px; border-radius: 4px;
+    background: rgba(250, 250, 250, 0.7) url(../img/asset/ico_cal_2.png) 3px 50% no-repeat;
+    background-size: 25px;
+    line-height: 28px;
+    color: rgba(0, 0, 0, 0.87);
+}
+
+
+.wheredate .btn_date:after {
+    display: inline-block;
+    content: "";
+    position: absolute;
+    top: 3px;
+    right: 8px;
+    width: 24px;
+    height: 24px;
+    background: url(../img/asset/ico_arr_down.png) 0 0 no-repeat;
+    background-size: 24px auto;
+}
+
+/* @root start */
+.root {
+    font-family: sans-serif;
+}
+
+.root *,
+.root *:before,
+.root *:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.root .wrapper {
+    width: 1140px;
+    margin: 0 auto;
+    max-width: 100%;
+    padding: 0 15px;
+}
+
+.root .clearfix:after {
+    content: " ";
+    clear: both;
+    display: table;
+}
+/* @root end */
+
+/* @board1 start */
+.board1 {
+    margin-bottom: 30px;
+}
+
+.board1 .header {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.board1 .header .title {
+    font-size: 25px;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: bold;
+    color: #1259a7;
+}
+
+.board1 .header .desc {
+    margin-top: 10px;
+}
+
+.board1 .article table {
+    width: 100%;
+    max-width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+}
+
+.board1 .article table th,
+.board1 .article table td {
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 7px;
+    text-align: center;
+    font-size: 14px;
+    overflow: hidden;
+}
+
+.board1 .article table th {
+    background: #f2f6fa
+}
+
+.board1 .article table th.baksu {
+width: 76px;
+}
+
+
+.board1 .article table td.title {
+    text-align: center;
+}
+
+.board1 .article table td a {
+    cursor: pointer;
+}
+
+.board1 .article table td.title span {
+    display: inline-block;
+    padding: 3px 5px;
+    color: #fff;
+    font-size: 10px;
+    margin-left: 3px;
+}
+
+.board1 .article table td.title span.new {
+    background: #f71d1d;
+}
+
+.board1 .article table td.title span.update {
+    background: #1259a7;
+}
+
+.board1 .article table td a:hover {
+    text-decoration: underline;
+}
+
+.board1 .article .search {
+    margin-top: 20px;
+    font-size: 14px;
+    text-align: right;
+}
+
+.board1 .article .search .count {
+    float: left;
+    border: 1px solid #ddd;
+    padding: 12px;
+}
+
+.board1 .article .search .bundle {
+    width: 370px;
+    margin-left: auto;
+}
+
+.board1 .article .search .bundle select {
+    height: 42px;
+    border: 1px solid #ddd;
+    vertical-align: middle;
+    border-radius: 0;
+    padding: 0 5px;
+    float: left;
+    width: 35%;
+}
+
+.board1 .article .search .bundle input {
+    vertical-align: middle;
+    border: 1px solid #ddd;
+    border-left: 0;
+    border-radius: 0;
+    height: 42px;
+    padding: 0 10px;
+    float: left;
+    width: 53.5%;
+}
+
+.board1 .article .search button {
+    border: 1px solid #1259a7;
+    background: #1259a7;
+    vertical-align: middle;
+    color: #fff;
+    height: 42px;
+    cursor: pointer;
+    padding: 0 13px;
+    float: left;
+    width: 11.5%;
+}
+
+.board1 .article .pages {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.board1 .article .pages ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.board1 .article .pages ul>li {
+    display: inline-block;
+}
+
+.board1 .article .pages ul>li>a {
+    cursor: pointer;
+    display: inline-block;
+    padding: 8px 13px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+}
+
+.board1 .article .pages ul>li>a:hover {
+    background: #eee;
+}
+
+.board1 .article .pages ul>li.active>a {
+    background: #1259a7;
+    border-color: #1259a7;
+    color: #fff
+}
+
+@media(max-width:767px) {
+
+    .board1 .article table .check,
+    .board1 .article table .num,
+    .board1 .article table .date,
+    .board1 .article table .views {
+        display: none;
+    }
+
+    .board1 .article .search .count {
+        display: none;
+    }
+
+    .board1 .article .search .bundle {
+        width: 100%;
+    }
+}
+/* @board1 end */
+
+/* @container1 start */
+.container1 {
+    width: 100%;
+    margin: 0 auto;
+    max-width: 100%;
+    padding: 0 15px;
+}
+/* @container1 end */
+
+/* @title1 start */
+.title1 {
+    margin-bottom: 30px;
+}
+
+.title1 .header {
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.title1 .header a {
+    cursor: pointer;
+}
+
+.title1 .header a.title {
+    font-weight: bold;
+    font-size: 21px;
+}
+
+.title1 .header a.more {
+    float: right;
+    padding: 1px;
+    font-size: 42px;
+    line-height: 23px;
+}
+/* @title1 end */
+
+
+

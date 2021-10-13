@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="ko-KR" class="no-js">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Comaptible" content="IE=Edge">
+    <meta http-equiv="Cache-control" content="public">
+    <meta name="description" content="객실 및 예약설정에서 광고상품 구매까지 모든 관리가 가능한 여기어때 호스트하우스 전용 통합 마케팅 플랫폼">
+    <meta name="keywords" content="여기어때, 사장님사이트, 호스트하우스, 호스트홍보, 게스트하우스, 사장님전용사이트">
+    <meta name="author" content="Gray"><!-- humans.txt 처리 권장 -->
+    <meta name="apple-mobile-web-app-title" content="여기어때 호스트 하우스" />
+    <meta name="viewport"
+        content="width=device-width, initial-scale=0.3, minimum-scale=0.3, maximum-scale=1, user-scalable=yes">
+    <title>여기어때 호스트 하우스</title>
+    <link rel="canonical" href="https://guest.goodchoice.kr" />
+    <link rel="shortcut icon" type="image/x-icon" href="/host/img/asset/favicon_170822.ico" />
+    <link href="/host/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/host/css/common.host.css" rel="stylesheet">
+
+    <script src="/host/js/jquery-2.1.3.min.js"></script>
+    <script src="/host/js/jquery-ui.min.js"></script>
+    <script src="/host/js/jquery.lazyload.min.js"></script>
+
+                <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+                <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+                <![endif]-->
+
+
+</head>
+
+<body id="main">
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NNLLB5W" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+
+
+    <!-- 헤더 -->
+    <div th:replace="hostthy/host-header :: host-header"></div>
+    <!--헤더 끝 -->
+
+
+    <!-- Style -->
+
+
+    <!--  안연주 hidden 값 끝  mem 아이디임-->
+    <input type="hidden" name="id" id="id" th:value="${id}">
+    <!--    host id-->
+    <input type="hidden" name="hostid" id="hostid">
+    <!--   안연주 hidden 값 끝 -->
+
+    <section class="container">
+        <div class="menu-step3">
+            <div class="todo-layer">
+                <nav>
+                    <ul>
+                        <li>
+                            <span class="btn-todo"><img src="/host/img/asset/icn_1_info_64x64.png"></span>
+                            <span class="todo-desc">마이페이지 입력</span>
+                        </li>
+                        <li class="prog">
+                            <span class="do">&nbsp;</span>
+                            <span>&nbsp;</span>
+                            <span class="do">&nbsp;</span>
+                            <span>&nbsp;</span>
+                            <span class="do">&nbsp;</span>
+                            <span>&nbsp;</span>
+                            <span class="do">&nbsp;</span>
+                            <span>&nbsp;</span>
+                            <span class="do">&nbsp;</span>
+                        </li>
+                        <li>
+                            <span class="btn-todo on"><img src="/host/img/asset/icn_2_write_64x64.png"></span>
+                            <span class="todo-desc on">소개 작성</span>
+                        </li>
+                        <li class="prog">
+                            <span class="do">&nbsp;</span>
+                            <span>&nbsp;</span>
+                            <span class="do">&nbsp;</span>
+                            <span>&nbsp;</span>
+                            <span class="do">&nbsp;</span>
+                            <span>&nbsp;</span>
+                            <span class="do">&nbsp;</span>
+                            <span>&nbsp;</span>
+                            <span class="do">&nbsp;</span>
+                        </li>
+                        <li>
+                            <span class="btn-todo"><img src="/host/img/asset/icn_3_rule_64x64.png"></span>
+                            <span class="todo-desc">이용규칙 관리</span>
+                        </li>
+                        <li class="prog">
+                            <span class="do">&nbsp;</span>
+                            <span>&nbsp;</span>
+                            <span class="do">&nbsp;</span>
+                            <span>&nbsp;</span>
+                            <span class="do">&nbsp;</span>
+                            <span>&nbsp;</span>
+                            <span class="do">&nbsp;</span>
+                            <span>&nbsp;</span>
+                            <span class="do">&nbsp;</span>
+                        </li>
+                        <li>
+                            <span class="btn-todo"><img src="/host/img/asset/icn_4_room_64x64.png"></span>
+                            <span class="todo-desc">객실 관리</span>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div class="list-layer">
+            <div class="guest-title-layer mb_0 pb_0">
+                <ul>
+                    <li>[소개 작성] 은 게스트하우스 전체를 소개하는 기능입니다. (사진, 이벤트 정보, 오시는 길 등)</li>
+                    <li>우측 물음표를 클릭하시면 앱에서 어떻게 표시되는지 확인이 가능합니다.</li>
+                </ul>
+            </div>
+            <form class="form-horizontal" id="intro-form" method="post" name="intro"
+                enctype="multipart/form-data">
+                <input type="hidden" name="ano" value="2918" />
+                <input type="hidden" name="uno" value="15273241" />
+                <input class="form-control normal-size" id="input_jibunAddress" type="hidden" name="jibun_address1" />
+
+                <h3 class="guest-h3">[필수 기입 정보]</h3>
+                <table class="table table-bordered">
+                    <thead></thead>
+                    <tbody>
+                        <!-- 기본정보 -->
+                        <tr>
+                            <th>게스트 하우스<br /> 기본 정보</th>
+                            <td class="bd_r_none">
+                                <div class="form-layer mb_24">
+                                    <span class="form-title">업체명</span>
+                                    <span class="form-body">
+                                        <input class="form-control normal-size myIntcom"  type="text" name="aname"
+                                            placeholder="업체명을 입력하세요." value="" />
+                                    </span>
+                                </div>
+                                <div class="form-layer mb_24">
+                                    <span class="form-title">업체 주소</span>
+                                    <!-- BOD-1458 -->
+                                    <input type="hidden" name="dong_code" id="dong_code" value="" />
+                                    <span class="form-body">
+                                        <input class="form-control normal-size myIntcomadd1" id="input_roadAddress" type="text"
+                                            name="address1" readonly placeholder="업체 주소를 입력하세요." value="" />
+                                        <!--저장되는 주소값 myIntcomadd1_2을 기준으로 DB저장-->
+                                              <input type="hidden" name="input_roadAddress2" id="input_roadAddress2" class="myIntcomadd1 myIntcomadd1_2">
+
+                                        <button type="button" class="btn btn-yeogi btn-normal-layer"
+                                            onclick="daumPostCode()">주소 검색</button>
+                                    </span>
+                                </div>
+                                <div class="form-layer newline mb_24">
+                                    <span class="form-body">
+                                        <input class="form-control normal-size myIntcomadd2" type="text" name="address2"
+                                            placeholder="나머지 주소를 입력하세요." value="" />
+                                    </span>
+                                </div>
+
+                            </td>
+                            <td class="help-tooltip popover-container">
+                                <a href="javascript:void(0)" data-toggle="popover"><img
+                                        src="/host/img/asset/icn_tooltip.png" /></a>
+                                <div class="hide">
+                                    <span><img src="/host/img/tooltips/intro/img_tooltip01.png" /></span>
+                                </div>
+                            </td>
+                        </tr>
+                        <!--// 기본정보 -->
+
+                        <!-- 업체 이미지 -->
+                        <tr  style="display: none">
+                            <th>업체 이미지<br />(최대 20장)</th>
+                            <td class="bd_r_none">
+                                <div class="form-layer mb_15">
+                                    <p class="description text-normal">* 객실 및 업체 전경, 로비, 주차장 등 업체의 전반적인 이미지를 업로드해주시기
+                                        바랍니다.</p>
+                                    <p class="description text-normal">* 이미지 교체를 원하시면 "변경"을 선택하시고 삭제를 원하시면 우측 "삭제"를
+                                        선택하시기 바랍니다.</p>
+                                    <p class="description text-normal">* 이미지 장소는 짧게 기입해주시기 바랍니다. 예시) 전경, 로비, 주차장 등</p>
+                                    <p class="description text-normal">* 첫 이미지가 메인 이미지이며 드래그를 통해 순서 변경이 가능합니다.</p>
+                                </div>
+
+                                <div class="form-layer mb_15">
+                                    <ul id="room-images">
+                                    </ul>
+                                </div>
+
+                                <div class="form-layer-text">
+                                    <button type="button" class="btn btn-default btn_add" data-role="img-uploader"
+                                        data-ano="2918" data-armno="0" data-type="8">+ 이미지 추가</button>
+                                </div>
+                            </td>
+                            <td class="help-tooltip popover-container">
+                                <a href="javascript:void(0)" data-toggle="popover"><img
+                                        src="/host/img/asset/icn_tooltip.png" /></a>
+                                <div class="hide">
+                                    <span><img src="/host/img/tooltips/intro/img_tooltip02.png" /></span>
+                                </div>
+                            </td>
+                        </tr>
+                        <!--// 업체 이미지 -->
+
+                        <!-- 편의시설/서비스 안내 -->
+                        <tr id="target_host">
+                            <th>편의시설<br />서비스 안내</th>
+                            <td class="bd_r_none">
+                                <div class="form-layer align_chk chk_date1">
+                                <!--<label for=""> 와 <태그 id="">값은 서로 그룹을 형성합니다.-->
+                                    <label for="myService" class="checkbox-inline icon-label">
+                                        <input type="checkbox" id="myService" name="ad_theme" value="수영장" />수영장
+                                    </label>
+                                    <label for="myService2" class="checkbox-inline icon-label">
+                                        <input type="checkbox" id="myService2" name="ad_theme[]" value="와이파이" />와이파이 </label>
+                                    <label for="myService3" class="checkbox-inline icon-label">
+                                        <input type="checkbox" id="myService3" name="ad_theme[]" value="욕실용품" />욕실용품 </label>
+                                    <label for="myService4" class="checkbox-inline icon-label">
+                                        <input type="checkbox" id="myService4" name="ad_theme[]" value="반려견동반" />반려견동반 </label>
+                                    <label for="myService5" class="checkbox-inline icon-label">
+                                        <input type="checkbox" id="myService5" name="ad_theme[]" value="발렛파킹" />발렛파킹
+                                    </label>
+                                    <label for="myService6" class="checkbox-inline icon-label">
+                                        <input type="checkbox" id="myService6" name="ad_theme[]" value="편의점" />편의점 </label>
+                                    <label for="myService7" class="checkbox-inline icon-label">
+                                        <input type="checkbox" id="myService7" name="ad_theme[]" value="엘리베이터" />엘리베이터 </label>
+                                    <label for="myService8" class="checkbox-inline icon-label">
+                                        <input type="checkbox" id="myService8" name="ad_theme[]" value="조식포함" />조식포함 </label>
+
+                                </div>
+                            </td>
+                            <td class="help-tooltip popover-container">
+                                <a href="javascript:void(0)" data-toggle="popover"><img
+                                        src="/host/img/asset/icn_tooltip.png" /></a>
+                                <div class="hide">
+                                    <span><img src="/host/img/tooltips/intro/img_tooltip03.png" /></span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="host-intro">
+                            <th>주인장 소개글<br />(호스트 소개)</th>
+                            <td colspan="2">
+                            <!--업주 실명 및 업주 사진 노출-->
+                                <div class="host-intro__checkbox-wrap form-layer" style="display: none">
+                                    <!-- 클릭이벤트를 대신 받는다 -->
+                                    <div class="checkbox-wrap__fake-block" data-click="modal" data-toggle="modal"
+                                        aria-hidden="false"></div>
+                                    <span>
+                                        <label class="form-title">
+                                            <input type="checkbox" data-privacy="agree" class="data-privacy"
+                                                name="ad_manager_agree" value="Y" />업주 실명 및 업주 사진 노출
+                                        </label>
+                                    </span>
+                                </div>
+                                <!--업주 실명 및 업주 사진 노출-->
+                                <!--업주 실명-->
+                                <div class="form-layer mb_24" style="display: none">
+                                    <span class="form-title">업주 실명</span>
+                                    <span class="form-body">
+                                        <input class="form-control normal-size" type="text" data-host="name"
+                                            id="ad_manager_name" name="ad_manager_name" placeholder="실명을 입력해주세요."
+                                            value="" />
+                                    </span>
+                                </div>
+                                <!--업주 실명끝-->
+                                <!--업주 파일-->
+                                <div class="form-layer mb_15" style="display: none">
+
+
+                                    <!-- show if 호스트 사진이미지가 없을 때 -->
+                                    <div class="form-body">
+                                        <div class="add-image">
+                                            <!-- <button type="button" class="btn btn-default btn_add" data-toggle="modal" data-host="image" data-target="#hostImageUpload">+ 이미지 추가</button> -->
+                                            <div>
+                                                <!-- input file -->
+                                                <div class="box">
+                                                    <input type="file" style="height:auto;" title="업주사진"
+                                                        name="ad_manager_profile" id="ad_manager_profile" />
+                                                </div>
+                                                <!-- 이미지를 가져왔을 때 결과 이미지 -->
+                                                <div class="result">
+                                                    <input type="hidden" name="ad_manager_profile_original" value="">
+                                                    <img id="host-image" src="" alt="호스트 이미지">
+                                                </div>
+                                                <!--// 이미지를 가져왔을 때 결과 이미지 -->
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <!--업주 파일끝-->
+
+                                <div class="form-layer">
+                                    <textarea class="form-control textarea-layer myIntro" rows="6" name="r_comment"
+                                        placeholder="사장님의 특이 경력 혹은 사장님만의 재밌는 이야기가 있다면 게스트들에 소개해주세요.&#13;&#10;게스트는 숙소의 시설과 위치, 서비스는 물론, 사장님이 어떤 분인지도 관심이 있답니다."></textarea>
+<!--                                    <span id="remain-r_comment" class="remain-cnt float-right">(<span-->
+<!--                                            id="count">0</span>/<span id="max">1000</span>)</span>-->
+                                </div>
+                                <span class="exam-button"> <i class="fa fa-angle-down" aria-hidden="true"></i></span>
+                                <div class="exam-layer-guide1">
+                                    <div class="exam-detail-layer">
+                                        <span class="guide-text">
+                                            전 세계 50여개국 배낭여행 경험을 바탕으로 여행을 사랑하는 여행객들에게 필요한 서비스와 편안한 휴식을 제공하자는 모토로 게스트하우스를
+                                            운영하고 있는 홍길동 주인장입니다.
+                                            <br /><br />
+                                            세계 일주를 해보았지만 그래도 최고라고 여기는 도시는 서울인데요 서울의 맛과 멋을 함께 즐길 수 있도록 여행쟁이 주인장이 최선을 다해
+                                            도와드리겠습니다.
+                                            <br /><br />
+                                        </span>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <!--// 주인장 소개글 -->
+
+                        <!-- 오시는길 -->
+                        <tr>
+                            <th>오시는길</th>
+                            <td colspan="2">
+                                <div class="form-layer">
+                                    <textarea class="form-control textarea-layer myComeway" rows="6" name="find_way"
+                                        placeholder="주요 버스터미널이나 기차역 혹은 공항 등에서 숙소까지 찾아가는 방법을 자세히 기재해 주세요."></textarea>
+                                    <span id="remain-traffic_info" class="remain-cnt float-right">(<span
+                                            id="count">0</span>/<span id="max">1000</span>)</span>
+                                </div>
+                                <span class="exam-button"> <i class="fa fa-angle-down" aria-hidden="true"></i></span>
+                                <div class="exam-layer-guide2">
+                                    <div class="exam-detail-layer">
+                                        <span class="guide-text">
+                                            [인천공항에서 오시는 방법]<br />
+                                            공항리무진 6015번 버스를 승차하신후, '명동역/세종호텔' 정류장에서 하차하세요.<br />
+                                            세종호텔 맞은편 횡단보도를 건넌 후 '세븐일레븐' 쪽으로 오세요.<br />
+                                            '세븐일레븐' 앞 명동역 3번출구 오른쪽으로 300m 직진하시면 파란대문의 '게스트하우스' 팻말이 보입니다
+                                            <br /><br />
+                                            [김포공항에서 오시는 방법]<br />
+                                            공항리무진 6001번 버스를 승차하신 후, '명동역/세종호텔' 정류장에서 하차하세요.
+                                            <br /><br />
+                                            [4호선 명동역에서 오시는 방법]<br />
+                                            4호선 명동역 3번 출구로 나오세요<br />
+                                            출구 오른쪽으로 300m 직진하시면 파란대문의 '게스트하우스' 팻말이 보입니다.
+                                            <br /><br />
+                                        </span>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <!--// 오시는길 -->
+                        <tr>
+                            <th>주변 정보</th>
+                            <td colspan="2">
+                                <div class="form-layer-text">
+                                    <p class="description text-normal">* 숙소 주변의 명소(교통, 관광, 쇼핑 등 )와 이동수단, 게스트하우스로부터 소요시간을
+                                        기입해주세요.</p>
+                                    <p class="description text-normal">* [명소 / 이동수단 / 소요시간] 순으로 한줄만 입력이 가능하며 최대 3개까지 작성
+                                        가능합니다.</p>
+                                    <p class="description text-normal">* 예시) 가산디지털단지역 도보 5분</p>
+                                    <p class="description text-normal">* 예시) 팔당댐 차량 10분</p>
+                                </div>
+                                <br />
+                                <div class="form-layer">
+                                    <input type="text" class="form-control mySidein1" style="width:714px" name="traffic_info"
+                                        placeholder="숙소 주변의 명소를 홍보하여 주세요.&#13;&#10;교통, 관광, 쇼핑 명소부터 게스트하우스까지의 소요시간을 예시 문구를 참고하여 작성해 주시면&#13;&#10;게스트들이 예약할 때 큰 도움이 됩니다."
+                                        value="" />
+                                    <br />
+                                    <input type="text" class="form-control mySidein2" style="width:714px" name="traffic_info2"
+                                        placeholder="숙소 주변의 명소를 홍보하여 주세요.&#13;&#10;교통, 관광, 쇼핑 명소부터 게스트하우스까지의 소요시간을 예시 문구를 참고하여 작성해 주시면&#13;&#10;게스트들이 예약할 때 큰 도움이 됩니다."
+                                        value="" />
+                                    <br />
+                                    <input type="text" class="form-control mySidein3" style="width:714px" name="traffic_info3"
+                                        placeholder="숙소 주변의 명소를 홍보하여 주세요.&#13;&#10;교통, 관광, 쇼핑 명소부터 게스트하우스까지의 소요시간을 예시 문구를 참고하여 작성해 주시면&#13;&#10;게스트들이 예약할 때 큰 도움이 됩니다."
+                                        value="" />
+                                </div>
+                                <span class="exam-button"> <i class="fa fa-angle-down" aria-hidden="true"></i></span>
+                                <div class="exam-layer-guide3">
+                                    <div class="exam-detail-layer">
+                                        <span class="guide-text">
+                                            명동 도보 5분<br />application/host/views/pages/guest/intro.php
+
+                                            남산공원 버스 15분<br />
+                                            청계천 지하철 10분
+                                            <br /><br />
+                                        </span>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>숙소 이용<br />규칙</th>
+                            <td colspan="2">
+                                <div class="form-layer">
+                                    <textarea class="form-control textarea-layer myRmrule" rows="6" name="detail[]"
+                                        placeholder="숙소 내 필수 이용규칙이 있을 경우 기재해주세요."></textarea>
+                                </div>
+                                <span class="exam-button"> <i class="fa fa-angle-down" aria-hidden="true"></i></span>
+                                <div class="exam-layer-guide4">
+                                    <div class="exam-detail-layer">
+                                        <span class="guide-text">
+                                            전객실금연<br />
+                                            (금연건물로 흡연시 미환불 강제퇴실)<br />
+                                            애완동물 출입금지<br />
+                                            금, 토 24시간 출입자유<br />
+                                            (단 일~월 소등시간 AM 1시, 1시 이후 출입 제한)<br />
+                                            AM 1시 이후 샤워 불가<br />
+                                            객실 내 식음 금지, 식당 이용
+                                            <br /><br />
+                                        </span>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3 class="guest-h3">[선택 기입 정보] <span>- 내용이 없으면 작성하지 않으셔도 되지만, 보다 많은 정보를 제공하여 매출 증대에 도움이 될수 있는
+                        메뉴입니다.</span></h3>
+                <table class="table table-bordered">
+                    <thead></thead>
+                    <tbody>
+                        <tr>
+                            <th>한줄평</th>
+                            <td class="bd_r_none">
+                                <div class="form-layer">
+                                    <input type="text" class="form-control myOneline" style="width:714px; height: 55px;"
+                                        name="summary" maxlength="32"
+                                        placeholder="숙소의 장점을 부각시켜 게스트에게 어필할 수 있는 한 줄을 기재해주세요. [32자 내외]" value="" />
+                                </div>
+        </div>
+        </td>
+        <td class="help-tooltip popover-container">
+            <a href="javascript:void(0)" data-toggle="popover"><img src="/host/img/asset/icn_tooltip.png" /></a>
+            <div class="hide">
+                <span><img src="/host/img/tooltips/intro/img_tooltip04.png" /></span>
+            </div>
+        </td>
+        </tr>
+        <tr style="display: none">
+            <th>이벤트 정보</th>
+            <td colspan="2">
+                <div class="form-layer mb_24">
+                    <input type="text" class="form-control" name="promo_title"
+                        placeholder="업체 이미지에 표시되는 대표적인 이벤트 한줄을 남겨주세요." value="" />
+                    <br />
+                    <textarea class="form-control textarea-layer" rows="6" id="event" name="promo_content"
+                        placeholder="게스트하우스 주관의 이벤트 정보를 기재해주세요."></textarea>
+                </div>
+                <span class="exam-button"> <i class="fa fa-angle-down" aria-hidden="true"></i></span>
+                <div class="exam-layer-guide5">
+                    <div class="exam-detail-layer">
+                        <span class="guide-text">
+                            옥상 바베큐 파티 외 2건
+                            <br /><br />
+                        </span>
+                        <span class="guide-text2">
+                            [옥상 삼겹살 파티]<br />
+                            일시 : 매주 금, 토 / 21:00~<br />
+                            내용 : 1인 10,000원 (삼겹살+무한맥주)
+                            <br /><br />
+                            [비누 만들기 체험]<br />
+                            일시 : 매주 월 / 14:00~15:00<br />
+                            내용 : 1인 1,000원 (게스트하우스 로비)
+                            <br /><br />
+                            [서울 야경 투어]<br />
+                            일시 : 매주 화, 목 / 오후 20시~22시<br />
+                            내용 : 1인 3,000원 / 3인 이상시 출발 / (게스트하우스 로비)
+                            <br /><br />
+                        </span>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th>현장 요금<br />추가 정보</th>
+            <td colspan="2">
+                <div class="form-layer">
+                    <textarea class="form-control textarea-layer myPcash" rows="6" name="detail[]"
+                        placeholder="숙소에서 제공되는 숙박비 외의 유료 서비스가 있을 경우 가격정보와 함께 항목을 기재해주세요."></textarea>
+                </div>
+                <span class="exam-button"> <i class="fa fa-angle-down" aria-hidden="true"></i></span>
+                <div class="exam-layer-guide6">
+                    <div class="exam-detail-layer">
+                        <span class="guide-text">
+                            [키보증금]<br />
+                            50,000원 (퇴실시 체크 후 반환)
+                            <br /><br />
+                            [와이파이 에그 렌탈서비스]<br />
+                            1일당 5,000원<br />
+                            현장 결제 및 추가비용 게스트하우스 문의
+                            <br /><br />
+                        </span>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th>주차장 정보</th>
+            <td colspan="2">
+                <div class="form-layer">
+                    <textarea class="form-control textarea-layer myParking" rows="6" name="detail[]"
+                        placeholder="주차장 유/무료 정보 및 시간당 요금을 기재해주세요."></textarea>
+                </div>
+                <span class="exam-buttoxn"> <i class="fa fa-angle-down" aria-hidden="true"></i></span>
+                <div class="exam-layer-guide7">
+                    <div class="exam-detail-layer">
+                        <span class="guide-text">
+                            숙소 앞 공용 유료 주차장<br />
+                            (시간당 2,000원 / 22시 이후 무료)
+                            <br /><br />
+                        </span>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="display: none">
+                <textarea class="form-control textarea-layer" rows="6" name="detail[]">체크인일 기준 7일 전 : 100% 환불
+                    체크인일 기준 6 ~ 4일 전 : 50% 환불
+                    체크인일 기준 3일 전 ~ No-Show : 환불불가
+                    취소, 환불시 수수료가 발생할 수 있습니다.</textarea>
+            </td>
+        <tr>
+            <th>확인 사항<br />및 기타</th>
+            <td colspan="2">
+                <div class="form-layer">
+                    <textarea class="form-control textarea-layer myKakunin" rows="6" name="detail[]"
+                        placeholder="기재된 숙소 정보 외에 게스트 숙지 사항을 기재해주세요."
+                        style="min-height:120px !important;height:120px !important"></textarea>
+                </div>
+                <span class="exam-button"> <i class="fa fa-angle-down" aria-hidden="true"></i></span>
+                <div class="exam-layer-guide8">
+                    <div class="exam-detail-layer">
+                        <span class="guide-text">
+                            3박이상 숙박시 20% 할인<br />
+                            시즌별 객실 가격 상이하오니 확인바랍니다.<br />
+                            위의 정보는 게스트하우스 사정에 따라 변경될 수 있습니다.<br />
+                            해당 이미지는 실제와 상이 할 수 있습니다.<br />
+                            예약 확정 이후의 취소는 취소환불규정에 의거하여 적용됩니다.
+                            <br /><br />
+                        </span>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+        </table>
+        <div class="submit-layer">
+            <button class="btn btn-yeogi btn-submit" type="button" onclick="patchit()">저장 후 다음 단계</button>
+        </div>
+        </form>
+        </div>
+
+    </section>
+
+
+
+    <!-- 모달  -->
+    <!-- 개인정보동의  -->
+    <div class="modal fade privacy-modal host-related-modal" id="showInfo" tabindex="-1" role="dialog"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <strong>동의한 개인정보는 App에서 노출되어, 이용자가 수시로 확인할 수 있습니다. 아래의 개인정보 수집&middot;이용에 대한 내용을 신중하게 읽은 후 동의 여부를
+                        결정하여 주시기 바랍니다.</strong>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>개인정보 항목</th>
+                                <th>수집&middot;이용 목적</th>
+                                <th>보유기간</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>업주 이름, 업주 사진</td>
+                                <td>서비스 신뢰성 향상을 위한 홍보</td>
+                                <td>이용목적 달성 후 즉시 삭제</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div>
+                        <span>개인정보를 수집&middot;이용하는데 동의하시겠습니까?</span>
+                        <ul class="caution">
+                            <li>동의를 원하지 않는 경우 "취소"를 눌러 거부할 수 있습니다.</li>
+                            <li>동의한 후에도 "노출 체크박스"를 비활성하여 언제든지 거부할 수 있습니다.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn" data-dismiss="modal">취소</button>
+                    <button type="button" class="btn" data-confirm="true">동의</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--// 개인정보동의  -->
+
+    <!-- 노출 삭제 -->
+    <div class="modal fade host-related-modal privacy-modal" id="deleteInfo" tabindex="-1" role="dialog"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <strong>체크 해제 시, 업주 실명 및 사진이 여기어때 DB에서 완전히 삭제되며, 더이상 App에서도 노출되지 않습니다. 계속 진행하시겠습니까?</strong>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" data-confirm="false" class="btn btn-primary delete_btn">삭제</button>
+                    <button type="button" class="btn" data-dismiss="modal">취소</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--// 노출 삭제 -->
+
+    <!-- //테스트 모달 -->
+
+
+    <!--이거는 무서우니까 일단 냅두기로-->
+    <script src="/host/js/upload.js?nocache=2021-08-18 19:17:31"></script>
+    <script src="/host/js/dmuploader.js"></script>
+    <script src="https://spi.maps.daum.net/imap/map_js_init/postcode.v2.js"></script>
+
+
+    <script>
+        /*var test = (function() {
+        var hostBlock = document.querySelector('.host-intro');
+        var confirmBtn = document.querySelector('[data-confirm=true]');
+        var deleteBtn = document.querySelector('[data-confirm=false]');
+        var modalOpenBtn = this.hostBlock.querySelector('.checkbox-wrap__fake-block');
+        var hostName = this.hostBlock.querySelector('[data-host=name]');
+        var imageUploader = this.hostBlock.querySelector('#ad_manager_profile')
+        var dataPrivacy = this.hostBlock.querySelector('.data-privacy');
+
+        function init() {
+            hostName.disabled = !this.dataPrivacy.checked;
+            imageUploader.disabled = !this.dataPrivacy.checked;
+            bindEvents();
+        }
+
+        //
+        init();
+    })*/
+        var hostPrivacy = {
+            initialize: function () {
+                this.hostBlock = document.querySelector('.host-intro');
+                this.confirmBtn = document.querySelector('[data-confirm=true]');
+                this.deleteBtn = document.querySelector('[data-confirm=false]');
+                this.modalOpenBtn = this.hostBlock.querySelector('.checkbox-wrap__fake-block');
+                this.hostName = this.hostBlock.querySelector('[data-host=name]');
+                this.hostImage = this.hostBlock.querySelector('#host-image')
+                this.imageUploader = this.hostBlock.querySelector('#ad_manager_profile')
+                this.dataPrivacy = this.hostBlock.querySelector('.data-privacy');
+
+                this.rendered();
+                this.bindEvents();
+            },
+            bindEvents: function () {
+
+                var _this = this;
+
+                this.modalOpenBtn.addEventListener('click', _this.selectModal);
+
+                this.confirmBtn.addEventListener('click', function () {
+                    $('#showInfo').modal('hide');
+                    _this.dataPrivacy.checked = true;
+
+                    _this.checkAgreement(_this.dataPrivacy.checked);
+                });
+
+                this.deleteBtn.addEventListener('click', function () {
+                    $('#deleteInfo').modal('hide');
+                    _this.dataPrivacy.checked = false;
+
+                    _this.checkAgreement(_this.dataPrivacy.checked);
+                    _this.deleteInfo();
+                });
+
+                this.imageUploader.addEventListener('change', _this.uploadResultImage);
+            },
+            rendered: function () {
+                this.hostName.disabled = !this.dataPrivacy.checked;
+                this.imageUploader.disabled = !this.dataPrivacy.checked;
+                if (this.dataPrivacy.checked) {
+                    $('.host-intro .result').css('display', 'block');
+                }
+            },
+            selectModal: function (e) {
+                var modalType = $('.data-privacy').is(':checked') ? '#deleteInfo' : '#showInfo';
+
+                e.target.setAttribute('data-target', modalType);
+            },
+            checkAgreement: function (isChecked) {
+                $('#ad_manager_name').attr('disabled', !isChecked);
+                $('#ad_manager_profile').attr('disabled', !isChecked);
+            },
+            deleteInfo: function () {
+                this.hostName.value = '';
+                this.imageUploader.value = '';
+                this.hostImage.src = '';
+                $('.host-intro .result').css('display', 'none');
+            },
+            uploadResultImage: function (e) {
+                $('.host-intro .result').css('display', 'block');
+                handleImgFileSelect(e);
+            }
+        };
+
+        // 개인정보 노출 동의여부 체크
+
+        $(function () {
+            hostPrivacy.initialize();
+
+
+            $("#room-images").sortable();
+            $("#room-images").disableSelection();
+
+            $('div.exam-layer-guide1').addClass('hide');
+            $('div.exam-layer-guide2').addClass('hide');
+            $('div.exam-layer-guide3').addClass('hide');
+            $('div.exam-layer-guide4').addClass('hide');
+            $('div.exam-layer-guide5').addClass('hide');
+            $('div.exam-layer-guide6').addClass('hide');
+            $('div.exam-layer-guide7').addClass('hide');
+            $('div.exam-layer-guide8').addClass('hide');
+            $('span.exam-button i').attr('class', 'fa fa-angle-down');
+            $('div.exam-layer-guide1').removeClass('hide');
+            $('div.exam-layer-guide2').removeClass('hide');
+            $('div.exam-layer-guide3').removeClass('hide');
+            $('div.exam-layer-guide4').removeClass('hide');
+            $('div.exam-layer-guide5').removeClass('hide');
+            $('div.exam-layer-guide6').removeClass('hide');
+            $('div.exam-layer-guide7').removeClass('hide');
+            $('div.exam-layer-guide8').removeClass('hide');
+            $('span.exam-button i').attr('class', 'fa fa-angle-up');
+            $('.guest-title-layer').css('margin-top', '0');
+            $('.guest-title-layer').css('border-radius', '5px');
+
+
+            // 주인장 소개글 글자 수 체크
+            $('#remain-r_comment').each(function () {
+                var count = $("#count", this);
+                var max = $("#max", this);
+
+                var maximumCount = count.text() * 1;
+                var maximumNumber = max.text() * 1;
+
+                var input = $(this).prev();
+
+                var update = function () {
+
+                    var before = count.text() * 1;
+                    var now = maximumCount + input.val().length;
+
+                    if (now > maximumNumber) {
+
+                        var str = input.val();
+                        alert('글자 입력수가 초과하였습니다.');
+                        input.val(str.substring(maximumNumber, 0));
+                    }
+
+                    if (before !== now) {
+
+                        count.text(now);
+                    }
+                };
+
+                input.bind('input keyup paste', function () {
+
+                    setTimeout(update, 0)
+                });
+                update();
+            });
+
+            // 오시는길 글자 수 체크
+            $('#remain-traffic_info').each(function () {
+                var count = $("#count", this);
+                var max = $("#max", this);
+
+                var maximumCount = count.text() * 1;
+                var maximumNumber = max.text() * 1;
+
+                var input = $(this).prev();
+
+                var update = function () {
+
+                    var before = count.text() * 1;
+                    var now = maximumCount + input.val().length;
+
+                    if (now > maximumNumber) {
+
+                        var str = input.val();
+                        alert('글자 입력수가 초과하였습니다.');
+                        input.val(str.substring(maximumNumber, 0));
+                    }
+
+                    if (before !== now) {
+
+                        count.text(now);
+                    }
+                };
+
+                input.bind('input keyup paste', function () {
+
+                    setTimeout(update, 0)
+                });
+                update();
+            });
+
+        });
+
+        function handleImgFileSelect(e) {
+            var files = e.target.files;
+            var filesArr = Array.prototype.slice.call(files);
+
+            filesArr.forEach(function (f) {
+                if (!f.type.match("image.*")) {
+                    alert('이미지 확장자만 가능합니다.');
+                    return;
+                }
+
+                var reader = new FileReader();
+
+                reader.onload = function (ev) {
+                    var resultBlock = document.getElementById('host-image');
+                    resultBlock.src = ev.target.result;
+                    imageSizing(resultBlock);
+                };
+
+                reader.readAsDataURL(f);
+            })
+        }
+
+        function imageSizing(targetElement) {
+            var targetStyle = window.getComputedStyle(targetElement, null);
+            var sizeStandard = targetStyle.height - targetStyle.width >= 0 ? 'width' : 'height';
+            targetElement.setAttribute('style', sizeStandard + ": 300px");
+        }
+    </script>
+
+    <!-- 푸터 -->
+    <div th:replace="hostthy/host-footer :: host-footer"></div>
+    <!--푸터 끝 -->
+
+
+
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<!-- <script src="../host/js/ie10-viewport-bug-workaround.js"></script> -->
+<script src="/host/js/bootstrap.min.js"></script>
+<!--이미지추가버튼-->
+<!-- <script src="../host/js/moment.min.js"></script> -->
+<!-- <script src="../host/js/daterangepicker.js"></script> -->
+<!-- <script src="../host/js/bootstrap-timepicker.js"></script> -->
+<script src="/host/js/common.host.js?nocache=1629281851.7014"></script>
+<script src="/host/js/guest.host.js?nocache=1629281851.7014"></script>
+
+
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+
+        $(function (){
+
+
+            //멤버 아이디
+        // const memid = $('#id').val();
+        // console.log("멤버아이디"+memid)
+
+            // const sessionId  = sessionStorage.getItem('userid');
+            // console.log("userid :" + sessionId);
+
+
+
+            //axios get 해서 뿌리기 memid=================================================
+        axios.get('/api/tbmem/tbhost/' + sessionId , {
+
+        }).then(function (response) {
+            console.log(response);
+
+
+            const hostid = response.data.data.tbMemApiResponse.tbHostApiResponseList[0].id;
+            $("input[name='hostid']").attr("value", hostid);
+            console.log('호스트id :'+ hostid);
+
+            const myIntcom = response.data.data.tbMemApiResponse.tbHostApiResponseList[0].myIntcom; //host 업체명
+            const myIntcomadd1 = response.data.data.tbMemApiResponse.tbHostApiResponseList[0].myIntcomadd1//host 업체 주소
+            const myIntcomadd2 = response.data.data.tbMemApiResponse.tbHostApiResponseList[0].myIntcomadd2 //host  업체 주소 2
+            // const my_service
+            const myIntro = response.data.data.tbMemApiResponse.tbHostApiResponseList[0].myIntro; // 주인장 소개글
+            const myComeway = response.data.data.tbMemApiResponse.tbHostApiResponseList[0].myComeway; // 오시는 길
+            const mySidein1 = response.data.data.tbMemApiResponse.tbHostApiResponseList[0].mySidein1; // 오시는길1
+            const mySidein2 = response.data.data.tbMemApiResponse.tbHostApiResponseList[0].mySidein2; // 오시는길2
+            const mySidein3 = response.data.data.tbMemApiResponse.tbHostApiResponseList[0].mySidein3; // 오시는길3
+            const myRmrule = response.data.data.tbMemApiResponse.tbHostApiResponseList[0].myRmrule; // 숙소이용규칙
+            const myOneline = response.data.data.tbMemApiResponse.tbHostApiResponseList[0].myOneline;//한줄평
+            //이벤트제목 안씀
+            //이벤트내용 안씀
+            const myPcash = response.data.data.tbMemApiResponse.tbHostApiResponseList[0].myPcash//현장 요금 추가정보
+            const myParking = response.data.data.tbMemApiResponse.tbHostApiResponseList[0].myParking//주차장 정보
+            const myKakunin = response.data.data.tbMemApiResponse.tbHostApiResponseList[0].myKakunin//확인 사항 및 기타
+
+            console.log("업체명"+myIntcom);
+            console.log("업체 주소"+myIntcomadd1);
+            console.log("업체 주소 2"+myIntcomadd2);
+            console.log("주인장 소개글"+myIntro);
+            console.log("오시는 길"+myComeway);
+            console.log("오시는길1"+mySidein1);
+            console.log("오시는길2"+mySidein2);
+            console.log("오시는길3"+mySidein3);
+            console.log("숙소이용규칙"+myRmrule);
+            console.log("한줄평"+myOneline);
+            console.log("현장 요금 추가정보"+myPcash);
+            console.log("주차장 정보"+myParking);
+            console.log("확인 사항 및 기타"+myKakunin);
+            // const memEmail2 = response.data.data.tbPay2tList; //undifined
+            // console.log(memEmail2); //undifined
+            // $('input[name=memEmail2]').attr('value',memEmail2);//undifined
+
+
+            $('.myIntcom').attr('value',myIntcom); // 업체명
+            $('.myIntcomadd1').attr('value',myIntcomadd1); //host 업체 주소1
+            $('.myIntcomadd2').attr('value',myIntcomadd2); //host 업체 주소2
+            $('.myIntro').attr('value',myIntro); //host  주인장 소개글
+            $('.myIntro').text(myIntro);
+            // const my_service
+            $('.myComeway').attr('value',myComeway); // 오시는 길
+            $('.myComeway').text(myComeway);
+            $('.mySidein1').attr('value',mySidein1);// 오시는길1
+            $('.mySidein2').attr('value',mySidein2);// 오시는길2
+            $('.mySidein3').attr('value',mySidein3);// 오시는길3
+            $('.myRmrule').attr('value',myRmrule);// 숙소이용규칙
+            $('.myRmrule').text(myRmrule);
+
+            $('.myOneline').attr('value',myOneline);//한줄평
+            //이벤트제목 안씀
+            //이벤트내용 안씀
+            $('.myPcash').attr('value',myPcash);//현장 요금 추가정보
+            $('.myPcash').text(myPcash);
+            $('.myParking').attr('value',myParking);//주차장 정보
+            $('.myParking').text(myParking);
+            $('.myKakunin').attr('value',myKakunin);//확인 사항 및 기타
+            $('.myKakunin').text(myKakunin);
+
+
+        }).catch(function (error) {
+
+        });
+
+        })//onready펑션끝
+        //axios get 해서 뿌리기 끝 ===============================================
+
+        //수정 후 다음으로
+        function patchit(){
+
+            const hostid = $('#hostid').val();
+            console.log('hostid:'+hostid);
+
+
+
+            const myIntcom = $(".myIntcom").val(); //업체명
+            console.log("업체명 :" + myIntcom);
+            //게스트 하우스 기본 정보 - 업체 주소
+            const myIntcomadd1 = $(".myIntcomadd1_2").val(); //myAddr1 은 두 태그가 사용중이라
+            console.log('게스트업체 주소 : '+ myIntcomadd1)
+            const myIntcomadd2 = $(".myIntcomadd2").val();
+            console.log('게스트업체 주소2 : '+ myIntcomadd2)
+
+            //편의시설 서비스 안내 checkbox
+            //myService
+            let days1 = "";
+            let forweek1 = $(".chk_date1 input:checkbox");
+            let week1 = ["수영장,", "와이파이,", "욕실용품,", "반려견동반,", "발렛파킹,", "편의점,", "엘리베이터,", "조식포함,"];
+
+            for (let i = 0; i < forweek1.length; i++) {
+                if($(".chk_date1 input:checkbox").eq(i).prop("checked")) {
+                    days1 += week1[i];
+                }
+            }
+
+            days1 = days1.substring(0, days1.lastIndexOf(","))
+            console.log(days1);
+
+
+            const myIntro = $(".myIntro").val();
+            console.log('주인장 소개글  : '+ myIntro)
+            const myComeway = $(".myComeway").val();
+            console.log('오시는 길  : '+ myComeway)
+            const mySidein1 = $(".mySidein1").val();
+            console.log('오시는길1  : '+ mySidein1)
+            const mySidein2 = $(".mySidein2").val();
+            console.log('오시는길2  : '+ mySidein2)
+            const mySidein3 = $(".mySidein3").val();
+            console.log('오시는길3  : '+ mySidein3)
+
+            const myRmrule = $(".myRmrule").val();
+            console.log('숙소이용규칙  : '+ myRmrule)
+            const myOneline = $(".myOneline").val();
+            console.log('한줄평  : '+ myOneline)
+            const myPcash = $(".myPcash").val();
+            console.log('현장 요금 추가정보  : '+ myPcash)
+            const myParking = $(".myParking").val();
+            console.log('주차장 정보  : '+ myParking)
+            const myKakunin = $(".myKakunin").val();
+            console.log('확인 사항 및 기타 : '+ myKakunin)
+
+
+
+
+            axios.request({
+                method: 'PATCH',
+                url: '/api/host/host2/'+ hostid,
+                headers: {'Content-type':'application/json'},
+                data: {
+                    transaction_time:"2021-09-27",
+                    resultCode:"OK",
+                    description:"OK",
+                    data:{
+                        id: hostid,
+                        myIntcom: myIntcom,
+                        myIntcomadd1: myIntcomadd1,
+                        myIntcomadd2: myIntcomadd2,
+                        myService: days1,
+                        myIntro: myIntro,
+                        myComeway: myComeway,
+                        mySidein1: mySidein1,
+                        mySidein2: mySidein2,
+                        mySidein3: mySidein3,
+                        myRmrule: myRmrule,
+                        myOneline: myOneline,
+                        myPcash: myPcash,
+                        myParking: myParking,
+                        myKakunin: myKakunin
+
+                        // tbMemId: memid
+
+
+                    }
+                }
+            }).then(
+                alert('저장되었습니다!'),
+            location.href="/hosthousemain/guestdetail/"+ sessionId
+            )
+
+            return false;
+        }
+
+    </script>
+
+
+
+
+</body>
+
+</html>

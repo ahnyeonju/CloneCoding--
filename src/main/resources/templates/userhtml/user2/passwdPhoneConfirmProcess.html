@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type">
+    <meta name="csrf-name" content="yeogi_token">
+
+    <meta name="description" content="여기어때 회원 가입 | 전국 호텔, 펜션, 모텔부터 워터파크, 놀이공원, 아쿠아리움까지 최저가 할인 예약">
+
+    <link rel="shortcut icon" href="/img/images/web_v3/favicon_170822.ico" type="image/x-icon">
+
+    <!-- CSS -->
+    <title>비밀번호 재설정 | 여기어때</title>
+    <link rel="stylesheet" href="/css/common.css" />
+    <!-- <link rel="canonical" href="https://www.goodchoice.kr/user/passwd_phone_confirm.html"> -->
+    <script type="text/javascript" src="/js/library/jquery-1.12.4.min.js"></script>
+
+    <script>(function (a, b, c) { if (c in b && b[c]) { var d, e = a.location, f = /^(a|html)$/i; a.addEventListener("click", function (a) { d = a.target; while (!f.test(d.nodeName)) d = d.parentNode; "href" in d && (d.href.indexOf("http") || ~d.href.indexOf(e.host)) && (a.preventDefault(), e.href = d.href) }, !1) } })(document, window.navigator, "standalone")</script>
+</head>
+
+<body>
+
+    <!-- Wrap -->
+    <div class="wrap">
+
+
+
+        <!-- 로그인 pop_layer_w('pop_login') -->
+        <div class="layer_fix layer_unfix pop_login pop_mem_reserve new-style-form">
+            <section>
+                <form id="loginForm" action="https://www.goodchoice.kr/user/passwdPhoneConfirmProcess"
+                    autocomplete="off" method="post">
+                    <input type="hidden" name="returnUrl" value="">
+                    <input type="hidden" name="yeogi_token" value="722e7b508f5c785faa2b76e520fe961c">
+                    <input type="hidden" name="phone" value="01027636704" id="phone">
+
+                    <strong class="sub_title">인증번호 입력</strong>
+
+                    <p class="txt_top">
+                        등록된 휴대폰 번호로 인증번호가 전송되었습니다.<br />
+                        인증번호를 입력해주세요.
+                    </p>
+
+                    <div class="input-component__type1">
+                        <strong>인증번호</strong>
+                        <div class="input-wrap">
+                            <input type="number" name="authnumber" data-js-phoneNumber maxlength="4"
+                                placeholder="인증번호를 입력해주세요.">
+                            <span data-js-time-count></span>
+                        </div>
+                        <div class="error-wrap">
+                            <span></span>
+                            <button type="button" data-js-retry>인증번호 재전송</button>
+                        </div>
+                    </div>
+
+                    <button type="submit" data-js-submit-phone class="btn_link gra_left_right_red"
+                        disabled><span>확인</span></button>
+
+                </form>
+            </section>
+        </div>
+        <script type="text/html" id="errormsg">
+        인증번호와 다르게 입력되었습니다.<br />
+재입력해 주시기 바랍니다.    </script>
+
+        <style>
+            /* layer_unfix 존재시 footer 숨김 */
+            .mobile_appdown,
+            header,
+            footer {
+                display: none !important
+            }
+        </style>
+
+        <script type="text/javascript" src="/js/service/numberValidate.js"></script>
+
+
+        <!-- 푸터 -->
+        <div th:replace="userthy/user-footer :: user-footer"></div>
+        <!--푸터 끝 -->
+
+
+    </div>
+
+    <!-- 상단으로 -->
+    <button class="btn_go_top" onclick="moveTop();">상단으로</button>
+
+    <!-- //Wrap -->
+
+    <!-- Script -->
+    <!-- Library -->
+    <script type="text/javascript" src="/js/library/jquery.cookie.js"></script>
+    <script type="text/javascript" src="/js/library/jquery.lazyload.js"></script>
+    <script type="text/javascript" src="/js/library/iscroll.js"></script>
+
+    <!-- Service -->
+    <script type="text/javascript" src="/js/service/common.js"></script>
+    <script type="text/javascript" src="/js/service/geolocation.js"></script>
+
+    <!-- Module -->
+    <script type="text/javascript" src="/js/modules/dialogPopup.js"></script>
+
+    <!-- Page Script -->
+    <script type="text/javascript" src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+    <script type="text/javascript" src="/js/library/validation/jquery.validate.js"></script>
+    <script type="text/javascript" src="/js/library/validation/localization/messages_ko.js"></script>
+    <script type="text/javascript" src="/js/library/validation/additional-methods.js"></script>
+    <script type="text/javascript" src="/js/service/validate.js"></script>
+    <script type="text/javascript" src="/js/service/login.js"></script>
+
+    <!-- Body Spinner -->
+    <div class="spinner show"><span></span></div>
+
+</body>
+
+</html>

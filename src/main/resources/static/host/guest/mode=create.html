@@ -1,0 +1,1220 @@
+<!DOCTYPE html>
+<!--[if IE 6]> <html lang="ko-KR" class="no-js lt-ie10 lt-ie9 lt-ie8 ie6"> <script>location.href("/warning");</script> <![endif]-->
+<!--[if IE 7]> <html lang="ko-KR" class="no-js lt-ie10 lt-ie9 lt-ie8 ie7"> <script>location.href("/warning");</script> <![endif]-->
+<!--[if IE 8]> <html lang="ko-KR" class="no-js lt-ie10 lt-ie9 ie8"> <script>location.href("/warning");</script>        <![endif]-->
+<!--[if IE 9]> <html lang="ko-KR" class="no-js lt-ie10 ie9"> <script>location.href("/warning");</script>               <![endif]-->
+<!--[if !IE]><!-->
+<html lang="ko-KR" class="no-js">
+<!--<![endif]-->
+<head>
+        <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Comaptible" content="IE=Edge">
+    <meta http-equiv="Cache-control" content="public">
+    <meta name="description" content="객실 및 예약설정에서 광고상품 구매까지 모든 관리가 가능한 여기어때 호스트하우스 전용 통합 마케팅 플랫폼">
+    <meta name="keywords" content="여기어때, 사장님사이트, 호스트하우스, 호스트홍보, 게스트하우스, 사장님전용사이트">
+    <meta name="author" content="Gray"><!-- humans.txt 처리 권장 -->
+    <meta name="apple-mobile-web-app-title" content="여기어때 호스트 하우스" />
+    <meta name="viewport" content="width=device-width, initial-scale=0.3, minimum-scale=0.3, maximum-scale=1, user-scalable=yes">
+    <title>여기어때 호스트 하우스</title>
+    <link rel="canonical" href="https://guest.goodchoice.kr"/>
+    <link rel="shortcut icon" type="image/x-icon" href="../img/favicon_170822.ico" />
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/common.host.css?rand=1628154923" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/daterangepicker-bs3.css" rel="stylesheet" />
+    <link href="../css/bootstrap-timepicker.css" rel="stylesheet" />
+
+     <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="../css/vertical-swiper.min.css">
+    <script>
+        //tagManager
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-NNLLB5W');
+    </script>
+    <script src="../js/jquery-2.1.3.min.js"></script>
+    <script src="../js/jquery-ui.min.js"></script>
+    <script src="../js/jquery.lazyload.min.js"></script>
+    <script src="../js/jquery.cookie.min.js"></script>
+
+    <!-- Swiper JS -->
+    <script src="../js/vertical-swiper.min.js"></script>  
+    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
+    <script type="text/javascript">
+    var image_host = 'https://image.goodchoice.kr/resize_160x96';
+    if (window.console !== undefined) {
+        setTimeout(console.log.bind(console, "%c여기어때 :: 국내 1위 숙박어플!", "font: 5em Arial; color: #e62a4a; font-weight:bold"), 0);
+        setTimeout(console.log.bind(console, "%c여기어때 호스트 하우스", "font: 4em Arial; color: #ccc; font-weight:bold"), 0);
+    }
+
+    function alert_resevation() {
+        return alert('예약 관리 메뉴는 12월 중 오픈 예정입니다.\n게스트하우스 앱 오픈 때까지 잠시만 기다려주세요.');
+    }
+    function alert_ad() {
+        return alert('광고 상품 메뉴는 추후 상용화 예정입니다.');
+    }
+    function alert_notice() {
+        return alert('고객행복센터 준비중 입니다.');
+    }
+    function alert_affiliate() {
+        return alert('정보 설정 내용을 모두 입력하시고 메뉴를 이용해주시기 바랍니다.');
+    }
+
+    </script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+                <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+                <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+                <![endif]-->
+
+    <!-- YGDEV-190 [호스트하우스] GA 기본통계 코드 삽입 -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag../js?id=UA-76246201-5"></script>
+    <script>
+        
+        function getPageTitle() {
+            var path = window.location.pathname;
+            var title = '여기어때 호스트하우스';
+
+            if(path.length > 1 && path.charAt(path.length -1) == '/') {
+                path = path.slice(0, -1);
+            }
+
+
+            if('/' == path) {
+                title = '여기어때 호스트하우스 : 홈';
+            } else if('/guest/intro' == path) {
+                title = '여기어때 호스트하우스 : 숙소관리 > 소개작성';
+            } else if('/guest/detail' == path) {
+                title = '여기어때 호스트하우스 : 숙소관리 > 이용규칙관리';
+            }  else if('/guest/room' == path) {
+                title = '여기어때 호스트하우스 : 숙소관리 > 객실관리';
+
+                if(window.location.href.indexOf(path + '?mode=create') != -1) {
+                        title = '여기어때 호스트하우스 : 숙소관리 > 객실관리 > 객실추가';
+                }
+            } else if('/review/manage' == path) {
+                title = '여기어때 호스트하우스 : 리뷰관리 > 전체리뷰';
+
+                if(window.location.href.indexOf(path + '?noreply=Y') != -1) {
+                    title = '여기어때 호스트하우스 : 리뷰관리 > 미답변리뷰';
+                }
+            } else if('/goods' == path) {
+                title = '여기어때 호스트하우스 : 예약관리 > 실시간예약관리';
+            } else if('/reservation' == path) {
+                title = '여기어때 호스트하우스 : 예약관리 > 예약내역';
+            } else if('/settlement' == path) {
+                title = '여기어때 호스트하우스 : 예약관리 > 정산내역';
+            } else if('/vat' == path) {
+                title = '여기어때 호스트하우스 : 예약관리 > 매출내역';
+            } else if('/profit' == path) {
+                title = '여기어때 호스트하우스 : 예약관리 > 매출내역';
+            } else if(path.indexOf('/notice') != -1) {
+                title = '여기어때 호스트하우스 : 고객행복센터 > 공지사항';
+            } else if('/faq' == path) {
+                title = '여기어때 호스트하우스 : 고객행복센터 > 자주 묻는 질문';
+            } else if('/demand' == path) {
+                title = '여기어때 호스트하우스 : 고객행복센터 > 1:1 문의';
+            } else if('/demand/write' == path) {
+                title = '여기어때 호스트하우스 : 고객행복센터 > 1:1 문의 > 문의하기';
+            } else if('/terms' == path) {
+                title = '여기어때 호스트하우스 : 고객행복센터 > 서비스약관';
+            } else if('/concierge' == path) {
+                title = '여기어때 호스트하우스 : 자동응답관리';
+            } else if('/my/view' == path) {
+                title = '여기어때 호스트하우스 : 마이페이지';
+            } else if('/my' == path) {
+                title = '여기어때 호스트하우스 : 마이페이지 > 입력';
+            }
+
+            return title;
+        }
+
+        var env = 'production';
+        var ano = '0';
+        if(env == 'production') {
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
+            gtag('config', 'UA-76246201-5', {
+                'page_title': getPageTitle(),
+                'user_id': ano
+            });
+        }
+    </script>
+
+            </head>
+            <body id="main">
+                <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NNLLB5W" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+                <header id="host_header">
+                    <div class="nav nav-init">
+                        <div class="wrapper">
+                            <div class="nav-left-layer">
+                                <a href="/"><img src="../img/asset/ic_greet.png"></a>
+                                <span class="nav-text"><strong>이정훈</strong> 님 안녕하세요.</span>
+                                <div class="nav-vertical"></div>
+                                <img src="../img/asset/ic_call.png" class="ml_15">
+                                <span class="nav-text"><strong>예약문의 1544-4087</strong></span>
+                            </div>
+                            <div class="nav-right-layer">
+                                <div class="menu-section" id="mypage">
+                                    <div class="menu-section-layer">
+                                        <img src="../img/asset/ic_mypage.png">
+                                        <span class="nav-text">마이페이지</span>
+                                    </div>
+                                </div>
+                                <div class="nav-vertical2"></div>
+                                <div class="menu-section" id="logout">
+                                    <div class="menu-section-layer ml_20">
+                                        <img src="../img/asset/ic_logout.png">
+                                        <span class="nav-text">로그아웃</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="wrapper">
+                        <div class="header">
+                            <a href="/">
+                                <h1>
+                                	<img src="//image.goodchoice.kr/images/web_v2/common../img_logo.png" alt="여기어때 호스트하우스" />
+                                </h1>
+                            </a>
+                            <nav>
+                                <ul>
+                                    <li>
+                                        <a href="javascript:void(0)">숙소관리<span class=" menu-selected">&nbsp;</span></a>
+                                        <ul class="sub">
+                                            <li><a href="/guest/intro">소개 작성</a></li>
+
+                                            <li><a href="/guest/detail">이용규칙 관리</a></li>
+
+                                            <li><a href="/guest/room">객실 관리</a></li>
+                                            
+                                            <li><a href="/review/manage">리뷰 관리</a></li>
+
+                                            <!--                                    <li><a href="#">기타 관리</a></li>-->
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)">예약관리<span class="">&nbsp;</span></a>
+                                        <ul class="sub">
+                                            <li><a href="/goods">실시간 예약 관리</a></li>
+                                            <li><a href="/reservation">예약 내역</a></li>
+                                            <li><a href="/settlementNew">정산 내역</a></li>
+<!--                                            <li><a href="/settlementNew">정산 내역</a></li>-->
+                                            <li><a href="/vat">매출 내역</a></li>
+<!--                                            <li><a href="/profit">매출 내역</a></li>-->
+                                        </ul>
+                                    </li>
+									<!--
+                                    <li>
+                                        <a href="javascript:void(0)">광고상품<span class="//menu-selected">&nbsp;</span></a>
+                                        <ul class="sub">
+                                            <li><a href="javascript:alert_ad();">광고상품 구매</a></li>
+                                            <li><a href="javascript:alert_ad();">구매 내역</a></li>
+                                        </ul>
+                                    </li>
+									-->
+                                     <li>
+                                        <a href="javascript:void(0)">고객행복센터<span class="">&nbsp;</span></a>
+                                        <ul class="sub">
+                                            <li><a href="/notice">공지사항</a></li>
+                                            <li><a href="/faq">자주 묻는 질문</a></li>
+                                                                                        <li><a href="/terms">서비스 약관</a></li>
+                                        </ul>
+                                    </li>
+<!--                                    <li>-->
+<!--                                        <a href="/concierge">자동응답 관리<span class="--><!--">&nbsp;</span></a>-->
+<!--                                    </li>-->
+                                </ul>
+                            </nav>
+                            <div class="divider_vertical"></div>
+                            <div class="user-area">
+                                                                    <span class="user-affiliate">오우 </span>
+                                                                        <!-- <img src="../img/asset/icn_dropdown_bk_32x32.png" /> -->
+                                                                                                </ul>
+                            </div>
+                            <div class="divider_vertical2"></div>
+                        </div>
+                    </div>
+                </header>
+<style>
+.form-title.large {width:144px !important;}
+.input-sm {
+    height: 32px !important;
+    padding: 9px !important;
+    font-size: 14px !important;
+    line-height: 32px !important;
+    border-radius: 3px !important;
+}
+
+.form-body .form-group {
+    margin-bottom:0px !important;
+}
+
+.room-price:not(:first-child) {
+    padding-top:20px;
+}
+
+.mo {
+    display:    none;
+    position:   fixed;
+    z-index:    1000;
+    top:        0;
+    left:       0;
+    height:     100%;
+    width:      100%;
+    background: rgba( 255, 255, 255, .8 )
+                url('../img/pIkfp.gif')
+                50% 50%
+                no-repeat;
+}
+.room-disable {
+    position: absolute;
+    margin-top: -47px;
+    right: 13px;
+}
+</style>
+<section class="container">
+        <div class="menu-step3">
+        <div class="todo-layer">
+            <nav>
+                <ul>
+                    <li>
+                    <a href="/my" >                        <span class="btn-todo"><img src="../img/asset/icn_1_info_64x64.png"></span>
+                        <span class="todo-desc">마이페이지 입력</span>
+                    </a>                    </li>
+                    <li class="prog">
+                        <span class="do">&nbsp;</span>
+                        <span>&nbsp;</span>
+                        <span class="do">&nbsp;</span>
+                        <span>&nbsp;</span>
+                        <span class="do">&nbsp;</span>
+                        <span>&nbsp;</span>
+                        <span class="do">&nbsp;</span>
+                        <span>&nbsp;</span>
+                        <span class="do">&nbsp;</span>
+                    </li>
+                    <li>
+                    <a href="/guest/intro" >                        <span class="btn-todo"><img src="../img/asset/icn_2_write_64x64.png"></span>
+                        <span class="todo-desc">소개 작성</span>
+                    </a>                    </li>
+                    <li class="prog">
+                        <span class="do">&nbsp;</span>
+                        <span>&nbsp;</span>
+                        <span class="do">&nbsp;</span>
+                        <span>&nbsp;</span>
+                        <span class="do">&nbsp;</span>
+                        <span>&nbsp;</span>
+                        <span class="do">&nbsp;</span>
+                        <span>&nbsp;</span>
+                        <span class="do">&nbsp;</span>
+                    </li>
+                    <li>
+                    <a href="/guest/detail" >                        <span class="btn-todo"><img src="../img/asset/icn_3_rule_64x64.png"></span>
+                        <span class="todo-desc">이용규칙 관리</span>
+                    </a>                    </li>
+                    <li class="prog">
+                        <span class="do">&nbsp;</span>
+                        <span>&nbsp;</span>
+                        <span class="do">&nbsp;</span>
+                        <span>&nbsp;</span>
+                        <span class="do">&nbsp;</span>
+                        <span>&nbsp;</span>
+                        <span class="do">&nbsp;</span>
+                        <span>&nbsp;</span>
+                        <span class="do">&nbsp;</span>
+                    </li>
+                    <li>
+                    <a href="/guest/room" >                        <span class="btn-todo on"><img src="../img/asset/icn_4_room_64x64.png"></span>
+                        <span class="todo-desc on">객실 관리</span>
+                    </a>                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>    <div class="guest-nav">
+        <ul class="nav nav-tabs room-tabs">
+             
+                        <li class="active"><a href="/guest/room?mode=create">+ 객실추가</a></li>
+        </ul>
+    </div>
+
+	<div class="guest-title-layer">
+		<ul>
+			<li>[+ 객실추가]를 누르시면 객실을 추가할 수 있으며 최대 개수는 20개 입니다.</li>
+			<li>각 객실 유형 (도미토리,개인실,독채형 등)에 따라 설정을 관리 할 수 있습니다.</li>
+            <li>요금설정에서는 요일이 겹치지 않게 주의해 주시기 바랍니다.</li>
+            <li><strong>해당 페이지의 요금 설정은 객실별 기준가격 입니다. 객실별 판매 금액은 '예약관리 > 실시간 예약 관리' 에서 수정하셔야 합니다.</strong></li>
+			<li><strong>[객실정보 복사추가]를 누르시면 선택하신 객실의 정보를 복사하여 추가 하실수 있습니다.</strong></li>
+		</ul>
+	</div>
+        <div class="list-layer">
+        <form id="room-form" class="form-horizontal" method="post">
+            <input type="hidden" name="armgno" value="" />
+            <input type="hidden" name="data" />
+            <table class="table table-bordered">
+                <tbody>
+                    <tr>
+                        <th>객실 정보</th>
+                        <td class="bd_r_none">
+                            <div class="form-layer mb_24">
+                                <span class="form-title">객실명</span>
+                                <span class="form-body">
+                                    <input class="form-control normal-size" type="text" name="armgname" placeholder="이름을 입력하세요." maxlength="20" value="">
+                                </span>
+                            </div>
+                            <div class="form-layer mb_24">
+                                <span class="form-title">객실 유형</span>
+                                <span class="form-body">
+                                    <div class="select-style" style="width:150px">
+                                        <select name="room_type">
+                                            <option value="" selected="selected">객실을 선택해주세요</option>
+                                            <option value="1">도미토리 (혼성)</option>
+                                            <option value="2">도미토리 (여자)</option>
+                                            <option value="3">도미토리 (남자)</option>
+                                            <option value="4">개인실</option>
+                                            <option value="5">독채형 (콘도형)</option>
+                                        </select>
+                                    </div>
+                                </span>
+                            </div>
+                            <div class="form-layer">
+                                <span id="title-by-room-type" class="form-title">인원</span>
+                                <span class="form-body">
+                                    <div class="pull-left">
+                                        <span style="height:48px;line-height:48px;float:left;width:36px;font-size:14px;color: rgba(0, 0, 0, 0.87);font-weight:500">정원</span>
+                                        <div class="select-style small-size">
+                                            <select name="bunk_bed">
+                                                                                                <option value="2">2 명</option>
+                                                                                                <option value="3">3 명</option>
+                                                                                                <option value="4">4 명</option>
+                                                                                                <option value="5" selected="selected=">5 명</option>
+                                                                                                <option value="6">6 명</option>
+                                                                                                <option value="7">7 명</option>
+                                                                                                <option value="8">8 명</option>
+                                                                                                <option value="9">9 명</option>
+                                                                                                <option value="10">10 명</option>
+                                                                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="pull-left hide">
+                                        <span style="height:48px;line-height:48px;float:left;width:36px;font-size:14px;color: rgba(0, 0, 0, 0.87);font-weight:500">정원</span>
+                                        <div class="select-style small-size">
+                                            <select name="personal_cnt">
+                                                                                             </select>
+                                        </div>
+                                    </div>
+                                    <div class="pull-left hide">
+                                        <span style="height:48px;line-height:48px;float:left;width:36px;font-size:14px;color: rgba(0, 0, 0, 0.87);font-weight:500;margin-left:15px">최대</span>
+                                        <div class="select-style small-size">
+                                            <select name="personal_max_cnt">
+                                                                                            </select>
+                                        </div>
+                                    </div>
+                                </span>
+                            </div>
+                                                    </td>
+                        <td class="help-tooltip popover-container">
+                            <a href="javascript:void(0)" data-toggle="popover"><img src="../img/asset/icn_tooltip.png"></a>
+                            <div class="hide">
+                                <span><img src="../img/tooltips/room../img_tooltip08.png" /></span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>이미지 정보<br />(최대 15장)</th>
+                        <td class="bd_r_none">
+                                                        <div class="form-layer">
+                                <p class="description text-normal">* 객실 유형을 먼저 선택하신 후 업로드 가능합니다.</p>
+                            </div>
+                                                    </td>
+                        <td class="help-tooltip popover-container">
+                            <a href="javascript:void(0)" data-toggle="popover"><img src="../img/asset/icn_tooltip.png"></a>
+                            <div class="hide">
+                                <span><img src="../img/tooltips/room../img_tooltip09.png" /></span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>객실<br>소개글</th>
+                        <td colspan="2">
+                            <div class="form-layer">
+                                <textarea class="form-control textarea-layer"" rows="8" name="introduction" placeholder="객실 내 침대 구성과, 전용 욕실 여부 등 객실 소개/구성을 자세히 기재해 주세요." ></textarea>
+                            </div>
+                            <span class="exam-button"> <i class="fa fa-angle-down" aria-hidden="true"></i></span>
+                            <div class="exam-layer hide" style="width:714px">
+                                <div class="exam-layer-guide9">
+                                    <div class="exam-detail-layer">
+                                        <span class="guide-text">
+                                            도미토리<br/>
+                                            이층침대 2개 혹은 온돌방으로 개인침구세트 4개 제공<br/>
+                                            개인 콘센트, 캐비닛, 전등 구비<br/><br/>
+                                            개인실<br/>
+                                            더블침대 1개+인원에 맞는 침구세트 추가제공<br/><br/>
+                                            독채<br/>
+                                            방 2개, 거실, 화장실, 부엌,베란다<br/>
+                                            취사 전자제품(냉장고,전자레인지,인덕션,밭솥 등)과 식기류 및 기본 양념도 구비되어 있습니다.
+                                            <br/><br/>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>편의시설<br />서비스 안내</th>
+                        <td class="bd_r_none">
+                            <div class="form-layer">
+                                <textarea class="form-control textarea-layer" rows="3" name="fixtures" placeholder="도미토리 :  객실 내 침대 구성 및 구비 물품 등을 자세히 기재해 주세요.&#13;&#10;개인실 : 객실 내 전용 욕실 여부 및 침대 구성과 구비 물품 등을 자세히 기재해 주세요.&#13;&#10;독채 : 객실 구조 및 침대 구성, 취사 구비 물품 등을 자세히 기재해 주세요."></textarea>
+                            </div>
+                        </td>
+                        <td class="help-tooltip popover-container">
+                            <a href="javascript:void(0)" data-toggle="popover"><img src="../img/asset/icn_tooltip.png"></a>
+                            <div class="hide">
+                                <span><img src="../img/tooltips/room../img_tooltip10.png" /></span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+							요금 설정<br/>
+							<a class="btn_th_link" href="/guest/detail/#season" target="_blank">준/성수기<br/>기간 설정 &gt;</a>
+
+						</th>
+                        <td class="bd_r_none">
+                            <div class="form-layer">
+                                <p class="description"><strong>* 해당 페이지의 요금 설정은 객실별 기준가격 입니다. 객실별 판매 금액은 '예약관리 > 실시간 예약 관리' 에서 수정하셔야 합니다.</strong></p>
+                            </div>
+                            <div class="form-layer ">
+                                <span class="form-title large" style="vertical-align:top">기본(비수기)
+                                    <p><em>* 준성수기, 성수기<br />&nbsp;&nbsp;제외한 모든 날짜</em></p>
+                                </span>
+                                <span class="form-body" data-season="NORMAL" style="width:725px">
+
+									
+                                    <!-- 변경 디자인 -->
+                                    <div class="room-price room-price-wrap">
+                                        <input data-role="type" type="hidden" value="NORMAL" />
+                                        <input data-role="adpno" type="hidden" value="" />
+                                        <input data-role="adpsino" type="hidden" value="" />
+                                        <div class="chk_date">
+                                            <label class="checkbox-inline icon-label"><input type="checkbox" class="NORMAL-sun" onclick="weekOverlapCheck(this)" data-role="week" checked="checked">일</label>
+                                            <label class="checkbox-inline icon-label"><input type="checkbox" class="NORMAL-mon" onclick="weekOverlapCheck(this)" data-role="week" checked="checked">월</label>
+                                            <label class="checkbox-inline icon-label"><input type="checkbox" class="NORMAL-tue" onclick="weekOverlapCheck(this)" data-role="week" checked="checked">화</label>
+                                            <label class="checkbox-inline icon-label"><input type="checkbox" class="NORMAL-wed" onclick="weekOverlapCheck(this)" data-role="week" checked="checked">수</label>
+                                            <label class="checkbox-inline icon-label"><input type="checkbox" class="NORMAL-thu" onclick="weekOverlapCheck(this)" data-role="week" checked="checked">목</label>
+                                            <label class="checkbox-inline icon-label"><input type="checkbox" class="NORMAL-fri" onclick="weekOverlapCheck(this)" data-role="week">금</label>
+                                            <label class="checkbox-inline icon-label"><input type="checkbox" class="NORMAL-sat" onclick="weekOverlapCheck(this)" data-role="week">토</label>
+                                            <label class="checkbox-inline icon-label"><input type="checkbox" class="NORMAL-hol" onclick="weekOverlapCheck(this)" data-role="week">공휴일</label>
+                                            <label class="checkbox-inline icon-label"><input type="checkbox" class="NORMAL-beh" onclick="weekOverlapCheck(this)" data-role="week">공휴일 전날</label>
+                                        </div>
+                                        <div class="form-inline">
+                                            <label data-role="price" class="radio-inline" style="margin-right:10px">
+                                                정상가 : <input data-role="" class="form-control input-sm" type="text" style="width:90px"> 원
+                                            </label>
+                                                                                    </div>
+                                    </div>
+                                    <div class="room-price room-price-wrap">
+                                        <input data-role="type" type="hidden" value="NORMAL" />
+                                        <input data-role="adpno" type="hidden" value="" />
+                                        <input data-role="adpsino" type="hidden" value="" />
+                                        <div class="chk_date">
+                                            <label class="checkbox-inline icon-label"><input type="checkbox" class="NORMAL-sun" onclick="weekOverlapCheck(this)" data-role="week">일</label>
+                                            <label class="checkbox-inline icon-label"><input type="checkbox" class="NORMAL-mon" onclick="weekOverlapCheck(this)" data-role="week">월</label>
+                                            <label class="checkbox-inline icon-label"><input type="checkbox" class="NORMAL-tue" onclick="weekOverlapCheck(this)" data-role="week">화</label>
+                                            <label class="checkbox-inline icon-label"><input type="checkbox" class="NORMAL-wed" onclick="weekOverlapCheck(this)" data-role="week">수</label>
+                                            <label class="checkbox-inline icon-label"><input type="checkbox" class="NORMAL-thu" onclick="weekOverlapCheck(this)" data-role="week">목</label>
+                                            <label class="checkbox-inline icon-label"><input type="checkbox" class="NORMAL-fri" onclick="weekOverlapCheck(this)" data-role="week" checked="checked">금</label>
+                                            <label class="checkbox-inline icon-label"><input type="checkbox" class="NORMAL-sat" onclick="weekOverlapCheck(this)" data-role="week" checked="checked">토</label>
+                                            <label class="checkbox-inline icon-label"><input type="checkbox" class="NORMAL-hol" onclick="weekOverlapCheck(this)" data-role="week">공휴일</label>
+                                            <label class="checkbox-inline icon-label"><input type="checkbox" class="NORMAL-beh" onclick="weekOverlapCheck(this)" data-role="week">공휴일 전날</label>
+                                        </div>
+                                        <div class="form-inline">
+                                            <label class="radio-inline" style="margin-right:10px">
+                                                정상가 : <input data-role="price" class="form-control input-sm" type="text" style="width:90px"> 원
+                                            </label>
+                                                                                    </div>
+                                        <button  class="btn_del" data-role="remove-NORMAL">삭제</button>
+                                    </div>
+                                    <!-- // -->
+                                                                    </span>
+                            </div>
+                            <div class="form-layer-text" style="float: right; margin-right: -5px; margin-bottom: 15px;">
+                                <button  type="button" class="btn btn-default btn_add_02" data-role="season-NORMAL">+ 요일별 요금 정보 추가</button>
+                            </div>
+                                                    </td>
+                        <td class="help-tooltip popover-container">
+                            <a href="javascript:void(0)" data-toggle="popover"><img src="../img/asset/icn_tooltip.png" style="margin-top: 18px;"></a>
+                            <div class="hide">
+                                <span><img src="../img/tooltips/room../img_tooltip11.png" /></span>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="submit-layer">
+                <button class="btn btn-default btn-submit btn-guest-room" type="button" onclick="deleteRoomInfo()" >삭제하기</button>
+                &nbsp;&nbsp;&nbsp;
+                <button class="btn btn-yeogi btn-submit btn-guest-room" type="button" onclick="submitRoomInfo()" >저장하기</button>
+                            </div>
+             <div class="submit-layer info-text-layer">
+                <p><img src="../img/ic_guide.png"></p>
+                <p class="description info-text"><strong>"저장하기"</strong>는 객실 정보 등 모든 정보를 <strong>이 페이지 내에서만 저장</strong>가능</p>
+                <p class="description info-text"><strong>"저장 및 [실시간 예약관리] 반영"</strong>은 변경하신 요금과 정원인원에 대하여 <strong>달력에서도 반영</strong></p>
+            </div>
+        </form>
+    </div>
+</section>
+<div class="mo"></div>
+<script src="../js/upload.js?nocache=2021-09-05 11:40:25"></script>
+<script src="../js/dmuploader.js"></script>
+
+<script>
+function submitRoomInfo() { // 저장하기
+    $('button').prop('disabled', true);
+    if ($('#room-form input[name=armgname]').val().length < 3) {
+        alert('객실명은 3자 이상 입력해주세요.');
+        $('#room-form input[name=armgname]').focus();
+        $('button').prop('disabled', false);
+        return false;
+    }
+
+    var room_type = $('select[name=room_type]');
+    var introduction = $('textarea[name=introduction]');
+    var fixtures = $('textarea[name=fixtures]');
+    var personal_cnt = $('select[name=personal_cnt]');
+    var personal_max_cnt = $('select[name=personal_max_cnt]');
+
+    if (room_type.val().length === 0) {
+        alert('객실 유형을 선택해주세요.');
+        room_type.focus();
+        $('button').prop('disabled', false);
+        return false;
+    }
+    if (parseInt(personal_cnt.val()) > parseInt(personal_max_cnt.val())) {
+        alert('정원 인원이 최대 인원보다 클 수 없습니다.');
+        personal_cnt.focus();
+        $('button').prop('disabled', false);
+        return false;
+    }
+    if (introduction.val().length === 0) {
+        alert('객실 소개글을 입력해주세요.');
+        introduction.focus();
+        $('button').prop('disabled', false);
+        return false;
+    }
+    if (fixtures.val().length === 0) {
+        alert('편의시설 서비스안내를 입력해주세요.');
+        fixtures.focus();
+        $('button').prop('disabled', false);
+        return false;
+    }
+
+    var lowPrice = false;
+    $('input[data-role=price]').each(function() {
+        if (parseInt($(this).val().replace(/,/g,'')) < 5000) lowPrice = true;
+    });
+
+    if (lowPrice) {
+        alert('정상가 5,000 원 미만은 등록이 불가능합니다.');
+         $('input[data-role=price]').each(function($i) {
+            if (parseInt($(this).val().replace(/,/g,'')) < 5000) $('input[data-role=price]')[$i].focus();
+        });
+        $('button').prop('disabled', false);
+        return false;
+    }
+
+
+
+    $data = [];
+    $('div.room-price').each(function($i) {
+        $data[$i] = '';
+        $(this).find('input').each(function($j) {
+            if ($j > 0) $data[$i] += ',';
+            if ($(this).attr('type') == 'radio' || $(this).attr('type') == 'checkbox') $data[$i] += $(this).is(':checked') ? 1 : 2;
+            else $data[$i] += $(this).val();
+        });
+    });
+
+
+
+    var data_check = $('#room-form input[name=data]').val($data.join('|'));
+    var datas = data_check.val().split('|');
+
+    for (var i = 0; i < datas.length; i++) {
+        var data_array = datas[i].split(',');
+        if (data_array[0] === 'NORMAL' && (data_array[12].length === 0 || data_array[12] === '0')) {
+            alert('객실 기본 요금을 입력해주시기 바랍니다.');
+            $('input[data-role=price]:eq('+i+')').focus();
+            $('button').prop('disabled', false);
+            return false;
+        }
+    }
+
+    $('#room-form').submit();
+
+}
+
+function submitConvertPrice() {
+    if (confirm('예약관리 > 실시간 예약관리에 수정된 가격으로 변경됩니다.\n! 주의 : 실시간 예약관리에서 일별로 변경하신 가격이 초기화 됩니다. 마감설정은 초기화되지 않습니다.\n변경하시겠습니까?')) {
+        $('button').prop('disabled', true);
+        if ($('#room-form input[name=armgname]').val().length < 3) {
+            alert('객실명은 3자 이상 입력해주세요.');
+            $('#room-form input[name=armgname]').focus();
+            $('button').prop('disabled', false);
+            return false;
+        }
+
+        var room_type = $('select[name=room_type]');
+        var introduction = $('textarea[name=introduction]');
+        var fixtures = $('textarea[name=fixtures]');
+        var personal_cnt = $('select[name=personal_cnt]');
+        var personal_max_cnt = $('select[name=personal_max_cnt]');
+
+        if (room_type.val().length === 0) {
+            alert('객실 유형을 선택해주세요.');
+            room_type.focus();
+            $('button').prop('disabled', false);
+            return false;
+        }
+        if (parseInt(personal_cnt.val()) > parseInt(personal_max_cnt.val())) {
+            alert('정원 인원이 최대 인원보다 클 수 없습니다.');
+            personal_cnt.focus();
+            $('button').prop('disabled', false);
+            return false;
+        }
+        if (introduction.val().length === 0) {
+            alert('객실 소개글을 입력해주세요.');
+            introduction.focus();
+            $('button').prop('disabled', false);
+            return false;
+        }
+        if (fixtures.val().length === 0) {
+            alert('편의시설 서비스안내를 입력해주세요.');
+            fixtures.focus();
+            $('button').prop('disabled', false);
+            return false;
+        }
+
+        var lowPrice = false;
+        $('input[data-role=price]').each(function() {
+            if (parseInt($(this).val().replace(/,/g,'')) < 5000) lowPrice = true;
+        });
+
+        if (lowPrice) {
+            alert('정상가 5,000 원 미만은 등록이 불가능합니다.');
+             $('input[data-role=price]').each(function($i) {
+                if (parseInt($(this).val().replace(/,/g,'')) < 5000) $('input[data-role=price]')[$i].focus();
+            });
+            $('button').prop('disabled', false);
+            return false;
+        }
+
+
+
+        $data = [];
+        $('div.room-price').each(function($i) {
+            $data[$i] = '';
+            $(this).find('input').each(function($j) {
+                if ($j > 0) $data[$i] += ',';
+                if ($(this).attr('type') == 'radio' || $(this).attr('type') == 'checkbox') $data[$i] += $(this).is(':checked') ? 1 : 2;
+                else $data[$i] += $(this).val();
+            });
+        });
+
+
+
+        var data_check = $('#room-form input[name=data]').val($data.join('|'));
+        var datas = data_check.val().split('|');
+
+        for (var i = 0; i < datas.length; i++) {
+            var data_array = datas[i].split(',');
+            if (data_array[0] === 'NORMAL' && (data_array[12].length === 0 || data_array[12] === '0')) {
+                alert('객실 기본 요금을 입력해주시기 바랍니다.');
+                $('input[data-role=price]:eq('+i+')').focus();
+                $('button').prop('disabled', false);
+                return false;
+            }
+        }
+
+        $('#room-form').attr('action', '/guest/roominfoPrice');
+        $('.mo').css('display', 'block');
+        $('body').css('overflow', 'hidden');
+        $('#room-form').submit();
+
+    }
+}
+
+function roomCopy(ano, armgno) {
+    if (confirm('선택하신 객실의 정보를 복사합니다.\n객실정보 복사를 하시겠습니까?')) {
+        $('button').prop('disabled', true);
+        $.post('/guest/roomCopy','ano='+ano+'&armgno='+armgno,function(result) {
+            if (jQuery.parseJSON(result).message === 'SUCCESS') {
+
+                alert('객실정보 복사가 완료 되었습니다.');
+                var url = '/guest/room?armgno=' + jQuery.parseJSON(result).armgno;
+                $(location).attr('href', url);
+            } else {
+                alert('객실정보 복사 처리에 실패하였습니다. 관리자에게 문의하세요.');
+                $('button').prop('disabled', false);
+            }
+        }).fail(function() {
+            alert('오류가 발생했습니다. 관리자에게 문의하세요.');
+            $('button').prop('disabled', false);
+        });
+
+
+    }
+}
+
+
+
+$(function() {
+                $( "#room-images" ).sortable();
+        $( "#room-images" ).disableSelection();
+    
+    var key = 0;
+
+    $('select[name=room_type]').change(function(){
+                var ano = 2919;
+        var type = $(this).val();
+        $.post('/guest/addRoom/'+type, function(res){
+            window.location.href='/guest/room?armgno='+res.armgno;
+        });
+            });
+
+
+    // 룸타입설정
+    $('select[name=room_type]').change(function() {
+
+       if ($(this).val() <= 3) { // 도미
+            $('#title-by-room-type').html('침대 개수');
+            $('select[name=personal_cnt]').closest('div.pull-left').addClass('hide');
+            $('select[name=personal_max_cnt]').closest('div.pull-left').addClass('hide');
+            $('select[name=bunk_bed]').closest('div.pull-left').removeClass('hide');
+       } else {
+            if ($(this).val() == 4) {
+                $('select[name=personal_cnt] option').remove();
+                $('select[name=personal_max_cnt] option').remove();
+               var html = '';
+               var html2 = '';
+                                html += '<option value="1">1 명</option>';
+                html2 += '<option value="1">1 명</option>';
+                                html += '<option value="2">2 명</option>';
+                html2 += '<option value="2">2 명</option>';
+                                html += '<option value="3">3 명</option>';
+                html2 += '<option value="3">3 명</option>';
+                                html += '<option value="4">4 명</option>';
+                html2 += '<option value="4">4 명</option>';
+                                html += '<option value="5">5 명</option>';
+                html2 += '<option value="5">5 명</option>';
+                                html += '<option value="6">6 명</option>';
+                html2 += '<option value="6">6 명</option>';
+                                html += '<option value="7">7 명</option>';
+                html2 += '<option value="7">7 명</option>';
+                                html += '<option value="8">8 명</option>';
+                html2 += '<option value="8">8 명</option>';
+                                html += '<option value="9">9 명</option>';
+                html2 += '<option value="9">9 명</option>';
+                                html += '<option value="10" selected="selected=">10 명</option>';
+                html2 += '<option value="10" selected="selected=">10 명</option>';
+                                $(html).appendTo('select[name=personal_cnt]');
+                $(html2).appendTo('select[name=personal_max_cnt]');
+            }
+            if ($(this).val() == 5) {
+                $('select[name=personal_cnt] option').remove();
+                $('select[name=personal_max_cnt] option').remove();
+                var html = '';
+                var html2 = '';
+                                html += '<option value="1">1 명</option>';
+                html2 += '<option value="1">1 명</option>';
+                                html += '<option value="2">2 명</option>';
+                html2 += '<option value="2">2 명</option>';
+                                html += '<option value="3">3 명</option>';
+                html2 += '<option value="3">3 명</option>';
+                                html += '<option value="4">4 명</option>';
+                html2 += '<option value="4">4 명</option>';
+                                html += '<option value="5">5 명</option>';
+                html2 += '<option value="5">5 명</option>';
+                                html += '<option value="6">6 명</option>';
+                html2 += '<option value="6">6 명</option>';
+                                html += '<option value="7">7 명</option>';
+                html2 += '<option value="7">7 명</option>';
+                                html += '<option value="8">8 명</option>';
+                html2 += '<option value="8">8 명</option>';
+                                html += '<option value="9">9 명</option>';
+                html2 += '<option value="9">9 명</option>';
+                                html += '<option value="10">10 명</option>';
+                html2 += '<option value="10">10 명</option>';
+                                html += '<option value="11">11 명</option>';
+                html2 += '<option value="11">11 명</option>';
+                                html += '<option value="12">12 명</option>';
+                html2 += '<option value="12">12 명</option>';
+                                html += '<option value="13">13 명</option>';
+                html2 += '<option value="13">13 명</option>';
+                                html += '<option value="14">14 명</option>';
+                html2 += '<option value="14">14 명</option>';
+                                html += '<option value="15">15 명</option>';
+                html2 += '<option value="15">15 명</option>';
+                                html += '<option value="16">16 명</option>';
+                html2 += '<option value="16">16 명</option>';
+                                html += '<option value="17">17 명</option>';
+                html2 += '<option value="17">17 명</option>';
+                                html += '<option value="18">18 명</option>';
+                html2 += '<option value="18">18 명</option>';
+                                html += '<option value="19">19 명</option>';
+                html2 += '<option value="19">19 명</option>';
+                                html += '<option value="20" selected="selected=">20 명</option>';
+                html2 += '<option value="20" selected="selected=">20 명</option>';
+                                $(html).appendTo('select[name=personal_cnt]');
+                $(html2).appendTo('select[name=personal_max_cnt]');
+            }
+            $('#title-by-room-type').html('인원');
+            $('select[name=personal_cnt]').closest('div.pull-left').removeClass('hide');
+            $('select[name=personal_max_cnt]').closest('div.pull-left').removeClass('hide');
+            $('select[name=bunk_bed]').closest('div.pull-left').addClass('hide');
+       }
+    });
+
+    // 1인 추가 가격 / 증가율 Radio 선택 처리
+    $(document).on('click','[data-role=artype]',function(event) {
+        $(this).find('input[type=radio]').attr('checked',true);
+        $(this).parent().siblings().find('input:radio').attr('checked',false);
+    });
+
+    // 요일 선택
+    $(document).on('click','[data-role=week]',function() {
+        $(this).find('input[type=checkbox]').attr('checked',!$(this).find('input[type=checkbox]').attr('checked'));
+    });
+
+    // 시즌별 요금 설정폼 추가
+    $('[data-role=season-NORMAL],[data-role=season-PEAK],[data-role=season-SUBPEAK]').click(function() {
+
+        key = key + 1;
+        $season = $(this).attr('data-role').replace('season-','');
+
+
+
+
+        $html ='<div class="room-price room-price-wrap">' +
+            '<input data-role="type" type="hidden" value="' + $season + '" />' +
+            '<input data-role="adpno" type="hidden" />'+
+            '<input data-role="adpsino" type="hidden" />' +
+                '<div class="chk_date">' +
+                    '<label class="checkbox-inline icon-label"><input type="checkbox" class="' + $season + '-sun" onclick="weekOverlapCheck(this)" data-role="week">일</label>' +
+                    '<label class="checkbox-inline icon-label"><input type="checkbox" class="' + $season + '-mon" onclick="weekOverlapCheck(this)" data-role="week">월</label>' +
+                    '<label class="checkbox-inline icon-label"><input type="checkbox" class="' + $season + '-tue" onclick="weekOverlapCheck(this)" data-role="week">화</label>' +
+                    '<label class="checkbox-inline icon-label"><input type="checkbox" class="' + $season + '-wed" onclick="weekOverlapCheck(this)" data-role="week">수</label>' +
+                    '<label class="checkbox-inline icon-label"><input type="checkbox" class="' + $season + '-thu" onclick="weekOverlapCheck(this)" data-role="week">목</label>' +
+                    '<label class="checkbox-inline icon-label"><input type="checkbox" class="' + $season + '-fri" onclick="weekOverlapCheck(this)" data-role="week">금</label>' +
+                    '<label class="checkbox-inline icon-label"><input type="checkbox" class="' + $season + '-sat" onclick="weekOverlapCheck(this)" data-role="week">토</label>' +
+                    '<label class="checkbox-inline icon-label"><input type="checkbox" class="' + $season + '-hol" onclick="weekOverlapCheck(this)" data-role="week">공휴일</label>' +
+                    '<label class="checkbox-inline icon-label"><input type="checkbox" class="' + $season + '-beh" onclick="weekOverlapCheck(this)" data-role="week">공휴일 전날</label>' +
+                '</div>' +
+                '<div class="form-inline">' +
+                        '<label data-role="price" class="radio-inline" style="margin-right:10px">' +
+                            '정상가 : <input data-role="" class="form-control input-sm" type="text" style="width:90px"> 원' +
+                        '</label>';
+                                $html += '</div>' +
+                    '<button class="btn_del" data-role="remove-new-'+ $season +'">삭제</button>' +
+                '</div>';
+        $($html).appendTo('[data-season=' + $season + ']');
+    });
+});
+$('.guest-title-layer').css('margin-top', '0');
+$('.guest-title-layer').css('box-shadow', '-1px 1px 5px #aaa');
+$('.guest-title-layer').css('border-top-right-radius', '5px');
+$('.guest-title-layer').css('border-bottom-left-radius', '5px');
+$('.guest-title-layer').css('border-bottom-right-radius', '5px');
+$('.list-layer').css('margin-top', '0');
+
+
+function weekOverlapCheck(obj) {
+    var chkObj = $("." + $(obj).attr("class"));
+    var maxCnt = 1;
+    var cnt = 0;
+
+    $.each(chkObj, function(idx, key) {
+        if(key.checked == true) cnt++;
+    });
+
+    if(cnt > maxCnt) {
+        $(obj).attr("checked", false);
+    }
+}
+
+</script>
+
+<footer>
+    <div class="footer-init">
+        <div class="footer-layer">
+            <ul>
+                <li class="withinnovation">회사소개</li>
+                <li class="usage">이용약관</li>
+                <li class="privacy">개인취급방침</li>
+                <li class="goodchoice">여기어때 사이트</li>
+            </ul>
+            <ul>
+                <li class="facebook">facebook</li>
+                <li class="blog">blog</li>
+                <li class="youtube">youtube</li>
+            </ul>
+        </div>
+    </div>
+</footer>
+</body>
+
+<!-- 메인 팝업 영역 -->
+
+<!-- 팝업 자동응답 170828
+<div id="modal-notice" class="modal_main modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-head">
+                <h1>자동응답이 무엇인지 궁금하셨죠</h1>
+            </div>
+            <div class="modal-body">
+                <p>자동응답이 어떤 기능인지 설명드리기 위해 준비했습니다.<br>파트너님! 이제는 질문/답변을 바로 확인하고 알맞은 답변을 등록해 보세요.</p>
+                <div>
+                    <figure><img src="//image.goodchoice.kr/images/newad/popup_171117.jpg" alt=""></figure>
+                    <a href="/concierge">내 질문/답변 확인하기</a>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <label>
+                    <input type="checkbox" class="day_check"> 오늘하루 그만보기
+                </label>
+                <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+            </div>
+        </div>
+    </div>
+</div>-->
+
+<!-- 비밀번호 변경 팝업 -->
+<!--
+<div id="pw_change" class="modal_pw modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-head">
+                <h1>비밀번호를 변경해 주세요!</h1>
+                <p>회원님의 개인정보를 안전하게 보호하고, 개인정보도용으로 인한 피해를 예방하기 위해 6개월 이상 비밀번호를 변경하지 않은 경우 비밀번호 변경을 안내하고 있습니다.</p>
+            </div>
+            <div class="modal-body">
+                <article>
+                    <b>비밀번호 설정 시, 꼭 알아두세요!</b>
+                    <ul>
+                            <li>• 비밀번호는 영문, 숫자, 특수문자를 혼합해서 8자 이상 입력해 주세요.</li>
+                            <li>• 동일한 숫자 또는 연속된 숫자 및 알파벳 4자리 이상 사용할 수 없습니다.<br>(예: abcd256912, az1234bde, az1111bacd, aaaa2569ba)</li>
+                            <li>• 아이디와 동일한 비밀번호는 사용할 수 없습니다.</li>
+                            <li>• 현재 비밀번호와 동일한 비밀번호는 사용할 수 없습니다.</li>
+                            <li>• 사용 가능한 특수문자: # & \ + - % @ = : ; , . ” ^`~ _ | ! ? * $</li>
+                    </ul>
+                </article>
+
+                <form class="validate_pw" autocomplete="off" id="my-form" >
+                    <div class="pw_input">
+                        <strong>새 비밀번호</strong>
+                        <p class="inp_wrap"><input type="password" placeholder="새 비밀번호(영문,숫자,특수문자 혼합 8자 이상)" name="new_pw" id="new_pw"></p>
+                    </div>
+                    <div class="pw_input">
+                        <strong>새 비밀번호 확인</strong>
+                        <p class="inp_wrap"><input type="password" placeholder="새 비밀번호 확인" name="new_pw_re" id="new_pw_re"></p>
+                    </div>
+                    <div class="btn_wrap">
+                        <button type="button" data-dismiss="modal">다음에 변경하기</button>
+                        <button type="submit">지금 변경하기</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+-->
+<!-- 비밀번호 찾기(이메일) -->
+<div class="modal_email modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-head">비밀번호 찾기</div>
+            <div class="modal-body">
+                <form class="email_validate">
+                    <b>* 등록하신 이메일 주소를 입력하세요.</b>
+                    <strong>이메일</strong>
+                    <p class="inp_wrap"><input type="email" name="input_email" id="input_email" placeholder="이메일 주소를 입력하세요."></p>
+                    <div class="btn_wrap">
+                        <button type="submit">이메일 전송</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 공지안내팝업 -->
+<div id="modal-popup" class="modal for-notice" tabindex="-1" role="dialog" data-backdrop="static">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove-sign"></span></button>
+                <h4 class="modal-title"></h4>
+            </div>
+            <div class="modal-body"></div>
+                <div class='modal-footer'>
+                   <div class="checkbox pull-left">
+                        <label>
+                            <input class='modal-check' name='modal-check' type="checkbox"> 오늘 하루 보지 않기
+                        </label>
+                    </div>
+                    <div class="pull-right">
+                        <button type="button" class="btn btn-yeogi" data-dismiss="modal" aria-label="Close">닫기</button>
+                    </div>
+                    <!--/ checkbox -->
+                </div>
+        </div>
+    </div>
+</div>
+<!-- //공지안내팝업 -->
+
+<!-- 추가 팝업 영역 -->
+<div id="modal-popup2" class="modal for-add-popup" tabindex="-1" role="dialog" data-backdrop="static">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove-sign"></span></button>
+                <h4 class="modal-title">안심예약제 시행 일정 공지</h4>
+            </div>
+            <div class="modal-body">
+                <strong>여기어때 안심예약제란?</strong><br><br>
+                안심예약제는 숙소 사정으로 인한 일방적인 취소 발생시 고객에게 다양한 대안책을 제공하여, 고객들이 안심예약을 통해서 숙소에 대한 불만 대신 신뢰를 느낄 수 있도록 많은 도움을 드리는 제도입니다.<br><br>
+                숙소 사정으로 인한 취소는 <b>'객실 만실 (78%), 판매가격 오등록 (9%), 숙소시설 문제 (11%)'</b>등이며, 호스트하우스 관리를 통해서 충분히 개선될 수 있는 사례가 대부분입니다.<br>
+                이미 98% 이상의 제휴점은 정확한 객실관리와 실시간 예약관리로 예약취소를 최소화하고 있습니다. 고객과의 신뢰를 바탕으로 매출 상승에 도움이 되길 바랍니다.<br><br>
+
+                <b>안심예약제는 아래와 같은 제휴점의 동의가 필요합니다.</b><br><br>
+
+                1. 호스트하우스를 성실히 관리하고, 등록된 요금과 인벤토리에 대해서는 책임을 다한다.<br>
+                2. 숙소 귀책 사유로 발생한 예약취소건에 대해 상호 확인을 거쳐 제휴점이 고객 보상 비용을 부담한다.<br><br>
+
+                ■ 시행/적용 일정 : <b style="color: red">6월 1일부터</b><br><br>
+                ■ 시행/적용 방법 : 숙소 귀책 사유로 발생한 고객 보상은 예약 정산금에서 차감됨.<br><br>
+
+                여기어때 안심예약제 시행/적용관련 궁금하신 사항은 영업담당자에게 문의하시면 자세히 안내 드리도록 하겠습니다.
+                <div>
+                    <label>
+                        <input id='reservation_agree_yn' type="checkbox">&nbsp;&nbsp;안심예약제에 대한 위의 안내에 대해 충분히 숙지하였으며, 이에 <b style="color: red">동의합니다.</b>
+                    </label>
+                </div>
+            </div>
+            <div class='modal-footer'>
+                <div class="checkbox pull-left">
+                    <label>
+                        <input class='modal-check2' name='modal-check2' type="checkbox"> 오늘 하루 보지 않기
+                    </label>
+                </div>
+                <div class="pull-right">
+                    <button type="button" class="btn btn-yeogi" data-dismiss="modal" aria-label="Close">확인</button>
+                </div>
+                <!--/ checkbox -->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- 메인 팝업 영역 -->
+<script>
+    
+
+    //안심예약제 동의여부 저장
+    function setReservationAgree() {
+        var agree = false;
+        agree = $("#modal-popup2 #reservation_agree_yn").is(':checked');
+        if(agree) {
+            $.ajax({
+                method : 'POST',
+                url : '/auth/setReservationAgree',
+                data : {
+                    'agree_yn' : 'Y'
+                },
+                dataType : 'json',
+                success : function(res) {
+                    if(res.result == 'error' && res.msg){
+                        alert(res.msg);
+                    }
+                },
+                error: function(request, status, error) {
+                    alert("code:" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" + error);
+                }
+            });
+        }
+    }
+
+    //안심예약제 동의 여부 확인
+    function getReservationAgree(callback) {
+        $.ajax({
+            method: 'POST',
+            url: '/auth/getReservationAgree',
+            data: {},
+            dataType: 'json',
+            success: function (res) {
+                callback.call(this, res);
+            },
+            error: function (request, status, error) {
+                alert("code:" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" + error);
+            }
+        });
+    }
+
+    function openPopup2(isAgree) {
+        var my_cookie2 = $.cookie($('.modal-check2', '.for-add-popup').attr('name'));
+
+        if (my_cookie2 !== "true" && !isAgree) {
+            $('#modal-popup2').modal('show');
+        } else {
+            $('#modal-popup2').modal('hide');
+        }
+    }
+    // 추가팝업 노출 컨트롤
+    $(function () {
+        getReservationAgree(function (res) {
+
+            if (res.reservationAgree == 'fail') {
+                return;
+            }
+
+            if (res.result == 'error' && res.msg) {
+                alert(res.msg);
+            }
+
+            if (!res.reservationAgree) {
+                res.reservationAgree = false;
+            }
+            openPopup2(res.reservationAgree);
+        });
+
+        $("#modal-popup2 [aria-label=Close]").on("click", setReservationAgree);
+
+       // var my_cookie3 = $.cookie($('.modal-check3').attr('name'));
+
+       // if (my_cookie3 !== "true") {
+       //     $('#modal-popup3').modal('show');
+       // }else{
+       //     $('#modal-popup3').modal('hide');
+       // }
+    });
+
+</script>
+
+
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="../js/ie10-viewport-bug-workaround.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/moment.min.js"></script>
+<script src="../js/daterangepicker.js"></script>
+<script src="../js/bootstrap-timepicker.js"></script>
+<script src="../js/common.host.js?nocache=1630809625.0029"></script>
+
+            <script src="../js/guest.host.js?nocache=1630809625.0029"></script>
+    </body>
+</html>

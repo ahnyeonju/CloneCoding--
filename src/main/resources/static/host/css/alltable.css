@@ -1,0 +1,53 @@
+
+table thead th{
+    height: 10px;
+    width: 100px;
+}
+
+td >a{
+    text-align: center;
+}
+
+
+
+.article{
+    /* border: 1px solid red; */
+    width: 1100px;
+    position: relative;
+    right: 120px;
+    
+}
+
+.btn111{
+    margin-top: 20px;
+  
+}
+
+.form1{
+    position: relative;
+    left: 310px;
+    bottom: 32px;
+    width: 200px;
+}
+
+.form1 input{
+    position: relative;
+  height: 30px;
+}
+
+/* 
+tbody tr{
+    background-color: rgb(94, 61, 12);
+} */
+
+.alltable {
+    /* border: 1px solid red; */
+    padding-top: 20px;
+    padding-bottom: 10px;
+    position: relative;
+    right: 115px;
+}
+.btn{
+    margin-left: 6px;
+}
+

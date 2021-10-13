@@ -1,0 +1,223 @@
+.listlist{
+    background-color: rgb(245, 245, 245);
+    margin-bottom: 5px;
+    margin-top: 10px;
+    display: in;
+}
+
+#myChart{
+    position: relative;
+    right: 30px;
+}
+
+
+#myChart2{
+    position: relative;
+    right: 30px;
+}
+
+.h4{
+    display: flex;
+    position: relative;
+    /* border: 1px solid red; */
+    margin-bottom: -10px;
+    margin-left: 27px;
+    color: rgb(85, 85, 85);
+}
+
+.h41{
+    margin-left: 395px;
+}
+
+element.style {
+    margin-left: 395px;
+}
+
+.menup{
+   font-size: 1.3rem;
+   margin-left: 10px;
+   font-weight: 500;
+  color: rgb(85, 85, 85);
+}
+
+.menup1{
+    font-size: 2.5rem; 
+    margin-left: 10px;
+    color: #42BB8B;
+}
+
+.menup2{
+    font-size: 2.5rem; 
+    margin-left: 10px;
+    color: #f84f52;
+}
+
+.menup3{
+    font-size: 2.5rem; 
+    margin-left: 10px;
+    color: #ffd932;
+}
+
+.hr1{
+    height: 5px;
+    background-color: #42BB8B;
+    margin-top: 35px;
+}
+
+.hr2{
+    height: 5px;
+    background-color: #f84f52;
+    margin-top: 35px;
+}
+
+.hr3{
+    height: 5px;
+    background-color: #ffd932;
+    margin-top: 35px;
+}
+
+
+
+
+
+.menu-step1 {
+    /* display: none; */
+    position: relative;
+    width: 216px;
+    height: 120px;
+    background-color: #ffffff;
+    margin-top: 20px;
+    margin-left: 28px;
+    margin-right: 15px;
+    border-radius: 5px;
+    box-shadow: -1px 1px 4px rgb(190, 190, 190);
+}
+
+.menu-step2 {
+    /* display: none; */
+    position: relative;
+    width: 216px;
+    height: 120px;
+    background-color: #ffffff;
+    margin-top: 20px;
+    margin-left: 0px;
+    margin-right: 15px;
+    border-radius: 5px;
+    box-shadow: -1px 1px 4px rgb(190, 190, 190);
+}
+
+.menu-step3 {
+    /* display: none; */
+    position: relative;
+    width: 216px;
+    height: 120px;
+    background-color: #ffffff;
+    margin-top: 20px;
+    margin-left: 0px;
+    margin-right: 15px;
+    border-radius: 5px;
+    box-shadow: -1px 1px 4px rgb(190, 190, 190);
+}
+
+.menu-step4 {
+    /* display: none; */
+    position: relative;
+    width: 216px;
+    height: 120px;
+    background-color: #ffffff;
+    margin-top: 20px;
+    margin-left: 0px;
+    margin-right: 0px;
+    border-radius: 5px;
+    box-shadow: -1px 1px 4px rgb(190, 190, 190);
+}
+
+
+.container5 {
+    /* border: 1px solid red; */
+    
+    display: flex;
+    position: absolute;
+    clear: both;
+    min-width: 1024px;
+    /* min-height: 94%; */
+    /* padding-left: 10px;
+    padding-right: 10px; */
+}
+
+.menu-step5 {
+    /* display: none; */
+    color: rgb(85, 85, 85);
+    position: relative;
+    width: 445px;
+    height: 350px;
+    background-color: #ffffff;
+    margin-top: 17px;
+    margin-left: 20px;
+    margin-right: auto;
+    border-radius: 5px;
+    box-shadow: -1px 1px 4px rgb(190, 190, 190);
+}
+
+.container6 {
+    display: flex;
+    /* border: 1px solid red; */
+    position: relative;
+    top: 130px;
+    clear: both;
+    min-width: 900px;
+    /* padding-top: 130px; */
+    /* min-height: 94%; */
+    padding-left: 8px;
+    padding-right: 10px;
+}
+
+.menu-step6 {
+    /* display: none; */
+    color: rgb(85, 85, 85);
+    position: relative;
+    width: 445px;
+    height: 350px;
+    background-color: #ffffff;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: 17px;
+    border-radius: 5px;
+    box-shadow: -1px 1px 4px rgb(190, 190, 190);
+}
+
+
+.container7 {
+    clear: both;
+    min-width: 1024px;
+    /* min-height: 94%; */
+    position: relative;
+    top: 120px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.menu-step7 {
+    /* display: none; */
+ color: rgb(85, 85, 85);
+    position: relative;
+    right: 30px;
+    width: 910px;
+    height: 120px;
+    background-color: #ffffff;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+    box-shadow: -1px 1px 4px rgb(190, 190, 190);
+}
+
+.table-bordered {
+    width: 916px;
+    margin-top: 24px;
+    margin-left: 24px;
+    margin-right: 24px;
+    background-color: #fff;
+    border: 0;
+}
+

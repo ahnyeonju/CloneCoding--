@@ -1,0 +1,1267 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="여기어때 회원 가입 | 전국 호텔, 펜션, 모텔부터 워터파크, 놀이공원, 아쿠아리움까지 최저가 할인 예약">
+    <link rel="shortcut icon" href="/img/images/web_v3/favicon_170822.ico" type="image/x-icon">
+
+    <!-- CSS -->
+    <title>매일매일 도전룰렛 - 이벤트 | 여기어때</title>
+    <link rel="stylesheet" href="/css/common.css" />
+    <!-- <link rel="canonical" href="https://www.goodchoice.kr/more/eventView/1461"> -->
+    <script type="text/javascript" src="/js/library/jquery-1.12.4.min.js"></script>
+
+    <script>
+        var _BASE_URL = 'https://www.goodchoice.kr/';
+        var _MOBILE = 'W';
+        var _KAKAOTALK_APP_KEY = 'f6ffb505bb11d7cc3584d443ce35f704';
+        var _FACEBOOK_APP_ID = '607467975974643';
+    </script>
+    <script>(function (a, b, c) { if (c in b && b[c]) { var d, e = a.location, f = /^(a|html)$/i; a.addEventListener("click", function (a) { d = a.target; while (!f.test(d.nodeName)) d = d.parentNode; "href" in d && (d.href.indexOf("http") || ~d.href.indexOf(e.host)) && (a.preventDefault(), e.href = d.href) }, !1) } })(document, window.navigator, "standalone")</script>
+</head>
+
+<body>
+
+    <!-- Wrap -->
+    <div class="wrap">
+
+        <!-- Header -->
+           <!-- 헤더 -->
+        <div th:replace="userthy/user-headerlogin :: user-headerlogin"></div>
+        <!--헤더 끝 -->
+
+        <!-- Bg Dimm -->
+        <div class="bg_dimm" onclick="close_layer();">&nbsp;</div>
+        <div class="bg_dimm_prevent">&nbsp;</div>
+
+        <!-- 추천검색어 -->
+        <div class="recommend_srch">
+            <div class="scroll_srch">
+                <div class="scroller">
+                    <div class="default" style="display:block">
+                        <strong>추천 검색어</strong>
+                        <ul></ul>
+                    </div>
+                    <!-- 연관검색어 -->
+                    <div class="chain">
+                        <ul></ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="gnb_opacity"><button class="btn_close">닫기</button></div>
+        <div class="menu_wrap">
+
+            <div class="menu">
+                <div class="top">
+                    <!-- 회원 -->
+                    <div class="member">
+                        <div class="mem">
+                            <span class="pic"
+                                style="background:url('/img/profile/ico/ico_22.png') 50% 50% no-repeat;"></span>
+                            <p class="info">사과색깔</p>
+                        </div>
+                        <div class="bot">
+                            <a href="/userindex/point">
+                                <p>0P<br /><span>포인트</span></p>
+                            </a>
+                            <a href="/userindex/coupon">
+                                <p>1장<br /><span>쿠폰함</span></p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Iscroll -->
+                <div class="scroll_nav">
+                    <div class="scroller">
+                        <ul>
+                            <li><a href="/index">홈</a></li>
+                            <li class="depth_2">
+                                <button type="button" class="has_ul"><span>숙소유형</span></button>
+                                <ul>
+                                    <li><a href="/userindex/1">모텔</a></li>
+                                    <li><a href="/userindex/2">호텔/리조트</a></li>
+                                    <li><a href="/userindex/3">펜션</a></li>
+                                    <li><a href="/userindex/4">리조트</a></li>
+                                    <li><a href="/userindex/5">캠핑·글램핑</a></li>
+                                    <li><a href="/userindex/6">게스트하우스</a></li>
+                                    <li><a href="/userindex/7">한옥 </a></li>
+                                </ul>
+                            </li>
+                            <li><a href="/userindex/8">내주변</a></li>
+                        </ul>
+                        <ul>
+                            <li><a href="/userindex/reservations">예약 내역</a></li>
+                            <li><a href="/userindex/mypage">내 정보 관리</a></li>
+                        </ul>
+                        <ul>
+                            <li class="depth_2"><button type="button" class="has_ul"><span>더보기</span></button>
+                                <ul>
+                                   <!-- <li><a href="/userindex/notice">공지사항</a></li> -->
+                                    <li><a href="/userindex/event">이벤트</a></li>
+                                    <li><a href="/userindex/project">혁신 프로젝트</a></li>
+                                    <li><a href="/userindex/faq">고객문의</a></li>
+                                    <li><a href="/userindex/terms">약관 및 정책</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <div class="center">
+                            <p>여기어때 고객행복센터</p>
+                            <p><a href="tel:1670-6250">1670-6250</a></p>
+                            <p>오전 9시 - 새벽 3시</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- //Mobile Menu -->
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="/css/more.css" />
+
+        <!-- Sub Top -->
+        <div class="sub_top_wrap">
+            <div class="sub_top bg_kong_3">
+                <h2>더보기</h2>
+            </div>
+        </div>
+        <!-- //Sub Top -->
+
+        <!-- Content  -->
+        <div id="content" class="sub_wrap more_wrap">
+
+            <!-- Nav -->
+            <nav>
+                <ul>
+                    <!-- <li><a class="" href="/userindex/notice">공지사항</a></li> -->
+                    <li><a class="active"  href="/userindex/event">이벤트</a></li>
+                    <li><a class="" href="/userindex/project">혁신 프로젝트</a></li>
+                    <li><a class="" href="/userindex/faq">자주 묻는 질문</a></li>
+                    <li><a class="" href="/userindex/inquiry">1:1 문의</a></li>
+                    <li><a class="" href="/userindex/terms">약관 및 정책</a></li>
+                </ul>
+            </nav>
+            <div class="align_rt">
+
+                <!-- Event -->
+                <div class="event">
+
+                    <!-- 이벤트 제목 -->
+                    <div class="mobile_top">매일매일 도전룰렛</div>
+
+                    <!-- 이벤트 삽입 -->
+                    <div class="event_in">
+
+                        <!-- 리얼 최저가는 얼마일까요? -->
+                        <link rel="stylesheet" href="/static/event/common/css/base-event.css">
+                        <link rel="stylesheet" href="/frontend/admin/css/components/modules/dialog.css" />
+
+                        <script type="text/javascript"
+                            src="/static/event/common/js/library/jquery-1.12.3.min.js"></script>
+                        <script type="text/javascript"
+                            src="/static/event/common/js/library/jquery.lazyload.js"></script>
+                        <script type="text/javascript"
+                            src="/static/event/common/js/library/vue.min.js"></script>
+                        <script type="text/javascript"
+                            src="/static/event/common/js/service/button-scroll-top.js"></script>
+
+                        <script type="text/javascript" src="/api3/js/library/moment.min.js"></script>
+                        <script type="text/javascript" src="/api3/js/library/underscore.min.js"></script>
+                        <script type="text/javascript"
+                            src="/api3/js/service/userActionLog.js"></script>
+                        <script type="text/javascript"
+                            src="/api3/js/service/common.js"></script>
+                        <script src="/api3/js/service/evtBraze.js"></script>
+
+                        <script type="text/javascript"
+                            src="/static/event/common/js/library/moment.min.js"></script>
+                        <script type="text/javascript" src="/api3/js/library/flipclock.js"></script>
+                        <script type="text/javascript"
+                            src="/api3/js/library/swiper4.0/swiper.min.js"></script>
+                        <link rel="stylesheet" href="/api3/css/library/swiper.css">
+
+                        <!-- keen vue list (기획전) -->
+                        <script type="text/javascript"
+                        src="/static/event/common/js/service/product-common.js"></script>
+
+                        <script>
+                            var eno = 1461;
+                            var currentDate = "2021-08-25 01:05";
+                            var serverURL = 'https://static.goodchoice.kr/event/';
+                            $(window).ready(function () {
+                                // vue product list
+                                if ($('.event-vue').length > 0) {
+                                    eventControl.apiCall(eno, currentDate, serverURL);
+                                }
+                            });
+                        </script>
+                        <script>
+                            var eDefaultString = '%7B%22env%22%3A%22production%22%2C%22token%22%3A%22%22%2C%22eventNo%22%3A1461%2C%22uno%22%3A0%2C%22mode%22%3A%22event%22%2C%22deviceType%22%3A%22W%22%2C%22deviceId%22%3A%22%22%2C%22currentDate%22%3A%222021-08-25%2001%3A05%22%2C%22currentDay%22%3A%222021-08-25%22%2C%22serverURL%22%3A%22https%3A%5C%2F%5C%2Fstatic.goodchoice.kr%5C%2Fevent%5C%2F%22%2C%22appURL%22%3A%22http%3A%5C%2F%5C%2Fapi3.goodchoice.kr%22%2C%22kakao%22%3A%7B%22title%22%3A%22%EA%BD%9D%EC%97%86%EB%8A%94%20%EB%8F%84%EC%A0%84%20%EB%A3%B0%EB%A0%9B%EF%BC%81%22%2C%22label%22%3A%22%EB%A7%A4%EC%9D%BC%20%EB%8F%84%EC%A0%84%ED%95%98%EC%84%B8%EC%9A%94%EF%BC%81%7C%EB%88%84%EA%B5%AC%EB%82%98%20100%EF%BC%85%20%EB%8B%B9%EC%B2%A8%EF%BC%81%7C%EC%A7%80%EA%B8%88%20%EB%B0%94%EB%A1%9C%20START%E2%98%9E%22%2C%22img%22%3A%22https%3A%5C%2F%5C%2Fimage.goodchoice.kr%5C%2Fevent%5C%2Fview%5C%2Fevent%5C%2F1461%5C%2Fkakao.jpg%22%2C%22link%22%3A%22withcall%3A%5C%2F%5C%2Fnativecall%5C%2Fkakaotalk_share_web%3Feventno%3D1461%5Cu0026title%3D%EA%BD%9D%EC%97%86%EB%8A%94%20%EB%8F%84%EC%A0%84%20%EB%A3%B0%EB%A0%9B%EF%BC%81%5Cu0026mode%3Devent%5Cu0026img%3Dhttps%3A%5C%2F%5C%2Fimage.goodchoice.kr%5C%2Fevent%5C%2Fview%5C%2Fevent%5C%2F1461%5C%2Fkakao.jpg%5Cu0026label%3D%EB%A7%A4%EC%9D%BC%20%EB%8F%84%EC%A0%84%ED%95%98%EC%84%B8%EC%9A%94%EF%BC%81%7C%EB%88%84%EA%B5%AC%EB%82%98%20100%EF%BC%85%20%EB%8B%B9%EC%B2%A8%EF%BC%81%7C%EC%A7%80%EA%B8%88%20%EB%B0%94%EB%A1%9C%20START%E2%98%9E%5Cu0026txt%3D%5Cu0026url%3Dhttps%253A%252F%252Fapi3.goodchoice.kr%252Fevent3%252Fmain%252FadEventView%253Faevno%253D1461%22%2C%22url%22%3A%22https%3A%5C%2F%5C%2Fapi3.goodchoice.kr%5C%2Fevent3%5C%2Fmain%5C%2FadEventView%3Faevno%3D1461%22%7D%2C%22couponCodes%22%3A%5B%5D%2C%22responseHeader%22%3A%22%22%7D';
+                        </script>
+
+                        <link rel="stylesheet" href="/api3/js/event_custom/event-default.min.css">
+                        <link rel="stylesheet" href="/api3/js/event_custom/event-custom.min.css">
+                        <link rel="stylesheet" href="/api3/js/event_custom/products-vue-custom.min.css">
+                        <script type="text/javascript"
+                            src="/api3/js/event_custom/event-custom.min.js"></script>
+                        <script type="text/javascript"
+                            src="/api3/js/event_custom/products-vue-custom.min.js"></script>
+
+                        <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+                        <script>
+                            //<![CDATA[
+                            // 사용할 앱의 JavaScript 키를 설정해 주세요.
+                            Kakao.init('2c9efd0c35b12bcd37f60ce3cf8267c8');
+                            // 카카오톡 링크 버튼을 생성합니다. 처음 한번만 호출하면 됩니다.
+                            function sendLink() {
+                                Kakao.Link.sendTalkLink({
+                                    image: { // 80 * 80 이상
+                                        src: "https://image.goodchoice.kr/event/view/event/1461/kakao.jpg",
+                                        width: '720',
+                                        height: '710'
+                                    },
+                                    label: "매일 도전하세요！|누구나 100％ 당첨！|지금 바로 START☞",
+                                    webButton: {
+                                        text: '여기어때 바로가기',
+                                        url: "https://api3.goodchoice.kr/event3/main/adEventView?aevno=1461"
+                                    }
+                                });
+                            }
+                        </script>
+                        <!-- //카카오 공유하기 -->
+
+
+                        <style>
+                            @keyframes spin {
+                                from {
+                                    transform: rotate(0deg);
+                                }
+
+                                to {
+                                    transform: rotate(-10deg);
+                                }
+                            }
+
+                            .show {
+                                display: block;
+                            }
+
+                            .show-important {
+                                display: block !important;
+                            }
+
+                            .hidden {
+                                display: none !important;
+                            }
+
+                            input[type='checkbox'] {
+                                display: none;
+                            }
+
+                            .event-container {
+                                opacity: 0 !important;
+                            }
+
+                            .event-container.load-end {
+                                opacity: 1 !important;
+                            }
+
+                            .roulette-container {
+                                padding-top: 10vw;
+                                overflow: hidden;
+                                background-position: top center;
+                                background-size: 100% auto;
+                                background-repeat: no-repeat;
+                                background-color: #FFF2DC;
+                            }
+
+                            .roulette-container .roulette {
+                                position: relative;
+                            }
+
+                            .roulette-container .arrow {
+                                position: absolute;
+                                left: 50%;
+                                top: 0;
+                                display: inline-block;
+                                width: 16vw;
+                                transform: translate(-50%, -35%);
+                                z-index: 10;
+                            }
+
+                            .roulette-container .start-btn {
+                                position: absolute;
+                                left: 50%;
+                                top: 50%;
+                                display: inline-block;
+                                width: 30vw;
+                                transform: translate(-50%, -50%);
+                                z-index: 10;
+                            }
+
+                            .roulette-container .panel {
+                                position: relative;
+                            }
+
+                            .roulette-container.spin__ready {}
+
+                            .roulette-container.spin__ready .panel,
+                            .roulette-container.spin__start .panel {
+                                transform: rotate(-10deg);
+                            }
+
+                            .roulette-container.spin__ready .panel {
+                                animation: spin 0.8s ease;
+                            }
+
+                            .disabled-roulette {
+                                display: none;
+                            }
+
+                            /* 이미 참여함 일때 */
+                            .roulette-disabled {}
+
+                            .roulette-disabled .roulette-container {
+                                display: none;
+                            }
+
+                            .roulette-disabled .roulette-container .roulette {}
+
+                            .roulette-disabled .marketing {
+                                display: none;
+                            }
+
+                            .roulette-disabled .disabled-roulette {
+                                display: block;
+                            }
+
+                            .marketing {
+                                position: relative;
+                                background-color: #FFF2DC;
+                            }
+
+                            .marketing a {
+                                position: absolute;
+                                top: 0;
+                                display: inline-block;
+                                height: 100%;
+                            }
+
+                            .marketing a.marketing-agree {
+                                left: 20vw;
+                                width: 43vw;
+                            }
+
+                            .marketing a.marketing-detail {
+                                left: 63vw;
+                                width: 17vw;
+                            }
+
+                            .marketing .marketing-bg {}
+
+                            .marketing .marketing-bg img:nth-of-type(1) {
+                                display: block;
+                            }
+
+                            .marketing .marketing-bg img:nth-of-type(2) {
+                                display: none;
+                            }
+
+                            .marketing input:checked+.marketing-bg img:nth-of-type(1) {
+                                display: none;
+                            }
+
+                            .marketing input:checked+.marketing-bg img:nth-of-type(2) {
+                                display: block;
+                            }
+
+                            .event-calendar {
+                                position: relative;
+                            }
+
+                            .event-calendar .calendar-header {
+                                position: relative;
+                            }
+
+                            .event-calendar .calendar-header h3 {
+                                position: absolute;
+                                left: 0;
+                                bottom: 2vw;
+                                display: block;
+                                width: 100%;
+                                text-align: center;
+                                color: #FFF;
+                                font-size: 20px;
+                            }
+
+                            .event-calendar .calendar-container {
+                                position: relative;
+                                width: 100%;
+                                height: 100%;
+                                padding: 3vw 8% 0;
+                                background-position: center;
+                                background-size: 100% 1px;
+                                background-repeat: repeat-y;
+                                /*padding:21vw 8vw 14vw 8vw;*/
+                            }
+
+                            .event-calendar .calendar-footer {}
+
+                            .calendar-wrap {
+                                display: flex;
+                                flex-wrap: wrap;
+                                width: 100%;
+                                height: 100%;
+                                border: solid 1px #D7D7D7;
+                            }
+
+                            .calendar-wrap .item {
+                                position: relative;
+                                display: block;
+                                width: calc(100% / 7);
+                                padding-top: 14vw;
+                            }
+
+                            .calendar-wrap .item::before,
+                            .calendar-wrap .item::after {
+                                content: '';
+                                position: absolute;
+                            }
+
+                            .calendar-wrap .item::before {
+                                top: 50%;
+                                left: 0;
+                                height: 80%;
+                                width: 0;
+                                transform: translateY(-50%);
+                                border-left: solid 1px #D7D7D7;
+                            }
+
+                            .calendar-wrap .item::after {
+                                top: 0;
+                                left: 0;
+                                height: 0;
+                                width: 100%;
+                                border-bottom: solid 1px #D7D7D7;
+                            }
+
+                            .calendar-wrap .item:nth-of-type(7n + 1)::before {
+                                content: none;
+                            }
+
+                            .calendar-wrap .item:nth-of-type(-n + 7)::after {
+                                content: none;
+                            }
+
+                            .calendar-wrap .item em {
+                                position: absolute;
+                                left: 3px;
+                                top: 3px;
+                                font-size: 12px;
+                                color: #404040;
+                                z-index: 1;
+                            }
+
+                            .calendar-wrap .item span {
+                                position: absolute;
+                                display: block;
+                                left: 50%;
+                                bottom: 4px;
+                                width: 30px;
+                                height: 30px;
+                                background-color: #D9D9D9;
+                                border-radius: 50%;
+                                transform: translateX(-50%);
+                            }
+
+                            .calendar-wrap .item.active span {
+                                background-image: url(https://image.goodchoice.kr/event/view/event/1461/e1461_stamp.png);
+                                background-size: cover;
+                                background-position: center;
+                                background-repeat: no-repeat;
+                            }
+
+                            @media only screen and (min-width:1024px) {
+                                .event-calendar .calendar-container {
+                                    padding-top: 20px !important;
+                                }
+
+                                .calendar-wrap .item {
+                                    padding-top: 80px !important;
+                                }
+
+                                .calendar-wrap .item span {
+                                    bottom: 10px !important;
+                                    width: 50px !important;
+                                    height: 50px !important;
+                                }
+
+                                .event-calendar .calendar-header h3 {
+                                    bottom: 15px !important;
+                                    font-size: 36px !important;
+                                }
+                            }
+
+                            .bottom-info>a {
+                                position: absolute;
+                                bottom: 24vw;
+                                left: 35vw;
+                                display: block;
+                                width: 50vw;
+                                height: 20vw;
+                            }
+
+                            /* 밑으로 테스트용. .line은 나중에 각도 체크용으로 쓸 수 있음 */
+                            .line {
+                                position: absolute;
+                                top: 50%;
+                                display: none;
+                                width: 100%;
+                                height: 0px;
+                                border: solid 1px red;
+                                transform: rotate(90deg);
+                                z-index: 100;
+                            }
+                        </style>
+
+                        <div class='content-type-W event-container' data-user-action='load' data-log-page='event/1461'>
+
+                            <div class="event-banner">
+                                <img src="https://image.goodchoice.kr/event/view/event/1461/e1461_01.png">
+                            </div>
+
+                            <div class="event-banner">
+                                <img src="https://image.goodchoice.kr/event/view/event/1461/e1461_02_pc.png"
+                                    data-deepLink>
+                                <img src="https://image.goodchoice.kr/event/view/event/1461/e1461_03_1.png"
+                                    data-deepLink>
+                            </div>
+
+                            <div class="event-banner">
+                                <img src="https://image.goodchoice.kr/event/view/event/1461/e1461_04.png">
+                                <img src="https://image.goodchoice.kr/event/view/event/1461/e1461_05.png">
+                            </div>
+
+                            <div class="event-calendar">
+                                <div class="calendar-header">
+                                    <h3>8월 참여 현황</h3>
+                                    <img src="https://image.goodchoice.kr/event/view/event/1461/cal_top.png">
+                                </div>
+                                <div class="calendar-container"
+                                    style="background-image:url('https://image.goodchoice.kr/event/view/event/1461/cal_body.png');">
+                                    <div class="calendar-wrap">
+                                        <!-- 동적 캘린더 위치 -->
+                                    </div>
+                                </div>
+                                <div class="calendar-footer">
+                                    <img src="https://image.goodchoice.kr/event/view/event/1461/cal_bottom.png">
+                                </div>
+                            </div>
+
+                            <div class="event-banner">
+                                <a onclick="EC.href.detailEvent(1708, '전국민 도망지원 캠페인')" title="전국민 도망지원 캠페인">
+                                    <img src="https://image.goodchoice.kr/event/view/event/1461//banner_202108/05.jpg">
+                                </a>
+                                <a onclick="EC.href.detailEvent(1698, '금토일 대실 4천원 할인')" title="금토일 대실 4천원 할인">
+                                    <img src="https://image.goodchoice.kr/event/view/event/1461//banner_202108/02.jpg">
+                                </a>
+                                <a onclick="EC.href.promotionPlan('P20210726152446314')" title="이달의 특가호텔">
+                                    <img src="https://image.goodchoice.kr/event/view/event/1461//banner_202108/03.jpg">
+                                </a>
+                                <a onclick="EC.href.promotionPlan('P20210726152138062')" title="이달의 할인펜션">
+                                    <img src="https://image.goodchoice.kr/event/view/event/1461//banner_202108/04.jpg">
+                                </a>
+                            </div>
+
+                            <!-- 이벤트 하단 -->
+                            <div class="event-bottom">
+
+                                <!-- 유의사항 -->
+                                <div class="bottom-info">
+                                    <a href="javascript:void(0);" onclick="_r.winnerDetail()" data-deepLink></a>
+                                    <img src="https://image.goodchoice.kr/event/view/event/1461/info_2021.png"
+                                        alt="유의사항">
+                                </div>
+                            </div>
+
+                            <!-- modal insert 마케팅 알림 수신 동의 자세히 보기 -->
+                            <div class="modal-terms-detail" style="display:none; font-size:14px;">
+                                <div class="dailog-title-term title-type1"><strong class="privacy_title">마케팅 알림 수신 동의
+                                        (필수)</strong></div>
+                                <div class="txt">
+                                    <div class="privacy-bill">
+                                        <p>
+                                            (주)여기어때컴퍼니는 회원전용 할인쿠폰 및 이벤트 등의 특별혜택 정보 안내를 위해 개인정보보호 관련 법률에 따라 정보주체로부터 마케팅
+                                            알림 수신에 대한 동의를 받고 있습니다.<br>
+                                            아래의 내용을 자세히 읽어보신 후 동의 여부를 결정하여 주시기 바랍니다.
+                                        </p>
+                                        <ul style="padding:4vw;">
+                                            <li>1. 수집 이용 목적 : <b style="font-size:18px; text-decoration:underline;">회원
+                                                    전용 할인쿠폰 및 이벤트 등의 특별한 혜택 정보 안내</b></li>
+                                            <li>2. 개인정보 수집 항목 : 마케팅 수신 동의 (푸시알림,이메일,SMS)</li>
+                                            <li>3. 개인정보 보유/이용 기간 : <b
+                                                    style="font-size:18px; text-decoration:underline;">수신동의 철회 및 회원
+                                                    탈퇴시</b></li>
+                                        </ul>
+                                        <p>이용 중 원치 않으시면, 여기어때 앱 > 더보기 > 설정 >마케팅알림수신 거부를 하실 수 있으며 동의를 거부할 경우 이벤트 참여가
+                                            불가합니다.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /modal insert 마케팅 알림 수신 동의 자세히 보기 -->
+                        </div>
+
+                        <script type="text/javascript"
+                            src="/api3/js/library/jquery.easing.1.3.js"></script>
+                        <script>
+                            // caution: css중 @keyframes의 to rotate값에도 마이너스 값으로 세팅 해야 함!!!
+                            // caution: .panel 값에도 마이너스 값으로 세팅 해야 함!!!
+                            var spinDirection = -1;                                         // 회전방향 (1:시계반대, -1:시계방향)
+                            var spinConfig = {
+                                startDeg: 10,                                               // CSS animate 시작deg가 맞아야함
+                                degs: ['-19:-90', '-90:-162', '-162:-234', '-234:-306', '-306:-379'],  // 룰렛의 각 당첨 영역(시작:끝)
+                                // 0:3000p, 1:100p, 2:10p, 3:300,000블랙, 4:20,000맛집
+                                detailMessage: '나는요~ 아이유가~ 좋은거어어얼~',
+                                degPadding: 10,                                             // 라인과 겹치치 않게 하는 여백
+                                durationRatio: 1.7,                                         // 최적의 스피드 비율 (↓: 스피드업, ↑: 스피드 다운)
+                                defaultSpinCnt: 10,                                         // 최소 스핀 횟수
+
+                                isSpin: false,      // 돌고있는중? (true면 다시 돌리면 안됨)
+                                isRoulette: false,   // 룰렛 참가 완료여부 (참여 완료된거 룰렛참여 막되 disabled는 아님)
+                                isMktAgreeHistory: false,       // 영화이벤트로 체크된 마케팅 수신여부
+
+                                message: {
+                                    overlap() {
+                                        popup.show('오늘은 이미 참여하셨어요<br>내일 다시 도전해 주세요!', [
+                                            { text: "닫기", onclick: "popup.close();" },
+                                        ]);
+                                    },
+                                    marketingAgree() {
+                                        popup.show('마케팅 알림 수신을<br>동의해주세요.', [
+                                            { text: "닫기", onclick: "popup.close();" }
+                                        ]);
+                                    },
+                                    winResult(winIndex) {
+                                        spinConfig.winMessage[winIndex]();
+                                    },
+                                    login() {
+                                        popup.show('먼저 로그인 해주세요.', [
+                                            { text: "닫기", onclick: "popup.close();" },
+                                            { text: "로그인", onclick: "go.login();" }
+                                        ]);
+                                    },
+                                    win: {
+                                        // 3000p
+                                        0: function () {
+                                            var idx = 0;
+                                            var msg = '짝짝짝~ 3000포인트 당첨!<br>내일 또 만나요!';
+                                            var callBackFunc = 'popup.close(); spinConfig.message.winCallback[' + idx + ']()';
+                                            popup.show(msg, [
+                                                { text: "닫기", onclick: 'popup.close();' },
+                                                { text: "포인트 확인하기", onclick: callBackFunc }
+                                            ]);
+                                        },
+                                        // 100p
+                                        1: function () {
+                                            var idx = 1;
+                                            var msg = '짝짝짝~ 100포인트 당첨!<br>내일 또 만나요!';
+                                            var callBackFunc = 'popup.close(); spinConfig.message.winCallback[' + idx + ']()';
+                                            popup.show(msg, [
+                                                { text: "닫기", onclick: 'popup.close();' },
+                                                { text: "포인트 확인하기", onclick: callBackFunc }
+                                            ]);
+                                        },
+                                        // 10p
+                                        2: function () {
+                                            var idx = 2;
+                                            var msg = '짝짝짝~ 10포인트 당첨!<br>내일 또 만나요!';
+                                            var callBackFunc = 'popup.close(); spinConfig.message.winCallback[' + idx + ']()';
+                                            popup.show(msg, [
+                                                { text: "닫기", onclick: 'popup.close();' },
+                                                { text: "포인트 확인하기", onclick: callBackFunc }
+                                            ]);
+                                        },
+                                        // 블랙 300,000
+                                        3: function () {
+                                            var idx = 3;
+                                            var msg = '짝짝짝~ 블랙 숙박권 당첨!<br>내일 또 만나요!';
+                                            var callBackFunc = 'popup.close(); spinConfig.message.winCallback[' + idx + ']()';
+                                            popup.show(msg, [
+                                                { text: "닫기", onclick: 'popup.close();' },
+                                                { text: "당첨 안내 보기", onclick: callBackFunc }
+                                            ]);
+                                        },
+                                        // 잇딜(맛집) 20,000
+                                        4: function () {
+                                            var idx = 4;
+                                            var msg = '짝짝짝~ 맛집 쿠폰 당첨!<br>내일 또 만나요!';
+                                            var callBackFunc = 'popup.close(); spinConfig.message.winCallback[' + idx + ']()';
+                                            popup.show(msg, [
+                                                { text: "닫기", onclick: 'popup.close();' },
+                                                { text: "쿠폰 확인하기", onclick: callBackFunc }
+                                            ]);
+                                        },
+                                        fail: function () {
+                                            popup.show('오류가 발생하였습니다.<br>다시 시도해주세요.', [
+                                                { text: "닫기", onclick: 'popup.close();' },
+                                            ]);
+                                        }
+                                    },
+                                    winCallback: {
+                                        0: function () {
+                                            location.href = 'yeogi://details?schemetype=point';
+                                        },
+                                        1: function () {
+                                            location.href = 'yeogi://details?schemetype=point';
+                                        },
+                                        2: function () {
+                                            location.href = 'yeogi://details?schemetype=point';
+                                        },
+                                        3: function () {
+                                            location.href = 'yeogi://details?schemetype=webview&title=도전룰렛 블랙 숙박권 당첨자 안내&url=https://api3.goodchoice.kr/more/notice_detail/1089';
+                                        },
+                                        4: function () {
+                                            location.href = 'yeogi://details?schemetype=coupon&anim=2';
+                                        },
+                                    },
+                                },
+                            };
+
+                            $.fn.animateRotate = function (angle, deg, duration, easing, complete) {
+                                var args = $.speed(deg, duration, easing, complete);
+                                var step = args.step;
+                                return this.each(function (i, e) {
+                                    args.complete = $.proxy(args.complete, e);
+                                    args.step = function (now, fx) {
+                                        $.style(e, 'transform', 'rotate(' + now + 'deg)');
+                                        if (step) return step.apply(e, arguments);
+                                    };
+                                    $({ deg: deg.deg }).animate({ deg: angle }, args);
+                                });
+                            };
+
+                            // 룰렛 참여여부 체크
+                            var getRandomPointEvtIssued = function () {
+                                var deferred = new $.Deferred();
+                                if (EC.deviceType !== 'A') {
+                                    deferred.reject();
+                                    return false;
+                                }
+                                $.ajax({
+                                    type: 'POST',
+                                    cache: false,
+                                    url: '/event3/event_main_2021/getRandomPointEvtIssued',
+                                    dataType: 'json',
+                                    data: {
+                                        aevno: EC.eventNo,
+                                        uno: EC.uno,
+                                        entrydate: EC.currentDay
+                                    },
+                                    success: function (res) {
+                                        console.log('%cgetRandomPointEvtIssued(룰렛중복체크)', 'font-weight:bold;', res);
+                                        deferred.resolve(res);
+                                    },
+                                    error: function (e) {
+                                        deferred.reject(e);
+                                    }
+                                });
+                                return deferred.promise();
+                            }
+
+                            // 참여이력 조회(캘린더) return ['20210401', ...];
+                            var getRandomPointEvtIssuedList = function () {
+                                var deferred = new $.Deferred();
+                                if (EC.deviceType !== 'A') {
+                                    deferred.reject();
+                                    return false;
+                                }
+                                $.ajax({
+                                    type: 'POST',
+                                    cache: false,
+                                    url: '/event3/event_main_2021/getRandomPointEvtIssuedList',
+                                    dataType: 'json',
+                                    data: {
+                                        aevno: EC.eventNo,
+                                        uno: EC.uno,
+                                    },
+                                    timeout: EC.requestTime,
+                                    success: function (res) {
+                                        console.log('%cgetRandomPointEvtIssuedList(캘린더)', 'font-weight:bold;', res);
+                                        deferred.resolve(res);
+                                    },
+                                    error: function (e) {
+                                        deferred.reject(e);
+                                    }
+                                });
+                                return deferred.promise();
+                            }
+
+                            // 이벤트 당첨 결과 0:3000p, 1:100p, 2:10p, 3:300,000블랙, 4:20,000맛집
+                            var getRandomPointEvtWin = function () {
+                                var deferred = new $.Deferred();
+                                if (EC.deviceType !== 'A') {
+                                    deferred.reject();
+                                    return false;
+                                }
+                                $.ajax({
+                                    type: 'POST',
+                                    cache: false,
+                                    url: '/event3/event_main_2021/issueRandomPointEvt',
+                                    dataType: 'json',
+                                    data: {
+                                        aevno: EC.eventNo,
+                                        uno: EC.uno,
+                                        deviceId: EC.deviceId
+                                    },
+                                    success: function (res) {
+                                        //Alert: goods 를 파싱해서 사용하심대용~
+                                        console.log('%cgetRandomPointEvtWin(당첨결과)', 'font-weight:bold;', res);
+                                        deferred.resolve(res);
+                                    },
+                                    error: function (e) {
+                                        deferred.reject(e);
+                                    }
+                                });
+                                return deferred.promise();
+                            }
+
+                            var roulette = {
+                                el: {
+                                    eventContainer: '.event-container',
+                                    container: '.roulette-container',
+                                    panel: '.panel',
+                                },
+                                $el: {
+                                    eventContainer: undefined,
+                                    container: undefined,
+                                    panel: undefined,
+                                },
+                                init: function () {
+                                    this.$el.eventContainer = $(this.el.eventContainer);
+                                    this.$el.container = $(this.el.container);
+                                    this.$el.panel = this.$el.container.find(this.el.panel);
+                                },
+                                getWinArea(winIdx) {
+                                    var _area = spinConfig.degs[winIdx].split(':');
+                                    var min = (parseInt(_area[0]) - 90 - spinConfig.degPadding);
+                                    var max = (parseInt(_area[1]) - 90 + spinConfig.degPadding);
+                                    // console.log('윈', winIdx, _area, min, max, spinConfig.degPadding);
+                                    return Math.floor(Math.random() * (max - min + 1)) + min;
+                                },
+                                getWinConfig(winIdx) {
+                                    var addDeg = this.getWinArea(winIdx);
+                                    var deg = (360 * spinConfig.defaultSpinCnt * -1) - addDeg;
+                                    return {
+                                        deg: deg,
+                                        duration: deg * spinConfig.durationRatio * -1
+                                    }
+                                },
+                                marketingAgree(e) {
+                                    if (e && e.preventDefault) { e.preventDefault(); }
+
+                                    if (!EC.isLogin()) {
+                                        spinConfig.message.login();
+                                        return false;
+                                    }
+
+                                    var chk = $('#marketing').is(":checked");
+                                    if (chk) {
+                                        $('#marketing').prop('checked', false);
+                                    } else {
+                                        $('#marketing').prop('checked', true);
+                                    }
+                                },
+                                marketingDetail(e) {
+                                    if (e && e.preventDefault) { e.preventDefault(); }
+
+                                    var termsSelector = '.modal-terms-detail';
+                                    var termsContents = $(termsSelector);
+                                    var termsAddOn = $('<div>').addClass(termsSelector.replace('.', '')).append(termsContents());
+                                    popup.show(termsAddOn, [
+                                        { text: "닫기", onclick: "popup.close();" },
+                                    ]);
+                                },
+                                winnerDetail() {
+                                    location.href = 'yeogi://details?schemetype=webview&title=8월 도전룰렛 블랙 숙박권 당첨자 안내&url=http://api3.goodchoice.kr/more/notice_detail/1141';
+                                },
+                                readyRoulette() {
+                                    // 오늘자 블랙 쿠폰이 없음.
+                                    if ('0' === '1') {
+                                        spinConfig.message.win.fail();
+                                    }
+
+                                    // 스핀중
+                                    if (spinConfig.isSpin) {
+                                        return false;
+                                    }
+
+                                    if (EC.deviceType != 'A') {
+                                        e.preventDefault();
+                                        deepLink();
+                                        return false;
+                                    }
+
+                                    if (!EC.isLogin()) {
+                                        spinConfig.message.login();
+                                        return false;
+                                    }
+
+                                    // 영화이벤트로 체크된 히스토리와 수신동의 체크된게 전부 없으면 수신동의 안보이게
+                                    if (!spinConfig.isMktAgreeHistory && !this.isAgree()) {
+                                        spinConfig.message.marketingAgree();
+                                        return false;
+                                    }
+
+                                    // 이미 참여 함. (로드시 체크됨)
+                                    if (spinConfig.isRoulette) {
+                                        spinConfig.message.overlap();
+                                        return false;
+                                    }
+
+                                    // 참여여부 재확인
+                                    $.when(
+                                        getRandomPointEvtIssued()
+                                    ).then(function (res) {
+                                        // 룰렛의 상태를 체크해서 disabled등을 체크해줌
+                                        if (res.code === 200 && res.msg === true) {
+                                            spinConfig.message.overlap();
+                                            return false;
+                                        } else {
+                                            // 이제 본격적인 룰렛을 돌려보자~
+                                            _r.startRoulette();
+                                        }
+                                    });
+                                },
+                                startRoulette() {
+                                    // 룰렛 준비동작 실행
+                                    spinConfig.isSpin = true;
+                                    this.spinReady();   // 룰렛 반대로 돌려 주시고~ Ready get set~
+
+                                    $.when(
+                                        this.asyncChkReadyEnd(),    // 룰렛 반대로 도는 1초 완료
+                                        getRandomPointEvtWin()      // 이벤트 당첨 코드 받기
+                                    ).then(function (resChkReady, resChkWin) {
+                                        // console.log(111, resChkReady, resChkWin);
+                                        //{code: 200, msg: "P10", goods: "2"}
+
+                                        // 마케팅 수신동의 로그 남기기
+                                        if (!spinConfig.isMktAgreeHistory) {
+                                            // 로드시 체크한 마케팅동의 여부가 없거나 아닐경우에 set 해줌
+                                            EC.api.setRealEpilogueEvent();  // 마케팅수신동의 중복 로그
+                                            EC.api.setAgreementMarketingKto()   // 마케팅쪽 수신동의 업데이트
+                                        }
+
+                                        // 캘릭더 도장 꾹
+                                        _c.showStampByDate(moment(EC.currentDay).format('YYYYMMDD'));
+
+                                        // 이벤트 로그 남기기
+                                        // 0:P3000:3000p, 1:P100:100p, 2:P10:10p, 3:BLACK:300,000블랙, 4:EAT100orEAT200:20,000맛집
+                                        var logParams = {
+                                            eventNo: 1478,
+                                            name: EC.deviceId || '',
+                                            option: moment().format('YYYY-MM-DD HH:mm:ss.SSS'),
+                                            comment: resChkWin.msg,
+                                            enterLimit: 9999
+                                        };
+                                        // 전체 당첨 로그 남기기
+                                        EC.api.setRealEpilogueEvent(logParams);
+
+                                        // 돌려 돌려~
+                                        var winIdx = parseInt(resChkWin.goods);
+                                        var spinWinCallbackFn = function () {
+                                            spinConfig.isSpin = false;
+                                            spinConfig.isRoulette = true;
+                                            spinConfig.message.win[winIdx]();
+                                        };
+
+                                        if (winIdx === 3) {
+                                            // 블랙
+                                            _r.spin(winIdx, spinWinCallbackFn);
+                                        } else if (winIdx === 4) {
+                                            // 잇딜이라면 쿠폰 set
+                                            var couponCode = 'B_MKT_EVT_NO1461_ACT_0825';
+                                            if (couponCode == '') {
+                                                // TODO: 에러 예외처리 하기
+                                                return false;
+                                            }
+
+                                            // 잇딜이라면 무조건 발급완료, 발급실패 로그 남김
+                                            $.when(
+                                                EC.api.issueDeviceCheckingCoupon(couponCode)
+                                            ).then(function (issudeCouponRes) {
+                                                EC.api.setRealEpilogueEvent(Object.assign(logParams, {
+                                                    comment: '잇딜 발급완료 : ' + logParams.comment
+                                                }));
+                                                _r.spin(winIdx, spinWinCallbackFn);
+                                            }).fail(function () {
+                                                EC.api.setRealEpilogueEvent(Object.assign(logParams, {
+                                                    comment: '잇딜 발급실패 : ' + logParams.comment
+                                                }));
+                                                spinConfig.message.win.fail()
+                                            });
+                                        } else {
+                                            _r.spin(winIdx, spinWinCallbackFn);
+                                        }
+
+                                    }).fail(function (e) {
+                                        console.log(e);
+                                    });
+                                },
+                                asyncChkReadyEnd() {
+                                    var deferred = new $.Deferred();
+                                    setTimeout(function () {
+                                        deferred.resolve(true);
+                                    }, 1000);
+                                    return deferred.promise();
+                                },
+                                spinReady() {
+                                    var $_el = this.$el;
+                                    $_el.container.removeClass('spin__start spin__end').addClass('spin__ready');
+                                },
+                                spin(winIdx, callback) {
+                                    var $_el = this.$el;
+                                    var conf = this.getWinConfig(winIdx);
+
+                                    var _config = {
+                                        angle: conf.deg * spinDirection,
+                                        deg: spinConfig.startDeg * spinDirection,
+                                        duration: conf.duration,
+                                        easing: 'easeInOutQuint',
+                                        complete() {
+                                            $_el.container.removeClass('spin__ready spin__start').addClass('spin__end');
+                                            if (typeof callback == 'function') {
+                                                callback();
+                                            }
+                                        }
+                                    }
+                                    $_el.container.removeClass('spin__ready').addClass('spin__start');
+                                    $_el.panel.clearQueue().animateRotate(_config.angle, _config);
+                                },
+                                isAgree() {
+                                    return $('#marketing').is(":checked");
+                                },
+                                isShowAgree(res) {
+                                    if (res && !res.rtv) {
+                                        spinConfig.isMktAgreeHistory = true;
+                                        $('#marketing').is(":checked");
+                                        $('.marketing').css({
+                                            display: 'none'
+                                        });
+                                    }
+                                },
+                            };
+                            var _r = window._r = EC.roulette = roulette;
+
+                            var calConfig = {
+                                competitionStartWeekDay: 1,         // 시작-월요일 (밑에 표에서 선택)
+                                competitionStartDate: '2021-08-01',   // 도전 시작일
+                                competitionEndDate: '2021-08-31',     // 도전 종료일
+                                day: { 0: '일', 1: '월', 2: '화', 3: '수', 4: '목', 5: '금', 6: '토' }
+                            }
+
+                            var calendar = {
+                                el: {
+                                    eventCalendar: '.event-calendar',
+                                    calendarContainer: '.calendar-container',
+                                    calendarWrap: '.calendar-wrap',
+                                },
+                                $el: {},
+                                data: [
+                                    // >>> sample
+                                    // {
+                                    //     date: '20210414',
+                                    //     seq: 14,
+                                    //     isShow: false,          // 이벤트 진행여부
+                                    //     isParticipate: false,   // 이벤트 참여
+                                    // }
+                                ],
+                                init() {
+                                    this.$el.eventCalendar = $(this.el.eventCalendar);
+                                    this.$el.calendarContainer = $(this.el.calendarContainer);
+                                    this.$el.calendarWrap = $(this.el.calendarWrap);
+
+                                    this.drawCalendar();
+                                },
+                                drawCalendar() {
+                                    var sDate = moment(calConfig.competitionStartDate);
+                                    var eDate = moment(calConfig.competitionEndDate);
+                                    var sPlusDays = sDate.day() - calConfig.competitionStartWeekDay;
+                                    if (sPlusDays < 0) {
+                                        sPlusDays = 7 + sPlusDays;
+                                    }
+                                    var ePlusDays = 6 - eDate.day() + calConfig.competitionStartWeekDay;
+                                    var calSdate = sDate.add(-sPlusDays, 'days');
+                                    var calEdate = eDate.add(ePlusDays, 'days');
+                                    var calDays = calEdate.diff(calSdate, 'days');
+
+                                    var _this = this;
+                                    this.data = [];
+                                    for (var i = 0; i <= calDays; i++) {
+                                        var item = {
+                                            seq: i,
+                                            date: calSdate.format('YYYYMMDD'),
+                                            isShow: moment(calConfig.competitionStartDate) <= sDate && sDate <= moment(calConfig.competitionEndDate),
+                                            isParticipate: false,
+                                        }
+
+                                        this.data.push(item);
+                                        calSdate.add(1, 'days');
+                                    }
+
+                                    this.data.forEach(function (data) {
+                                        var $item = $('<div>').addClass('item');
+                                        if (data.isShow) {
+                                            var day = moment(data.date).format('DD');
+                                            var $em = $('<em>')(day);
+                                            var $span = $('<span>');
+                                            $item.append($em, $span);
+                                        }
+                                        _this.$el.calendarWrap.append($item);
+
+                                        data.$item = $item;
+                                        data.active = function () {
+                                            $item.addClass('active');
+                                        }
+                                    });
+
+                                    if (EC.deviceType === 'A') {
+                                        this.chkEvtIssuedCalendar();
+                                    }
+                                },
+                                chkEvtIssuedCalendar() {
+                                    $.when(
+                                        getRandomPointEvtIssuedList()
+                                    ).then(function (res) {
+                                        if (res.code === 200 && Array.isArray(res.msg)) {
+                                            _c.showStampByDate(res.msg);
+                                        }
+                                    });
+                                },
+                                // YYYYMMDD (YYYY-MM-DD 안됨)
+                                showStampByDate(arrDate) {
+                                    var _this = this;
+                                    if (!Array.isArray(arrDate)) {
+                                        arrDate = [arrDate];
+                                    }
+                                    arrDate.forEach(function (day) {
+                                        var item = _this.findObjectInArray(_this.data, 'date', day);
+                                        if (item) {
+                                            item.active();
+                                        }
+                                    });
+                                },
+                                findObjectInArray(array, key, val) {
+                                    return Object.keys(array).length === 0 ? false : array.find(obj => obj[key] === val);
+                                }
+                            }
+                            var _c = window._c = EC.calendar = calendar;
+
+                            $(document).ready(function () {
+                                _r.init();
+                                _c.init();
+
+                                if (EC.deviceType !== 'A') {
+                                    // 처리 완료되면 이벤트 show 처리
+                                    $('.event-container').addClass('load-end');
+                                    return false;
+                                }
+
+                                if (EC.deviceType == 'A') {
+                                    $.when(
+                                        getRandomPointEvtIssued(),          // 롤렛 참여여부 확인
+                                        EC.api.isEnterRealEpilogueEvent(),  // 마케팅 알림 수신동의 이벤트중 한번만 할 수 있게
+                                    ).then(function (randomRes, realEpliogueRes) {
+                                        // 룰렛의 상태를 체크해서 disabled등을 체크해줌
+                                        if (randomRes.code === 200 && randomRes.msg === true) {
+                                            _r.$el.eventContainer.addClass('roulette-disabled');
+                                        }
+
+                                        // 참여여부 확인 후 참여했으면 알림수신동의 제거하기
+                                        if (realEpliogueRes && !realEpliogueRes.rtv) {
+                                            _r.isShowAgree(realEpliogueRes);
+                                        }
+                                    }).done(function () {
+                                        // 처리 완료되면 이벤트 show 처리
+                                        $('.event-container').addClass('load-end');
+                                    }).fail(function (e) {
+                                        console.log(e);
+                                    });
+                                }
+                            });
+
+                        </script>
+                    </div>
+                    <!-- //이벤트 삽입 -->
+
+                </div>
+                <!-- //Event -->
+
+                <!-- Page -->
+                <div class="page">
+                    <p>
+                        <a href="/event18">
+                            <span class="ico_arr_up">다음글</span>
+                            <b>함께해요 여기어때 리서치</b>
+                            <em>기간 : 2021.07.19 ~ 끝날 때까지!</em>
+                        </a>
+                    </p>
+                    <p>
+                        <a href="/event16">
+                            <span class="ico_arr_down">이전글</span>
+                            <b>특급호텔 공동구매 사전신청</b>
+                            <em>기간 : 2021.08.23 ~ 2021.08.26</em>
+                        </a>
+                    </p>
+                </div>
+
+                <div class="align_center">
+                    <button onclick="window.location.href='https://www.goodchoice.kr/more/event#0'"
+                        class="btn_red_fill">목록보기</button>
+                </div>
+
+            </div>
+
+        </div>
+        <!-- //Content  -->
+
+        <!-- 푸터 -->
+        <div th:replace="userthy/user-footer :: user-footer"></div>
+        <!--푸터 끝 -->
+
+
+    </div>
+
+    <!-- 상단으로 -->
+    <button class="btn_go_top" onclick="moveTop();">상단으로</button>
+
+    <!-- //Wrap -->
+
+    <!-- Script -->
+    <!-- Library -->
+    <script type="text/javascript" src="/js/library/jquery.cookie.js"></script>
+    <script type="text/javascript" src="/js/library/jquery.lazyload.js"></script>
+    <script type="text/javascript" src="/js/library/iscroll.js"></script>
+
+    <!-- Service -->
+    <script type="text/javascript" src="/js/service/common.js"></script>
+    <script type="text/javascript" src="/js/service/geolocation.js"></script>
+
+    <!-- Module -->
+    <script type="text/javascript" src="/js/modules/dialogPopup.js"></script>
+
+    <!-- Page Script -->
+    <script type="text/javascript" src="/js/library/vue.min.js"></script>
+    <script type="text/javascript" src="/js/service/more.js"></script>
+
+    <!-- Body Spinner -->
+    <div class="spinner show"><span></span></div>
+
+</body>
+
+</html>

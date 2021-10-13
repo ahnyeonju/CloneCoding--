@@ -1,0 +1,47 @@
+spring:
+  datasource:
+    driver-class-name: oracle.jdbc.OracleDriver
+    url: jdbc:oracle:thin:@dksduswn69_high?TNS_ADMIN=D:/KukbeeJava/cyberwallet/Wallet_dksduswn69
+    username: admin
+    password: Ahnsomak3507@
+
+
+  devtools:
+
+    livereload:
+
+      enabled: true
+
+    thymeleaf:
+
+      cache: false
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: noljaya2021@gmail.com
+    password: shdhfwk~1
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+#server:
+#  port: 8080
+#security:
+#  user:
+#    name: user
+#    password: 1234
+#
+#jpa:
+#  hibernate:
+#    ddl-auto: update
+#  properties:
+#    hibernate:
+#      format_sql: true
+#      show_sql: true
+#
+#profiles:
+#  include: security

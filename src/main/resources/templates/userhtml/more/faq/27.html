@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="여기어때 회원 가입 | 전국 호텔, 펜션, 모텔부터 워터파크, 놀이공원, 아쿠아리움까지 최저가 할인 예약">
+    <link rel="shortcut icon" href="/img/images/web_v3/favicon_170822.ico" type="image/x-icon">
+
+    <!-- CSS -->
+    <title>예약취소 - 자주 묻는 질문 | 여기어때</title>
+    <link rel="stylesheet" href="/css/common.css" />
+    <link rel="canonical" href="https://www.goodchoice.kr/more/faq">
+    <script type="text/javascript" src="/js/library/jquery-1.12.4.min.js"></script>
+
+    <script>
+        var _BASE_URL = 'https://www.goodchoice.kr/';
+        var _MOBILE = 'W';
+        var _KAKAOTALK_APP_KEY = 'f6ffb505bb11d7cc3584d443ce35f704';
+        var _FACEBOOK_APP_ID = '607467975974643';
+    </script>
+    <script>(function (a, b, c) { if (c in b && b[c]) { var d, e = a.location, f = /^(a|html)$/i; a.addEventListener("click", function (a) { d = a.target; while (!f.test(d.nodeName)) d = d.parentNode; "href" in d && (d.href.indexOf("http") || ~d.href.indexOf(e.host)) && (a.preventDefault(), e.href = d.href) }, !1) } })(document, window.navigator, "standalone")</script>
+</head>
+
+<body>
+
+    <!-- Wrap -->
+    <div class="wrap">
+
+     <!-- 헤더 -->
+        <div th:replace="userthy/user-headerlogin :: user-headerlogin"></div>
+        <!--헤더 끝 -->
+
+        <!-- Bg Dimm -->
+        <div class="bg_dimm" onclick="close_layer();">&nbsp;</div>
+        <div class="bg_dimm_prevent">&nbsp;</div>
+
+        <!-- 추천검색어 -->
+        <div class="recommend_srch">
+            <div class="scroll_srch">
+                <div class="scroller">
+                    <div class="default" style="display:block">
+                        <strong>추천 검색어</strong>
+                        <ul></ul>
+                    </div>
+                    <!-- 연관검색어 -->
+                    <div class="chain">
+                        <ul></ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="gnb_opacity"><button class="btn_close">닫기</button></div>
+        <div class="menu_wrap">
+
+            <div class="menu">
+                <div class="top">
+                    <!-- 회원 -->
+                    <div class="member">
+                        <div class="mem">
+                            <span class="pic"
+                                style="background:url('/img/profile/ico/ico_22.png') 50% 50% no-repeat;"></span>
+                            <p class="info">사과색깔</p>
+                        </div>
+                        <div class="bot">
+                            <a href="/userindex/point">
+                                <p>0P<br /><span>포인트</span></p>
+                            </a>
+                            <a href="/userindex/coupon">
+                                <p>1장<br /><span>쿠폰함</span></p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Iscroll -->
+                <div class="scroll_nav">
+                    <div class="scroller">
+                        <ul>
+                            <li><a href="/index">홈</a></li>
+                            <li class="depth_2">
+                                <button type="button" class="has_ul"><span>숙소유형</span></button>
+                                <ul>
+                                    <li><a href="/userindex/1">모텔</a></li>
+                                    <li><a href="/userindex/2">호텔/리조트</a></li>
+                                    <li><a href="/userindex/3">펜션</a></li>
+                                    <li><a href="/userindex/4">리조트</a></li>
+                                    <li><a href="/userindex/5">캠핑·글램핑</a></li>
+                                    <li><a href="/userindex/6">게스트하우스</a></li>
+                                    <li><a href="/userindex/7">한옥 </a></li>
+                                </ul>
+                            </li>
+                            <li><a href="/userindex/8">내주변</a></li>
+                        </ul>
+                        <ul>
+                            <li><a href="/userindex/reservations">예약 내역</a></li>
+                            <li><a href="/userindex/mypage">내 정보 관리</a></li>
+                        </ul>
+                        <ul>
+                            <li class="depth_2"><button type="button" class="has_ul"><span>더보기</span></button>
+                                <ul>
+                                   <!-- <li><a href="/userindex/notice">공지사항</a></li> -->
+                                    <li><a href="/userindex/event">이벤트</a></li>
+                                    <li><a href="/userindex/project">혁신 프로젝트</a></li>
+                                    <li><a href="/userindex/faq">고객문의</a></li>
+                                    <li><a href="/userindex/terms">약관 및 정책</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <div class="center">
+                            <p>여기어때 고객행복센터</p>
+                            <p><a href="tel:1670-6250">1670-6250</a></p>
+                            <p>오전 9시 - 새벽 3시</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- //Mobile Menu -->
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="/css/more.css" />
+
+        <!-- Sub Top -->
+        <div class="sub_top_wrap">
+            <div class="sub_top bg_kong_3">
+                <h2>더보기</h2>
+            </div>
+        </div>
+        <!-- //Sub Top -->
+
+        <!-- Content  -->
+        <div id="content" class="sub_wrap more_wrap">
+
+            <!-- Nav -->
+            <nav>
+                <ul>
+                    <!-- <li><a class="" href="/userindex/notice">공지사항</a></li> -->
+                    <li><a class=""  href="/userindex/event">이벤트</a></li>
+                    <li><a class="" href="/userindex/project">혁신 프로젝트</a></li>
+                    <li><a class="active" href="/userindex/faq">자주 묻는 질문</a></li>
+                    <li><a class="" href="/userindex/inquiry">1:1 문의</a></li>
+                    <li><a class="" href="/userindex/terms">약관 및 정책</a></li>
+                </ul>
+            </nav>
+            <div class="align_rt">
+
+                <!-- Faq -->
+                <div class="faq">
+
+                    <div class="mobile_top">고객문의<a href="/more/inquiry" class="top_btn">1:1문의</a></div>
+
+                    <!-- 상단 탭 버튼 -->
+                    <div class="top_link">
+                        <li>
+                            <a href="/userindex/faq" class="">TOP7</a>
+                        </li>
+                        <li>
+                            <a href="/userindex/faq26" class="">이용문의</a>
+                        </li>
+                        <li>
+                            <a href="/userindex/faq27" class="on">예약취소</a>
+                        </li>
+                        <li>
+                            <a href="/userindex/faq28" class="">결제/영수증</a>
+                        </li>
+                        <li>
+                            <a href="/userindex/faq29" class="">예약문의</a>
+                        </li>
+                        <li>
+                            <a href="/userindex/faq30" class="">쿠폰/포인트</a>
+                        </li>
+                        <li>
+                            <a href="/userindex/faq32" class="">회원정보</a>
+                        </li>
+                        <li>
+                            <a href="/userindex/faq33" class="">리얼리뷰</a>
+                        </li>
+                        <li>
+                            <a href="/userindex/faq36" class="">모바일티켓</a>
+                        </li>
+                    </div>
+                    <!-- //상단 탭 버튼 -->
+
+                    <!-- List -->
+                    <div class="faq_list">
+                        <strong class="title">자주 묻는 질문</strong>
+                        <div class="list" style="display:block">
+                            <ul>
+                                <li>
+                                    <p class="link"><span>예약을 취소하고 싶어요.</span></p>
+                                    <div class="ans">
+                                        <div>
+                                            <font color="#252525" face="arial"><span
+                                                    style="font-size: 13.3333px;">예약취소는&nbsp; 앱/웹 &gt; 내정보 &gt;
+                                                    예약/구매내역에서 직접 가능합니다.</span></font>
+                                        </div>
+                                        <div>
+                                            <font color="#252525" face="arial"><span
+                                                    style="font-size: 13.3333px;"><br></span></font>
+                                        </div>
+                                        <div>
+                                            <font color="#252525" face="arial"><span style="font-size: 13.3333px;">예약/결제
+                                                    진행 당시 안내된 취소/환불 규정에 따라 처리되며, 취소수수료가 발생할 경우 취소수수료를 차감한 금액으로 환불
+                                                    처리됩니다.</span></font>
+                                        </div>
+                                        <div>
+                                            <font color="#252525" face="arial"><span style="font-size: 13.3333px;">일부
+                                                    숙소에 한해 취소가 가능한 시점이나 앱/웹에서 취소가 불가할 수 있으니 이 경우에는 고객행복센터로 요청해 주시길
+                                                    바랍니다.</span></font>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <p class="link"><span>천재지변으로 인한 예약취소는 어떻게 하나요?</span></p>
+                                    <div class="ans">
+                                        <div>
+                                            <font color="#252525" face="arial"><span
+                                                    style="font-size: 13.3333px;">천재지변(기상악화)으로 숙소 이용이 불가할 경우 고객행복센터로
+                                                    예약내역 및 증빙서류(결항확인서, e-티켓 등)를 보내주시면 확인 후 예약취소 여부를 안내해 드립니다.</span>
+                                            </font>
+                                        </div>
+                                        <div>
+                                            <font color="#252525" face="arial"><span style="font-size: 13.3333px;">다만,
+                                                    상황에 따라 취소가 어려울 수 있는 점 참고 부탁드립니다.</span></font>
+                                        </div>
+                                        <div>
+                                            <font color="#252525" face="arial"><span
+                                                    style="font-size: 13.3333px;"><br></span></font>
+                                        </div>
+                                        <div>
+                                            <font color="#252525" face="arial"><span
+                                                    style="font-size: 13.3333px;">[접수방법]</span></font>
+                                        </div>
+                                        <div>
+                                            <font color="#252525" face="arial"><span style="font-size: 13.3333px;">※ 이메일
+                                                    : help@goodchoice.kr (예약자명, 숙소명, 체크인 날짜 필수)</span></font>
+                                        </div>
+                                        <div>
+                                            <font color="#252525" face="arial"><span style="font-size: 13.3333px;">※
+                                                    카카오톡 : 카카오톡 내 플러스 친구 &gt; 여기어때 고객행복센터 추가</span></font>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <p class="link"><span>예약대기 건 예약취소하고 싶어요.</span></p>
+                                    <div class="ans">
+                                        <div>
+                                            <font color="#252525" face="arial"><span style="font-size: 13.3333px;">예약
+                                                    대기중에는 여기어때 고객행복센터에 예약취소 요청해주시길 바랍니다.</span></font>
+                                        </div>
+                                        <div>
+                                            <font color="#252525" face="arial"><span
+                                                    style="font-size: 13.3333px;"><br></span></font>
+                                        </div>
+                                        <div>
+                                            <font color="#252525" face="arial"><span style="font-size: 13.3333px;">단,
+                                                    예약확정이 될 경우 수수료가 발생하거나 예약취소가 불가할 수 있습니다.</span></font>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <p class="link"><span>숙소에서 예약취소 했어요. 어떻게 하나요?</span></p>
+                                    <div class="ans">
+                                        <p>
+                                            <font face="Arial"><span
+                                                    style="font-size: 13px; white-space: pre-wrap;">여기어때는 숙소 사정으로 체크인 기준
+                                                    최소 1일 이전 미리 예약하신 상품이 취소된 경우 대안 숙소를 찾아드리는 안심예약제를 운영하고 있습니다.
+
+                                                    단순 환불 처리에 그치지 않고 더 좋은 숙소에서 이용하실 수 있도록 도움드리고 있사오니 아래 적용/제외 기준을 참고하여
+                                                    고객행복센터로 문의해 주시길 바랍니다.
+
+                                                    [적용기준]
+                                                    - 여기어때 예약 서비스를 이용한 예약 건
+                                                    - 숙소의 귀책으로 발생되는 미리예약 취소 건
+
+                                                    [제외기준]
+                                                    - 고객의 귀책(변심 등)으로 인한 취소 건
+                                                    - 타사이트를 통한 예약 건
+                                                    - 체크인 당일 예약 건
+                                                    - 페이백/엘리트 등급의 예약 건
+                                                    - 예약대기 상태의 취소 건
+                                                    - 부대시설 이용 불가 건</span></font>
+                                        </p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <p class="link"><span>체크인날짜/객실타입을 변경하고 싶어요.</span></p>
+                                    <div class="ans">
+                                        <div>
+                                            <font face="arial"><span style="font-size: 13.3333px;">예약 결제 완료 후 날짜 및 객실타입
+                                                    등 부분 변경은 불가합니다.</span></font>
+                                        </div>
+                                        <div>
+                                            <font face="arial"><span style="font-size: 13.3333px;"><br></span></font>
+                                        </div>
+                                        <div>
+                                            <font face="arial"><span style="font-size: 13.3333px;">예약취소와 동일하게 취소 및 환불
+                                                    규정에 따라 처리되므로 예약취소가 가능한 기간에는 예약취소 후 재결제 하셔서 이용 부탁드립니다.</span></font>
+                                        </div>
+                                        <div>
+                                            <font face="arial"><span style="font-size: 13.3333px;"><br></span></font>
+                                        </div>
+                                        <div>
+                                            <font face="arial"><span style="font-size: 13.3333px;">만약, 예약취소가 불가하거나 수수료가
+                                                    발생하는 경우라면 고객행복센터로 문의해주시길 바랍니다.</span></font>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <p class="link"><span>취소수수료 계산 기준은 어떻게되나요?</span></p>
+                                    <div class="ans">
+                                        <div>
+                                            <font face="arial"><span style="font-size: 13.3333px;">취소수수료는 할인쿠폰 적용 전 객실
+                                                    판매금액 기준으로 계산되며, 실 결제금액에서 취소수수료를 차감한 금액으로 환불 처리됩니다.</span></font>
+                                        </div>
+                                        <div>
+                                            <font face="arial"><span style="font-size: 13.3333px;">만약, 결제 시 포인트를 사용한 경우
+                                                    포인트 -&gt; 현금 순으로 차감됩니다.</span></font>
+                                        </div>
+                                        <div>
+                                            <font face="arial"><span style="font-size: 13.3333px;"><br></span></font>
+                                        </div>
+                                        <div>
+                                            <font face="arial"><span style="font-size: 13.3333px;">환불 예정금액은 조회 시점 및 실제
+                                                    환불 진행 시점에 따라 달라질 수 있으므로 예약/결제 진행 당시 안내된 취소/환불 규정을 꼭 숙지하여 이용해 주시길
+                                                    바랍니다.</span></font>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <p class="link"><span>전월 휴대폰 결제 취소는 어떻게 하나요?</span></p>
+                                    <div class="ans">
+                                        <div>
+                                            <font face="arial"><span style="font-size: 13.3333px;">전월 휴대폰 결제 건은 결제 금액이
+                                                    휴대폰 대금으로 청구 되기 때문에 여기어때 고객행복센터에서 예약취소 후 예약자 본인 명의의 통장으로 환불 처리를 도와드리고
+                                                    있습니다.</span></font>
+                                        </div>
+                                        <div>
+                                            <font face="arial"><span style="font-size: 13.3333px;"><br></span></font>
+                                        </div>
+                                        <div>
+                                            <font face="arial"><span style="font-size: 13.3333px;">예약내역, 예금주명(예약자 성함과
+                                                    동일), 계좌번호, 은행명을 고객행복센터에 남겨주시길 바라며, 접수 후 처리까지는 영업일 기준 최대 5~7일 소요되오니
+                                                    시간 양해 부탁드립니다.</span></font>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <p class="link"><span>예약취소했는데 언제 환불되나요?</span></p>
+                                    <div class="ans">
+                                        <div><span style="font-family: arial; font-size: 10pt;">환불은 예약취소 후 PG사 승인 취소 기간에
+                                                따라 주말, 공휴일을 제외한 영업일 기준 최대 3~5일 소요되오니 시간 양해 부탁드립니다.</span></div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- //List -->
+
+                </div>
+                <!-- //Faq -->
+
+            </div>
+
+        </div>
+        <!-- //Content  -->
+
+        <!-- 푸터 -->
+        <div th:replace="userthy/user-footer :: user-footer"></div>
+        <!--푸터 끝 -->
+
+
+    </div>
+
+    <!-- 상단으로 -->
+    <button class="btn_go_top" onclick="moveTop();">상단으로</button>
+
+    <!-- //Wrap -->
+
+    <!-- Script -->
+    <!-- Library -->
+    <script type="text/javascript" src="/js/library/jquery.cookie.js"></script>
+    <script type="text/javascript" src="/js/library/jquery.lazyload.js"></script>
+    <script type="text/javascript" src="/js/library/iscroll.js"></script>
+
+    <!-- Service -->
+    <script type="text/javascript" src="/js/service/common.js"></script>
+    <script type="text/javascript" src="/js/service/geolocation.js"></script>
+
+    <!-- Module -->
+    <script type="text/javascript" src="/js/modules/dialogPopup.js"></script>
+
+    <!-- Page Script -->
+    <script type="text/javascript" src="/js/library/vue.min.js"></script>
+    <script type="text/javascript" src="/js/service/more.js"></script>
+
+    <!-- Body Spinner -->
+    <div class="spinner show"><span></span></div>
+
+</body>
+
+</html>

@@ -1,0 +1,73 @@
+
+/* 리뷰 */
+.review .score_top{padding:31px 0;text-align:center}
+.review .score_top strong{display:block;padding:0 0 5px 0;font-size:20px;text-align:center}
+.review .score_top p{margin-top:10px;font-size:14px}
+.review .score_top p b{font-size:16px}
+.review .score_top p span{display:inline-block;width:32px;color:rgba(0,0,0,0.08)}
+.review .score_wrap{display:inline-block;overflow:hidden;text-align:center}
+.score_star{display:inline-block;width:120px;height:24px;background:url('//image.goodchoice.kr/images/web_v3/bg_score.png') 0 0 no-repeat;background-size:120px auto}
+.score_star.star_50 {background-position:0 0}
+.score_star.star_45 {background-position:0 -24.5px}
+.score_star.star_40 {background-position:0 -49px}
+.score_star.star_35 {background-position:0 -73.5px}
+.score_star.star_30 {background-position:0 -98px}
+.score_star.star_25 {background-position:0 -122.5px}
+.score_star.star_20 {background-position:0 -147px}
+.score_star.star_15 {background-position:0 -171.5px}
+.score_star.star_10 {background-position:0 -196px}
+.score_star.star_05 {background-position:0 -220.5px}
+.score_star.star_00 {background-position:0 -245px}
+.review .score_wrap .num{display:inline-block;position:relative;top:-5px;padding-left:4px;font-size:24px}
+.score_wrap_sm .score_star{display:inline-block;width:80px;height:16px;background:url('//image.goodchoice.kr/images/web_v3/bg_score.png') 0 0 no-repeat;background-size:80px auto}
+.score_wrap_sm .score_star.star_50 {background-position:0 0}
+.score_wrap_sm .score_star.star_45 {background-position:0 -16px}
+.score_wrap_sm .score_star.star_40 {background-position:0 -32px}
+.score_wrap_sm .score_star.star_35 {background-position:0 -48px}
+.score_wrap_sm .score_star.star_30 {background-position:0 -64px}
+.score_wrap_sm .score_star.star_25 {background-position:0 -80px}
+.score_wrap_sm .score_star.star_20 {background-position:0 -96px}
+.score_wrap_sm .score_star.star_15 {background-position:0 -113px}
+.score_wrap_sm .score_star.star_10 {background-position:0 -129px}
+.score_wrap_sm .score_star.star_05 {background-position:0 -145px}
+.score_wrap_sm .score_star.star_00 {background-position:0 -162px}
+.review ul li{position:relative;padding:27px 16px 16px 0;border-top:1px solid rgba(0,0,0,0.08)}
+.review .guest .pic{display:inline-block;overflow:hidden;position:absolute;top:24px;left:16px;width:40px;height:40px;border-radius:100%;background:url('//image.goodchoice.kr/images/web_v3/ico_none.png') 0 0 no-repeat;background-size:40px auto}
+.review .guest .pic img{width:40px;height:40px;border-radius:100%}
+.review .guest .best_review{display:block;width:67px;height:16px;margin:0 0 6px 64px;font-size:0px;text-indent:-999px;background: url(//static.goodchoice.kr/images/web_v3/img_bestreview_badge.svg) 0 0 no-repeat;background-size: 100%;}
+.review .guest strong{display:block;padding:0 16px 2px 64px;font-size:16px;line-height:normal}
+.score_wrap_sm{margin-left:64px;display:block}
+.score_wrap_sm div{display:inline-block}
+.score_wrap_sm .num{display:inline-block;position:relative;top:-3px;font-size:14px}
+.review .guest .name{margin-left:64px;padding-top:18px;color:rgba(0,0,0,0.56)}
+.review .guest .name span{display:inline-block;margin-right:7px;padding:2px 1px 1px 1px;background:rgba(242,16,76,0.92);font-size:11px;color:#fff;vertical-align:top}
+.review .guest .name b{font-weight:normal}
+.review .guest .txt{margin:5px 0 0 64px;font-size:15px;line-height:24px}
+.review .guest .date{display:inline-block;margin-left:64px;padding:9px 0 5px 0}
+.review .boss{position:relative;margin:12px 0 0 64px;padding:19px 16px 15px 50px;border-radius:4px;background:rgb(245,245,245)}
+.review .boss .txt{margin:7px 0 8px 0;font-size:15px;line-height:24px;color:rgba(0,0,0,0.72)}
+.review .boss .date{font-size:13px;color:rgba(0,0,0,0.56)}
+.review .boss .pic{display:inline-block;overflow:hidden;position:absolute;top:12px;left:12px;width:30px;height:30px;border-radius:100%}
+.review .boss .pic img{width:30px;height:30px;border-radius:100%}
+.gallery_re{position:relative;margin:10px 0 6px 64px}
+.gallery_re ul li{padding:0;border:none}
+.gallery_re .owl-dots{display:none}
+.membership{font-size:15px;color:rgba(0,0,0,0.56)}
+.membership h5{display:block;height:25px;margin-bottom:15px;padding-left:29px;line-height:25px}
+.membership .stamp h5{background:url('//image.goodchoice.kr/images/web_v3/ico_stamp.png') 0 0 no-repeat;background-size:25px auto}
+.membership .mileage h5{background:url('//image.goodchoice.kr/images/web_v3/ico_mileage.png') 0 0 no-repeat;background-size:25px auto}
+.theme{position:relative;padding:8px 0 !important;}
+.theme.ie_fix img{height:200px}
+.theme ul li .title{height:48px;margin-left:16px;padding-left:31px;background-position:0 50% !important;background-size:25px auto !important;font-size:16px;line-height:48px}
+.theme .swiper-container{padding:0 16px;}
+.gallery_theme{position:relative;margin-bottom:8px}
+.gallery_re .swiper-button-next,
+.gallery_re .swiper-button-prev,
+.gallery_theme .swiper-button-next,
+.gallery_theme .swiper-button-prev{display:none;}
+.service{padding:32px 0 0 0 !important}
+.service .theme_wrap{overflow:hidden;padding-right:16px}
+.service .theme_wrap li{float:left;width:91px;height:60px;margin:0 0 16px 12px;padding-top:43px;background-position:50% 0 !important;background-size:35px auto !important;font-size:13px;color:rgba(0,0,0,0.56);text-align:center}
+.service div{margin:0 16px;padding:17px 0 26px 0;border-top:1px solid rgba(0,0,0,0.08);font-size:15px;line-height:24px;color:rgba(0,0,0,0.56)}
+.service div li{margin-bottom:30px}
+.service div li:last-child{margin-bottom:0}

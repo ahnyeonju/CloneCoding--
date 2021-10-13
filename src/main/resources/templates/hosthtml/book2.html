@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ko-KR" class="no-js">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Comaptible" content="IE=Edge">
+    <meta http-equiv="Cache-control" content="public">
+    <meta name="description" content="객실 및 예약설정에서 광고상품 구매까지 모든 관리가 가능한 여기어때 호스트하우스 전용 통합 마케팅 플랫폼">
+    <meta name="keywords" content="여기어때, 사장님사이트, 호스트하우스, 호스트홍보, 게스트하우스, 사장님전용사이트">
+    <meta name="author" content="Gray"><!-- humans.txt 처리 권장 -->
+    <meta name="apple-mobile-web-app-title" content="여기어때 호스트 하우스" />
+    <meta name="viewport"
+        content="width=device-width, initial-scale=0.3, minimum-scale=0.3, maximum-scale=1, user-scalable=yes">
+    <title>여기어때 호스트 하우스</title>
+    <link rel="canonical" href="https://guest.goodchoice.kr" />
+    <link rel="shortcut icon" type="image/x-icon" href="../host/img/asset/favicon_170822.ico" />
+    <link href="../host/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../host/css/common.host.css?rand=1628154923" rel="stylesheet">
+    <link href="../host/css/daterangepicker-bs3.css" rel="stylesheet" />
+
+    <link href="../host/css/style.css" rel="stylesheet" />
+    <link href="../host/css/alltable.css" rel="stylesheet" />
+    <link href="../host/css/new4.css" rel="stylesheet" />
+
+    <script src="../host/js/jquery-2.1.3.min.js"></script>
+    <script src="../host/js/jquery-ui.min.js"></script>
+    <script src="../host/js/jquery.lazyload.min.js"></script>
+
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+</head>
+
+<body id="main">
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NNLLB5W" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+
+
+    <!-- 헤더 -->
+    <div th:replace="hostthy/host-header :: host-header"></div>
+    <!--헤더 끝 -->
+
+
+
+    <section class="container">
+        <div class="menu-step">
+            <div class="todo-layer">
+                <!-- <span class="form-body"> -->
+                <!-- 테이블 전체  -->
+                <div class="alltable">
+                    <div class="select-style1 cute-size" style="margin-top: 14px; height: 37px;">
+                        <select name="checktime">
+                            <option value="입실일 기준">입실일 기준</option>
+                            <option value="결제일 기준">결제일 기준</option>
+                        </select>
+                    </div>
+                    <!-- </span> -->
+                    <!--달력사이드바-->
+                    <script type="text/javascript" src="./js/common17d0.css"></script>
+                    <script type="text/javascript" src="./js/jquery-ui17d0.css"></script>
+                    <script type="text/javascript" src="./js/datepick.js"></script>
+                    <script type="text/javascript" src="./js/daterangepicker.js"></script>
+                    <article class="wheredate on" style="height: 50px;">
+                        <div class="btn_date" style="position: relative; height: 37px; margin-bottom: 75px;">
+                            <span class="date_view1">
+                                <!-- Datepicker-->
+                                <input type="text" class="product_date" style="width: 100px; margin-top: 3px;">
+                            </span>
+                        </div>
+                        <button type="button" class="btn"
+                            style="background-color: rgb(226, 43, 73); color: white; padding: 7px; width: 70px; margin-top: 5px;">검색</button>
+                </div>
+                </article>
+                <!--보드시작-->
+                <div nid="root" class="root">
+                    <div nid="board1" class="board1">
+                        <link href="https://c./js.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+                            rel="stylesheet">
+                        <!--div붙일곳-->
+                        <div class="article">
+                            <div class="wrapper">
+                                <table border="1px">
+                                    <tr>
+                                        <th class="tdd">예약확정</th>
+                                        <th class="tdd">입금가</th>
+                                        <th class="tdd">예약취소</th>
+                                    </tr>
+                                    <tr>
+                                        <td>0건</td>
+                                        <td>0원</td>
+                                        <td>3건</td>
+                                    </tr>
+                                </table>
+
+                                <!-- <div class="btn111">
+                                    <button type="button" class="btn btn-cvs"
+                                        style="background-color: #4B5F71;color: white;">전체</button>
+                                    <button type="button" class="btn btn-cvs"
+                                        style="background-color: rgb(241, 241, 241);">예약확정</button>
+                                    <button type="button" class="btn btn-cvs"
+                                        style="background-color: rgb(241, 241, 241);">예약대기</button>
+                                    <button type="button" class="btn btn-cvs"
+                                        style="background-color: rgb(241, 241, 241);">취소</button>
+                                </div> -->
+                                <div style="margin-top: 40px;">
+                                <!-- <form class="form1">
+                                    <input type="text" name="firstname" style="text-align: center;"
+                                        placeholder='예약자 명 또는 전화번호' />
+                                </form> -->
+                            </div>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th class="num">예약번호</th>
+                                            <th class="paymentdate">결제일시</th>
+                                            <th class="bookclass">객실명</th>
+                                            <th class="bookname">예약자</th>
+                                            <th class="bookhp">연락처</th>
+                                            <th class="checkin_res">체크인</th>
+                                            <th class="checkout_res">체크아웃</th>
+                                            <th class="baksu">박수</th>
+                                            <th class="price1">판매가</th>
+                                            <th class="price2">입금가</th>
+                                            <th class="cancelldate">취소일시</th>
+                                            <th class="check_res">예약확인</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="num">36783315</td>
+                                            <td class="paymentdate">08-12 10:28</td>
+                                            <td class="title">개인실1</td>
+                                            <td class="bookname">조엔젤</td>
+                                            <td class="bookhp">010-1111-1111</td>
+                                            <td class="checkin_res">08-12(토) 10:00</td>
+                                            <td class="checkout_res">08-13(일) 11:00</td>
+                                            <td class="baksu">1박</td>
+                                            <td class="price1">60,000</td>
+                                            <td class="price2">57,600</td>
+                                            <td class="cancelldate"></td>
+                                            <td class="check_res">완료</td>
+                                        </tr>
+                                        <tr>
+                                
+                                    </tbody>
+                                </table>
+                                <!-- <div class="pages">
+                                    <ul>
+                                        <li class="active">
+                                            <a>1</a>
+                                        </li>
+                                        <li>
+                                            <a>2</a>
+                                        </li>
+                                        <li>
+                                            <a>3</a>
+                                        </li>
+                                        <li>
+                                            <a>4</a>
+                                        </li>
+                                        <li>
+                                            <a>5</a>
+                                        </li>
+                                    </ul>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://c./js.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.mi./js"></script>
+        </div>
+    </section>
+
+    <!-- 푸터 -->
+    <div th:replace="hostthy/host-footer :: host-footer"></div>
+    <!--푸터 끝 -->
+
+
+</body>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<!-- <script src="../host/js/ie10-viewport-bug-workaround.js"></script> -->
+<!-- <script src="../host/js/bootstrap.min.js"></script> -->
+<script src="../host/js/moment.min.js"></script>
+<script src="../host/js/daterangepicker.js"></script>
+<!-- <script src="../host/js/bootstrap-timepicker.js"></script> -->
+<script src="../host/js/common.host.js?nocache=1629272224.4328"></script>
+
+</body>
+
+</html>

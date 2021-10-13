@@ -1,0 +1,27 @@
+
+/* guestAllReview */
+.review__content{margin-top: -17px; padding: 24px;border-radius:0 0 5px 5px}
+
+input, select, button {
+    vertical-align: middle;
+    width: 35px;
+}
+/* guestAllReview 끝*/
+
+
+/* scheduleManagement. */
+.menu-step {
+    /* display: none; */
+    width: 964px;
+    height: 700px;
+    background-color: #ffffff;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: -1px 1px 2px #aaa;
+}
+/* scheduleManagement. 끝 */
+
+

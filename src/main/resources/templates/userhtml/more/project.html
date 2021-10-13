@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type">
+    <meta name="csrf-name" content="yeogi_token">
+
+    <meta name="description" content="여기어때 회원 가입 | 전국 호텔, 펜션, 모텔부터 워터파크, 놀이공원, 아쿠아리움까지 최저가 할인 예약">
+
+    <link rel="shortcut icon" href="/img/images/web_v3/favicon_170822.ico" type="image/x-icon">
+
+    <!-- CSS -->
+    <title>더보기 - 혁신 프로젝트 | 여기어때</title>
+    <link rel="stylesheet" href="/css/common.css" />
+    <!-- <link rel="canonical" href="https://www.goodchoice.kr/more/project"> -->
+    <script type="text/javascript" src="/js/library/jquery-1.12.4.min.js"></script>
+
+    <script>(function (a, b, c) { if (c in b && b[c]) { var d, e = a.location, f = /^(a|html)$/i; a.addEventListener("click", function (a) { d = a.target; while (!f.test(d.nodeName)) d = d.parentNode; "href" in d && (d.href.indexOf("http") || ~d.href.indexOf(e.host)) && (a.preventDefault(), e.href = d.href) }, !1) } })(document, window.navigator, "standalone")</script>
+</head>
+
+<body>
+
+    <!-- Wrap -->
+    <div class="wrap">
+
+           <!-- 헤더 -->
+        <div th:replace="userthy/user-headerlogin :: user-headerlogin"></div>
+        <!--헤더 끝 -->
+
+        <!-- Bg Dimm -->
+        <div class="bg_dimm" onclick="close_layer();">&nbsp;</div>
+        <div class="bg_dimm_prevent">&nbsp;</div>
+
+        <!-- 추천검색어 -->
+        <div class="recommend_srch">
+            <div class="scroll_srch">
+                <div class="scroller">
+                    <div class="default" style="display:block">
+                        <strong>추천 검색어</strong>
+                        <ul></ul>
+                    </div>
+                    <!-- 연관검색어 -->
+                    <div class="chain">
+                        <ul></ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="gnb_opacity"><button class="btn_close">닫기</button></div>
+        <div class="menu_wrap">
+
+            <div class="menu">
+                <div class="top">
+                    <!-- 회원 -->
+                    <div class="member">
+                        <div class="mem">
+                            <span class="pic"
+                                style="background:url('/img/profile/ico/ico_22.png') 50% 50% no-repeat;"></span>
+                            <p class="info">사과색깔</p>
+                        </div>
+                        <div class="bot">
+                            <a href="/userindex/point">
+                                <p>0P<br /><span>포인트</span></p>
+                            </a>
+                            <a href="/userindex/coupon">
+                                <p>1장<br /><span>쿠폰함</span></p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Iscroll -->
+                <div class="scroll_nav">
+                    <div class="scroller">
+                        <ul>
+                            <li><a href="/index">홈</a></li>
+                            <li class="depth_2">
+                                <button type="button" class="has_ul"><span>숙소유형</span></button>
+                                <ul>
+                                    <li><a href="/userindex/1">모텔</a></li>
+                                    <li><a href="/userindex/2">호텔/리조트</a></li>
+                                    <li><a href="/userindex/3">펜션</a></li>
+                                    <li><a href="/userindex/4">리조트</a></li>
+                                    <li><a href="/userindex/5">캠핑·글램핑</a></li>
+                                    <li><a href="/userindex/6">게스트하우스</a></li>
+                                    <li><a href="/userindex/7">한옥 </a></li>
+                                </ul>
+                            </li>
+                            <li><a href="/userindex/8">내주변</a></li>
+                        </ul>
+                        <ul>
+                            <li><a href="/userindex/reservations">예약 내역</a></li>
+                            <li><a href="/userindex/mypage">내 정보 관리</a></li>
+                        </ul>
+                        <ul>
+                            <li class="depth_2"><button type="button" class="has_ul"><span>더보기</span></button>
+                                <ul>
+                                   <!-- <li><a href="/userindex/notice">공지사항</a></li> -->
+                                    <li><a href="/userindex/event">이벤트</a></li>
+                                    <li><a href="/userindex/project">혁신 프로젝트</a></li>
+                                    <li><a href="/userindex/faq">고객문의</a></li>
+                                    <li><a href="/userindex/terms">약관 및 정책</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <div class="center">
+                            <p>여기어때 고객행복센터</p>
+                            <p><a href="tel:1670-6250">1670-6250</a></p>
+                            <p>오전 9시 - 새벽 3시</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- //Mobile Menu -->
+        <div class="gnb_opacity"><button class="btn_close">닫기</button></div>
+        <div class="menu_wrap">
+
+            <div class="menu">
+                <div class="top">
+                    <!-- 회원 -->
+                    <div class="member">
+                        <div class="mem">
+                            <span class="pic"
+                                style="background:url('/img/profile/ico/ico_22.png') 50% 50% no-repeat;"></span>
+                            <p class="info">사과색깔</p>
+                        </div>
+                        <div class="bot">
+                            <a href="/userindex/point">
+                                <p>0P<br /><span>포인트</span></p>
+                            </a>
+                            <a href="/userindex/coupon">
+                                <p>1장<br /><span>쿠폰함</span></p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Iscroll -->
+                <div class="scroll_nav">
+                    <div class="scroller">
+                        <ul>
+                            <li><a href="/index">홈</a></li>
+                            <li class="depth_2">
+                                <button type="button" class="has_ul"><span>숙소유형</span></button>
+                                <ul>
+                                    <li><a href="/userindex/1">모텔</a></li>
+                                    <li><a href="/userindex/2">호텔/리조트</a></li>
+                                    <li><a href="/userindex/3">펜션</a></li>
+                                    <li><a href="/userindex/4">리조트</a></li>
+                                    <li><a href="/userindex/5">캠핑·글램핑</a></li>
+                                    <li><a href="/userindex/6">게스트하우스</a></li>
+                                    <li><a href="/userindex/7">한옥 </a></li>
+                                </ul>
+                            </li>
+                            <li><a href="/userindex/8">내주변</a></li>
+                        </ul>
+                        <ul>
+                            <li><a href="/userindex/reservations">예약 내역</a></li>
+                            <li><a href="/userindex/mypage">내 정보 관리</a></li>
+                        </ul>
+                        <ul>
+                            <li class="depth_2"><button type="button" class="has_ul"><span>더보기</span></button>
+                                <ul>
+                                   <!-- <li><a href="/userindex/notice">공지사항</a></li> -->
+                                    <li><a href="/userindex/event">이벤트</a></li>
+                                    <li><a href="/userindex/project">혁신 프로젝트</a></li>
+                                    <li><a href="/userindex/faq">고객문의</a></li>
+                                    <li><a href="/userindex/terms">약관 및 정책</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <div class="center">
+                            <p>여기어때 고객행복센터</p>
+                            <p><a href="tel:1670-6250">1670-6250</a></p>
+                            <p>오전 9시 - 새벽 3시</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- //Mobile Menu -->
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="/css/more.css" />
+
+        <!-- Sub Top -->
+        <div class="sub_top_wrap">
+            <div class="sub_top bg_kong_3">
+                <h2>더보기</h2>
+            </div>
+        </div>
+        <!-- //Sub Top -->
+
+        <!-- Content  -->
+        <div id="content" class="sub_wrap more_wrap">
+
+            <!-- Nav -->
+            <nav>
+                <ul>
+                    <!-- <li><a class="" href="/userindex/notice">공지사항</a></li> -->
+                    <li><a class=""  href="/userindex/event">이벤트</a></li>
+                    <li><a class="active" href="/userindex/project">혁신 프로젝트</a></li>
+                    <li><a class="" href="/userindex/faq">자주 묻는 질문</a></li>
+                    <li><a class="" href="/userindex/inquiry">1:1 문의</a></li>
+                    <li><a class="" href="/userindex/terms">약관 및 정책</a></li>
+                </ul>
+            </nav>
+            <div class="align_rt">
+
+                <!-- Project -->
+                <div class="inquiry project">
+
+                    <!-- 작성 -->
+                    <h3>혁신 프로젝트 란?</h3>
+                    <div class="alert_top">
+                        <p>건전한 예약 문화를 조성하기 위해 <em>여기어때가 시행하는 인식개선 캠페인 입니다.</em></p>
+                    </div>
+
+                    <ul class="project_list">
+                        <li>
+                            <a href="/userindex/project10">
+                                <i>10탄</i>
+                                <b>안심예약제 <mark>#숙박어플최초</mark></b>
+                                <span>갑작스러운 예약취소 시, 더 좋은 대안숙소 제공</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/userindex/project09">
+                                <i>9탄</i>
+                                <b>미리예약특가 &amp; 타임특가</b>
+                                <span>미리 예약해도, 늦게 예약해도 할인 특가 제공</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/userindex/project08">
+                                <i>8탄</i>
+                                <b>고객안심번호 <mark>#숙박어플최초</mark></b>
+                                <span>고객의 전화번호를 안전한 가상번호로 변환해 숙소에 전달</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/userindex/project07">
+                                <i>7탄</i>
+                                <b>연박예약 서비스 <mark>#숙박어플최초</mark></b>
+                                <span>요금추가 없이 최대 7일간 연박예약 가능</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/userindex/project06">
+                                <i>6탄</i>
+                                <b>360도 VR 객실정보 <mark>#숙박어플최초</mark></b>
+                                <span>현장에서 직접 보듯 360도 실감나는 가상현실</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/userindex/project05">
+                                <i>5탄</i>
+                                <b>미리예약 서비스 <mark>#숙박어플최대</mark></b>
+                                <span>최대 90일 이후까지 미리예약 가능</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/userindex/project04">
+                                <i>4탄</i>
+                                <b>타임세일 <mark>#숙박어플최초</mark></b>
+                                <span>지금 이시간! 남은객실 최대 50%할인 특가</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/userindex/project03">
+                                <i>3탄</i>
+                                <b>회원가 보장제 <mark>#국내최초</mark></b>
+                                <span>현장결제시 카드/현금 모두 여기어때 회원가 보장</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/userindex/project02">
+                                <i>2탄</i>
+                                <b>리얼리뷰 <mark>#숙박어플최초</mark></b>
+                                <span>가짜 리뷰는 없다! 방문한 회원만 남기는 진짜 리뷰</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/userindex/project01">
+                                <i>1탄</i>
+                                <b>전액환불 보장제 <mark>#국내최초</mark></b>
+                                <span>취소수수료 NO! 예약취소시 100% 전액환불</span>
+                            </a>
+                        </li>
+                        <!--<li>
+						<a href="project01">
+							<i>1탄</i>
+							<b>최저가 보상제 <mark>#숙박어플최초</mark></b>
+							<span>여기어때는 국내 최저가! 아니면 차액의 2배 보상</span>
+						</a>
+					</li>-->
+                    </ul>
+
+                </div>
+                <!-- //Project -->
+
+            </div>
+
+        </div>
+        <!-- //Content  -->
+
+        <!-- 푸터 -->
+        <div th:replace="userthy/user-footer :: user-footer"></div>
+        <!--푸터 끝 -->
+
+
+    </div>
+
+    <!-- 상단으로 -->
+    <button class="btn_go_top" onclick="moveTop();">상단으로</button>
+
+    <!-- //Wrap -->
+
+    <!-- Script -->
+    <!-- Library -->
+    <script type="text/javascript" src="/js/library/jquery.cookie.js"></script>
+    <script type="text/javascript" src="/js/library/jquery.lazyload.js"></script>
+    <script type="text/javascript" src="/js/library/iscroll.js"></script>
+
+    <!-- Service -->
+    <script type="text/javascript" src="/js/service/common.js"></script>
+    <script type="text/javascript" src="/js/service/geolocation.js"></script>
+
+    <!-- Module -->
+    <script type="text/javascript" src="/js/modules/dialogPopup.js"></script>
+
+    <!-- Page Script -->
+    <script type="text/javascript" src="/js/library/vue.min.js"></script>
+    <script type="text/javascript" src="/js/service/more.js"></script>
+
+    <!-- Body Spinner -->
+    <div class="spinner show"><span></span></div>
+
+</body>
+
+</html>

@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="여기어때 회원 가입 | 전국 호텔, 펜션, 모텔부터 워터파크, 놀이공원, 아쿠아리움까지 최저가 할인 예약">
+    <link rel="shortcut icon" href="/img/images/web_v3/favicon_170822.ico" type="image/x-icon">
+
+    <!-- CSS -->
+    <title>회원정보 - 자주 묻는 질문 | 여기어때</title>
+    <link rel="stylesheet" href="/css/common.css" />
+    <link rel="canonical" href="https://www.goodchoice.kr/more/faq">
+    <script type="text/javascript" src="/js/library/jquery-1.12.4.min.js"></script>
+
+    <script>
+        var _BASE_URL = 'https://www.goodchoice.kr/';
+        var _MOBILE = 'W';
+        var _KAKAOTALK_APP_KEY = 'f6ffb505bb11d7cc3584d443ce35f704';
+        var _FACEBOOK_APP_ID = '607467975974643';
+    </script>
+    <script>(function (a, b, c) { if (c in b && b[c]) { var d, e = a.location, f = /^(a|html)$/i; a.addEventListener("click", function (a) { d = a.target; while (!f.test(d.nodeName)) d = d.parentNode; "href" in d && (d.href.indexOf("http") || ~d.href.indexOf(e.host)) && (a.preventDefault(), e.href = d.href) }, !1) } })(document, window.navigator, "standalone")</script>
+</head>
+
+<body>
+
+    <!-- Wrap -->
+    <div class="wrap">
+
+     <!-- 헤더 -->
+        <div th:replace="userthy/user-headerlogin :: user-headerlogin"></div>
+        <!--헤더 끝 -->
+
+        <!-- Bg Dimm -->
+        <div class="bg_dimm" onclick="close_layer();">&nbsp;</div>
+        <div class="bg_dimm_prevent">&nbsp;</div>
+
+        <!-- 추천검색어 -->
+        <div class="recommend_srch">
+            <div class="scroll_srch">
+                <div class="scroller">
+                    <div class="default" style="display:block">
+                        <strong>추천 검색어</strong>
+                        <ul></ul>
+                    </div>
+                    <!-- 연관검색어 -->
+                    <div class="chain">
+                        <ul></ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="gnb_opacity"><button class="btn_close">닫기</button></div>
+        <div class="menu_wrap">
+
+            <div class="menu">
+                <div class="top">
+                    <!-- 회원 -->
+                    <div class="member">
+                        <div class="mem">
+                            <span class="pic"
+                                style="background:url('/img/profile/ico/ico_22.png') 50% 50% no-repeat;"></span>
+                            <p class="info">사과색깔</p>
+                        </div>
+                        <div class="bot">
+                            <a href="/userindex/point">
+                                <p>0P<br /><span>포인트</span></p>
+                            </a>
+                            <a href="/userindex/coupon">
+                                <p>1장<br /><span>쿠폰함</span></p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Iscroll -->
+                <div class="scroll_nav">
+                    <div class="scroller">
+                        <ul>
+                            <li><a href="/index">홈</a></li>
+                            <li class="depth_2">
+                                <button type="button" class="has_ul"><span>숙소유형</span></button>
+                                <ul>
+                                    <li><a href="/userindex/1">모텔</a></li>
+                                    <li><a href="/userindex/2">호텔/리조트</a></li>
+                                    <li><a href="/userindex/3">펜션</a></li>
+                                    <li><a href="/userindex/4">리조트</a></li>
+                                    <li><a href="/userindex/5">캠핑·글램핑</a></li>
+                                    <li><a href="/userindex/6">게스트하우스</a></li>
+                                    <li><a href="/userindex/7">한옥 </a></li>
+                                </ul>
+                            </li>
+                            <li><a href="/userindex/8">내주변</a></li>
+                        </ul>
+                        <ul>
+                            <li><a href="/userindex/reservations">예약 내역</a></li>
+                            <li><a href="/userindex/mypage">내 정보 관리</a></li>
+                        </ul>
+                        <ul>
+                            <li class="depth_2"><button type="button" class="has_ul"><span>더보기</span></button>
+                                <ul>
+                                   <!-- <li><a href="/userindex/notice">공지사항</a></li> -->
+                                    <li><a href="/userindex/event">이벤트</a></li>
+                                    <li><a href="/userindex/project">혁신 프로젝트</a></li>
+                                    <li><a href="/userindex/faq">고객문의</a></li>
+                                    <li><a href="/userindex/terms">약관 및 정책</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <div class="center">
+                            <p>여기어때 고객행복센터</p>
+                            <p><a href="tel:1670-6250">1670-6250</a></p>
+                            <p>오전 9시 - 새벽 3시</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- //Mobile Menu -->
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="/css/more.css" />
+
+        <!-- Sub Top -->
+        <div class="sub_top_wrap">
+            <div class="sub_top bg_kong_3">
+                <h2>더보기</h2>
+            </div>
+        </div>
+        <!-- //Sub Top -->
+
+        <!-- Content  -->
+        <div id="content" class="sub_wrap more_wrap">
+
+            <!-- Nav -->
+            <nav>
+                <ul>
+                    <!-- <li><a class="" href="/userindex/notice">공지사항</a></li> -->
+                    <li><a class=""  href="/userindex/event">이벤트</a></li>
+                    <li><a class="" href="/userindex/project">혁신 프로젝트</a></li>
+                    <li><a class="active" href="/userindex/faq">자주 묻는 질문</a></li>
+                    <li><a class="" href="/userindex/inquiry">1:1 문의</a></li>
+                    <li><a class="" href="/userindex/terms">약관 및 정책</a></li>
+                </ul>
+            </nav>
+            <div class="align_rt">
+
+                <!-- Faq -->
+                <div class="faq">
+
+                    <div class="mobile_top">고객문의<a href="/more/inquiry" class="top_btn">1:1문의</a></div>
+
+                    <!-- 상단 탭 버튼 -->
+                    <div class="top_link">
+                        <li>
+                            <a href="/userindex/faq" class="">TOP7</a>
+                        </li>
+                        <li>
+                            <a href="/userindex/faq26" class="">이용문의</a>
+                        </li>
+                        <li>
+                            <a href="/userindex/faq27" class="">예약취소</a>
+                        </li>
+                        <li>
+                            <a href="/userindex/faq28" class="">결제/영수증</a>
+                        </li>
+                        <li>
+                            <a href="/userindex/faq29" class="">예약문의</a>
+                        </li>
+                        <li>
+                            <a href="/userindex/faq30" class="">쿠폰/포인트</a>
+                        </li>
+                        <li>
+                            <a href="/userindex/faq32" class="on">회원정보</a>
+                        </li>
+                        <li>
+                            <a href="/userindex/faq33" class="">리얼리뷰</a>
+                        </li>
+                        <li>
+                            <a href="/userindex/faq36" class="">모바일티켓</a>
+                        </li>
+                    </div>
+                    <!-- //상단 탭 버튼 -->
+
+                    <!-- List -->
+                    <div class="faq_list">
+                        <strong class="title">자주 묻는 질문</strong>
+                        <div class="list" style="display:block">
+                            <ul>
+                                <li>
+                                    <p class="link"><span>회원탈퇴는 어떻게 하나요?</span></p>
+                                    <div class="ans">
+                                        <div>
+                                            <font face="arial"><span style="font-size: 13.3333px;">회원탈퇴는 아래 방법을 통해
+                                                    가능하며,&nbsp;</span></font>
+                                            <font face="arial"><span style="font-size: 13.3333px;">&nbsp;</span></font>
+                                            <span style="font-size: 13.3333px; font-family: arial;">반드시 주의사항을 확인 후 진행해
+                                                주시기 바랍니다.</span>
+                                        </div>
+                                        <div>
+                                            <font face="arial"><span style="font-size: 13.3333px;"><br></span></font>
+                                        </div>
+                                        <div>
+                                            <font face="arial"><span style="font-size: 13.3333px;">[일반회원]</span></font>
+                                        </div>
+                                        <div>
+                                            <font face="arial"><span style="font-size: 13.3333px;">- 여기어때 앱/웹 &gt; 내정보
+                                                    &gt; 내정보 관리 &gt; 회원탈퇴&nbsp;</span></font>
+                                        </div>
+                                        <div>
+                                            <font face="arial"><span style="font-size: 13.3333px;"><br></span></font>
+                                        </div>
+                                        <div>
+                                            <font face="arial"><span style="font-size: 13.3333px;">[기업회원]</span></font>
+                                        </div>
+                                        <div>
+                                            <font face="arial"><span style="font-size: 13.3333px;">- 개별적으로 회원탈퇴
+                                                    불가</span></font>
+                                        </div>
+                                        <div>
+                                            <font face="arial"><span style="font-size: 13.3333px;">- 기업 담당자 문의 또는 여기어때
+                                                    고객행복센터로 기업회원 탈퇴요청&nbsp;</span></font>
+                                        </div>
+                                        <div>
+                                            <font face="arial"><span style="font-size: 13.3333px;"><br></span></font>
+                                        </div>
+                                        <div>
+                                            <font face="arial"><span style="font-size: 13.3333px;">*주의사항</span></font>
+                                        </div>
+                                        <div>
+                                            <font face="arial"><span style="font-size: 13.3333px;">· 회원탈퇴 시 계정 정보는 복구가
+                                                    불가하며 1일 이후 재가입이 가능합니다.</span></font>
+                                        </div>
+                                        <div>
+                                            <font face="arial"><span style="font-size: 13.3333px;">· 현재 보유 중인 포인트, 쿠폰은
+                                                    모두 소멸되며 복구할 수 없습니다.</span></font>
+                                        </div>
+                                        <div>
+                                            <font face="arial"><span style="font-size: 13.3333px;">· 탈퇴 후, 기존 가입 휴대기기로
+                                                    재가입 시 첫 혜택을 받을 수 없습니다. (신규 회원 쿠폰, 첫 리뷰 작성 1,000포인트 등)</span></font>
+                                        </div>
+                                        <div><span style="font-family: arial; font-size: 13.3333px;">· 등록된 리뷰는 자동으로 삭제되지
+                                                않습니다. 삭제를 원하실 경우 탈퇴 전 개별적으로 삭제해 주시기 바랍니다.</span></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <p class="link"><span>개인이 여러 개의 아이디를 만들 수 있나요?</span></p>
+                                    <div class="ans">
+                                        <div><span style="font-family: arial; font-size: 10pt;">여기어때는 한 명이 여러 개의 아이디를
+                                                만드는 것을 허용합니다.</span></div>
+                                        <div><span style="font-family: arial; font-size: 10pt;"><br></span></div>
+                                        <div><span style="font-family: arial; font-size: 10pt;">단, 개별 아이디에 적립된 포인트나 쿠폰,
+                                                구매내역 등은 통합 또는 양도가 불가하며, 각각의 아이디에서만 확인 가능합니다.</span></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <p class="link"><span>네이버/카카오톡/페이스북 로그인 해제는 어떻게 하나요?</span></p>
+                                    <div class="ans">
+                                        <p>
+                                            <font face="Arial"><span style="font-size: 13px; white-space: pre-wrap;">소셜
+                                                    회원의 로그인은 가입 시 연동 된 계정으로 자동 로그인 됩니다.
+                                                    동일한 소셜의 다른 계정으로 로그인을 원하시는 경우 연동 로그인 해제 후 </span></font><span
+                                                style="font-size: 13px; white-space: pre-wrap; font-family: Arial;">접속을
+                                                원하는 계정으로 로그인을 시도해 주시길 바랍니다.</span>
+                                        </p>
+                                        <p>
+                                            <font face="Arial"><span style="font-size: 13px; white-space: pre-wrap;">
+                                                    [네이버]
+                                                    ① 여기어때 APP내 로그인 되어있는 이메일 주소로 네이버 로그인 진행
+                                                    ② 네이버 설정 접속 후 내정보/보안기능 접속
+                                                    ③ 네이버와 연결된 서비스 관리 선택
+                                                    ④ 여기어때 선택 후 정보 제공 철회 버튼 클릭
+                                                    -&gt; 여기어때 APP 재접속 후 원하는 네이버 연동 아이디 선택 후 로그인 가능
+
+                                                    [카카오톡]
+                                                    ① 여기어때 APP내 로그인 되어있는 카카오 계정으로 카카오톡 접속
+                                                    ② 카카오톡 전체 설정 선택 후 개인/보안 클릭
+                                                    ③ 개인정보 관리 선택 후 카카오계정 및 연결된 서비스 접속
+                                                    ④ 연결된 서비스 관리에서 여기어때 선택 후 모든 정보 삭제 클릭
+                                                    -&gt; 여기어때 APP 재접속 후 원하는 네이버 연동 아이디 선택 후 로그인 가능
+
+                                                    [페이스북]
+                                                    ① 여기어때 APP내 로그인 되어있는 ID로 페이스북 접속
+                                                    ② 페이스북 설정 선택 후 앱과 웹사이트 접속
+                                                    ③ 페이스북 계정으로 로그인한 앱 및 웹사이트 클릭 후 여기어때 삭제
+                                                    -&gt; 여기어때 APP 재접속 후 원하는 네이버 연동 아이디 선택 후 로그인 가능</span></font>
+                                        </p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <p class="link"><span>아이디와 비밀번호를 잊었어요.</span></p>
+                                    <div class="ans">
+                                        <div>
+                                            <font face="arial"><span style="font-size: 13.3333px;">[아이디 찾기]</span>
+                                            </font>
+                                        </div>
+                                        <div>
+                                            <font face="arial"><span style="font-size: 13.3333px;">&nbsp;&nbsp;</span>
+                                            </font>
+                                        </div>
+                                        <div>
+                                            <font face="arial"><span style="font-size: 13.3333px;">1. 이메일 주소로 가입한 회원 :
+                                                    가입 시 등록한 닉네임이나 이메일 주소 일부를 고객행복센터에 조회 요청</span></font>
+                                        </div>
+                                        <div>
+                                            <font face="arial"><span style="font-size: 13.3333px;">2. 카카오톡/페이스북/네이버 계정으로
+                                                    가입한 회원 : 해당 계정관리 업체의 고객센터에 문의</span></font>
+                                        </div>
+                                        <div>
+                                            <font face="arial"><span style="font-size: 13.3333px;">&nbsp;</span></font>
+                                        </div>
+                                        <div>
+                                            <font face="arial"><span style="font-size: 13.3333px;">[비밀번호 찾기]</span>
+                                            </font>
+                                        </div>
+                                        <div>
+                                            <font face="arial"><span style="font-size: 13.3333px;">- 이메일주소 가입만 해당</span>
+                                            </font>
+                                        </div>
+                                        <div>
+                                            <font face="arial"><span style="font-size: 13.3333px;">&nbsp;&nbsp;</span>
+                                            </font>
+                                        </div>
+                                        <div>
+                                            <font face="arial"><span style="font-size: 13.3333px;">1. 이메일로 로그인하기 &gt;
+                                                    비밀번호 재설정&nbsp;</span></font>
+                                        </div>
+                                        <div>
+                                            <font face="arial"><span style="font-size: 13.3333px;">2. 가입 시 등록한 이메일 주소
+                                                    입력</span></font>
+                                        </div>
+                                        <div>
+                                            <font face="arial"><span style="font-size: 13.3333px;">3. 인증수단 선택 (휴대폰번호 또는
+                                                    이메일 주소)</span></font>
+                                        </div>
+                                        <div>
+                                            <font face="arial"><span style="font-size: 13.3333px;">4. 발급받은 인증번호 입력을 통해
+                                                    새로운 비밀번호 생성</span></font>
+                                        </div>
+                                        <div>
+                                            <font face="arial"><span style="font-size: 13.3333px;">&nbsp;&nbsp;</span>
+                                            </font>
+                                        </div>
+                                        <div>
+                                            <font face="arial"><span style="font-size: 13.3333px;">위 방법으로도 이용에 불편을 겪으실
+                                                    경우 여기어때 고객행복센터로 문의해주시길 바랍니다.</span></font>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <p class="link"><span>회원정보 수정은 어떻게 하나요?</span></p>
+                                    <div class="ans">
+                                        <div>
+                                            <div><span style="font-family: arial; font-size: 10pt;">앱 하단 내정보 &gt; 내 정보
+                                                    관리에서 회원정보를 수정할 수 있습니다.&nbsp;</span></div>
+                                            <div><br></div>
+                                            <div><span style="font-family: arial; font-size: 10pt;">닉네임 변경 시, 이미 사용중인
+                                                    닉네임으로는 변경이 어려우며, 최근 30일 동안 1회만 변경 가능합니다.</span></div>
+                                        </div>
+                                        <div><br></div>
+                                        <div><span style="font-family: arial; font-size: 10pt;">* 회원정보 : 닉네임, 예약자명, 휴대폰
+                                                번호, 비밀번호(이메일 로그인 시에만 변경 가능)</span></div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- //List -->
+
+                </div>
+                <!-- //Faq -->
+
+            </div>
+
+        </div>
+        <!-- //Content  -->
+
+        <!-- 푸터 -->
+        <div th:replace="userthy/user-footer :: user-footer"></div>
+        <!--푸터 끝 -->
+
+
+    </div>
+
+    <!-- 상단으로 -->
+    <button class="btn_go_top" onclick="moveTop();">상단으로</button>
+
+    <!-- //Wrap -->
+
+    <!-- Script -->
+    <!-- Library -->
+    <script type="text/javascript" src="/js/library/jquery.cookie.js"></script>
+    <script type="text/javascript" src="/js/library/jquery.lazyload.js"></script>
+    <script type="text/javascript" src="/js/library/iscroll.js"></script>
+
+    <!-- Service -->
+    <script type="text/javascript" src="/js/service/common.js"></script>
+    <script type="text/javascript" src="/js/service/geolocation.js"></script>
+
+    <!-- Module -->
+    <script type="text/javascript" src="/js/modules/dialogPopup.js"></script>
+
+    <!-- Page Script -->
+    <script type="text/javascript" src="/js/library/vue.min.js"></script>
+    <script type="text/javascript" src="/js/service/more.js"></script>
+
+    <!-- Body Spinner -->
+    <div class="spinner show"><span></span></div>
+
+</body>
+
+</html>
