@@ -235,3 +235,48 @@
 </body>
 
 </html>
+
+<!-- List -->
+<div class="list_wrap">
+
+    <div class ="search-min">
+        <div class="search-wrapper">
+            <div class="input-holder">
+                <input onkeyup="filter()" type="text" class="search-input" placeholder="검색어를 입력하세요" id="value" />
+                <button class="search-icon" onclick="searchToggle(this, event);"><span></span></button>
+            </div>
+            <span class="close" onclick="searchToggle(this, event);"></span>
+        </div>
+    </div>
+
+    <div class="top_sort">
+
+        <!-- Mobile-->
+        <div class="mobile">
+            <button type="button" class="" onclick="filter_open();">상세조건</button>
+            <button type="button" onclick="sort_open();" class="mob_sort">추천 순</button>
+            <button type="button" onclick="pop_map_m();">지도</button>
+
+        </div>
+        <!-- PC-->
+        <div class="pc">
+
+            <div class="btn_wrap">
+                <button type="button" data-sort="HIT" class="on"><span>추천 순</span></button><button
+                    type="button" data-sort="DISTANCE" class=""><span>거리 순</span></button><button
+                    type="button" data-sort="LOWPRICE" class=""><span>낮은 가격 순</span></button><button
+                    type="button" data-sort="HIGHPRICE" class=""><span>높은 가격 순</span></button>
+            </div>
+        </div>
+
+    </div>
+    <!-- 안연주 여백 -->
+    <div style="margin-bottom: 3em;"></div>
+    <!-- #안연주 여백 끝-->
+    <div id="poduct_list_area">
+
+
+
+    </div>
+
+</div>

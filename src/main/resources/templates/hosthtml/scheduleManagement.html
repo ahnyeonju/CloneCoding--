@@ -37,7 +37,7 @@
     <!--헤더 끝 -->
 
     <!--  안연주 hidden 값 끝  host 아이디임-->
-    <input type="hidden" name="id" id="id" th:value="${id}">
+    <input type="hidden" name="hostid" id="hostid" th:value="${id}">
     <!--    host id-->
 
     <!-- 가운데 흰 영역 -->
@@ -53,28 +53,28 @@
                 <div class="menu-step1">
                     <br class="todo-layer4">
                     <p class="menup">오늘 발생한 예약건</p>
-                    <h2 class="menup1">63건</h2>
+                    <h2 class="menup1">0건</h2>
                     <hr class="hr1">
                 </div>
 
                 <div class="menu-step2">
                     <br class="todo-layer4">
                     <p class="menup">오늘 취소건</p>
-                    <h2 class="menup2">23건</h2>
+                    <h2 class="menup2">0건</h2>
                     <hr class="hr2">
                 </div>
 
                 <div class="menu-step3">
                     <br class="todo-layer4">
                     <p class="menup">오늘 매출</p>
-                    <h2 class="menup3">₩3,982,036</h2>
+                    <h2 class="menup3 menup3_today">₩0</h2>
                     <hr class="hr3">
                 </div>
 
                 <div class="menu-step4">
                     <br class="todo-layer4">
-                    <p class="menup">이번달 매출</p>
-                    <h2 class="menup3">₩13,982,306</h2>
+                    <p class="menup">총 매출</p>
+                    <h2 class="menup3 menup3_all">₩0</h2>
                     <hr class="hr3">
                 </div>
             </section>
@@ -112,30 +112,171 @@
             <!--  그래프 js  -->
             <script src="/host/js/Chart.js"></script>
 
+            <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
             <script>
+
+                const hostid_ch = $('#hostid').val();
+                console.log("hostid_chart : "+hostid_ch);
+
+                axios.get(`/api/host/` + hostid_ch+`/paylist`, {
+
+                }).then(function (response) {
+                    console.log('chart_axios');
+                    console.log(response)
+                    //룸종류 카운트
+                    //도미토리 (혼성)
+                    let room_mw = 0;
+                    let m_room_mw = 0;
+                    let y_room_mw = 0;
+                    //도미토리 (여자)
+                    let room_w = 0;
+                    let m_room_w = 0;
+                    let y_room_w = 0;
+                    //도미토리 (남자)
+                    let room_m = 0;
+                    let m_room_m = 0;
+                    let y_room_m = 0;
+                    //개인실
+                    let room_s = 0;
+                    let m_room_s = 0;
+                    let y_room_s = 0;
+                    //독채형 (콘도형)
+                    let room_c = 0;
+                    let m_room_c = 0;
+                    let y_room_c = 0;
+                    //룸 별 이번년도 총결제액-------------------
+                    let y_room_mw_payMoney = 0;
+                    let y_room_w_payMoney = 0;
+                    let y_room_m_payMoney = 0;
+                    let y_room_s_payMoney = 0;
+                    let y_room_c_payMoney = 0;
+
+
+                    //오늘
+                    var dateToday = new Date().toISOString().substr(0, 10).replace('T', ' ');
+                    //이번주 tomon---------------------------------------------------------------------
+                    var paramDate = new Date(); // new Date('2021-06-08'): 화요일
+                    var day = paramDate.getDay();
+                    var diff = paramDate.getDate() - day + (day == 0 ? -6 : 1);
+                    let tomon_start = new Date(paramDate.setDate(diff)).toISOString().substring(0, 10);
+                    let tomon_start2 = new Date(tomon_start);
+                    console.log("tomon_start : "+tomon_start);
+                    console.log("paramDate 오늘 : "+paramDate);
+                    var tomon_end = new Date(tomon_start2.setDate(tomon_start2.getDate() + 7)).toISOString().substr(0, 10).replace('T', ' ');
+                    console.log("tomon_end : "+tomon_end);
+                    //이번달-------------------------------------------------------------------------------
+                    var dateMonth = new Date();
+                    var firstMonthDay = new Date(dateMonth.getFullYear(), dateMonth.getMonth(), 1);
+                    var lastMonthDay = new Date(dateMonth.getFullYear(), dateMonth.getMonth() + 1, 0);
+                    firstMonthDay = new Date(firstMonthDay.setDate(firstMonthDay.getDate())).toISOString().substr(0, 10).replace('T', ' ');
+                    lastMonthDay = new Date(lastMonthDay.setDate(lastMonthDay.getDate())).toISOString().substr(0, 10).replace('T', ' ');
+                    console.log("이번달 1일 : "+ firstMonthDay);
+                    console.log("이번달 말일 : "+ lastMonthDay);
+                    //이번년도--------------------------------------------
+                    let dateYear = new Date();
+                    var year = dateYear.getFullYear();
+                    var after_year = dateYear.getFullYear() + 1;
+                    let yearM1_D1 = new Date(year, 0, 1);
+                    let after_year_M1_D1 = new Date(after_year, 0, 1);
+
+
+                    yearM1_D1 = new Date(yearM1_D1.setDate(yearM1_D1.getDate())).toISOString().substr(0, 10).replace('T', ' ');
+                    after_year_M1_D1 = new Date(after_year_M1_D1.setDate(after_year_M1_D1.getDate())).toISOString().substr(0, 10).replace('T', ' ');
+                    console.log("이번년도 : " + yearM1_D1);
+                    console.log("내년 : " + after_year_M1_D1);
+
+
+                    for(let i in response.data.data.tbHostForPayResponse.tbPayApiResponseList){
+
+
+
+                        let $payRoomName = response.data.data.tbHostForPayResponse.tbPayApiResponseList[i].payRoomName;
+
+                        let $payDateCnt = response.data.data.tbHostForPayResponse.tbPayApiResponseList[i].payDate;
+                        let $payMoney = response.data.data.tbHostForPayResponse.tbPayApiResponseList[i].payMoney;
+
+
+
+
+
+
+                        //내날짜
+                        var now = new Date($payDateCnt);
+                        var mydate_plus = new Date(now.setDate(now.getDate())).toISOString().substr(0, 10).replace('T', ' ');
+                    //      이번주
+                        if(tomon_start<= mydate_plus && mydate_plus <= tomon_end && $payRoomName == "도미토리 (혼성)"){room_mw++;}
+                        if(tomon_start<= mydate_plus && mydate_plus <= tomon_end && $payRoomName == "도미토리 (여자)"){room_w++;}
+                        if(tomon_start<= mydate_plus && mydate_plus <= tomon_end && $payRoomName == "도미토리 (남자)"){room_m++;}
+                        if(tomon_start<= mydate_plus && mydate_plus <= tomon_end && $payRoomName == "개인실"){room_s++;}
+                        if(tomon_start<= mydate_plus && mydate_plus <= tomon_end && $payRoomName == "독채형 (콘도형)"){room_c++;}
+                    //      이번달
+                        if(firstMonthDay<= mydate_plus && mydate_plus <= lastMonthDay && $payRoomName == "도미토리 (혼성)"){m_room_mw++;}
+                        if(firstMonthDay<= mydate_plus && mydate_plus <= lastMonthDay && $payRoomName == "도미토리 (여자)"){m_room_w++;}
+                        if(firstMonthDay<= mydate_plus && mydate_plus <= lastMonthDay && $payRoomName == "도미토리 (남자)"){m_room_m++;}
+                        if(firstMonthDay<= mydate_plus && mydate_plus <= lastMonthDay && $payRoomName == "개인실"){m_room_s++;}
+                        if(firstMonthDay<= mydate_plus && mydate_plus <= lastMonthDay && $payRoomName == "독채형 (콘도형)"){m_room_c++;}
+                    //      이번년도
+
+                        if(yearM1_D1<= mydate_plus && mydate_plus <= after_year_M1_D1 && $payRoomName == "도미토리 (혼성)"){y_room_mw++;y_room_mw_payMoney +=  parseInt($payMoney);}
+                        if(yearM1_D1<= mydate_plus && mydate_plus <= after_year_M1_D1 && $payRoomName == "도미토리 (여자)"){y_room_w++;y_room_w_payMoney +=  parseInt($payMoney);}
+                        if(yearM1_D1<= mydate_plus && mydate_plus <= after_year_M1_D1 && $payRoomName == "도미토리 (남자)"){y_room_m++;y_room_m_payMoney +=  parseInt($payMoney);}
+                        if(yearM1_D1<= mydate_plus && mydate_plus <= after_year_M1_D1 && $payRoomName == "개인실"){y_room_s++;y_room_s_payMoney +=  parseInt($payMoney);}
+                        if(yearM1_D1<= mydate_plus && mydate_plus <= after_year_M1_D1 && $payRoomName == "독채형 (콘도형)"){y_room_c++;y_room_c_payMoney +=  parseInt($payMoney);}
+                    }
+                    console.log("room_mw : "+room_mw)
+                    console.log("room_w : "+room_w)
+                    console.log("room_m : "+room_m)
+                    console.log("room_s : "+room_s)
+                    console.log("room_c : "+room_c)
+                    //Month
+                    console.log("m_room_mw : "+m_room_mw)
+                    console.log("m_room_w : "+m_room_w)
+                    console.log("m_room_m : "+m_room_m)
+                    console.log("m_room_s : "+m_room_s)
+                    console.log("m_room_c : "+m_room_c)
+                    //Year
+                    console.log("y_room_mw : "+y_room_mw)
+                    console.log("y_room_w : "+y_room_w)
+                    console.log("y_room_m : "+y_room_m)
+                    console.log("y_room_s : "+y_room_s)
+                    console.log("y_room_c : "+y_room_c)
+                    //Year Pay
+                    console.log("y_room_mw_payMoney : "+y_room_mw_payMoney)
+                    console.log("y_room_w_payMoney : "+y_room_w_payMoney)
+                    console.log("y_room_m_payMoney : "+y_room_m_payMoney)
+                    console.log("y_room_s_payMoney : "+y_room_s_payMoney)
+                    console.log("y_room_c_payMoney : "+y_room_c_payMoney)
+
+                //-----------
+
+
+
+
                 var ctx = document.getElementById("myChart");
                 var myChart = new Chart(ctx, {
                     type: 'bar',
                     data: {
-                        labels: ["호텔", "모텔", "펜션", "리조트", "캠핑", "한옥"],
+                        labels: ["D혼성", "D여성", "D남성", "개인실", "독채형"],
                         datasets: [{
-                            label: '총 매출',
-                            data: [12, 19, 3, 5, 2, 3],
+                            label: '총 매출(만원단위)',
+                            data: [Math.round(y_room_mw_payMoney)/10000,
+                                Math.round(y_room_w_payMoney)/10000,
+                                Math.round(y_room_m_payMoney)/10000,
+                                Math.round(y_room_s_payMoney)/10000,
+                                Math.round(y_room_c_payMoney)/10000],
                             backgroundColor: [
                                 'rgba(255, 99, 132, 0.2)',
                                 'rgba(54, 162, 235, 0.2)',
                                 'rgba(255, 206, 86, 0.2)',
                                 'rgba(75, 192, 192, 0.2)',
-                                'rgba(153, 102, 255, 0.2)',
-                                'rgba(255, 159, 64, 0.2)'
+                                'rgba(153, 102, 255, 0.2)'
                             ],
                             borderColor: [
                                 'rgba(255,99,132,1)',
                                 'rgba(54, 162, 235, 1)',
                                 'rgba(255, 206, 86, 1)',
                                 'rgba(75, 192, 192, 1)',
-                                'rgba(153, 102, 255, 1)',
-                                'rgba(255, 159, 64, 1)'
+                                'rgba(153, 102, 255, 1)'
                             ],
                             borderWidth: 1
                         }]
@@ -154,67 +295,61 @@
                 var myChart2 = new Chart(ctx2, {
                     type: 'line',
                     data: {
-                        labels: ["호텔", "모텔", "펜션", "리조트", "캠핑", "한옥"],
+                        labels: ["D혼성", "D여성", "D남성", "개인실", "독채형"],
                         datasets: [{
                                 label: '주간',
-                                data: [12, 19, 3, 5, 2, 3],
+                                data: [room_mw, room_w, room_m, room_s, room_c],
                                 backgroundColor: [
                                     'rgba(255, 99, 132, 0.2)',
                                     'rgba(54, 162, 235, 0.2)',
                                     'rgba(255, 206, 86, 0.2)',
                                     'rgba(75, 192, 192, 0.2)',
-                                    'rgba(153, 102, 255, 0.2)',
-                                    'rgba(255, 159, 64, 0.2)'
+                                    'rgba(153, 102, 255, 0.2)'
                                 ],
                                 borderColor: [
                                     'rgba(255,99,132,1)',
                                     'rgba(54, 162, 235, 1)',
                                     'rgba(255, 206, 86, 1)',
                                     'rgba(75, 192, 192, 1)',
-                                    'rgba(153, 102, 255, 1)',
-                                    'rgba(255, 159, 64, 1)'
+                                    'rgba(153, 102, 255, 1)'
                                 ],
                                 borderWidth: 1
                             },
                             {
                                 label: '월간',
-                                data: [44, 29, 13, 54, 42, 13],
+                                data: [m_room_mw, m_room_w, m_room_m, m_room_s, m_room_c],
                                 backgroundColor: [
                                     'rgba(255, 99, 132, 0.2)',
                                     'rgba(54, 162, 235, 0.2)',
                                     'rgba(255, 206, 86, 0.2)',
                                     'rgba(75, 192, 192, 0.2)',
-                                    'rgba(153, 102, 255, 0.2)',
-                                    'rgba(255, 159, 64, 0.2)'
+                                    'rgba(153, 102, 255, 0.2)'
                                 ],
                                 borderColor: [
                                     'rgba(255,99,132,1)',
                                     'rgba(54, 162, 235, 1)',
                                     'rgba(255, 206, 86, 1)',
                                     'rgba(75, 192, 192, 1)',
-                                    'rgba(153, 102, 255, 1)',
-                                    'rgba(255, 159, 64, 1)'
+                                    'rgba(153, 102, 255, 1)'
                                 ],
                                 borderWidth: 1
                             },
                             {
                                 label: '연간',
-                                data: [45, 65, 37, 59, 52, 13],
+                                data: [y_room_mw, y_room_w, y_room_m, y_room_s, y_room_c],
                                 backgroundColor: [
                                     'rgba(255, 99, 132, 0.2)',
                                     'rgba(54, 162, 235, 0.2)',
                                     'rgba(255, 206, 86, 0.2)',
                                     'rgba(75, 192, 192, 0.2)',
-                                    'rgba(153, 102, 255, 0.2)',
-                                    'rgba(255, 159, 64, 0.2)'
+                                    'rgba(153, 102, 255, 0.2)'
                                 ],
                                 borderColor: [
                                     'rgba(255,99,132,1)',
                                     'rgba(54, 162, 235, 1)',
                                     'rgba(255, 206, 86, 1)',
                                     'rgba(75, 192, 192, 1)',
-                                    'rgba(153, 102, 255, 1)',
-                                    'rgba(255, 159, 64, 1)'
+                                    'rgba(153, 102, 255, 1)'
                                 ],
                                 borderWidth: 1
                             }
@@ -230,6 +365,13 @@
                         }
                     }
                 })
+
+
+
+
+                }).catch(function (err){
+                    console.log(err);
+                });
             </script>
             <!-- 막대 그래프 -->
 
@@ -245,10 +387,10 @@
                         <tr>
                             <th style="text-align: center;">예약번호</th>
                             <th style="text-align: center;">객실예약정보</th>
-                            <th style="text-align: center;">투숙객정보</th>
+                            <th style="text-align: center;">예약자명</th>
                             <th style="text-align: center;">연락처</th>
-                            <th style="text-align: center;">투숙일자</th>
-                            <th style="text-align: center;">입실시간</th>
+                            <th style="text-align: center;">체크인-체크아웃</th>
+                            <th style="text-align: center;">입실일</th>
                             <th style="text-align: center;">이용요금</th>
                         </tr>
                         </thead>
@@ -291,56 +433,134 @@
 <script src="/host/js/common.host.js?nocache=1629272224.4328"></script>
 
 
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script>
 
-
-
-        axios.get('/api/pay/paylist',{
-        }).then(function (response){
-            console.log(response);
+<!--이번주 구하는법-->
 
 
 
 
 
-            let tb = $('<tbody>');//for문 밖
-        for (let i =0;i <=0; i++){
-            const $payid = response.data[i].id; // pay아이디 예약번호
-            const $payRoomName = response.data[i].payRoomName; // 객실예약정보
-            const $payName = response.data[i].payName; // 투숙객정보
-            const $payHp = response.data[i].payHp; //연락처
-            let $payCheckIn = response.data[i].payCheckIn; // 투숙일자 1
-            let $payCheckOut = response.data[i].payCheckOut; //투숙일자 2
-            let $payDate = response.data[i].payDate; // 입실시간 => 결제날짜
-            const $payMoney = response.data[i].payMoney; //이용요금
-            // const payid = response.data[i].id; //결제
-
-            $payCheckIn = $payCheckIn.substr(0,10);
-            $payCheckOut = $payCheckOut.substr(0,10);
-            $payDate = $payDate.substr(0,10);
-
-            let row = $(`<tr style="height: 35px; background-color: rgb(245, 245, 245);">`).append(
-                    `<td>` + $payid + `</td>`+
-                    `<td>` + $payRoomName + `</td>`+
-                    `<td>` + $payName + `</td>`+
-                    `<td>` + $payHp + `</td>`+
-                    `<td>`+ $payCheckIn +` - `+ $payCheckOut +`</td>`+
-                    `<td>` + $payDate + `</td>`+
-                    `<td>` + $payMoney + `</td>`+
-                `</tr>`
-
-                )
-                tb.append(row);
-            }
-            tb.append('</tbody>');
-            $('.thead').after(tb);
+        // $(function() {
+            const hostid = $('#hostid').val();
+            console.log("hostid : "+hostid);
 
 
-        }).catch(function (err){
-            console.log('호출 중 에러');
-            console.log(err);
-        });
+            axios.get(`/api/host/` + hostid+`/paylist`, {
+
+            }).then(function (response) {
+                console.log(response);
+                console.log("ㅇㅇㄹㅈㄹ");
+                //오늘
+                var dateToday = new Date().toISOString().substr(0, 10).replace('T', ' ');
+                console.log("dateToday : "+dateToday);
+                let todaypay = 0;
+                let todaypaycan = 0;
+                let todaypayMoney = 0;
+                let allMoney = 0;
+                //룸종류 카운트
+                //도미토리 (혼성)
+                // let room_mw = 0;
+                //도미토리 (여자)
+                // let room_w = 0;
+                //도미토리 (남자)
+                // let room_m = 0;
+                //개인실
+                // let room_s = 0;
+                //독채형 (콘도형)
+                // let room_c = 0;
+
+
+                //전체 pay 갯수
+                let paylength = Object.keys(response.data.data.tbHostForPayResponse.tbPayApiResponseList).length;
+
+                for(let i in response.data.data.tbHostForPayResponse.tbPayApiResponseList){
+
+                    // let $payRoomName = response.data.data.tbHostForPayResponse.tbPayApiResponseList[i].payRoomName;
+                    //
+                    // if($payRoomName == "도미토리 (혼성)"){room_mw++;}
+                    // if($payRoomName == "도미토리 (여자)"){room_w++;}
+                    // if($payRoomName == "도미토리 (남자)"){room_m++;}
+                    // if($payRoomName == "개인실"){room_s++;}
+                    // if($payRoomName == "독채형 (콘도형)"){room_c++;}
+
+
+
+                    let $payDateCnt = response.data.data.tbHostForPayResponse.tbPayApiResponseList[i].payDate;
+                    let $payCancel = response.data.data.tbHostForPayResponse.tbPayApiResponseList[i].payCancel;
+                    let $payMoneyCnt = response.data.data.tbHostForPayResponse.tbPayApiResponseList[i].payMoney; //이용요금
+                    allMoney += parseInt($payMoneyCnt);
+                    //내날짜
+                    var now = new Date($payDateCnt);
+                    var mydate_plus = new Date(now.setDate(now.getDate())).toISOString().substr(0, 10).replace('T', ' ');
+                    console.log("mydate_plus : "+ mydate_plus);
+                    //결제일이 오늘인거있을때마다 +1씩 카운트
+                    if(dateToday <= mydate_plus){
+                        todaypayMoney += parseInt($payMoneyCnt);
+                        if($payCancel == 'y'){
+                            todaypayMoney -= parseInt($payMoneyCnt);
+                            todaypaycan++;
+                            console.log(todaypaycan);
+                        }
+                        todaypay++;
+                        console.log(todaypay);
+
+                        $('.menup1').text(todaypay+"건");
+                        $('.menup2').text(todaypaycan+"건");
+                        $('.menup3_today').text("₩"+todaypayMoney);
+                    }
+                    $('.menup3_all').text("₩"+allMoney);
+                    console.log("todaypay : "+todaypay)
+                    console.log("todaypaycan : "+todaypaycan)
+                    console.log("todaypayMoney : "+todaypayMoney)
+                    console.log("allMoney : "+allMoney)
+                    // console.log("room_mw : "+room_mw)
+                    // console.log("room_w : "+room_w)
+                    // console.log("room_m : "+room_m)
+                    // console.log("room_s : "+room_s)
+                    // console.log("room_c : "+room_c)
+
+                }
+
+
+
+                let tb = $('<tbody>');//for문 밖
+                for (let i = 0; i <= 0; i++) {
+                    const $payid = response.data.data.tbHostForPayResponse.tbPayApiResponseList[i].id; // pay아이디 예약번호
+                    const $payRoomName = response.data.data.tbHostForPayResponse.tbPayApiResponseList[i].payRoomName; // 객실예약정보
+                    const $payName = response.data.data.tbHostForPayResponse.tbPayApiResponseList[i].payName; // 투숙객정보
+                    const $payHp = response.data.data.tbHostForPayResponse.tbPayApiResponseList[i].payHp; //연락처
+                    let $payCheckIn = response.data.data.tbHostForPayResponse.tbPayApiResponseList[i].payCheckIn; // 투숙일자 1
+                    let $payCheckOut = response.data.data.tbHostForPayResponse.tbPayApiResponseList[i].payCheckOut; //투숙일자 2
+                    let $payDate = response.data.data.tbHostForPayResponse.tbPayApiResponseList[i].payDate; // 입실시간 => 결제날짜
+                    const $payMoney = response.data.data.tbHostForPayResponse.tbPayApiResponseList[i].payMoney; //이용요금
+                    // const payid = response.data[i].id; //결제
+
+                    $payCheckIn = $payCheckIn.substr(0, 10);
+                    $payCheckOut = $payCheckOut.substr(0, 10);
+                    $payDate = $payDate.substr(0, 10);
+
+                    let row = $(`<tr style="height: 35px; background-color: rgb(245, 245, 245);">`).append(
+                        `<td>` + $payid + `</td>` +
+                        `<td>` + $payRoomName + `</td>` +
+                        `<td>` + $payName + `</td>` +
+                        `<td>`+ $payHp.slice(0,3)+`-`+ $payHp.slice(3,7) +`-`+ $payHp.slice(7,11) + `</td>` +
+                        `<td>` + $payCheckIn + `시 - ` + $payCheckOut + `시</td>` +
+                        `<td>` + $payDate + `</td>` +
+                        `<td>` + $payMoney + `원</td>` +
+                        `</tr>`
+                    )
+                    tb.append(row);
+                }
+                tb.append('</tbody>');
+                $('.thead').after(tb);
+
+
+            }).catch(function (err) {
+                console.log('호출 중 에러');
+                console.log(err);
+            });
+        // });
     </script>
 
 </body>

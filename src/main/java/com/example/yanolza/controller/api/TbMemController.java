@@ -50,6 +50,12 @@ public class TbMemController extends CrudController<TbMemApiRequest, TbMemApiRes
         return tbMemApiService.session(memEmail);
     }
 
+    //닉네임 가져올때
+    @GetMapping("/nik/{id}")
+    public String getnik(@PathVariable(name = "id")Integer id){
+        return tbMemApiService.nik(id);
+    }
+
     //회원 정보 삭제(admin) ok 탈퇴에도 쓰면됨
     @DeleteMapping("/mlist/{id}")
     public Header<TbMemApiResponse> delmem(@PathVariable(name = "id")Integer id){
@@ -83,5 +89,12 @@ public class TbMemController extends CrudController<TbMemApiRequest, TbMemApiRes
     @GetMapping("/tbhost/{id}")
     public Header<TbMemTbHostApiResponse> gethost(@PathVariable Integer id){
         return tbMemApiService.getHhost(id);
+    }
+
+
+    // 예약결제쪽 전화번호 불러오기
+    @GetMapping("/phone/{id}")
+    public String getHP(@PathVariable(name = "id")Integer id){
+        return tbMemApiService.getHp(id);
     }
 }

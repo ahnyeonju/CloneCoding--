@@ -39,7 +39,7 @@
                 <p class="space_or"><span>또는</span></p>
 
                 <div class="inp_type_1 ico_email form-errors">
-                    <input type="text" name="memEmail" placeholder="이메일 주소" required class="required" value="required"
+                    <input type="text" name="memEmail" placeholder="이메일 주소" required class="required" value=""
                            data-msg-required="이메일 주소를 입력해 주세요." />
                 </div>
 
@@ -51,7 +51,11 @@
                 <button class="btn_link gra_left_right_red" type="submit"><span>로그인</span></button>
 
                 <div class="link_half">
-                    <div><a href="./passwdResetStart"><span>비밀번호 재설정</span></a></div>
+
+                    <div>
+                        <!--                        <a href="./passwdResetStart"><span>비밀번호 재설정</span></a>-->
+                        <a th:href="@{/userindex/forgot_password}">비밀번호 찾기</a>
+                    </div>
                     <div><a href="/userindex/join"><span>회원가입</span></a></div>
                 </div>
 

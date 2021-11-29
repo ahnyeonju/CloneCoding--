@@ -39,13 +39,13 @@ public class TbRoom {
     private TbHost tbHost;
 
 
-    @OneToMany (fetch = FetchType.LAZY, mappedBy ="tbRoom" )
+    @OneToMany (fetch = FetchType.LAZY, mappedBy ="tbRoom" ,cascade = CascadeType.REMOVE  )
     private List<TbReview> tbReviewList;
 
-    @OneToMany (fetch = FetchType.LAZY, mappedBy = "tbRoom" )
+    @OneToMany (fetch = FetchType.LAZY, mappedBy = "tbRoom",cascade = CascadeType.REMOVE  )
     private List<TbPay> tbPayList;
 
-    @OneToMany (fetch = FetchType.LAZY, mappedBy = "tbRoom" )
+    @OneToMany (fetch = FetchType.LAZY, mappedBy = "tbRoom" ,cascade = CascadeType.REMOVE  )
     private List<TbRoomImg> tbRoomImgList;
 
 }

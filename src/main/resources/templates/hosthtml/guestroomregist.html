@@ -229,12 +229,13 @@
                         </tr>
 
 
-                        <tr style="display: none">
+                        <tr style="">
                             <th>이미지 정보<br /></th>
                             <td class="bd_r_none">
                                                             <div class="form-layer">
                                                                 <p class="description text-normal">* 객실 유형을 먼저 선택하신 후 업로드 가능합니다.</p>
-                                                                <input multiple="multiple" type="file" id="ex_file" name="filename[]" /> 
+<!--                                                                <input multiple="multiple" type="file" id="ex_file" name="filename[]" /> -->
+                                                                <input type="file" id="imgFile" name="imgFile" multiple onchange="setThumbnail(event);"/>
                                 </div>
                                          </td>
                             <td class="help-tooltip popover-container">
@@ -861,6 +862,38 @@
         const hostid = $('#id').val(); // hostid
         console.log('hostid:'+hostid);
 
+
+
+//유효성
+        if ($('.rmName').val() == "") {
+            alert("객실명(20자이하)을 입력해주세요(필수)");
+            $(".rmName").focus();
+            return false;
+        }
+        if ($('.rmIntro').val() == "") {
+            alert("객실소개글을 입력해주세요");
+            $(".rmIntro ").focus();
+            return false;
+        }
+        if ($('.rmService').val() == "") {
+            alert("편의시설 서비스 안내를 입력해주세요");
+            $(".rmService").focus();
+            return false;
+        }
+        if ($('.prSprice').val() == "") {
+            alert("비수기금액을 입력해주세요");
+            $(".prSprice").focus();
+            return false;
+        }
+        if ($('.prPrice').val() == "") {
+            alert("성수기금액을 입력해주세요");
+            $(".prPrice").focus();
+            return false;
+        }
+
+
+
+
         //
         const hname = $('.hname').val(); // host 상호명 숙소이름
         console.log('상호명 :'+hname);
@@ -917,41 +950,95 @@
         console.log('성수기 요일 :'+days2);
         const prPrice = $('.prPrice').val()//성수기 금액
         console.log('성수기 금액 :'+prPrice);
-        alert('멈');
-
-        axios.request({
-            method: 'POST',
-            url: '/api/room/regr/',
-            headers: {'Content-type':'application/json'},
-            data: {
-                transaction_time:"2021-09-27",
-                resultCode:"OK",
-                description:"OK",
-                data:{
-                    tbHostId: hostid,
-                    hname: hname,
-                    myStime: myStime,
-                    myCtime: myCtime,
-                    rmName: rmName,
-                    rmType: rmType,
-                    rmNumber: rmNumber,
-                    rmIntro: rmIntro,
-                    rmService: rmService,
-                    prSdate: days,
-                    prSprice: prSprice,
-                    prDate: days2,
-                    prPrice: prPrice
+        // alert('멈');
 
 
-                    // "tbHostId":"34"
-                }
-            }
-        }).then(
-            alert('저장되었습니다!'),
-        location.href="/hosthousemain/"
 
-        )
-        return false;
+        // axios.request({
+        //     method: 'POST',
+        //     url: '/api/room/regr/',
+        //     headers: {'Content-type':'application/json'},
+        //     data: {
+        //         transaction_time:"2021-09-27",
+        //         resultCode:"OK",
+        //         description:"OK",
+        //         data:{
+        //             tbHostId: hostid,
+        //             hname: hname,
+        //             myStime: myStime,
+        //             myCtime: myCtime,
+        //             rmName: rmName,
+        //             rmType: rmType,
+        //             rmNumber: rmNumber,
+        //             rmIntro: rmIntro,
+        //             rmService: rmService,
+        //             prSdate: days,
+        //             prSprice: prSprice,
+        //             prDate: days2,
+        //             prPrice: prPrice
+        //
+        //
+        //             // "tbHostId":"34"
+        //         }
+        //     }
+        // }).then(
+        //     alert('저장되었습니다!'),
+        //
+        //
+        // location.href="/hosthousemain/"
+        //
+        // )
+        // return false;
+
+
+
+
+
+        //------이미지 관련
+        const FileElement = document.querySelector('#imgFile');
+        const formData = new FormData();
+
+        const request = {
+            // tbRoomId : 1,
+            tbHostId: hostid,
+            hname: hname,
+            myStime: myStime,
+            myCtime: myCtime,
+            rmName: rmName,
+            rmType: rmType,
+            rmNumber: rmNumber,
+            rmIntro: rmIntro,
+            rmService: rmService,
+            prSdate: days,
+            prSprice: prSprice,
+            prDate: days2,
+            prPrice: prPrice
+        }
+        console.log([JSON.stringify(request)]);
+
+
+        formData.append("request", new Blob([JSON.stringify(request)], {type: "application/json"}));
+
+        for(let i = 0; i < FileElement.files.length; i++){ // 길이만큼 반복
+            formData.append("files", FileElement.files[i]); // append(키,값)
+        }
+        console.log(formData.getAll('request')); //(키)의 값을 전부 보여줌
+        console.log(formData.getAll('files')); //(키)의 값을 전부 보여줌
+
+        // alert('멈춰 스트링');
+
+        axios.post('/api/room/regr/',formData, {
+            headers: {'Content-type': 'multipart/form-data'}
+        }).then(function (response){
+            console.log(response);
+            // alert('멈춰 스트링');
+
+            history.back()
+
+        }).catch(function(err){
+            console.log(err);
+        });
+
     }
 
 

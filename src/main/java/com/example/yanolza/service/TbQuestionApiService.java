@@ -65,8 +65,8 @@ public class TbQuestionApiService extends BaseService<TbQuestionApiRequest, TbQu
     }
 
     //문의 리스트
-    public List<TbQuestionApiRequest> getlistu(Integer id){
-        List<TbQuestion> tbQuestions = tbQuestionRepository.findAllById(id);
+    public List<TbQuestionApiRequest> getlistu(Integer tbMemId){
+        List<TbQuestion> tbQuestions = tbQuestionRepository.findAllByTbMemId(tbMemId);
         List<TbQuestionApiRequest> tbQuestionApiRequestList = new ArrayList<>();
 
         for (TbQuestion tbQuestion : tbQuestions){

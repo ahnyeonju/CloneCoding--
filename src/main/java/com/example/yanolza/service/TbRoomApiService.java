@@ -2,17 +2,25 @@ package com.example.yanolza.service;
 
 import com.example.yanolza.model.entity.TbRoom;
 import com.example.yanolza.model.network.Header;
+import com.example.yanolza.model.network.request.TbReviewApiRequest;
 import com.example.yanolza.model.network.request.TbRoomApiRequest;
+import com.example.yanolza.model.network.response.TbReviewApiResponse;
 import com.example.yanolza.model.network.response.TbRoomApiResponse;
 import com.example.yanolza.repository.TbHostRepository;
 import com.example.yanolza.repository.TbRoomRepository;
+import com.example.yanolza.service.img.TbRoomImgService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -21,28 +29,49 @@ public class TbRoomApiService extends BaseService<TbRoomApiRequest, TbRoomApiRes
     private final TbHostRepository tbHostRepository;
     @Autowired
     private final TbRoomRepository tbRoomRepository;
+    @Autowired
+    private final TbRoomImgService tbRoomImgService;
 
 
     //객실 등록
-    public Header<TbRoomApiResponse> regr(Header<TbRoomApiRequest> request){
-        TbRoomApiRequest tbRoomApiRequest = request.getData();
+    public Header<TbRoomApiResponse> regr(TbRoomApiRequest request, MultipartHttpServletRequest multipartHttpServletRequest){
         TbRoom tbRoom = TbRoom.builder()
-                .myStime(tbRoomApiRequest.getMyStime())
-                .myCtime(tbRoomApiRequest.getMyCtime())
-                .rmName(tbRoomApiRequest.getRmName())
-                .rmType(tbRoomApiRequest.getRmType())
-                .rmNumber(tbRoomApiRequest.getRmNumber())
-                .rmIntro(tbRoomApiRequest.getRmIntro())
-                .rmService(tbRoomApiRequest.getRmService())
-                .prSdate(tbRoomApiRequest.getPrSdate())
-                .prSprice(tbRoomApiRequest.getPrSprice())
-                .prDate(tbRoomApiRequest.getPrDate())
-                .prPrice(tbRoomApiRequest.getPrPrice())
-                .tbHost(tbHostRepository.getById(tbRoomApiRequest.getTbHostId()))
+                .myStime(request.getMyStime())
+                .myCtime(request.getMyCtime())
+                .rmName(request.getRmName())
+                .rmType(request.getRmType())
+                .rmNumber(request.getRmNumber())
+                .rmIntro(request.getRmIntro())
+                .rmService(request.getRmService())
+                .prSdate(request.getPrSdate())
+                .prSprice(request.getPrSprice())
+                .prDate(request.getPrDate())
+                .prPrice(request.getPrPrice())
+                .tbHost(tbHostRepository.getById(request.getTbHostId()))
                 .build();
         TbRoom newRoom = baseRepository.save(tbRoom);
-        return Header.OK(response(newRoom));
 
+        List<MultipartFile> files = multipartHttpServletRequest.getFiles("files");
+        String path = "C:/Users/user/Desktop/20211026/src/main/resources/static/img/roomimage//";
+
+        for(MultipartFile multi : files){
+            if(multi.getSize()>0){
+                String originName = multi.getOriginalFilename();
+                long fileSize = multi.getSize();
+                UUID uuid = UUID.randomUUID();
+                originName = uuid.toString() + "_" + originName;
+                String safeFile = path + originName;
+                try {
+                    multi.transferTo(new File(safeFile));
+                    tbRoomImgService.regist(originName, fileSize, safeFile, newRoom.getId());
+                }catch (IllegalStateException e){
+                    e.printStackTrace();
+                }catch (IOException e){
+                    e.printStackTrace();
+                }
+            }
+        }
+        return Header.OK(response(newRoom));
     }
 
     // 객실 리스트
@@ -86,23 +115,24 @@ public class TbRoomApiService extends BaseService<TbRoomApiRequest, TbRoomApiRes
         TbRoomApiRequest tbRoomApiRequest = request.getData();
         Optional<TbRoom> optional = baseRepository.findById(tbRoomApiRequest.getId());
         return optional.map(tbRoom -> {
-            tbRoom.setMyStime(tbRoomApiRequest.getMyStime());
-            tbRoom.setMyCtime(tbRoomApiRequest.getMyCtime());
-            tbRoom.setRmName(tbRoomApiRequest.getRmName());
-            tbRoom.setRmType(tbRoomApiRequest.getRmType());
-            tbRoom.setRmNumber(tbRoomApiRequest.getRmNumber());
-            tbRoom.setRmIntro(tbRoomApiRequest.getRmIntro());
-            tbRoom.setRmService(tbRoomApiRequest.getRmService());
-            tbRoom.setPrSdate(tbRoomApiRequest.getPrSdate());
-            tbRoom.setPrSprice(tbRoomApiRequest.getPrSprice());
-            tbRoom.setPrDate(tbRoomApiRequest.getPrDate());
-            tbRoom.setPrPrice(tbRoomApiRequest.getPrPrice());
-            return tbRoom;
-        }).map(tbRoom -> baseRepository.save(tbRoom))
+                    tbRoom.setMyStime(tbRoomApiRequest.getMyStime());
+                    tbRoom.setMyCtime(tbRoomApiRequest.getMyCtime());
+                    tbRoom.setRmName(tbRoomApiRequest.getRmName());
+                    tbRoom.setRmType(tbRoomApiRequest.getRmType());
+                    tbRoom.setRmNumber(tbRoomApiRequest.getRmNumber());
+                    tbRoom.setRmIntro(tbRoomApiRequest.getRmIntro());
+                    tbRoom.setRmService(tbRoomApiRequest.getRmService());
+                    tbRoom.setPrSdate(tbRoomApiRequest.getPrSdate());
+                    tbRoom.setPrSprice(tbRoomApiRequest.getPrSprice());
+                    tbRoom.setPrDate(tbRoomApiRequest.getPrDate());
+                    tbRoom.setPrPrice(tbRoomApiRequest.getPrPrice());
+                    return tbRoom;
+                }).map(tbRoom -> baseRepository.save(tbRoom))
                 .map(tbRoom -> response(tbRoom))
                 .map(Header::OK)
                 .orElseGet(()-> Header.Error("에러다임마"));
     }
+
 
     // 객실 삭제
     public Header roomdel(Integer id){

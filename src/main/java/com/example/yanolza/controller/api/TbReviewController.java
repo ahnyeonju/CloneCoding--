@@ -9,6 +9,7 @@ import com.example.yanolza.model.network.response.TbReviewApiResponse;
 import com.example.yanolza.service.TbReviewApiService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import java.util.List;
 
@@ -20,20 +21,29 @@ public class TbReviewController extends CrudController<TbReviewApiRequest, TbRev
 
     //리뷰 작성 ok
     @PostMapping("/write")
-    public Header<TbReviewApiResponse> rwrite(@RequestBody Header<TbReviewApiRequest> request){
-        System.out.println(request);
-        return tbReviewApiService.writer(request);
+    public Header<TbReviewApiResponse> rwrite(@RequestPart TbReviewApiRequest request, MultipartHttpServletRequest multipartHttpServletRequest) throws Exception {
+        return tbReviewApiService.writer(request,multipartHttpServletRequest);
     }
-    // 리뷰리스트 ok (admin) (host)
+    // 리뷰리스트 ok (admin)
     @GetMapping("/list")
     public List<TbReviewApiRequest> Reviewlist(){
         return tbReviewApiService.getReList();
     }
 
-    // 리뷰리스트 (미답변) (host) ok
-    @GetMapping("/milist")
-    public List<TbReviewApiRequest> miReviewlist(){
-        return tbReviewApiService.getmiReList();
+    @GetMapping("/rlist")
+    public List<TbReviewApiRequest> RReviewlist(){
+        return tbReviewApiService.getRreList();
+    }
+
+    // 리뷰리스트 (답변) (host)
+    @GetMapping("/hlist/{tbHostId}")
+    public List<TbReviewApiRequest> Listh(@PathVariable(name = "tbHostId")Integer tbHostId){
+        return tbReviewApiService.getHlist(tbHostId);
+    }
+    // 리뷰리스트 (미답변) (host)
+    @GetMapping("/milist/{tbHostId}")
+    public List<TbReviewApiRequest> miReviewlist(@PathVariable(name = "tbHostId")Integer tbHostId){
+        return tbReviewApiService.getmiReList(tbHostId);
     }
 
     //리뷰 디테일    (admin)

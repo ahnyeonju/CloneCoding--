@@ -18,6 +18,12 @@ public class AdminController {
     @GetMapping("/")
     public String index() { return  "admin/index"; }
 
+    @GetMapping("/login")
+    public String login(){
+        return "admin/login";
+    }
+
+
 
     @GetMapping("/index")
     public String index2() {
@@ -27,6 +33,11 @@ public class AdminController {
     @GetMapping("/all-staff")
     public String allstaff() {
         return "admin/all-staff";
+    }
+    //1 - 사이드바 회원관리 탈퇴회원관리
+    @GetMapping("/all-staff_cancle")
+    public String allstaffcancle() {
+        return "admin/all-staff_cancle";
     }
     //2 - 1 사이드바 호스트관리 전체 호스트관리
     @GetMapping("/all-host")
@@ -48,6 +59,24 @@ public class AdminController {
     public String reservationpayment() {
         return "admin/reservationpayment";
     }
+    //3 - 1 사이드바 예약/취소내역 취소내역
+    @GetMapping("/reservationcancle")
+    public String reservationcancle() {
+        return "admin/reservationcancle";
+    }
+    //3 - 2v 예약/결제 취소내역 닉네임 클릭
+    @GetMapping("/cancleinformation")
+    public String cancleinformation() {
+        return "admin/cancleinformation";
+    }
+
+    //3 - 2 - 1v 예약/결제 취소내역 닉네임 클릭
+    @RequestMapping(value="/cancleinformation/{id}", method= RequestMethod.GET)
+    public String cancleinformation2(@PathVariable("id") Integer id, Model model) {
+        model.addAttribute("id", id);
+        return "/admin/cancleinformation";
+    }
+
     //4 - 사이드바 문의관리 1:1문의관리
     @GetMapping("/qustion")
     public String qustion() {
@@ -93,6 +122,44 @@ public class AdminController {
         return "/admin/roomInformation";
     }
 
+
+    // 2-1v 리뷰 사진
+    @GetMapping("/roomphoto")
+    public String roomphoto() {
+        return "admin/roomphoto";
+    }
+
+
+    //2 - 1v  리뷰 사진 닉네임 클릭
+    @RequestMapping(value="/roomphoto/{id}", method= RequestMethod.GET)
+    public String roomphoto2(@PathVariable("id") Integer id, Model model) {
+        model.addAttribute("id", id);
+        return "/admin/roomphoto";
+    }
+    @GetMapping("/roomdetails")
+    public String roomdetails() {
+        return "admin/roomdetails";
+    }
+
+    //2 - 1v 전체 호스트관리 호스트 정보(이름) 클릭 글보기 페이지에서 숙소정보보기
+    @RequestMapping(value="/roomdetails/{id}/{tbMemId}", method= RequestMethod.GET)
+    public String roomdetails(@PathVariable("id") Integer id,@PathVariable("tbMemId") Integer tbMemId, Model model) {
+        model.addAttribute("id", id);
+        model.addAttribute("tbMemId",tbMemId);
+        return "/admin/roomdetails";
+    }
+    @GetMapping("/roomdetails_n")
+    public String roomdetails_n() {
+        return "admin/roomdetails_n";
+    }
+
+    //2 - 1v 전체 호스트관리 호스트 정보(이름) 클릭 글보기 페이지에서 숙소정보보기
+    @RequestMapping(value="/roomdetails_n/{id}/{tbMemId}", method= RequestMethod.GET)
+    public String roomdetails_n(@PathVariable("id") Integer id,@PathVariable("tbMemId") Integer tbMemId, Model model) {
+        model.addAttribute("id", id);
+        model.addAttribute("tbMemId",tbMemId);
+        return "/admin/roomdetails_n";
+    }
 
 
     //2 - 2v 숙소관리 호스트 정보(이름) 클릭/roomregistration/{id?}
@@ -166,7 +233,12 @@ public class AdminController {
     }
 
 
-
+    //2 - 1v  리뷰 사진 닉네임 클릭
+    @RequestMapping(value="/reviewphoto/{id}", method= RequestMethod.GET)
+    public String reviewphoto2(@PathVariable("id") Integer id, Model model) {
+        model.addAttribute("id", id);
+        return "/admin/reviewphoto";
+    }
 
 
 

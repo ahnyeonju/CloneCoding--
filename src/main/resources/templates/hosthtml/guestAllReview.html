@@ -279,7 +279,7 @@
     $(".ahn_reHref").attr("href", "/hosthousemain/guestReview/"+memid+"/"+hostid);
 
 
-    axios.get('/api/review/list',{
+    axios.get('/api/review/hlist/'+ hostid,{
 
     }).then(function (response){
         console.log(response)

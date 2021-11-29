@@ -1,9 +1,9 @@
 spring:
   datasource:
     driver-class-name: oracle.jdbc.OracleDriver
-    url: jdbc:oracle:thin:@dksduswn69_high?TNS_ADMIN=D:/KukbeeJava/cyberwallet/Wallet_dksduswn69
-    username: admin
-    password: Ahnsomak3507@
+    url: "오라클 월렛 경로"
+    username: "오라클DB 아이디"
+    password: "오라클DB 비밀번호"
 
 
   devtools:
@@ -19,8 +19,8 @@ spring:
   mail:
     host: smtp.gmail.com
     port: 587
-    username: noljaya2021@gmail.com
-    password: shdhfwk~1
+    username: "이메일"
+    password: qhtlkrgdpjlegwdb
     properties:
       mail:
         smtp:

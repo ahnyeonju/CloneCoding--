@@ -2,6 +2,7 @@ package com.example.yanolza.service;
 
 import com.example.yanolza.model.entity.TbHost;
 import com.example.yanolza.model.entity.TbHostImg;
+import com.example.yanolza.model.entity.TbPay;
 import com.example.yanolza.model.entity.TbRoom;
 import com.example.yanolza.model.network.Header;
 import com.example.yanolza.model.network.request.TbHostApiRequest;
@@ -9,6 +10,7 @@ import com.example.yanolza.model.network.response.*;
 import com.example.yanolza.repository.TbHostImgRepository;
 import com.example.yanolza.repository.TbHostRepository;
 import com.example.yanolza.repository.TbMemRepository;
+import com.example.yanolza.repository.TbPayRepository;
 import com.example.yanolza.service.img.TbHostImgService;
 import com.example.yanolza.service.img.TbRoomImgService;
 import lombok.RequiredArgsConstructor;
@@ -36,9 +38,8 @@ public class TbHostApiService extends BaseService<TbHostApiRequest, TbHostApiRes
     @Autowired
     private final TbHostImgService tbHostImgService;
     @Autowired
-    private final TbHostImgRepository tbhostImgRepository;
-    @Autowired
     private final TbRoomImgService tbRoomImgService;
+
 
 
     //호스트 등록
@@ -63,6 +64,8 @@ public class TbHostApiService extends BaseService<TbHostApiRequest, TbHostApiRes
                 .myIntcom(tbHostApiRequest.getMyIntcom())
                 .myIntcomadd1(tbHostApiRequest.getMyIntcomadd1())
                 .myIntcomadd2(tbHostApiRequest.getMyIntcomadd2())
+                .latitude(tbHostApiRequest.getLatitude())
+                .longitude(tbHostApiRequest.getLongitude())
                 .myService(tbHostApiRequest.getMyService())
                 .myIntro(tbHostApiRequest.getMyIntro())
                 .myComeway(tbHostApiRequest.getMyComeway())
@@ -89,7 +92,6 @@ public class TbHostApiService extends BaseService<TbHostApiRequest, TbHostApiRes
     // 호스트 리스트(admin)
     public List<TbHostApiRequest> gethlist(){
         List<TbHost> tbHosts = tbHostRepository.findAllByPkAdmit("y");
-//        List<TbHostImg> tbHostImgs = tbhostImgRepository.findAll();
         List<TbHostApiRequest> tbHostApiRequestList = new ArrayList<>();
 
         for (TbHost tbHost  : tbHosts){
@@ -113,6 +115,8 @@ public class TbHostApiService extends BaseService<TbHostApiRequest, TbHostApiRes
                     .myIntcom(tbHost.getMyIntcom())
                     .myIntcomadd1(tbHost.getMyIntcomadd1())
                     .myIntcomadd2(tbHost.getMyIntcomadd2())
+                    .latitude(tbHost.getLatitude())
+                    .longitude(tbHost.getLongitude())
                     .myService(tbHost.getMyService())
                     .myIntro(tbHost.getMyIntro())
                     .myComeway(tbHost.getMyComeway())
@@ -146,6 +150,12 @@ public class TbHostApiService extends BaseService<TbHostApiRequest, TbHostApiRes
                 .orElseGet(
                         ()-> Header.Error("데이터 없음!")
                 );
+    }
+    // almHP가져오기 결제창!!
+    public String getHP(Integer id){
+        TbHost tbHost = tbHostRepository.getById(id);
+        return tbHost.getAlmHp();
+
     }
 
 //    //호스트 등록 글 수정 1
@@ -182,6 +192,8 @@ public class TbHostApiService extends BaseService<TbHostApiRequest, TbHostApiRes
                     tbHost.setMyIntcom(tbHostApiRequest.getMyIntcom());
                     tbHost.setMyIntcomadd1(tbHostApiRequest.getMyIntcomadd1());
                     tbHost.setMyIntcomadd2(tbHostApiRequest.getMyIntcomadd2());
+                    tbHost.setLatitude(tbHostApiRequest.getLatitude());
+                    tbHost.setLongitude(tbHostApiRequest.getLongitude());
                     tbHost.setMyService(tbHostApiRequest.getMyService());
                     tbHost.setMyIntro(tbHostApiRequest.getMyIntro());
                     tbHost.setMyComeway(tbHostApiRequest.getMyComeway());
@@ -254,6 +266,8 @@ public class TbHostApiService extends BaseService<TbHostApiRequest, TbHostApiRes
                     .myIntcom(tbHost.getMyIntcom())
                     .myIntcomadd1(tbHost.getMyIntcomadd1())
                     .myIntcomadd2(tbHost.getMyIntcomadd2())
+                    .latitude(tbHost.getLatitude())
+                    .longitude(tbHost.getLongitude())
                     .myService(tbHost.getMyService())
                     .myIntro(tbHost.getMyIntro())
                     .myComeway(tbHost.getMyComeway())
@@ -349,6 +363,8 @@ public class TbHostApiService extends BaseService<TbHostApiRequest, TbHostApiRes
         return Header.OK(tbHostTbRoomApiResponse);
     }
 
+
+
     // 호스트의 객실의 리뷰;;
     public Header<TbHostTbRoomApiResponse> hostRoomreview(Integer id){
         TbHost tbHost = baseRepository.getById(id);
@@ -434,6 +450,8 @@ public class TbHostApiService extends BaseService<TbHostApiRequest, TbHostApiRes
                     .myIntcom(tbHost.getMyIntcom())
                     .myIntcomadd1(tbHost.getMyIntcomadd1())
                     .myIntcomadd2(tbHost.getMyIntcomadd2())
+                    .latitude(tbHost.getLatitude())
+                    .longitude(tbHost.getLongitude())
                     .myService(tbHost.getMyService())
                     .myIntro(tbHost.getMyIntro())
                     .myComeway(tbHost.getMyComeway())
@@ -484,6 +502,8 @@ public class TbHostApiService extends BaseService<TbHostApiRequest, TbHostApiRes
                     .myIntcom(tbHost.getMyIntcom())
                     .myIntcomadd1(tbHost.getMyIntcomadd1())
                     .myIntcomadd2(tbHost.getMyIntcomadd2())
+                    .latitude(tbHost.getLatitude())
+                    .longitude(tbHost.getLongitude())
                     .myService(tbHost.getMyService())
                     .myIntro(tbHost.getMyIntro())
                     .myComeway(tbHost.getMyComeway())
@@ -533,6 +553,8 @@ public class TbHostApiService extends BaseService<TbHostApiRequest, TbHostApiRes
                     .myIntcom(tbHost.getMyIntcom())
                     .myIntcomadd1(tbHost.getMyIntcomadd1())
                     .myIntcomadd2(tbHost.getMyIntcomadd2())
+                    .latitude(tbHost.getLatitude())
+                    .longitude(tbHost.getLongitude())
                     .myService(tbHost.getMyService())
                     .myIntro(tbHost.getMyIntro())
                     .myComeway(tbHost.getMyComeway())
@@ -582,6 +604,8 @@ public class TbHostApiService extends BaseService<TbHostApiRequest, TbHostApiRes
                     .myIntcom(tbHost.getMyIntcom())
                     .myIntcomadd1(tbHost.getMyIntcomadd1())
                     .myIntcomadd2(tbHost.getMyIntcomadd2())
+                    .latitude(tbHost.getLatitude())
+                    .longitude(tbHost.getLongitude())
                     .myService(tbHost.getMyService())
                     .myIntro(tbHost.getMyIntro())
                     .myComeway(tbHost.getMyComeway())
@@ -631,6 +655,8 @@ public class TbHostApiService extends BaseService<TbHostApiRequest, TbHostApiRes
                     .myIntcom(tbHost.getMyIntcom())
                     .myIntcomadd1(tbHost.getMyIntcomadd1())
                     .myIntcomadd2(tbHost.getMyIntcomadd2())
+                    .latitude(tbHost.getLatitude())
+                    .longitude(tbHost.getLongitude())
                     .myService(tbHost.getMyService())
                     .myIntro(tbHost.getMyIntro())
                     .myComeway(tbHost.getMyComeway())
@@ -680,6 +706,8 @@ public class TbHostApiService extends BaseService<TbHostApiRequest, TbHostApiRes
                         .myIntcom(tbHost.getMyIntcom())
                         .myIntcomadd1(tbHost.getMyIntcomadd1())
                         .myIntcomadd2(tbHost.getMyIntcomadd2())
+                        .latitude(tbHost.getLatitude())
+                        .longitude(tbHost.getLongitude())
                         .myService(tbHost.getMyService())
                         .myIntro(tbHost.getMyIntro())
                         .myComeway(tbHost.getMyComeway())
@@ -730,6 +758,8 @@ public class TbHostApiService extends BaseService<TbHostApiRequest, TbHostApiRes
                     .myIntcom(tbHost.getMyIntcom())
                     .myIntcomadd1(tbHost.getMyIntcomadd1())
                     .myIntcomadd2(tbHost.getMyIntcomadd2())
+                    .latitude(tbHost.getLatitude())
+                    .longitude(tbHost.getLongitude())
                     .myService(tbHost.getMyService())
                     .myIntro(tbHost.getMyIntro())
                     .myComeway(tbHost.getMyComeway())
@@ -775,6 +805,8 @@ public class TbHostApiService extends BaseService<TbHostApiRequest, TbHostApiRes
                 .myIntcom(tbHost.getMyIntcom())
                 .myIntcomadd1(tbHost.getMyIntcomadd1())
                 .myIntcomadd2(tbHost.getMyIntcomadd2())
+                .latitude(tbHost.getLatitude())
+                .longitude(tbHost.getLongitude())
                 .myService(tbHost.getMyService())
                 .myIntro(tbHost.getMyIntro())
                 .myComeway(tbHost.getMyComeway())
@@ -796,6 +828,7 @@ public class TbHostApiService extends BaseService<TbHostApiRequest, TbHostApiRes
                 .build();
         return tbHostApiResponse;
     }
+
 
     @Override
     public Header<TbHostApiResponse> create(Header<TbHostApiRequest> request) {

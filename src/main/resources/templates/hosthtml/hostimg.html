@@ -1,82 +1,251 @@
 
-<!doctype html>
-<html lang="ko">
+<!--<!doctype html>-->
+<!--<html lang="ko">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport"-->
+<!--          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">-->
+<!--    <meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+<!--    <meta http-equiv="Content-Type">-->
+<!--    <meta name="csrf-name" content="yeogi_token">-->
+
+
+
+<!--    &lt;!&ndash; CSS &ndash;&gt;-->
+<!--    <title>취향대로 머물다 여기어때</title>-->
+<!--    <script type="text/javascript" src="/js/library/jquery-1.12.4.min.js"></script>-->
+
+<!--</head>-->
+<!--<body>-->
+
+
+<!--<input type="hidden" id="tbHostId" th:value="${tbHostId}">-->
+<!--    &lt;!&ndash;	a태그 클릭시 넘어와야 하는 값&ndash;&gt;-->
+<!--    &lt;!&ndash;안연주 room ID값 넘어옴&ndash;&gt;-->
+<!--&lt;!&ndash;    <input type="hidden" id="tbRoomId" th:value="${tbRoomId}">&ndash;&gt;-->
+
+<!--    &lt;!&ndash; CSS &ndash;&gt;-->
+
+<!--    &lt;!&ndash; 여기부터 복사@@ &ndash;&gt;-->
+<!--    &lt;!&ndash; 안연주 리뷰작성 &ndash;&gt;-->
+
+
+
+
+<!--<form id="form" enctype="multipart/form-data" action="/hosthousemain/hostimg_send">-->
+<!--    <input type="file" id="imgFile" name="imgFile" multiple onchange="setThumbnail(event);"/>-->
+<!--    <button type="button" id="Button"  onclick="sendit();">버튼입니다</button>-->
+<!--</form>-->
+<!--<div id="image_container"></div>-->
+<!--<div id="state"></div>-->
+
+
+<!--<script src="/js/ahn_re.js"></script>-->
+<!--<script src="https://unpkg.com/axios/dist/axios.min.js"></script>-->
+
+<!--<script>-->
+
+<!--function sendit(){-->
+
+<!--    const FileElement = document.querySelector('#imgFile');-->
+
+<!--            const formData = new FormData(); //formdata생성-->
+
+<!--            // const data = {tbHostId : $("#tbHostId").val() }-->
+<!--            const data = {tbHostId : 1}-->
+<!--            console.log('호스트아이디');-->
+<!--            console.log(data);-->
+<!--            console.log('호스트아이디2');-->
+<!--            console.log([JSON.stringify(data)]);-->
+
+<!--            formData.append("data", new Blob([JSON.stringify(data)], {type: "application/json"}));-->
+
+
+
+
+
+<!--            // formData.append("tbHostId", "1"); // 호스트 id-->
+<!--            // formData.append("data", '1'); // 호스트 id-->
+<!--            // formData.append("content", "this is content");-->
+<!--            for(let i = 0; i < FileElement.files.length; i++){ // 길이만큼 반복-->
+<!--                formData.append("files", FileElement.files[i]); // append(키,값)-->
+<!--            }-->
+<!--            console.log(formData.getAll('data')); //(키)의 값을 전부 보여줌-->
+<!--            console.log(formData.getAll('files')); //(키)의 값을 전부 보여줌-->
+
+
+
+<!--    alert('멈춤');-->
+<!--            axios.post('/host/img',formData, {-->
+<!--                headers: {'Content-type': 'multipart/form-data'}-->
+
+
+<!--            }).then(function (response){-->
+<!--                console.log(response);-->
+<!--            }).catch(function(err){-->
+<!--                console.log(err);-->
+<!--            })-->
+<!--    alert('멈춤2');-->
+
+
+<!--}-->
+
+
+
+
+
+
+
+<!--</script>-->
+<!--</body>-->
+<!--</html>-->
+
+<!--https://developers.google.com/maps/documentation/javascript/examples/geocoding-simple?hl=ko#maps_geocoding_simple-javascript-->
+<!DOCTYPE html>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="Content-Type">
-    <meta name="csrf-name" content="yeogi_token">
-
-
-
-    <!-- CSS -->
-    <title>취향대로 머물다 여기어때</title>
+    <title>Geocoding Service</title>
     <script type="text/javascript" src="/js/library/jquery-1.12.4.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+    <link href="/css/ahn_googlemap.css" rel="stylesheet">
+    <script src="./index.js"></script>
+
+
+
+
 
 </head>
 <body>
+<div id="map" class="pac-input"></div>
 
-
-<input type="hidden" id="tbHostId" th:value="${tbHostId}">
-    <!--	a태그 클릭시 넘어와야 하는 값-->
-    <!--안연주 room ID값 넘어옴-->
-<!--    <input type="hidden" id="tbRoomId" th:value="${tbRoomId}">-->
-
-    <!-- CSS -->
-
-    <!-- 여기부터 복사@@ -->
-    <!-- 안연주 리뷰작성 -->
-    <script src="/js/ahn_re.js"></script>
-<form  method="post" enctype="multipart/form-data"  id="form">
-
-    <div class="ahn_re_img">
-    <div class="ahn_tab_t">이미지 추가</div>
-    <!--dropfile-->
-    <div class="ahn_re_indent">
-                                <span class="ahn_di_span">
-                                    <input type="file" id="files" class="reImg file" accept="image/*"
-                                           onchange="setThumbnail(event);"
-                                           multiple="multiple"
-                                           name="files" />
-                                    <div id="image_container"></div>
-                                </span>
-
-<!--        <input type="file" id="files" name="files" class= multiple>-->
-    </div>
-    <!--dropfile끝-->
-
-</div>
-                        <div class="ahn_re_indent ahn_re_btn1">
-                            <span class="ahn_di_span">
-                                <button type="button" class="ahn_re_btn2" onclick="sendit()">
-									등록하기</button>
-                            </span>
-                        </div>
-</form>
-
-
-
-
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-
-<script>
-    const data = $('tbHostId').val();
-    function sendit() {
-        let formData = new FormData();
-        const data = {tbHostId : $("#tbHostId").val() }
-        formData.append("data", new Blob([JSON.stringify(data)], {type: "application/json"}));
-                axios.request({
-                    method: 'POST',
-                    url: '/host/img',
-                    headers: {'Content-type': 'multipart/form-data'},
-                    data: formData
-                }).then(
-                    alert("파일첨부완료")
-                )
-            }
-
-</script>
+<!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+<script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB86lXOM5_phtfMCatkpGpcwTsNR82ine8&callback=initMap&v=weekly"
+        async
+></script>
 </body>
 </html>
+
+<script>
+    let map;
+    let marker;
+    let geocoder;
+    let responseDiv;
+    let response;
+
+    function initMap() {
+        map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 8,
+            center: { lat: -34.397, lng: 150.644 },
+            mapTypeControl: false,
+        });
+        geocoder = new google.maps.Geocoder();
+
+        const inputText = document.createElement("input");
+
+        inputText.type = "text";
+        inputText.placeholder = "Enter a location";
+        inputText.classList.add("ahn_map_input");
+        const submitButton = document.createElement("input");
+
+        submitButton.type = "button";
+        submitButton.value = "Geocode";
+        submitButton.classList.add("button", "button-primary", "ahn_map_btn");
+
+        const clearButton = document.createElement("input");
+
+        clearButton.type = "button";
+        clearButton.value = "Clear";
+        clearButton.classList.add("button", "button-secondary", "ahn_map_clear");
+        response = document.createElement("pre");
+        response.id = "response";
+        response.innerText = "";
+        responseDiv = document.createElement("div");
+        responseDiv.id = "response-container";
+        responseDiv.appendChild(response);
+
+        const instructionsElement = document.createElement("p");
+
+        instructionsElement.id = "instructions";
+        instructionsElement.innerHTML =
+            "<strong>Instructions</strong>: Enter an address in the textbox to geocode or click on the map to reverse geocode.";
+        map.controls[google.maps.ControlPosition.TOP_LEFT].push(inputText);
+        map.controls[google.maps.ControlPosition.TOP_LEFT].push(submitButton);
+        map.controls[google.maps.ControlPosition.TOP_LEFT].push(clearButton);
+        map.controls[google.maps.ControlPosition.LEFT_TOP].push(instructionsElement);
+        map.controls[google.maps.ControlPosition.LEFT_TOP].push(responseDiv);
+        marker = new google.maps.Marker({
+            map,
+        });
+        map.addListener("click", (e) => {
+            geocode({ location: e.latLng });
+        });
+        submitButton.addEventListener("click", () =>
+            geocode({ address: inputText.value })
+        );
+        clearButton.addEventListener("click", () => {
+            clear();
+        });
+        clear();
+    }
+
+    function clear() {
+        marker.setMap(null);
+        responseDiv.style.display = "none";
+    }
+
+    function geocode(request) {
+        clear();
+        geocoder
+            .geocode(request)
+            .then((result) => {
+                const { results } = result;
+
+                map.setCenter(results[0].geometry.location);
+                marker.setPosition(results[0].geometry.location);
+                marker.setMap(map);
+                responseDiv.style.display = "block";
+                response.innerText = JSON.stringify(result, null, 2);
+                console.log(results[0].geometry.location.lat());
+                console.log(results[0].geometry.location.lng());
+                return results;
+
+            })
+            .catch((e) => {
+                alert("Geocode was not successful for the following reason: " + e);
+            });
+    }
+    if()
+    document.getElementById("ahn_map_btn")[0].click();
+    console.log('클릭')
+
+</script>
+<!--<script>-->
+<!--    var geocoder;-->
+<!--    var map;-->
+<!--    function initialize() {-->
+<!--        geocoder = new google.maps.Geocoder();-->
+<!--        var latlng = new google.maps.LatLng(-34.397, 150.644);-->
+<!--        var mapOptions = {-->
+<!--            zoom: 8,-->
+<!--            center: latlng-->
+<!--        }-->
+<!--        map = new google.maps.Map(document.getElementById('map'), mapOptions);-->
+<!--    }-->
+
+<!--    function codeAddress() {-->
+<!--        var address = document.getElementById('address').value;-->
+<!--        geocoder.geocode( { 'address': address}, function(results, status) {-->
+<!--            if (status == 'OK') {-->
+<!--                map.setCenter(results[0].geometry.location);-->
+<!--                var marker = new google.maps.Marker({-->
+<!--                    map: map,-->
+<!--                    position: results[0].geometry.location-->
+<!--                });-->
+<!--            } else {-->
+<!--                alert('Geocode was not successful for the following reason: ' + status);-->
+<!--            }-->
+<!--        });-->
+<!--    }-->
+<!--</script>-->

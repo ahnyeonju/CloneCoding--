@@ -265,19 +265,19 @@
                                                 <div class="form-layer form-body ">
                                                     <div class="chk_date">
                                                         <label class="checkbox-inline icon-label"><input type="checkbox"
-                                                                data-name="notification_mon" checked="checked" name="" value="mon">월</label>
+                                                                data-name="notification_mon" checked="checked" name="dayoftheweek" value="mon">월</label>
                                                         <label class="checkbox-inline icon-label"><input type="checkbox"
-                                                                data-name="notification_tue" checked="checked" name="" value="tue">화</label>
+                                                                data-name="notification_tue" checked="checked" name="dayoftheweek" value="tue">화</label>
                                                         <label class="checkbox-inline icon-label"><input type="checkbox"
-                                                                data-name="notification_wed" checked="checked" name="" value="wed">수</label>
+                                                                data-name="notification_wed" checked="checked" name="dayoftheweek" value="wed">수</label>
                                                         <label class="checkbox-inline icon-label"><input type="checkbox"
-                                                                data-name="notification_thr" checked="checked" name="" value="thr">목</label>
+                                                                data-name="notification_thr" checked="checked" name="dayoftheweek" value="thr">목</label>
                                                         <label class="checkbox-inline icon-label"><input type="checkbox"
-                                                                data-name="notification_fri" checked="checked" name="" value="fri">금</label>
+                                                                data-name="notification_fri" checked="checked" name="dayoftheweek" value="fri">금</label>
                                                         <label class="checkbox-inline icon-label"><input type="checkbox"
-                                                                data-name="notification_sat" checked="checked" name="" value="sat">토</label>
+                                                                data-name="notification_sat" checked="checked" name="dayoftheweek" value="sat">토</label>
                                                         <label class="checkbox-inline icon-label"><input type="checkbox"
-                                                                data-name="notification_sun" checked="checked" name="" value="sun">일</label>
+                                                                data-name="notification_sun" checked="checked" name="dayoftheweek" value="sun">일</label>
                                                     </div>
                                                     <div class="select-style small-size" style="width:100px;">
                                                         <select data-name="notification_from">
@@ -419,11 +419,11 @@
                                             name="address1" readonly placeholder="사업자 등록증상 업체 주소를 입력하세요." value="" />
                                         <!--저장되는 주소값 myAddr1_2 기준으로 DB저장-->
                                            <input type="hidden" name="input_roadAddress2" id="input_roadAddress2" class="myAddr1 myAddr1_2">
-
                                         <button type="button" class="btn btn-yeogi btn-normal-layer" id="postCode"
                                             onclick="daumPostCode()">주소 검색</button>
 
                                     </span>
+
                                 </div>
                                 <div class="form-layer newline">
                                     <span class="form-body">
@@ -504,7 +504,14 @@
 <script src="/host/js/common.host.js?nocache=1629280053.1844"></script>
 <script src="/host/js/my.host.js?nocache=1629280053.1844"></script>
 
+
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+
+
+
+
+
     <script>
 
 
@@ -650,6 +657,54 @@
 
         function sendit(){
 
+            if ($(".myHp").val() == "") {
+                alert("휴대폰번호를 입력해주세요");
+                $(".myHp").focus();
+                return false;
+            }
+            if ($(".almName ").val() == "") {
+                alert("알람이름을 입력해주세요");
+                $(".almName ").focus();
+                return false;
+            }
+            if ($(".almHp ").val() == "") {
+                alert("알람연락처간을 입력해주세요");
+                $(".almHp").focus();
+                return false;
+            }
+            if ($("input[name='dayoftheweek']:checked").length < 1) {
+                alert("업태를 하나이상 선택해주세요");
+                return false;
+            }
+            if ($(".myCorporate").val() == "") {
+                alert("상호명을 입력해주세요");
+                $(".myCorporate").focus();
+                return false;
+            }
+            if ($(".myConame").val() == "") {
+                alert("등록증상대표명을 입력해주세요");
+                $(".myConame").focus();
+                return false;
+            }
+            if ($("input[name='myCondition']:checked").length < 1) {
+                alert("업태를 하나이상 선택해주세요");
+                return false;
+            }
+            if ($("input[name='myType']:checked").length < 1) {
+                alert("업종을 하나이상 선택해주세요");
+                return false;
+            }
+            if ($(".myConum").val() == "") {
+                alert("사업자등록번호을 입력해주세요");
+                $(".myConum").focus();
+                return false;
+            }
+            if ($(".myAddr1_2").val() == "") {
+                alert("업체주소를 입력해주세요");
+                $(".myAddr1_2").focus();
+                return false;
+            }
+
 
 
             //멤버 아이디
@@ -775,6 +830,60 @@
         }
         //수정 후 다음으로
         function patchit(){
+
+            // 공백유효성
+            if ($(".myHp").val() == "") {
+                alert("휴대폰번호를 입력해주세요");
+                $(".myHp").focus();
+                return false;
+            }
+            if ($(".almName ").val() == "") {
+                alert("알람이름을 입력해주세요");
+                $(".almName ").focus();
+                return false;
+            }
+            if ($(".almHp ").val() == "") {
+                alert("알람연락처간을 입력해주세요");
+                $(".almHp").focus();
+                return false;
+            }
+            if ($("input[name='dayoftheweek']:checked").length < 1) {
+                alert("업태를 하나이상 선택해주세요");
+                return false;
+            }
+            if ($(".myCorporate").val() == "") {
+                alert("상호명을 입력해주세요");
+                $(".myCorporate").focus();
+                return false;
+            }
+            if ($(".myConame").val() == "") {
+                alert("등록증상대표명을 입력해주세요");
+                $(".myConame").focus();
+                return false;
+            }
+            if ($("input[name='myCondition']:checked").length < 1) {
+                alert("업태를 하나이상 선택해주세요");
+                return false;
+            }
+            if ($("input[name='myType']:checked").length < 1) {
+                alert("업종을 하나이상 선택해주세요");
+                return false;
+            }
+            if ($(".myConum").val() == "") {
+                alert("사업자등록번호을 입력해주세요");
+                $(".myConum").focus();
+                return false;
+            }
+            if ($(".myAddr1_2").val() == "") {
+                alert("업체주소를 입력해주세요");
+                $(".myAddr1_2").focus();
+                return false;
+            }
+
+
+
+
+
             const hostid = $('#hostid').val();
             console.log('hostid:'+hostid);
 
@@ -808,10 +917,6 @@
 
             days = days.substring(0, days.lastIndexOf(","))
             console.log(days);
-
-
-
-
 
 
             //상호명 (법인명) 숙소이름

@@ -36,6 +36,12 @@
 <div th:replace="hostthy/host-header :: host-header"></div>
 <!--헤더 끝 -->
 
+<!--  안연주 hidden 값 끝  mem 아이디임-->
+<input type="hidden" name="id" id="id" th:value="${id}">
+<!--    host id-->
+<input type="hidden" name="hostid" id="hostid">
+<!--   안연주 hidden 값 끝 -->
+
 <section class="container">
     <div class="menu-step">
         <h1>아래 정보를 모두 입력하시고 숙소 등록을 완료하세요.</h1>
@@ -195,9 +201,10 @@
                     <tr>
                         <th>예약번호</th>
                         <th>객실명</th>
-                        <th>예약자</th>
+                        <th>예약자명</th>
                         <th>전화번호</th>
-                        <th>사용기간</th>
+                        <th>체크인-체크아웃</th>
+                        <th>입실일</th>
                         <th>이용금액</th>
                     </tr>
                     </thead>
@@ -239,35 +246,45 @@
 </script>
 
 <script>
-    axios.get('/api/pay/paylist',{
+axios.get('/api/tbmem/tbhost/'+sessionId,{
+}).then(function (response){
+    console.log('/api/tbmem/tbhost/')
+    console.log(response)
+    let ch_hostid = response.data.data.tbMemApiResponse.tbHostApiResponseList[0].id
+    // $('#hostid').attr('value', ch_hostid);
+
+
+    axios.get('/api/host/' + ch_hostid + '/paylist',{
     }).then(function (response){
+        console.log('/api/pay/paylisth/');
         console.log(response);
 
 
         let tb = $('<tbody>');//for문 밖
         for (let i =0;i <=2; i++){
-            const $payid = response.data[i].id; // pay아이디 예약번호
-            const $payRoomName = response.data[i].payRoomName; // 객실예약정보
-            const $payName = response.data[i].payName; // 투숙객정보
-            const $payHp = response.data[i].payHp; //연락처
-            let $payCheckIn = response.data[i].payCheckIn; // 투숙일자 1
-            let $payCheckOut = response.data[i].payCheckOut; //투숙일자 2
-            // let $payDate = response.data[i].payDate; // 입실시간 => 결제날짜
-            const $payMoney = response.data[i].payMoney; //이용요금
+            const $payid = response.data.data.tbHostForPayResponse.tbPayApiResponseList[i].id; // pay아이디 예약번호
+            const $payRoomName = response.data.data.tbHostForPayResponse.tbPayApiResponseList[i].payRoomName; // 객실예약정보
+            const $payHostName = response.data.data.tbHostForPayResponse.tbPayApiResponseList[i].payHostName; // 객실예약정보 (방이름)
+            const $payName = response.data.data.tbHostForPayResponse.tbPayApiResponseList[i].payName; // 투숙객정보
+            const $payHp = response.data.data.tbHostForPayResponse.tbPayApiResponseList[i].payHp; //연락처
+            let $payCheckIn = response.data.data.tbHostForPayResponse.tbPayApiResponseList[i].payCheckIn; // 투숙일자 1
+            let $payCheckOut = response.data.data.tbHostForPayResponse.tbPayApiResponseList[i].payCheckOut; //투숙일자 2
+            let $payDate = response.data.data.tbHostForPayResponse.tbPayApiResponseList[i].payDate; // 입실시간 => 결제날짜
+            const $payMoney = response.data.data.tbHostForPayResponse.tbPayApiResponseList[i].payMoney; //이용요금
             // const payid = response.data[i].id; //결제
 
             $payCheckIn = $payCheckIn.substr(0,10);
             $payCheckOut = $payCheckOut.substr(0,10);
-            // $payDate = $payDate.substr(0,10);
+            $payDate = $payDate.substr(0,10);
 
             let row = $(`<tr style="height: 35px; background-color: rgb(245, 245, 245);">`).append(
                 `<td>` + $payid + `</td>`+
-                `<td>` + $payRoomName + `</td>`+
+                `<td>` + $payHostName + `</td>`+
                 `<td>` + $payName + `</td>`+
-                `<td>` + $payHp + `</td>`+
-                `<td>`+ $payCheckIn +` - `+ $payCheckOut +`</td>`+
-                // `<td>` + $payDate + `</td>`+
-                `<td>` + $payMoney + `</td>`+
+                `<td>` + $payHp.slice(0,3)+`-`+ $payHp.slice(3,7) +`-`+ $payHp.slice(7,11) +  `</td>`+
+                `<td>`+ $payCheckIn +`시 - `+ $payCheckOut +`시</td>`+
+                `<td>` + $payDate + `</td>`+
+                `<td>` + $payMoney + `원</td>`+
                 `</tr>`
 
             )
@@ -280,6 +297,10 @@
         console.log('호출 중 에러');
         console.log(err);
     });
+
+}).catch(function (err){
+    console.log(err)
+});
 </script>
 
 

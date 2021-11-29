@@ -1,18 +1,35 @@
 package com.example.yanolza.axios;
 
 
+import com.example.yanolza.controller.Utility;
+import com.example.yanolza.model.entity.TbMem;
 import com.example.yanolza.security.data.TbMemDTO;
 import com.example.yanolza.security.login.TbMemberService;
+import com.example.yanolza.service.TbMemApiService;
 import lombok.AllArgsConstructor;
+import net.bytebuddy.utility.RandomString;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMessage;
+import javax.servlet.http.HttpServletRequest;
+import java.io.UnsupportedEncodingException;
 
 @AllArgsConstructor
 @Controller
 @RequestMapping("/userindex")  //  /userindex를 기준으로 설정
 public class UserController {
 
+    private final TbMemApiService tbMemApiService;
+
+    @Autowired
+    private JavaMailSender mailSender; // 비밀번호 재설정 이메일 발송하기 위해서 필요한 클래스
 
     // 유저 메인 페이지-----------------------------------------------------------
     @GetMapping("/") 
@@ -559,4 +576,90 @@ public class UserController {
         model.addAttribute("tbRoomId", tbRoomId);
         return "userhtml/my/review";
     }
+    // 비밀번호 재설정 관련 ==============================================================================================
+    // 비밀번호재설정
+    @GetMapping("/forgot_password")
+    public String forgot_password() {
+        return "userhtml/user2/forgot_password";
+    }
+
+
+    public void sendEmail(String recipientEmail, String link)
+            throws MessagingException, UnsupportedEncodingException {
+        MimeMessage message = mailSender.createMimeMessage();
+        MimeMessageHelper helper = new MimeMessageHelper(message);
+
+        helper.setFrom("yanolza@yanolza.com", "여기어때팀");
+        helper.setTo(recipientEmail);
+
+        String subject = "여기어때 비밀번호 찾기메일입니다.";
+
+        String content = "<p>안녕하세요</p>"
+                + "<p>여기어때 팀 입니다</p>"
+                + "<p>아래버튼을 클릭하여 비밀번호를 변경해주세요</p>"
+                + "<p><a href=\"" + link + "\">비밀번호변경 링크</a></p>"
+                + "<br>"
+                + "<p>감사합니다."
+                + "<p>본인이 아닐경우 고객센터로 신고바랍니다.</p>";
+        //저 link를 클릭하면 비밀번호 재설정 페이지가 똭 떠야하는데...음;
+        helper.setSubject(subject);
+
+        helper.setText(content, true);
+
+        mailSender.send(message);
+    }
+
+    //비밀번호 재설정 ↓ 이메일 입력하고 확인버튼 눌렀을 때
+    @PostMapping("/forgot_password")
+    public String processForgotPassword(HttpServletRequest request, Model model) {
+        String email = request.getParameter("email"); //input 에서 입력한 email 값 받아옴;
+        String token = RandomString.make(30); // 토큰 생성
+
+        try {
+            tbMemApiService.updateResetPasswordToken(token, email); // 토큰값 세팅 해줌
+            String resetPasswordLink = Utility.getSiteURL(request) + "/userindex/reset_password?token=" + token; //링크 만들어줌?
+            sendEmail(email, resetPasswordLink); // send 메소드 호출!
+            model.addAttribute("message", "암호 재설정 링크가 이메일로 발송되었습니다.");
+
+        } catch (UnsupportedEncodingException | MessagingException e) {
+            model.addAttribute("error", "Error while sending email");
+        }
+
+        return "userhtml/user2/forgot_password";
+    }
+
+
+    //비밀번호 바꿔주는 페이지 get 토큰값 가져와야함
+    @GetMapping("/reset_password")
+    public String showResetPasswordForm(@Param(value = "token") String token, Model model) {
+        TbMem tbMem = tbMemApiService.getByResetPasswordToken(token);
+        model.addAttribute("token", token);
+        if (tbMem == null) {
+            model.addAttribute("message", "Invalid Token");
+            return "userhtml/user2/message";
+        }
+        return "userhtml/user2/reset_password_form";
+    }
+
+    //비밀번호 재설정하고 확인버튼 누르면 ~
+    @PostMapping("/reset_password")
+    public String processResetPassword(HttpServletRequest request, Model model) {
+        String token = request.getParameter("token");
+        String password = request.getParameter("password");
+
+        TbMem tbMem = tbMemApiService.getByResetPasswordToken(token);
+        model.addAttribute("title", "Reset your password");
+
+        if (tbMem == null) {
+            model.addAttribute("message", "Invalid Token");
+            return "message";
+        } else { //↓ 찐 암호화된 비번 바꾸는거임;
+            tbMemApiService.updatePassword(tbMem, password);
+
+            model.addAttribute("message", "You have successfully changed your password.");
+        }
+
+        return "userhtml/index";
+    }
+
 }

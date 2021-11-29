@@ -16,6 +16,7 @@
 	<!-- CSS -->
 	<title>취향대로 머물다 여기어때</title>
 	<link rel="stylesheet" href="/css/common.css" />
+    <link rel="stylesheet" href="/css/ahn_heartAnimationCss.css" />
 	<link rel="canonical" href="../../../../../../../../../s/lyju7/OneDrive/바탕%20화면">
     <script type="text/javascript" src="/js/library/jquery-1.12.4.min.js"></script>
 
@@ -36,6 +37,14 @@
      <!-- 헤더 -->
         <div th:replace="userthy/user-headerlogin :: user-headerlogin"></div>
         <!--헤더 끝 -->
+
+        <!--찜 했는지 확인 여부-->
+        <input type="hidden" id="zzim_overlap" class="zzim_overlap">
+<!--        zzimid-->
+        <input type="hidden" id="zzimid" class="zzimid">
+<!--        hostid-->
+        <input type="hidden" id="hostid" class="hostid">
+
 
         <!-- Bg Dimm -->
         <div class="bg_dimm" onclick="close_layer();">&nbsp;</div>
@@ -251,90 +260,91 @@
             
                         <!-- 제목 -->
                         <div class="ahn_zzim_history">찜 내역</div>
+                    <div style="margin-bottom: 2rem" class="userli_add"></div>
                         <!-- !안연주 예약, 찜 info box -->
-                        <div class="ahn_zzim_content">
-            
-            
-                            <div class="ahn_zzim_info1">
-                                <!-- 오른쪽 주제 제목 -->
-            
-                                <div class="ahn_zzim_info2">
-                                    
-                                    <div class="ahn_zzim_img1">
-                                        <span class="heart" style="font-size: 50px;">♥</span>
-                                            <img src="/img/mainimages/userMainImg.jpg" alt="" class="ahn_zzim_img2">
-                                            <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-                                            <script>
-                                                'use strict';
-                                                $(function() {
-                                                    let heart = false;
-                                                    let font1 = "♡";
-                                                    $(".heart").css("color","red").on("click", function() {
-                                                        if(!heart) {
-                                                            $(".heart").html(font1);
-                                                            heart = true;
-                                                        } 
-                                                    });
-                                                });
-                                            </script>
-                                        
-                
-                                          
-                                    </div>
-                                </div>
-                                <div class="ahn_x"></div>
-                                <div class="ahn_zzim_info3">
-                                    <div class="ahn_zzim_title"><a href="#"></a> 이천 힐링</a>
-                                 </div>
-                                    <div class="ahn_x"></div>
-                                    <div class="ahn_zzim_btn ahn_re_btn1" style="display: inline-block;">
-            
-                                        <!--  -->
-                                        <span class="ahn_di_span" >
-                                            <button type="button" href="#" class="ahn_re_btn2" style="margin-left: 30px">
-                                                숙소 보러가기
-                                            </button>
-                                        </span>
-                                        <span class="heart2" style="font-size: 40px; color: red;" >♥</span>
-                                      
-                                    </div>
-                                </div>
-            
-                            </div>
-                        </div>
+<!--                        <div class="ahn_zzim_content">-->
+<!--            -->
+<!--            -->
+<!--                            <div class="ahn_zzim_info1">-->
+<!--                                &lt;!&ndash; 오른쪽 주제 제목 &ndash;&gt;-->
+<!--            -->
+<!--                                <div class="ahn_zzim_info2">-->
+<!--                                    -->
+<!--                                    <div class="ahn_zzim_img1">-->
+<!--                                        <span class="heart" style="font-size: 50px;">♥</span>-->
+<!--                                            <img src="/img/mainimages/userMainImg.jpg" alt="" class="ahn_zzim_img2">-->
+<!--                                            <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>-->
+<!--                                            <script>-->
+<!--                                                'use strict';-->
+<!--                                                $(function() {-->
+<!--                                                    let heart = false;-->
+<!--                                                    let font1 = "♡";-->
+<!--                                                    $(".heart").css("color","red").on("click", function() {-->
+<!--                                                        if(!heart) {-->
+<!--                                                            $(".heart").html(font1);-->
+<!--                                                            heart = true;-->
+<!--                                                        } -->
+<!--                                                    });-->
+<!--                                                });-->
+<!--                                            </script>-->
+<!--                                        -->
+<!--                -->
+<!--                                          -->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div class="ahn_x"></div>-->
+<!--                                <div class="ahn_zzim_info3">-->
+<!--                                    <div class="ahn_zzim_title"><a href="#"></a> 이천 힐링</a>-->
+<!--                                 </div>-->
+<!--                                    <div class="ahn_x"></div>-->
+<!--                                    <div class="ahn_zzim_btn ahn_re_btn1" style="display: inline-block;">-->
+<!--            -->
+<!--                                        &lt;!&ndash;  &ndash;&gt;-->
+<!--                                        <span class="ahn_di_span" >-->
+<!--                                            <button type="button" href="#" class="ahn_re_btn2" style="margin-left: 30px">-->
+<!--                                                숙소 보러가기-->
+<!--                                            </button>-->
+<!--                                        </span>-->
+<!--                                        <span class="heart2" style="font-size: 40px; color: red;" >♥</span>-->
+<!--                                      -->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--            -->
+<!--                            </div>-->
+<!--                        </div>-->
                         <!-- //!안연주 예약, 찜 info box 끝-->
                         <!-- !안연주 예약, 찜 info box -->
-                        <div class="ahn_zzim_content">
-            
-            
-                            <div class="ahn_zzim_info1">
-                                <!-- 오른쪽 주제 제목 -->
-            
-                                <div class="ahn_zzim_info2">
-                                    <div class="ahn_zzim_img1">
-                                        <span class="ahn_di_span">
-                                            <img src="/img/mainimages/userMainImg.jpg" alt="" class="ahn_zzim_img2">
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="ahn_x"></div>
-                                <div class="ahn_zzim_info3">
-                                    <div class="ahn_zzim_title"><a href="#"></a> 이천 힐링</a></div>
-                                    <div class="ahn_x"></div>
-                                    <div class="ahn_zzim_btn ahn_re_btn1">
-            
-                                        <!-- <a href="#" class="ahn_re_btn2">숙소 보러가기</a> -->
-                                        <span class="ahn_di_span">
-                                            <button type="button" href="#" class="ahn_re_btn2">
-                                                숙소 보러가기
-                                            </button>
-                                        </span>
-                                    
-                                    </div>
-                                </div>
-            
-                            </div>
-                        </div>
+<!--                        <div class="ahn_zzim_content">-->
+<!--            -->
+<!--            -->
+<!--                            <div class="ahn_zzim_info1">-->
+<!--                                &lt;!&ndash; 오른쪽 주제 제목 &ndash;&gt;-->
+<!--            -->
+<!--                                <div class="ahn_zzim_info2">-->
+<!--                                    <div class="ahn_zzim_img1">-->
+<!--                                        <span class="ahn_di_span">-->
+<!--                                            <img src="/img/mainimages/userMainImg.jpg" alt="" class="ahn_zzim_img2">-->
+<!--                                        </span>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div class="ahn_x"></div>-->
+<!--                                <div class="ahn_zzim_info3">-->
+<!--                                    <div class="ahn_zzim_title"><a href="#"></a> 이천 힐링</a></div>-->
+<!--                                    <div class="ahn_x"></div>-->
+<!--                                    <div class="ahn_zzim_btn ahn_re_btn1">-->
+<!--            -->
+<!--                                        &lt;!&ndash; <a href="#" class="ahn_re_btn2">숙소 보러가기</a> &ndash;&gt;-->
+<!--                                        <span class="ahn_di_span">-->
+<!--                                            <button type="button" href="#" class="ahn_re_btn2">-->
+<!--                                                숙소 보러가기-->
+<!--                                            </button>-->
+<!--                                        </span>-->
+<!--                                    -->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--            -->
+<!--                            </div>-->
+<!--                        </div>-->
                         <!-- //!안연주 예약, 찜 info box 끝-->
             
                         <!-- 원본예시 
@@ -405,7 +415,201 @@
 
 	<!-- Body Spinner -->
 	<div class="spinner show"><span></span></div>
+<script>
 
+    $(function(){
+        axios.get('/api/tbmem/zzimlist/' +sessionId , {
+    }).then(function (response){
+        console.log(response);
+
+        let tb = $('');
+
+
+        for(let i in response.data.data.tbMemApiResponse.tbZzimApiResponseList){
+
+
+
+
+
+
+            //zzimid
+            let $zzimid = response.data.data.tbMemApiResponse.tbZzimApiResponseList[i].id// zzimid
+            $('.zzimid').attr('value',$zzimid);
+            console.log("zzimid "+ i +"번 : "+ $zzimid);
+            //hostid
+            let hostid = response.data.data.tbMemApiResponse.tbZzimApiResponseList[i].tbHostId;
+            // let zzim_overlap = response.data.data.tbMemApiResponse.tbZzimApiResponseList[i].tbHostId;
+            $('.hostid').attr('value',hostid);
+            console.log('hostid : '+i+ '번'+ hostid);
+            //memid
+            let zzim_overlap = response.data.data.tbMemApiResponse.tbZzimApiResponseList[i].tbMemId;
+            console.log('memid : '+i+ '번'+ zzim_overlap);
+            // $('.zzim_overlap').attr('value', zzim_overlap);
+
+            //zzimpic
+            let zzPic = response.data.data.tbMemApiResponse.tbZzimApiResponseList[i].zzPic;
+
+
+            axios.get('/api/host/' + hostid + '/hostroom',{
+
+            }).then(function (response){
+                console.log(response);
+
+                let $myCorporate = response.data.data.tbHostApiResponse.myCorporate;
+
+            let userli = $(`<div class="ahn_zzim_content">`).append(
+                `<div class="ahn_zzim_info1">`+
+                <!-- 오른쪽 주제 제목 -->
+                `<div class="ahn_zzim_info2">`+
+                `<div class="ahn_zzim_img1">`+
+                `<div class="ahn_di_span" style="height: 400px">`+
+                `<img src="`+zzPic+`" alt="" class="ahn_zzim_img2" style="object-fit: cover;height: 100%;width: 100%;">`+
+                `</div>`+
+                `</div>`+
+                `</div>`+
+                `<div class="ahn_x"></div>`+
+                `<div class="ahn_zzim_info3">`+
+                `<div class="ahn_zzim_title">`  + `<i>`+ $myCorporate +`</i></div>`+
+                `<div class="ahn_x"></div>`+
+                `<div class="ahn_zzim_btn ahn_re_btn1">`+
+                <!--  -->
+                `<span class="ahn_di_span">`+
+                `<button type="button"  class="ahn_re_btn2" onclick="location.href='/userindex/1_005/`+hostid+ `/`  + sessionId +`'">` +
+                '숙소보러가기' +
+                // <input type="hidden" className="zzim_" value="`+$zzimid+`">
+                // `</button> <div class="ahn_h HeartAnimation animate" value="`+$zzimid+`"></div>`+
+                `</span>`+
+                <!-- 리뷰 작성 시 원래 비활성화되야겠지만... 일단 보류? -->
+                `<span class="ahn_di_span">`+
+                ``+
+                `</span>`+
+                `</div></div></div></div>`
+            );
+
+            $('.userli_add').append(userli);
+
+
+//    찜---------------------------------=====================================================
+                //만약 찜 id를 들고다닐 수 있다면? 돌려보고 비교한 memid가 같을때 찜 색을 미리 활성화
+
+                console.log('찜리스트-------------');
+                //찜 리스트에서 memid 가져옴
+
+
+
+
+                // let zzimidChk = $('.zzimid').val()
+                // let zzim_overlap_click =  $('.zzim_overlap').val()
+                // let hostidChk = $('.hostid').val()
+                // console.log('참 거짓 찜중복')
+                // console.log($('.zzim_overlap').val());
+                // console.log(zzim_overlap_click);
+                // console.log(parseInt(zzim_overlap_click) == sessionId);
+                // console.log(zzim_overlap_click == String(sessionId));
+                // console.log(zzim_overlap_click !== String(sessionId));
+
+
+                // if(zzim_overlap == sessionId){
+                //     $(".HeartAnimation").toggleClass("animate")
+                // }
+                // let zzim_overlap_click
+                //
+                // //찜이미했을때
+                // if(zzim_overlap_click == sessionId){
+                //     console.log('정답');
+                //
+                //     $(".HeartAnimation").toggleClass("animate")
+                // }
+                // //찜안했을때
+                // if(!zzim_overlap_click == sessionId){
+                //     console.log('오답');
+                //     $(".HeartAnimation").toggleClass("no_animate")
+                // }
+
+                //클릭한 것! 만 이벤트 발생시키는법없나?
+                $(".HeartAnimation").click(function() {
+
+                    if($(".HeartAnimation").hasClass("no_animate")) {
+//             //찜하기
+                        axios.request({
+                            method: 'POST',
+                            url: '/api/zzim/zzim',
+                            headers: {'Content-type':'application/json'},
+                            data: {
+                                transaction_time:"2021-09-27",
+                                resultCode:"OK",
+                                description:"OK",
+                                data:{
+                                    tbMemId: sessionId,
+                                    tbHostId:hostid
+
+                                }
+                            }
+                        }).then(
+                            // alert('찜완료!'),
+                            $(this).toggleClass("no_animate"),
+                            $(this).toggleClass("animate"),
+                        $('.HeartAnimation').not(this).addClass("animate") // 클릭한 버튼 제외는 글자색은 #111,바탕은 #fff
+                        )
+                        // $(".heart").html(font1);
+                        return false;
+                    } else if($(".HeartAnimation").hasClass("animate")) {
+                        //이 div가 가진 찜 id를 가지고와야함
+                        let delzzimid = $(".HeartAnimation").val();
+                        console.log("delzzimid : "+delzzimid)
+                        //찜삭제
+                        // axios.request({
+                        //     method: 'DELETE',
+                        //     url: '/api/zzim/delete/' + delzzimid,
+                        //     headers: {'Content-type':'application/json'},
+                        //     data: {
+                        //         transaction_time:"2021-09-27",
+                        //         resultCode:"OK",
+                        //         description:"OK",
+                        //         data:{
+                        //         }
+                        //     }
+                        // }).then(
+                        //     alert('찜삭제!'),
+                        //     $(this).toggleClass("no_animate"),
+                        //     $(this).toggleClass("animate")
+                        // )
+                        // $(".heart").html(font1);
+                        return false;
+                    }
+
+                });
+
+
+                //    찜---------------------------------
+
+            // tb.append(userli);
+
+
+
+            }).catch(function (err){
+                console.log(err);
+            });
+
+
+
+        } // for문 끝
+
+        // $('#poduct_list_area').append(userli);
+        console.log('했니?');
+
+
+
+
+    }).catch(function(err){
+        console.log('axios list 호출중 에러');
+        console.log(err);
+    }).finally(function (){
+
+    })// axios끝
+    });    //    $(function)끝
+
+</script>
 </body>
 
 </html>

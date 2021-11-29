@@ -8,8 +8,11 @@ import com.example.yanolza.model.network.response.TbPayApiResponse;
 import com.example.yanolza.service.TbPayApiService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -18,7 +21,6 @@ import java.util.List;
 public class TbPayController extends CrudController<TbPayApiRequest, TbPayApiResponse, TbPay> {
     @Autowired
     TbPayApiService tbPayApiService;
-
 //     예약 결제
     @PostMapping("/res")
     public Header<TbPayApiResponse> resr(@RequestBody Header<TbPayApiRequest> request){
@@ -30,17 +32,28 @@ public class TbPayController extends CrudController<TbPayApiRequest, TbPayApiRes
     public List<TbPayApiRequest> list(){
         return tbPayApiService.getPayList();
     }
+
     //취소 예약리스트 (admin)
     @GetMapping("/payClist")
     public List<TbPayApiRequest> clist(){
         return tbPayApiService.getPayCList();
     }
+    @GetMapping("/full/{tbHostId}/{payDate}")
+    public List<TbPayApiRequest> fuuul(@PathVariable(name = "tbHostId")Integer tbHostId, @PathVariable(name = "payDate")@DateTimeFormat(pattern="yyyyMMdd") LocalDate payDate){
+        return tbPayApiService.full(tbHostId, payDate);
+    }
+
+    //실시간 예약현황
+    @GetMapping("/paylisth/{tbHostId}")
+    public List<TbPayApiResponse> mother(@PathVariable(name = "tbHostId")Integer tbHostId){
+        return tbPayApiService.mango(tbHostId);
+    }
+
     //개인예약 리스트    (user)
     @GetMapping("/paylist1/{id}")
     public List<TbPayApiRequest> list1(@PathVariable(name = "id")Integer id){
         return tbPayApiService.getPayUList(id);
     }
-
     //예약취소
     @PatchMapping("/paylistc/{id}")
     public Header<TbPayApiResponse> with(@PathVariable(name = "id")Integer id, @RequestBody Header<TbPayApiRequest> request){

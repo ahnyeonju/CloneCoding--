@@ -738,6 +738,9 @@
 	<!--	hostid-->
 	<input type="hidden" id="id" th:value="${id}">
 	<input type="hidden" class="memid" id="memid" >
+<!--	리뷰 닉네임 용-->
+	<input type="hidden" class="reNkname" id="reNkname" >
+
 
 	<!-- Bg Dimm -->
 	<div class="bg_dimm" onclick="close_layer();">&nbsp;</div>
@@ -840,7 +843,7 @@
 		<nav>
 			<ul>
 				<li><a class="" href="/userindex/mypage">내 정보 관리</a></li>
-				<li><a class="active" href="/reservation/reservations.html">예약 내역</a></li>
+				<li><a class="active" href="/userindex/reservations">예약 내역</a></li>
 				<li><a class="" href="/userindex/zzim">찜 목록</a></li>
 			</ul>
 		</nav>
@@ -850,7 +853,7 @@
 		<!-- 안연주 리뷰작성 -->
 		<link rel="stylesheet" href="/css/star2.css">
 		<!-- <link rel="stylesheet" href="/ahn_cssjs/css/product.css"> -->
-		<script src="/js/ahn_re.js"></script>
+
 		<style>
 			.ahn_review_content {
 
@@ -1060,10 +1063,7 @@
 							<!--dropfile-->
 							<div class="ahn_re_indent">
                                 <span class="ahn_di_span">
-                                    <input type="file" id="photo" class="reImg file" accept="image/*"
-									onchange="setThumbnail(event);"
-									multiple="multiple"
-									name="photo" />
+                                    <input type="file" id="imgFile" name="imgFile" multiple onchange="setThumbnail(event);"/>
                                     <div id="image_container"></div>
                                 </span>
 							</div>
@@ -1392,17 +1392,12 @@
 <script type="text/javascript"
 		src="/js/service/phone-verification.js"></script>
 <script src="/js/star3.js"></script>
-
+<script src="/js/ahn_re.js"></script>
 <!-- Body Spinner -->
 <div class="spinner show"><span></span></div>
 
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script>
-	var dropFile = function(event) {
-		event.preventDefault();
-	}
-
-
 
 	const roomid = $('#tbRoomId').val()
 	const hostid = $('#id').val()
@@ -1423,7 +1418,15 @@
 		console.log(err);
 	});
 
+	axios.get('/api/tbmem/mlist/'+sessionId, {
 
+	}).then(function (response){
+		console.log(response);
+		let reNkname = response.data.data.memNkname
+		$('.reNkname').attr('value',reNkname);
+	}).catch(function(err){
+		console.log(err);
+	})
 
 	function sendit(){
 
@@ -1440,7 +1443,9 @@
 		console.log("memid :" + memid);
 
 
-
+		//닉네임
+		const reNkname = $('.reNkname').val();
+		console.log("닉네임 :" + reNkname);
 		//별점
 		const reGrade = $("input[name=star_score]").val();//별점
 		console.log("별점 :" + reGrade);
@@ -1450,64 +1455,15 @@
 		//후기작성란
 		const reContent = $("textarea[name=reContent]").val();//별점
 		console.log("리뷰내용 :" + reContent);
-		//이미지추가
-		// const reImg = $("input[class=reImg]").val();//별점
-
-		// let formData = new FormData();
-		// formData.append('file', this.file);
-		// console.log('>> formData >> ', formData);
-		// let reImg = [];
-		// let reImg = new Array();
-		// reImg = document.getElementById('image').value
-		// console.log(reImg);
-		// console.log(imagefile);
-
-		var frm = new FormData();
-		var photoFile = document.getElementById("photo");
-		//FormData에 key, value 추가하기
-		frm.append("photo", photoFile.files[0]);
-		console.log(frm);
-
-
-			axios.post('/api/review/write', frm)
-					.then(function(response){
-						console.log('successfully uploaded', photoFile);
-					});
 
 
 
-
-
-
-		// axios.post('/api/review/write', {
-		// 	headers: {
-		// 		'Content-Type': 'multipart/form-data'
-		// 	},
-		// 	transaction_time:"2019-10-01",
-		// 	resultCode:"OK",
-		// 	description:"OK",
-		// 		data:{
-		// 				tbRoomId: roomid,
-		// 				tbMemId: memid
-		//
-		// 			}
-		//
-		// })
-		// 		.then((response) => {
-		// 			// 응답 처리
-		// 			console.log(response)
-		// 		})
-		// 		.catch((error) => {
-		// 			// 예외 처리
-		// 			console.log(error)
-		// 		})
-		alert('멈춰');
 
 		// axios.request({
 		// 	method: 'POST',
 		// 	url: '/api/review/write',
-		// 	// headers: {'Content-type':'application/json'},
-		// 	headers: {'Content-type':'multipart/form-data'},
+		// 	headers: {'Content-type':'application/json'},
+		// 	// headers: {'Content-type':'multipart/form-data'},
 		// 	data: {
 		// 		transaction_time:"2019-10-01",
 		// 		resultCode:"OK",
@@ -1516,11 +1472,11 @@
 		// 			tbRoomId: roomid,
 		// 			tbMemId: memid,
 		// 			tbHostname: myCorporate,
-		// 			// reNkname: 못가져옴
+		// 			reNkname: reNkname, //뽑긴했으나 api에 존재하지않음
 		// 			reGrade: reGrade,
 		// 			reTitle: reTitle,
 		// 			reContent: reContent,
-		// 			reImg: reImg
+		// 			// reImg: reImg
 		// 		}
 		// 	}
 		// }).then(
@@ -1528,6 +1484,49 @@
 		//
 		// )
 		// location.href='/userindex/'
+
+
+		//이미지추가
+		//------이미지 관련
+		const FileElement = document.querySelector('#imgFile');
+		const formData = new FormData();
+
+		const request = {
+			tbRoomId: roomid,
+			tbMemId: memid,
+			tbHostId : hostid,
+			tbHostname: myCorporate,
+			reNkname: reNkname, //뽑긴했으나 api에 존재하지않음
+			reGrade: reGrade,
+			reTitle: reTitle,
+			reContent: reContent,
+		}
+		console.log([JSON.stringify(request)]);
+
+
+		formData.append("request", new Blob([JSON.stringify(request)], {type: "application/json"}));
+
+		for(let i = 0; i < FileElement.files.length; i++){ // 길이만큼 반복
+			formData.append("files", FileElement.files[i]); // append(키,값)
+		}
+		console.log(formData.getAll('request')); //(키)의 값을 전부 보여줌
+		console.log(formData.getAll('files')); //(키)의 값을 전부 보여줌
+
+
+
+		axios.post('/api/review/write',formData, {
+			headers: {'Content-type': 'multipart/form-data'}
+		}).then(function (response){
+			console.log(response);
+			alert('저장되었습니다.');
+			location.href='/userindex/reservations'
+
+
+		}).catch(function(err){
+			console.log(err);
+		});
+
+
 
 	}
 

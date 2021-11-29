@@ -112,9 +112,9 @@
 
 
 <!-- 객실 추가 안쪽 -->
-        <div class="guest-title-layer" style="text-align: center; height: 300px;">
-         
-            <table class="tb1" border="1px" style="position: relative; right: 20px;">
+        <div class="guest-title-layer" style="text-align: center;">
+            <strong style="font-size: 16px">객실정보/수정은 객실명을 선택해주세요</strong>
+            <table class="tb1" border="1px" style="position: relative; right: 20px; margin-top:10px;">
                 <thead class="thead">
                 <tr>
                     <th class="tdd">번호</th>
@@ -618,8 +618,8 @@
                     console.log("성수기 $prDate : " + $prPrice)
                     let row = $(`<tr>`).append(
                             `<td>`+ $re_id2 +`</td>`+
-                            `<td>`+ $rmName +`</td>`+
-                            `<td><a href="/hosthousemain/guestroomdetail/` + $re_id2 + `">`+ $rmType +`</a></td>`+
+                            `<td><a href="/hosthousemain/guestroomdetail/` + $re_id2 + `">`+ $rmName +`</td>`+
+                            `<td>`+ $rmType +`</a></td>`+
                             `<td>` + $rmNumber + `</td>`+
                             `<td>` + $prSprice + `</td>` +
                             `<td>` + $prPrice + `</td>` +

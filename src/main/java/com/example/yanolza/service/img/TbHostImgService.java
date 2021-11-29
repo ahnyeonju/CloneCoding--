@@ -1,5 +1,6 @@
 package com.example.yanolza.service.img;
 
+import com.example.yanolza.model.entity.TbHost;
 import com.example.yanolza.model.entity.TbHostImg;
 import com.example.yanolza.model.entity.TbRoomImg;
 import com.example.yanolza.model.network.Header;
@@ -18,6 +19,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -29,7 +31,7 @@ public class TbHostImgService extends BaseService<TbHostImgRequest, TbHostImgRes
 
     public String regist(TbHostImgRequest request, MultipartHttpServletRequest multipartHttpServletRequest) {
         List<MultipartFile> fileList = multipartHttpServletRequest.getFiles("files");
-        String path = "C://Users/dbgml/Desktop/1013/src/main/resources/static/img/hostimage//";
+         String path = "C:/Users/user/Desktop/20211026/src/main/resources/static/img/hostimage//";
         for (MultipartFile multipartFile : fileList) {
             if (multipartFile.getSize() > 0) {
                 String originName = multipartFile.getOriginalFilename();
@@ -56,6 +58,62 @@ public class TbHostImgService extends BaseService<TbHostImgRequest, TbHostImgRes
         }
                 return "파일첨부완료";
     }
+
+    // tb_host_img의 id값 가져와서 경로 ? 파일이름 바꿔주는거 VS 그냥 원래있던거 삭제하고 새로 등록
+    public String update(Integer id,TbHostImgRequest request, MultipartHttpServletRequest multipartHttpServletRequest) {
+        //id값 받아와서 delete하기?
+        Optional<TbHostImg> optional = tbHostImgRepository.findById(id);
+        optional.map(tbHostImg -> {
+            tbHostImgRepository.delete(tbHostImg);
+            return Header.OK();
+        }).orElseGet(()-> Header.Error("데이터 없음!"));
+
+        List<MultipartFile> fileList = multipartHttpServletRequest.getFiles("files");
+        String path = "C:/Users/user/Desktop/20211026/src/main/resources/static/img/hostimage//";
+
+        for (MultipartFile multipartFile : fileList) {
+            if (multipartFile.getSize() > 0) {
+                String originName = multipartFile.getOriginalFilename();
+                long fileSize = multipartFile.getSize();
+                UUID uuid = UUID.randomUUID();
+                originName = uuid + "_" + originName;
+                String safeFile = path + originName;
+                TbHostImg tbHostImg = TbHostImg.builder()
+                        .originName(originName)
+                        .fileSize(fileSize)
+                        .safeFile(safeFile)
+                        .tbHost(tbHostRepository.getById(request.getTbHostId()))
+                        .build();
+                baseRepository.save(tbHostImg);
+
+                try {
+                    multipartFile.transferTo(new File(safeFile));
+                }catch (IllegalStateException e){
+                    e.printStackTrace();
+                }catch (IOException e){
+                    e.printStackTrace();
+                }
+
+            }
+        }
+        return "파일수정완료";
+    }
+
+    public String imgdelete(Integer id){
+        //id값 받아와서 delete하기?
+        Optional<TbHostImg> optional = tbHostImgRepository.findById(id);
+        optional.map(tbHostImg -> {
+            tbHostImgRepository.delete(tbHostImg);
+            return Header.OK();
+        }).orElseGet(()-> Header.Error("데이터 없음!"));
+
+        return "파일 삭제 완료";
+    }
+
+
+
+
+
     // (Admin)
     public List<TbHostImgRequest> gethpiclist(Integer tbHostId){
         List<TbHostImg> tbHostImgs = tbHostImgRepository.findAllByTbHostId(tbHostId);

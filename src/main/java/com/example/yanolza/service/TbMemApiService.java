@@ -7,6 +7,7 @@ import com.example.yanolza.model.network.response.*;
 import com.example.yanolza.repository.TbMemRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -64,24 +65,23 @@ public class TbMemApiService extends BaseService<TbMemApiRequest, TbMemApiRespon
         return tbMemApiRequestList;
     }
 
-    // 비밀번호 재설정
-    public List<TbMemApiRequest> getph(String memEmail){
-        List<TbMem> tbMems =  tbMemRepository.getAllByMemEmail(memEmail);
-        List<TbMemApiRequest> tbMemApiRequestList = new ArrayList<>();
-
-        for (TbMem tbMem : tbMems){
-            TbMemApiRequest tbMemApiRequest = TbMemApiRequest.builder()
-            .memHp(tbMem.getMemHp())
-                    .build();
-            tbMemApiRequestList.add(tbMemApiRequest);
-        }
-        return  tbMemApiRequestList;
-    }
 
     //세션
     public Integer session(String memEmail){
         TbMem tbMem = tbMemRepository.getByMemEmail(memEmail);
         return tbMem.getId();
+    }
+
+    // 닉네임 불러오기
+    public String nik(Integer id){
+        TbMem tbMem = tbMemRepository.getById(id);
+        return tbMem.getMemNkname();
+    }
+
+    // 전화번호 불러오기
+    public String getHp(Integer id){
+        TbMem tbMem = tbMemRepository.getById(id);
+        return tbMem.getMemHp();
     }
 
     //회원 리스트 디테일(admin)
@@ -202,6 +202,54 @@ public class TbMemApiService extends BaseService<TbMemApiRequest, TbMemApiRespon
                 .memPoint(tbMem.getMemPoint())
                 .build();
         return tbMemApiResponse;
+    }
+
+    // 비밀번호 재설정 관련 로직 =========================================================================================
+
+    // 비밀번호 재설정
+    public List<TbMemApiRequest> getph(String memEmail){
+        List<TbMem> tbMems =  tbMemRepository.getAllByMemEmail(memEmail);
+        List<TbMemApiRequest> tbMemApiRequestList = new ArrayList<>();
+
+        for (TbMem tbMem : tbMems){
+            TbMemApiRequest tbMemApiRequest = TbMemApiRequest.builder()
+                    .memHp(tbMem.getMemHp())
+                    .build();
+            tbMemApiRequestList.add(tbMemApiRequest);
+        }
+        return  tbMemApiRequestList;
+    }
+
+
+
+    //비밀번호 재설정 토큰값 세팅
+    public void updateResetPasswordToken(String token, String memEmail) {
+        TbMem tbMem = tbMemRepository.getByMemEmail(memEmail); //이메일을 받아와서 그 이메일로 tbMem 데이터를 찾는다. 여기서.. 에러나는데 어떻게해야할까.
+        if(tbMem != null){  // 해당 이메일인 tbMem 회원이 있으면
+            tbMem.setResetPasswordToken(token); // 토큰 값을 넣어준다.
+            tbMemRepository.save(tbMem); // 그리고 저장
+        } else {
+            try { //예외 발생시키기 msg랑.
+                throw new TbMemNotFoundException("해당 이메일과 일치하는 회원 없음");
+            } catch (TbMemNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    //비밀전호 재설정
+    public TbMem getByResetPasswordToken(String token) {
+        return tbMemRepository.getByResetPasswordToken(token); //토큰 가져오기
+    }
+
+    //비밀번호 reset 로직
+    public void updatePassword(TbMem tbMem, String newPassword) {
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        String encodedPassword = passwordEncoder.encode(newPassword); //여기서 에러라...음;
+        tbMem.setMemPw(encodedPassword);
+
+        tbMem.setResetPasswordToken(null);
+        tbMemRepository.save(tbMem);
     }
 
 

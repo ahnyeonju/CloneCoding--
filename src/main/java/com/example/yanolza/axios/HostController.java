@@ -261,6 +261,12 @@ public class HostController {
     public String hostimg() {
         return "hosthtml/hostimg";
     }
+
+
+    @GetMapping("/hostimg_send")
+    public String hostimg_send() {
+        return "hosthtml/hostimg_send";
+    }
     //이미지 테스트 끝======-----------
 
 
